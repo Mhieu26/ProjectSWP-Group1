@@ -22,38 +22,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <!-- fonts links -->
-<!--    <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-      />
-      <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
-      <script data-n-head="ssr" type="application/ld+json">
-          {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "CELLPHONES",
-              "alternateName": "Công ty TNHH Thương mại và dịch vụ kỹ thuật DIỆU PHÚC",
-              "url": "https://cellphones.com.vn/",
-              "logo": "https://cdn2.cellphones.com.vn/x/media/favicon/default/logo-cps.png",
-              "sameAs": [
-                  "https://www.facebook.com/CellphoneSVietnam",
-                  "https://www.youtube.com/c/CellphoneSOfficial",
-                  "https://www.linkedin.com/company/cellphones/",
-                  "https://cellphones.com.vn/"
-              ]
-          }</script>
-      <script data-n-head="ssr" type="application/ld+json">
-          {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "url": "https://cellphones.com.vn/",
-              "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": "https://cellphones.com.vn/catalogsearch/result/?q={search_term}",
-                  "query-input": "required name=search_term"
-              }
-          }</script>-->
   <link
       rel="stylesheet"
       type="text/css"
