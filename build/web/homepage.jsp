@@ -135,7 +135,7 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
 
     <!-- product cards -->
-    <div class="products">
+   <div class="products">
     <h1 class="text-center">PRODUCTS</h1>
     <p>Điện thoại</p>
     <div class="product-cards"> 
@@ -391,7 +391,337 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
             </div>
           </div>
         
-      </div>    
+      </div>
+      <p>Headphone</p>
+    <div class="product-cards"> 
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Iphone 13 pro</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+        </div>
+
+        
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/a1.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Airpods</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/laptop2.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/pr9.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/t1.png" alt="">
+            </div>
+            <div class="card-body">
+              <h3 class="text-center">Ipad</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+        
+      </div>  
+      <p>Watch</p>
+    <div class="product-cards"> 
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Iphone 13 pro</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+        </div>
+
+        
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/a1.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Airpods</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/laptop2.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/pr9.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/t1.png" alt="">
+            </div>
+            <div class="card-body">
+              <h3 class="text-center">Ipad</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+        
+      </div>  
+      <p>Phụ kiện</p>
+    <div class="product-cards"> 
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Iphone 13 pro</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+        </div>
+
+        
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/a1.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Airpods</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/laptop2.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/p6.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/pr9.png" alt="">
+          </div>
+            <div class="card-body">
+              <h3 class="text-center">Laptop</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+            <img src="./images/t1.png" alt="">
+            </div>
+            <div class="card-body">
+              <h3 class="text-center">Ipad</h3>
+              <p class="text-center">Feedback</p>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+            </div>
+          </div>
+        
+      </div>  
     </div>
 
     <!-- product cards -->
