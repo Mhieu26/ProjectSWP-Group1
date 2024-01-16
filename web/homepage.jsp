@@ -27,6 +27,23 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
+    <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
+    <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
+    <link rel="stylesheet" href="./assets/css/testpro4.css">
+    <link rel="stylesheet" href="./assets/css/right_banner.css">
+    <link rel="stylesheet" href="./assets/css/block-slider.css">
 </head>
 <body>
 
@@ -107,8 +124,164 @@
 
 
 <!--slider-->
+<div data-server-rendered="true" id="__nuxt">
+  <!---->
+  <div id="__layout">
+      <div id="layout-desktop" class="cps-page">
+          <div></div>
+          <!---->
+          <div class="cps-container cps-body">
+              <div style="display:none;">
+                  <div id="page_loader">
+                      <div class="logo"></div>
+                      <div class="loader"></div>
+                  </div>
+              </div>
+              <div data-fetch-key="Index:0" class="cps-homepage">
+                  <div>
+                      <div class="block-top-home is-flex">
+                          <div id="menu-main" class="menu-container">
+                              <div class="menu-wrapper space-bread-crumb">
+                                  <div class="menu-tree">
+                                      <div target="_self" class="label-menu-tree">
+                                          <div class="label-item multiple">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-3.svg);"></i>
+                                                  <a href="https://cellphones.com.vn/mobile.html" class="multiple-link">
+                                                      <span>Điện thoại </span>
+                                                  </a>                                                 
+                                              </div>
+                                           
+                                          </div>
+                                      </div>
+                                      <div href="https://cellphones.com.vn/laptop.html" target="_self" class="label-menu-tree">
+                                          <a href="https://cellphones.com.vn/laptop.html" target="_self" class="label-item">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-380.svg);"></i>
+                                                  <span class="single-link">Laptop</span>
+                                              </div>
+                                            
+                                          </a>
+                                      </div>
+                                      <div href="https://cellphones.com.vn/thiet-bi-am-thanh.html" target="_self" class="label-menu-tree">
+                                          <a href="https://cellphones.com.vn/thiet-bi-am-thanh.html" target="_self" class="label-item">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-220.svg);"></i>
+                                                  <span class="single-link">Âm thanh</span>
+                                              </div>
+                                          
+                                          </a>
+                                      </div>
+                                      <div target="_self" class="label-menu-tree">
+                                          <div class="label-item multiple">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-610.svg);"></i>
+                                                  <a href="https://cellphones.com.vn/do-choi-cong-nghe.html" class="multiple-link">
+                                                      <span>Đồng hồ</span>
+                                                  </a>
+                                              </div>
+                                             
+                                          </div>
+                                      </div>
+                                      <div href="https://cellphones.com.vn/phu-kien.html" target="_self" class="label-menu-tree">
+                                          <a href="https://cellphones.com.vn/phu-kien.html" target="_self" class="label-item">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-30.svg);"></i>
+                                                  <span class="single-link">Phụ kiện</span>
+                                              </div>
+                                            
+                                          </a>
+                                      </div>
+                                      <div href="https://cellphones.com.vn/danh-sach-khuyen-mai" target="_self" class="label-menu-tree">
+                                          <a href="https://cellphones.com.vn/danh-sach-khuyen-mai" target="_self" class="label-item">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-promotion.svg);"></i>
+                                                  <span class="single-link">Khuyến mãi</span>
+                                              </div>
+                                             
+                                          </a>
+                                      </div>
+                                      <div href="https://cellphones.com.vn/sforum/" target="_self" class="label-menu-tree">
+                                          <a href="https://cellphones.com.vn/sforum/" target="_self" class="label-item">
+                                              <div class="right-content">
+                                                  <i class="icons-cate" style="background-image:url(https://cdn.cellphones.com.vn/media/icons/menu/icon-cps-tech.svg);"></i>
+                                                  <span class="single-link">Tin công nghệ</span>
+                                              </div>
+                                            
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <div class="menu-tree-child columns m-0 box" style="display:none;"></div>
+                              </div>
+                          </div>
+                          <div data-fetch-key="SlidingBanner:0" class="block-top-home__sliding-banner">
+                              <div class="block-sliding-home">
+                                  <div class="swiper-container gallery-top">
+                                      <div class="swiper-wrapper">
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-home-iphone15.jpg" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-a15a25-new-t1.png" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-dkinhantin-1.png" width="690" height="300" alt="SIÊU PHẨM SAMSUNG&lt;br&gt;Đăng kí ngay" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-note13-dattruoc-1.jpg" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/robot-roborock-q5-pro-01-2024.jpg" width="690" height="300" alt="ROBOROCK Q5 PRO&lt;br&gt;Ưu đãi chỉ 6.99 triệu" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/rog strix scar.jpg" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/watch 2 pro.jpg" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/tecno-2024-sliding.png" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
+                                              </a>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <a href="#" class="button__link">
+                                                  <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/tcl-sliding-txt-th111-4390.jpg" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
+                                              </a>
+                                          </div>
+                                      </div>                                   
+                                  </div>
+                                  <div class="swiper-pagination"></div>
+                                
+                              </div>
+                          </div>
+                      </div>
+                      <div class="horizontal-banner"></div>
+                  </div>
+                  <!---->
+                  
+                  <!---->
+                  
+              </div>
+          </div>
 
-
+      </div>
+  </div>
+</div>
 
     
 
