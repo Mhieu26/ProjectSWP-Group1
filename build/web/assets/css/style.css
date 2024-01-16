@@ -334,7 +334,6 @@ max-width: 1200px;
 .products p{
     color: black;
     margin-top: 50px;
-    margin-left: 25px;
     font-weight: 600;
     font-size: 25px;
 }
@@ -792,6 +791,10 @@ max-width: 1200px;
     text-align: center;
     float: left;
 }
+#footer .py-4{
+    margin: 0 auto;
+    max-width: 1200px;
+}
 #footer .credits{
     float: right;
     text-align: center;
@@ -897,6 +900,10 @@ html{
 
 /* about */
 #about{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+#about .row{
     margin-top: 30px;
 }
 #about h3{
@@ -958,3 +965,5 @@ html{
     color: white;
 }
 /* contact */
+
+/* phụ kiện */

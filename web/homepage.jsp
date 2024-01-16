@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="./assets/css/testpro4.css">
     <link rel="stylesheet" href="./assets/css/right_banner.css">
     <link rel="stylesheet" href="./assets/css/block-slider.css">
+    <link rel="stylesheet" href="./assets/css/phukien.css">
 </head>
 <body>
 
@@ -1039,7 +1040,50 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
 
     <!-- banner -->
+   <!-- phukien -->
+    <div class="block-categories is-desktop">
+      <div class="categories-title">
+        <h2>
+          <a href="#" class="button__link">PHỤ KIỆN</a>
+
+        </h2>
+        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+      </div>
+      <div class="categories-content">
+        <div class="categories-content-wrapper is-flex">
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " 
+            style="background-color: rgb(242, 131, 118); background-image: 
+            url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-1644.svg&quot;);">
+            <span>Nổi bật</span></a>
+          </div>
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: 
+            url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-43.svg&quot;);"><span>Phụ kiện Apple</span></a>
+          </div>
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-286.svg&quot;);"><span>Dán màn hình</span></a>
+          </div>
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-663.svg&quot;);"><span>Chuột, bàn phím</span></a>
+          </div>
+          
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-122.svg&quot;);"><span>Pin dự phòng</span></a>
+          </div>
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-114.svg&quot;);"><span>Cáp, sạc</span></a>          
+          </div>
+          <div class="item-categories-outer">
+            <a href="#" class="button__link item-categories " style="background-color: rgb(242, 131, 118); background-image: url(&quot;https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/icons/category/cate-44.svg&quot;);"><span>Phụ kiện Laptop</span></a>          </div>
+           </div>
+           
+           
+      </div>
+    </div>
+
  
+    <!-- phukien -->
     <!-- banner -->
 
 
