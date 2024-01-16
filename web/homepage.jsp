@@ -53,14 +53,14 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
+          <a class="navbar-brand" href="homepage.jsp" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="./images/menu.png" alt="" width="30px"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="homepage.jsp">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Product</a>
@@ -82,7 +82,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.jsp">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -104,6 +104,10 @@
               <a href="#" class="sub-menu-link">
                 <img src="images/user.png" alt="">
                 <p>Edit Profile</p>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <img src="images/pw.png" alt="">
+                <p>Change Password</p>
               </a>
               <a href="#" class="sub-menu-link">
                 <img src="images/shopping-cart.png" alt="">
@@ -147,15 +151,15 @@
                                           <div class="label-item multiple">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-3.svg);"></i>
-                                                  <a href="https://cellphones.com.vn/mobile.html" class="multiple-link">
+                                                  <a href="#" class="multiple-link">
                                                       <span>Điện thoại </span>
                                                   </a>                                                 
                                               </div>
                                            
                                           </div>
                                       </div>
-                                      <div href="https://cellphones.com.vn/laptop.html" target="_self" class="label-menu-tree">
-                                          <a href="https://cellphones.com.vn/laptop.html" target="_self" class="label-item">
+                                      <div href="#" target="_self" class="label-menu-tree">
+                                          <a href="#" target="_self" class="label-item">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-380.svg);"></i>
                                                   <span class="single-link">Laptop</span>
@@ -163,8 +167,8 @@
                                             
                                           </a>
                                       </div>
-                                      <div href="https://cellphones.com.vn/thiet-bi-am-thanh.html" target="_self" class="label-menu-tree">
-                                          <a href="https://cellphones.com.vn/thiet-bi-am-thanh.html" target="_self" class="label-item">
+                                      <div href="#" target="_self" class="label-menu-tree">
+                                          <a href="#" target="_self" class="label-item">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-220.svg);"></i>
                                                   <span class="single-link">Âm thanh</span>
@@ -176,15 +180,15 @@
                                           <div class="label-item multiple">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-610.svg);"></i>
-                                                  <a href="https://cellphones.com.vn/do-choi-cong-nghe.html" class="multiple-link">
+                                                  <a href="#" class="multiple-link">
                                                       <span>Đồng hồ</span>
                                                   </a>
                                               </div>
                                              
                                           </div>
                                       </div>
-                                      <div href="https://cellphones.com.vn/phu-kien.html" target="_self" class="label-menu-tree">
-                                          <a href="https://cellphones.com.vn/phu-kien.html" target="_self" class="label-item">
+                                      <div href="#" target="_self" class="label-menu-tree">
+                                          <a href="#" target="_self" class="label-item">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-30.svg);"></i>
                                                   <span class="single-link">Phụ kiện</span>
@@ -192,8 +196,8 @@
                                             
                                           </a>
                                       </div>
-                                      <div href="https://cellphones.com.vn/danh-sach-khuyen-mai" target="_self" class="label-menu-tree">
-                                          <a href="https://cellphones.com.vn/danh-sach-khuyen-mai" target="_self" class="label-item">
+                                      <div href="#" target="_self" class="label-menu-tree">
+                                          <a href="#" target="_self" class="label-item">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-promotion.svg);"></i>
                                                   <span class="single-link">Khuyến mãi</span>
@@ -201,8 +205,8 @@
                                              
                                           </a>
                                       </div>
-                                      <div href="https://cellphones.com.vn/sforum/" target="_self" class="label-menu-tree">
-                                          <a href="https://cellphones.com.vn/sforum/" target="_self" class="label-item">
+                                      <div href="#" target="_self" class="label-menu-tree">
+                                          <a href="#" target="_self" class="label-item">
                                               <div class="right-content">
                                                   <i class="icons-cate" style="background-image:url(https://cdn.cellphones.com.vn/media/icons/menu/icon-cps-tech.svg);"></i>
                                                   <span class="single-link">Tin công nghệ</span>
@@ -269,10 +273,104 @@
                                 
                               </div>
                           </div>
+                          <div class="block-top-home__right-banner">
+                              <div class="right-banner">
+                                  <a href="#" class="right-banner__item button__link">
+                                      <img src="images/blog.png" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
+                                  </a>
+                                  <a href="#" class="right-banner__item button__link">
+                                      <img src="images/blog2.png" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                  </a>
+                              </div>
+                          </div>
                       </div>
                       <div class="horizontal-banner"></div>
                   </div>
                   <!---->
+                  <div class="block-categories is-desktop mt-0 menu-mobile-device" style="display:none;">
+                      <div class="categories-title">
+                          <h2>
+                              <a href="" class="button__link">DANH MỤC</a>
+                          </h2>
+                          <!---->
+                      </div>
+                      <div class="categories-content">
+                          <div class="categories-content-wrapper is-flex">
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/mobile.html" class="button__link item-categories square" style="background-color:null;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/i/c/icon-phone-tablet_1.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Điện thoại, Tablet</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/laptop.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-laptop-v2.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Laptop</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/do-choi-cong-nghe.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/d/o/dong-ho.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Đồng hồ</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/thiet-bi-am-thanh.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-audio-v2.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Âm thanh</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/do-gia-dung.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/tmp/catalog/product/g/r/group_172_2.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Đồ gia dụng</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/phu-kien.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-accessories.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Phụ kiện</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/man-hinh.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-pc-monitor.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Màn hình</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/tivi.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-tv.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Tivi</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/thu-cu-doi-moi" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-old-product.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Thu cũ</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/hang-cu.html" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/m/e/menu-trade_in.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Hàng cũ</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/danh-sach-khuyen-mai" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/tmp/catalog/product/t/_/t_i_xu_ng_-_2022-06-07t114601.808.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Khuyến mại</p>
+                              </div>
+                              <div class="item-categories-outer">
+                                  <a href="https://cellphones.com.vn/sforum/" class="button__link item-categories square" style="background-color:#ffffff;background-image:url(https://cdn2.cellphones.com.vn/insecure/rs:fill:150:0/q:70/plain/https://cellphones.com.vn/media/catalog/product/s/f/sforum-news.png);">
+                                  <!---->
+                                  </a>
+                                  <p class="title-under">Tin công nghệ</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                   
                   <!---->
                   
@@ -282,8 +380,6 @@
       </div>
   </div>
 </div>
-
-    
 
 
 
@@ -990,13 +1086,6 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
     
     <!-- newslater -->
-    <div class="container" id="newslater">
-      <h3 class="text-center">Subscribe To The Electronic Shop For Latest upload.</h3>
-      <div class="input text-center">
-        <input type="text" placeholder="Enter Your Email..">
-        <button id="subscribe">SUBSCRIBE</button>
-      </div>
-    </div>
     <!-- newslater -->
 
 

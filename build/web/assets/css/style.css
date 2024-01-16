@@ -5,10 +5,9 @@
     outline: none;
     font-family: 'Merriweather', serif;
 }
-.container{
-    /* mặc định mình cho là 1140px */
-    max-width: 1140px;
+body .products{
     margin: 0 auto;
+max-width: 1200px;
 }
 /* top navbar */
 .top-navbar{
@@ -442,6 +441,10 @@
 
 /* other cards */
 #other-cards{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+#other-cards .row{
     margin-top: 30px;
 }
 #other-cards .card{
@@ -633,6 +636,11 @@
 
 /* offer */
 #offer{
+
+    margin: 0 auto;
+    max-width: 1200px;
+}
+#offer .row{
     margin-top: 100px;
 }
 #offer i{
@@ -791,6 +799,10 @@
 }
 #footer .credits a{
     color: #ffc800;
+}
+#footer .footer-top .container .row{
+    max-width: 1200px;
+    margin: 0 auto;
 }
 /* footer */
 
