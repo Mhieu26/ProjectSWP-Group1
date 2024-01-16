@@ -1005,7 +1005,7 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
 
     <!-- footer -->
-    <footer id="footer">
+<footer id="footer">
       <div class="footer-top">
         <div class="container">
           <div class="row">
@@ -1013,12 +1013,12 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
             <div class="col-lg-3 col-md-6 footer-contact">
               <h3>Electronic Shop</h3>
               <p>
-                Karachi <br>
-                Sindh <br>
-                Pakistan <br>
+                số 1 Lê Thánh Tông <br>
+                Quận Ngô Quyền <br>
+                Thành Phố Hải Phòng <br>
               </p>
-              <strong>Phone:</strong> +000000000000000 <br>
-              <strong>Email:</strong> electronicshop@.com <br>
+              <strong style="color: #ffffff;">Phone:</strong> +84565021612 <br>
+              <strong style="color: #ffffff;">Email:</strong> nguyenmanhhieu267@gmail.com <br>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
@@ -1097,7 +1097,6 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="./assets/js/app.js"></script>
 <script src="./assets/js/product_card.js"></script>
-<!--<script src="./slide.js"></script>-->
 <script src="./assets/js/menu.js"> </script>
 </body>
 </html>
