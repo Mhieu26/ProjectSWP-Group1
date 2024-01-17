@@ -1,11 +1,10 @@
 <%-- 
-    Document   : about
-    Created on : Jan 16, 2024, 6:32:09 PM
+    Document   : contact
+    Created on : Jan 17, 2024, 8:47:26 AM
     Author     : toanl
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +21,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="./assets/css/testpro4.css">
-    <link rel="stylesheet" href="./assets/css/right_banner.css">
-    <link rel="stylesheet" href="./assets/css/block-slider.css">
     <!-- fonts links -->
 </head>
 <body>
@@ -35,14 +31,14 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="homepage.jsp" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
+          <a class="navbar-brand" href="home" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="./images/menu.png" alt="" width="30px"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="homepage.jsp">Home</a>
+                <a class="nav-link active" aria-current="page" href="home">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Product</a>
@@ -85,34 +81,45 @@
 
 
 
- 
-    <div class="container" id="about">
-        <h3>PRODUCT</h3>
-        <hr><p>Hello</p>
-        <hr>
+    
+   
+    <div class="container" id="contact">
         <div class="row" style="margin-top: 50px;">
-            <div class="col-md-5 py-3 py-md-0">
+            <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
-                    <img src="./images/background.png" alt="">
+                    <i class="fas fa-phone"> Phone</i>
+                    <h6>+84565021612</h6>
                 </div>
             </div>
-            <div class="col-md-7 py-3 py-md-0">
-                <p>Hello</p>
-                <button>Read More...</button>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <i class="fas fa-envelope"> Email</i>
+                    <h6>nguyenmanhhieu267@gmail.com</h6>
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <i class="fas fa-location-dot"> Address</i>
+                    <h6>số 1 Lê Thánh Tông,Quận Ngô Quyền, Thành Phố Hải Phòng</h6>
+                </div>
             </div>
         </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Name">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Email">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Phone">
+            </div>
+            <div class="form-group" style="margin-top: 30px;">
+                <textarea class="form-control" id="" rows="5" placeholder="Message"></textarea>
+            </div>
+            <div class="messagebtn text-center"><button>Message</button></div>
+        </div>
     </div>
-
-
-
-
-
-
-
-
-    <!-- offer -->
-
-    <!-- offer -->
 
 
 

@@ -5,13 +5,21 @@
         <group>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/right_banner.css</file>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/homepage.jsp</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/views/auth/login.jsp</file>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/src/java/Controller/HomeController.java</file>
-            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/phukien.css</file>
-            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/testpro4.css</file>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/style.css</file>
-            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/about.jsp</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/src/java/Controller/RegisterController.java</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/js/app.js</file>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/block-slider.css</file>
             <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/js/menu.js</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/contact.jsp</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/views/auth/register.jsp</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/phukien.css</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/css/testpro4.css</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/assets/js/product_card.js</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/web/about.jsp</file>
+            <file>file:/C:/Users/toanl/Documents/NetBeansProjects/SWP/src/java/Controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
