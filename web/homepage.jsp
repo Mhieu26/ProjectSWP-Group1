@@ -405,10 +405,16 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
 
 
 
-    <!-- product cards -->
-   <div class="products">
+ <div class="products">
     <h1 class="text-center">PRODUCTS</h1>
-    <p>Điện thoại</p>
+    <div class="products-title">
+      <h2>
+        <a href="#" class="button__link">Phone</a>
+
+      </h2>
+      <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+    </div>
+    
     <div class="product-cards"> 
           <div class="card">
             <div class="card-img">
@@ -553,7 +559,13 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
           </div>
         
       </div>
-      <p>Laptop</p>
+      <div class="products-title">
+        <h2>
+          <a href="#" class="button__link">Laptop</a>
+
+        </h2>
+        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+      </div>
     <div class="product-cards"> 
           <div class="card">
             <div class="card-img">
@@ -663,7 +675,13 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
           </div>
         
       </div>
-      <p>Headphone</p>
+      <div class="products-title">
+        <h2>
+          <a href="#" class="button__link">Headphone</a>
+
+        </h2>
+        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+      </div>
     <div class="product-cards"> 
           <div class="card">
             <div class="card-img">
@@ -773,7 +791,13 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
           </div>
         
       </div>  
-      <p>Watch</p>
+      <div class="products-title">
+        <h2>
+          <a href="#" class="button__link">Watch</a>
+
+        </h2>
+        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+      </div>
     <div class="product-cards"> 
           <div class="card">
             <div class="card-img">
@@ -883,7 +907,13 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
           </div>
         
       </div>  
-      <p>Phụ kiện</p>
+      <div class="products-title">
+        <h2>
+          <a href="#" class="button__link">PHỤ KIỆN</a>
+
+        </h2>
+        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+      </div>
     <div class="product-cards"> 
           <div class="card">
             <div class="card-img">
@@ -994,6 +1024,8 @@ src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         
       </div>  
     </div>
+
+    <!-- product cards -->
 
     <!-- product cards -->
 
