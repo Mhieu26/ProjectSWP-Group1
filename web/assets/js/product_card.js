@@ -4,8 +4,8 @@ $(document).ready(function(){
         slidesToScroll: 1,
         autoplay: true,
   autoplaySpeed: 3000,
-  prevArrow:`<div class="swiper-button-prev"></div>`,
-  nextArrow:`<div class="swiper-button-next"></div>`,
+  prevArrow:`<div class="swiper-button-prev" style="color: black;"></div>`,
+  nextArrow:`<div class="swiper-button-next" style="color: black;"></div>`,
             responsive: [
                 {
                   breakpoint: 1025,

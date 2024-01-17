@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="./assets/css/right_banner.css">
     <link rel="stylesheet" href="./assets/css/block-slider.css">
     <link rel="stylesheet" href="./assets/css/phukien.css">
+    
 </head>
 <body>
 
@@ -54,14 +55,14 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="homepage.jsp" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
+          <a class="navbar-brand" href="home" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="./images/menu.png" alt="" width="30px"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="homepage.jsp">Home</a>
+                <a class="nav-link active" aria-current="page" href="home">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Product</a>
@@ -93,7 +94,7 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-           <div class="btn"><button><i class="fa fa-sign-in"></i> <a href="login.html" style="color: white;">Login</a> </button> </div>
+           <div class="btn"><button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> </div>
            <div class="user-img"><img src="images/326771922_6199665460078834_6765176038989738157_n.jpg" alt="" onclick="toggleMenu()"></div>
            <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
