@@ -1,3 +1,7 @@
-/build/
-/nbproject/
-/dist/
+/build.xml/
+/ant-deploy.xml/
+/genfiles.properties/
+/project.properties/
+/project.xml/
+/private.properties/
+/private.xml/
