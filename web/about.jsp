@@ -47,21 +47,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Product</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Category
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a class="dropdown-item" href="#">Samrt Phone</a></li>
-                  <li><a class="dropdown-item" href="#">Mobile Phone</a></li>
-                  <li><a class="dropdown-item" href="#">Cameras</a></li>
-                  <li><a class="dropdown-item" href="#">Fridge</a></li>
-                  <li><a class="dropdown-item" href="#">AC</a></li>
-                  <li><a class="dropdown-item" href="#">Samrt Watch</a></li>
-                  <li><a class="dropdown-item" href="#">Headphone</a></li>
-                  <li><a class="dropdown-item" href="#">Laptop</a></li>
-                  <li><a class="dropdown-item" href="#">PC Moniter</a></li>
-                </ul>
+               <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.jsp">About</a>
