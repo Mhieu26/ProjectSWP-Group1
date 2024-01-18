@@ -90,11 +90,11 @@
                 <h3>Manh Toan</h3>
               </div>
               <hr>
-              <a href="#" class="sub-menu-link">
+              <a href="userController" class="sub-menu-link">
                 <img src="images/user.png" alt="">
                 <p>Edit Profile</p>
               </a>
-              <a href="#" class="sub-menu-link">
+              <a href="changePassword" class="sub-menu-link">
                 <img src="images/pw.png" alt="">
                 <p>Change Password</p>
               </a>
