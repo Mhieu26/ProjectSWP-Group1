@@ -1080,3 +1080,18 @@ body {
     color: white;
     text-decoration: none;
 }
+
+/* changepassword */
+.btn-success {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+.changebox{
+    background-color: beige;
+    padding: 15px 
+}
