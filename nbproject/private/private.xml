@@ -6,11 +6,13 @@
             <file>file:/D:/group1-se1751/src/java/Controller/HomeController.java</file>
             <file>file:/D:/group1-se1751/web/userprofile.jsp</file>
             <file>file:/D:/group1-se1751/web/views/auth/login.jsp</file>
+            <file>file:/D:/group1-se1751/src/java/Controller/LoginController.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/UserController.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/ChangePassword.java</file>
             <file>file:/D:/group1-se1751/web/changepassword.jsp</file>
             <file>file:/D:/group1-se1751/web/homepage.jsp</file>
             <file>file:/D:/group1-se1751/web/assets/css/style.css</file>
+            <file>file:/D:/group1-se1751/src/java/Dao/DBContext.java</file>
         </group>
     </open-files>
 </project-private>
