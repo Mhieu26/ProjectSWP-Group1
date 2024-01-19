@@ -1,72 +1,62 @@
-<%-- 
-    Document   : changepassword
-    Created on : Jan 18, 2024, 12:06:40 PM
-    Author     : DELL
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/changepassword.css">
-    <title>Change password</title>
+    <title>Electronic Shop</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap links -->
+    <!-- fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- fonts links -->
 </head>
-
 <body>
 
+    <!-- top navbar -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h3 style="text-align: center;">Change Password</h3>
-            </div>
+    <!-- top navbar -->
+
+    <!-- navbar -->
+    
+    <!-- navbar -->
+    
+    
+
+    
+   <div class="container" id="changepassword">
+    <div class="row">
+        <div class="col-md-5 py-3 py-md-0" id="side1">
+            <h3 class="text-center">Change Password</h3>
         </div>
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 changebox">
-                <input type="password" class="input-lg form-control" name="password1" id="password1"
-                    placeholder="Old Password" autocomplete="off">
-                <br>
-
-
-                <form method="post" id="passwordForm">
-                  
-
-
-                    <input type="password" class="input-lg form-control" name="password1" id="password1"
-                        placeholder="New Password" autocomplete="off">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <span>
-                                The password must be 8-20 characters, and must not contain spaces.
-                            </span>
-                        </div>
-
+        <div class="col-md-7 py-3 py-md-0" id="side2">
+            <h3 class="text-center">Update Password</h3>
+            <div class="input2 text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="password" placeholder="Old Password">
                     </div>
-                    
-                    <input type="password" class="input-lg form-control" name="password2" id="password2"
-                        placeholder="Repeat Password" autocomplete="off">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <span>
-                                To confirm, type the new password again.
-
-                            </span>
-                        </div>
+                    <div class="col-md-12">
+                        <input type="password" placeholder="New Password">
                     </div>
-                    <input type="submit"
-                        class="col-xs-12 btn btn-success btn-primary btn-load btn-lg custom-green-button"
-                        data-loading-text="Changing Password..." value="Change Password">
-                </form>
-            </div><!--/col-sm-6-->
-        </div><!--/row-->
+                    <div class="col-md-12">
+                        <input type="password" placeholder="Repeat Your New Password">
+                    </div>
+                </div>
+            </div>
+            <p class="text-center" id="btnlogin"><a href="login">Confirm</a></p>
+            <p class="text-center "><a href="home" >Back to home</a></p>
+        </div>
+
     </div>
-</body>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <a href="home" class="arrow"><i><img src="./images/home-icon.png" alt=""></i></a>
 
+</body>
 </html>
