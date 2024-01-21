@@ -1159,3 +1159,12 @@ body {
 .open-button:hover {
     opacity: 1;
 }
+#changepassword{
+   width: 65%;
+    height: 70vh;
+    background-color: rgb(21, 44, 129);
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: rgba(17,12, 46, 0.15) 0px 48px 100px 0px;
+ 
+}

@@ -70,6 +70,7 @@ public class ChangePassword extends HttpServlet {
     }
 
     /** 
+     * 
      * Returns a short description of the servlet.
      * @return a String containing servlet description
      */
