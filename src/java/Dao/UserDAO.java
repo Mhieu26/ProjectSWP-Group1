@@ -21,7 +21,7 @@ public class UserDAO extends MyDAO{
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, newPassword);
-            ps.setString(2, x.getEmail());
+            ps.setInt(2, x.getId());
             ps.executeUpdate();
             ps.close();
         } catch (Exception e) {
