@@ -19,7 +19,7 @@ import java.util.ArrayList;
  *
  * @author toanl
  */
-public class HomeController extends HttpServlet {
+public class ProductsController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +36,10 @@ public class HomeController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeController</title>");  
+            out.println("<title>Servlet ProductsController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ProductsController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,10 +56,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          ProductsDAO pd=new ProductsDAO();
-        ArrayList<Products> products=pd.getProducts();
-        request.setAttribute("products", products);
-        request.getRequestDispatcher("homepage.jsp").forward(request, response);
+       
     } 
 
     /** 
@@ -72,7 +69,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+       
     }
 
     /** 

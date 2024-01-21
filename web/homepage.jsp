@@ -3,8 +3,10 @@
     Created on : Jan 15, 2024, 10:44:46 AM
     Author     : toanl
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.Products"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -389,6 +391,12 @@
 
 
 
+                   <% 
+            ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
+            for (Products product : products) {
+        %>
+        <%= product.getName()%>
+        <% } %>
 
 
 
@@ -401,14 +409,14 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-
+        
             <div class="product-cards"> 
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/p6.png" alt="">
                     </div>
                     <div class="card-body">
-                        <h3 class="text-center">Iphone 13 pro</h3>
+                        <h3 class="text-center">IPhone</h3>
                         <p class="text-center">Feedback</p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
@@ -420,7 +428,7 @@
                         <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
                     </div>
                 </div>
-
+    
 
                 <div class="card">
                     <div class="card-img">
