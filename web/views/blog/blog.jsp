@@ -1,14 +1,13 @@
 <%-- 
-    Document   : blog.jsp
-    Created on : Jan 19, 2024, 3:17:14 PM
-    Author     : bxthu
+    Document   : blog
+    Created on : Jan 22, 2024, 8:56:10 AM
+    Author     : toanl
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, java.text.*" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,13 +52,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="home">Home</a>
+                                <a class="nav-link active" aria-current="page" href="homepage.jsp">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Product</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="blog.jsp">Blog</a>
+                                <a class="nav-link" href="blog">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.jsp">About</a>
@@ -243,4 +242,5 @@
 
         </body>
     </html>
+
 
