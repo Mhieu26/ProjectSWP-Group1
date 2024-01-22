@@ -1,10 +1,10 @@
-body {
+/*.body {
     margin: 0;
     padding-top: 40px;
     color: #2e323c;
-    background: #f5f6fa;
     position: relative;
     height: 100%;
+    background-color: rgb(21, 44, 129);
 }
 .account-settings .user-profile {
     margin: 0 0 1rem 0;
@@ -75,3 +75,11 @@ body {
     color: white;
     text-decoration: none;
 }
+.yellow-text {
+    color: yellow;
+}
+
+.btn-yellow {
+    background-color: yellow;
+    color: black; 
+}*/

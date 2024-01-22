@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class MyDAO extends DBContext {
 
-    public Connection con = null; //ket noi du lieu voi 
+    public Connection con = null; 
     public PreparedStatement ps = null;
     public ResultSet rs = null;
     public String xSql = null;

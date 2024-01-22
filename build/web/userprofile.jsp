@@ -16,7 +16,7 @@
     <title>UserProfile</title>
 </head>
 
-<body>
+<body style="background-color: rgb(21, 44, 129)">
     <div class="container">
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -40,8 +40,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary text-success">Personal Details</h6>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-user">
+                                <h2 style="color: #ffc800" >Personal Details</h2>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
@@ -104,7 +104,7 @@
                                         <button type="button" id="submit" name="submit"
                                                 class="btn btn-secondary back"><a href="home" >Cancel</a></button>
                                         <button type="button" id="submit" name="submit"
-                                            class="btn btn-success btn-primary">Update</button>
+                                                class="btn btn-success btn-primary " style="background-color: #ffc800">Update</button>
                                     </div>
                                 </div>
                             </div>
