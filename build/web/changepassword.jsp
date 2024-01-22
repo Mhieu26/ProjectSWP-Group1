@@ -15,7 +15,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <!-- fonts links -->
+    <style>
+        .changePW .btn{
+    color: #ffc800;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: 600;
+    }
+    .changePW .btn:hover{
+        background-color:rgb(21, 44, 129)
+    }
+</style>
 </head>
+
 <body>
 
     <!-- top navbar -->
@@ -38,7 +50,7 @@
             <h3 class="text-center">Update Password</h3>
             <div class="input2 text-center">
                 <div class="row">
-                    <form method="post" action="changePassword">
+                    <form method="post" action="changePassword" class="changePW">
                         <div class="col-md-12">
                         <input type="password" placeholder="Old Password">
                     </div>
@@ -48,9 +60,7 @@
                     <div class="col-md-12">
                         <input type="password" placeholder="Repeat Your New Password">
                     </div>
-                        <button type="submit" >
-                           <p class="text-center" id="btnlogin">Confirm</p> 
-                        </button>
+                      <button type="submit" class="btn" >Confirm</button>
                     </form>
                         
                     

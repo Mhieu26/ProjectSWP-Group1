@@ -1021,7 +1021,6 @@ button .btn .btn-link :hover{
 
 
 
-
 /* The popup form - hidden by default */
 .form-popup {
     display: none;
@@ -1058,6 +1057,7 @@ button .btn .btn-link :hover{
     background-color: #ddd;
     outline: none;
 }
+/* */
 
 /* Set a style for the submit/login button */
 .form-container .btn {
