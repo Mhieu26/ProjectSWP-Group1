@@ -70,7 +70,7 @@
                             <a class="nav-link" href="#">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
+                            <a class="nav-link" href="blog.jsp">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.jsp">About</a>
