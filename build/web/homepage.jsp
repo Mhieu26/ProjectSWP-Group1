@@ -70,7 +70,7 @@
                             <a class="nav-link" href="#">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.jsp">Blog</a>
+                            <a class="nav-link" href="blog">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.jsp">About</a>
@@ -84,11 +84,11 @@
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     <div class="btn" onclick="openForm()"><button><i class="fa fa-sign-in"></i> <a style="color: white;">Login</a> </button> </div>
-                    <div class="user-img"><img src="images/326771922_6199665460078834_6765176038989738157_n.jpg" alt="" onclick="toggleMenu()"></div>
+                    <div class="user-img"><img src="https://source.unsplash.com/h13Y8vyIXNU/150x150" alt="" onclick="toggleMenu()"></div>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <img src="images/326771922_6199665460078834_6765176038989738157_n.jpg" alt="">
+                                <img src="https://source.unsplash.com/h13Y8vyIXNU/150x150" alt="">
                                 <h3>Manh Toan</h3>
                             </div>
                             <hr>
@@ -196,8 +196,8 @@
 
                                                     </a>
                                                 </div>
-                                                <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
+                                                <div href="blog" target="_self" class="label-menu-tree">
+                                                    <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cdn.cellphones.com.vn/media/icons/menu/icon-cps-tech.svg);"></i>
                                                             <span class="single-link">Tin công nghệ</span>
@@ -391,12 +391,7 @@
 
 
 
-                   <% 
-            ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
-            for (Products product : products) {
-        %>
-        <%= product.getName()%>
-        <% } %>
+
 
 
 
@@ -1322,7 +1317,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn" >Login</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 <div class="text-center">
                     <p>Not a member? <a href="register">Register</a></p>
