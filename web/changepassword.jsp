@@ -38,7 +38,7 @@
             <h3 class="text-center">Update Password</h3>
             <div class="input2 text-center">
                 <div class="row">
-                    <form>
+                    <form method="post" action="changePassword">
                         <div class="col-md-12">
                         <input type="password" placeholder="Old Password">
                     </div>
@@ -48,7 +48,9 @@
                     <div class="col-md-12">
                         <input type="password" placeholder="Repeat Your New Password">
                     </div>
-                        <p class="text-center" id="btnlogin"><a href="login">Confirm</a></p>
+                        <button type="submit" >
+                           <p class="text-center" id="btnlogin">Confirm</p> 
+                        </button>
                     </form>
                         
                     
