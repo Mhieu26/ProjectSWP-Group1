@@ -9,23 +9,36 @@ package Model;
  * @author DELL
  */
 public class User {
+    private int id;
     private String email;
     private String password;
     private String name;
     private int phone ;
     private String address;
     private boolean gender;
+    private boolean status;
 
     public User(String email, String password, String name, int phone, String address, boolean gender) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.gender = gender;
+        this.status = status;
+        
     }
 
     public User() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -74,6 +87,14 @@ public class User {
 
     public void setGender(boolean gender) {
         this.gender = gender;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
     
