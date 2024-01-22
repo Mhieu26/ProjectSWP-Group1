@@ -1321,6 +1321,7 @@
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 <div class="text-center">
                     <p>Not a member? <a href="register">Register</a></p>
+                    <p><a href="resetpassword">Forgot your password ?</a></p>
                     <p>or sign up with:</p>
                     <div style="margin-top: 5%">
                         <button type="button" class="btn btn-link btn-floating mx-1">

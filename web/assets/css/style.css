@@ -855,7 +855,7 @@ html{
 
 
 
-/* login */
+/* System accses */
 #login{
     width: 65%;
     height: 70vh;
@@ -902,6 +902,18 @@ html{
     border: none;
     text-shadow: 0px 0px 1px black;
 }
+
+button {
+    
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: #ffc800;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 0px 0px 1px black;
+    }
 #side2 p{
     margin-top: 10px;
 }
