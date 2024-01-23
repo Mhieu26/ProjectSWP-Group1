@@ -11,6 +11,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
+import javax.mail.Session;
 
 /**
  *
@@ -53,12 +57,14 @@ public class ResetPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        String step = "1";
+        request.setAttribute("step", step);
         request.getRequestDispatcher("./views/auth/resetpassword.jsp").forward(request, response);
     } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.
-     * @param request servlet request
+ * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
@@ -66,7 +72,20 @@ public class ResetPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String step = (String) request.getAttribute("step");
+        if("1".equals(step)){
+        }  {
+            String email = request.getParameter("email");
+            EmailConfig e = new EmailConfig();
+            try {
+                e.SendEmail("ducnghiemphu@gmail.com", "Code reset:", e.randomCode());
+            } catch (MessagingException ex) {
+                Logger.getLogger(EmailConfig.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        request.setAttribute("step", step);
+        request.getRequestDispatcher("./views/auth/resetpassword.jsp").forward(request, response);
+        
+    }
     }
 
     /** 
