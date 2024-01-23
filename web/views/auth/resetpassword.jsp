@@ -39,7 +39,11 @@
 
 
 
-    
+ <%
+    // check to display interface
+    String step = (String) request.getAttribute("step");
+    if (step=="1") {step="2";
+%>
    <div class="container" id="login">
     <div class="row">
         <div class="col-md-5 py-3 py-md-0" id="side1">
@@ -72,11 +76,60 @@
               <button type="button" class="btn btn-link btn-floating mx-1">
                 <i class="fab fa-github"></i>
               </button>
+
             </div>
         </div>
 
     </div>
    </div>
+    <%
+    } else if(step=="2") {step="3";
+    %>
+    <div class="container" id="login">
+    <div class="row">
+        <div class="col-md-5 py-3 py-md-0" id="side1">
+            <h3 class="text-center"  >Welcome!</h3> 
+        </div>
+        <div class="col-md-7 py-3 py-md-0" id="side2">
+            <h3 class="text-center">Reset your password</h3>
+            <form action="resetpassword" method="post" >
+                <div class="input2 text-center">     
+                <input type="newpass" placeholder="New password">
+                <input type="repas" placeholder="Repeat your new password">
+                </div>
+                <div class="text-center" id="btnlogin" >
+                <button type="submit" >Reset Password</button></div>
+            </form>
+            <div class="text-center">
+              <p>Not a member? <a href="register">Register</a></p>
+              <p>or sign up with:</p>
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+          
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+         
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+          
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+        </div>
+
+    </div>
+   </div>
+    <%
+    } else if(step=="3") {
+    %>
+    <<h1>page 3</h1>
+    <%
+    }
+    %>
    
 
 

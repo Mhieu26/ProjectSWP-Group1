@@ -4,6 +4,9 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
