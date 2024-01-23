@@ -6,38 +6,42 @@ package Model;
 
 /**
  *
- * @author DELL
+ * @author Admin
  */
 public class User {
-    private int id;
+
+    private long id;
     private String email;
     private String password;
     private String name;
-    private int phone ;
+    private String phone;
     private String address;
-    private boolean gender;
+    private boolean sex;
     private boolean status;
+    private String verificationCode;
+    private Role role;
 
-    public User(String email, String password, String name, int phone, String address, boolean gender) {
+    public User() {
+    }
+
+    public User(long id, String email, String password, String name, String phone, String address, boolean sex, boolean status, String verificationCode, Role role) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.address = address;
-        this.gender = gender;
+        this.sex = sex;
         this.status = status;
-        
+        this.verificationCode = verificationCode;
+        this.role = role;
     }
 
-    public User() {
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -65,11 +69,11 @@ public class User {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -81,12 +85,12 @@ public class User {
         this.address = address;
     }
 
-    public boolean isGender() {
-        return gender;
+    public boolean isSex() {
+        return sex;
     }
 
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setSex(boolean sex) {
+        this.sex = sex;
     }
 
     public boolean isStatus() {
@@ -96,7 +100,26 @@ public class User {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
-    
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", phone=" + phone + ", address=" + address + ", sex=" + sex + ", status=" + status + ", verificationCode=" + verificationCode + ", role=" + role + '}';
+    }
+
 }

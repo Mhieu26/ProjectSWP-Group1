@@ -83,7 +83,7 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <div class="btn" onclick="openForm()"><button><i class="fa fa-sign-in"></i> <a style="color: white;">Login</a> </button> </div>
+                    <div class="btn" onclick="openForm()"><button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> </div>
                     <div class="user-img"><img src="https://source.unsplash.com/h13Y8vyIXNU/150x150" alt="" onclick="toggleMenu()"></div>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
@@ -1439,6 +1439,7 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="./assets/js/app.js"></script>
         <script src="./assets/js/product_card.js"></script>
         <script src="./assets/js/menu.js"></script>

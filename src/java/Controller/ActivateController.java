@@ -11,18 +11,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import Model.BusinessRule;
-import Model.User;
 
 /**
  *
- * @author toanl
+ * @author Admin
  */
-public class LoginController extends HttpServlet {
+public class ActivateController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +35,10 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");
+            out.println("<title>Servlet NoticeController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NoticeController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,7 +56,19 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("./views/auth/login.jsp").forward(request, response);
+
+        String email = request.getParameter("email");
+        String code = request.getParameter("code");
+
+        if (email != null && code != null && !email.isEmpty() && !code.isEmpty()) {
+            UserDAO udb = new UserDAO();
+            int updatedRow = udb.verifyUser(email, code);
+            if (updatedRow != 0) {
+                request.setAttribute("notice", "Verify account successfully!!!");
+            }
+        }
+
+        request.getRequestDispatcher("notice.jsp").forward(request, response);
     }
 
     /**
@@ -76,29 +82,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = null;
-        
-        
-        try {
-            password = BusinessRule.encodePassword(request.getParameter("password"));
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        UserDAO userDao = new UserDAO();
-        User user = userDao.getUserByLogin(email, password);
-
-        if (user == null) {
-            response.setContentType("text/plain");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write("false");
-        } else {
-            HttpSession ss = request.getSession();
-            ss.setAttribute("User", user);  //store user in a session
-            response.getWriter().write("true");
-            request.getRequestDispatcher("./home").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

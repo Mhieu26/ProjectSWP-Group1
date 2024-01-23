@@ -21,6 +21,10 @@
         <servlet-class>Controller.ChangePassword</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ActivateController</servlet-name>
+        <servlet-class>Controller.ActivateController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ProductsController</servlet-name>
         <servlet-class>Controller.ProductsController</servlet-class>
     </servlet>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>
         <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivateController</servlet-name>
+        <url-pattern>/activate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

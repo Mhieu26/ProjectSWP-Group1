@@ -20,7 +20,7 @@ public class DBContext {
             String user = "root",
                     password = "Nhom1swp",
                     url = "jdbc:mysql://localhost:3306/swp391";
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
