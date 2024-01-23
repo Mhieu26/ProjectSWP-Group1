@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *
+ * servlet to activate user account
  * @author Admin
  */
 public class ActivateController extends HttpServlet {
@@ -59,7 +59,7 @@ public class ActivateController extends HttpServlet {
 
         String email = request.getParameter("email");
         String code = request.getParameter("code");
-
+        //if email and verificationCode are alright then show user message by notice page
         if (email != null && code != null && !email.isEmpty() && !code.isEmpty()) {
             UserDAO udb = new UserDAO();
             int updatedRow = udb.verifyUser(email, code);

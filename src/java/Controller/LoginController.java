@@ -19,7 +19,7 @@ import Model.BusinessRule;
 import Model.User;
 
 /**
- *
+ * servlet to operate login feature
  * @author toanl
  */
 public class LoginController extends HttpServlet {
@@ -79,13 +79,13 @@ public class LoginController extends HttpServlet {
         String email = request.getParameter("email");
         String password = null;
         
-        
+        //the password must be encoded 
         try {
             password = BusinessRule.encodePassword(request.getParameter("password"));
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        //check if an account are registered or not
         UserDAO userDao = new UserDAO();
         User user = userDao.getUserByLogin(email, password);
 

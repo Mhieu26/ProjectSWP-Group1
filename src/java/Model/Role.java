@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * class represent all role in application
  * @author Admin
  */
 public class Role {

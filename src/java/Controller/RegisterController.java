@@ -27,7 +27,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- *
+ * servlet to operate register feature
  * @author toanl
  */
 public class RegisterController extends HttpServlet {
@@ -92,7 +92,7 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         String email = request.getParameter("email");
-
+        //check if the email are existed or not
         UserDAO udb = new UserDAO();
         User user = udb.getUserByEmail(email);
 
@@ -104,14 +104,14 @@ public class RegisterController extends HttpServlet {
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
             boolean sex = false;
-
+            //password must be encoded
             try {
                 password = BusinessRule.encodePassword(request.getParameter("password"));
                 sex = Boolean.parseBoolean(request.getParameter("sex"));
             } catch (NoSuchAlgorithmException | NumberFormatException e) {
                 System.out.println(e);
             }
-
+            //get verification code and store in db
             String verificationCode = sendActivateMail(email);
 
             udb.insertUser(email, password, name, phone, address, sex, verificationCode);
@@ -122,7 +122,11 @@ public class RegisterController extends HttpServlet {
         }
 
     }
-
+    /**
+     * method to send an email to user to activate their account
+     * @param recipiant email address of user
+     * @return the verificationCode
+     */
     public String sendActivateMail(String recipiant) {
         // Get properties object
         Properties props = new Properties();
@@ -138,7 +142,7 @@ public class RegisterController extends HttpServlet {
                 return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
             }
         });
-
+        //generate an unique code
         String verificationCode = UUID.randomUUID().toString();
 
         String activateLink = "http://localhost:9999/SWP/activate?email=" + recipiant + "&code=" + verificationCode;

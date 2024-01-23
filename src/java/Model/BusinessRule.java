@@ -9,11 +9,16 @@ import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.DatatypeConverter;
 
 /**
- *
+ * class represent business rules of system
  * @author Admin
  */
 public class BusinessRule {
-
+    /**
+     * method to encode password by MD5
+     * @param password user password
+     * @return hash password
+     * @throws NoSuchAlgorithmException 
+     */
     public static String encodePassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(password.getBytes());

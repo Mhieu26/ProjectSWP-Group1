@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * class hold all config of App's email address
  * @author Admin
  */
 public class MailConfig {

@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ * class represent user in application
  * @author Admin
  */
 public class User {

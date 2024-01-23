@@ -82,14 +82,17 @@ $(document).ready(function () {
     });
 });
 
-
+//variable to check if the ajax form is sending request
 var isValidating = false;
 
+/**
+ * function to send request by ajax
+ */
 $(document).ready(function () {
     $('#btn-signup').click(function () {
         let email = $('input[name="email"]').val();
         let phone = $('input[name="phone"]').val();
-        if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating ) {
+        if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating) {
             isValidating = true;
             $.ajax({
                 type: 'POST',
@@ -125,7 +128,11 @@ $(document).ready(function () {
 });
 
 
-
+/**
+ * function to validate the email
+ * @param {type} email_id is the user input
+ * @returns {Boolean} if the email are right or wrong format
+ */
 function validateEmail(email_id) {
     const regex_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -139,7 +146,11 @@ function validateEmail(email_id) {
 }
 
 
-
+/**
+ * function to check the phone number inputted
+ * @param {type} number user input
+ * @returns {Boolean} check if the number is right or wrong format
+ */
 function validatePhone(number) {
     const regex_pattern = /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
 
@@ -153,7 +164,9 @@ function validatePhone(number) {
 }
 
 
-
+/**
+ * function to check whether the password and confirm passwrord are the same or not
+ */
 $('#pwd, #cpwd').on('keyup', function () {
     if ($('#pwd').val() == $('#cpwd').val()) {
         $('#message').html('Matching').css('color', 'green');
