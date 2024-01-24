@@ -4,6 +4,8 @@
  */
 package Dao;
 
+import Model.BusinessRule;
+import Model.Image;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
@@ -157,15 +159,64 @@ public class UserDAO extends DBContext {
 //            System.out.println(u);
 //        }
 
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        md.update("123".getBytes());
-        byte[] digest = md.digest();
-        String hashPassword = DatatypeConverter
-                .printHexBinary(digest).toUpperCase();
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        md.update("123".getBytes());
+//        byte[] digest = md.digest();
+//        String hashPassword = DatatypeConverter
+//                .printHexBinary(digest).toUpperCase();
+//
+//        System.out.println(udb.getUserByLogin("abc7@gmail.com", "202CB962AC59075B964B07152D234B70"));
+//        System.out.println(hashPassword);
+        
+        try {
+//            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
 
-        System.out.println(udb.getUserByLogin("abc7@gmail.com", "202CB962AC59075B964B07152D234B70"));
-        System.out.println(hashPassword);
-
+//                User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn"); 
+               Image img = udb.getImageByUserID(11);
+                System.out.println(img);
+//            System.out.println(user);
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
     }
+    
+    public void updatePassword(String pass , String email ) throws NoSuchAlgorithmException{
+        try{
+            String sql ="update user\n"
+                    + " set password = ?\n"
+                    + "where email =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, BusinessRule.encodePassword(pass));
+            statement.setString(2, email );
+           statement.executeUpdate();
+            
+        }catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+     public Image getImageByUserID(int id) {
+        String sql = " select * from image where userid=? ";
 
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+               Image img= new Image();
+                img.setId(rs.getLong("id"));
+                img.setSource(rs.getString("source"));
+                img.setType(rs.getString("type"));
+                img.setProductId(null);
+                img.setBlogId(null);
+                img.setSliderId(null);
+                img.setUserId(rs.getLong("userid"));
+
+                return img;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 }

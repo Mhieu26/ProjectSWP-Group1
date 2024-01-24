@@ -87,6 +87,11 @@ public class Image {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "Image{" + "id=" + id + ", source=" + source + ", type=" + type + ", productId=" + productId + ", blogId=" + blogId + ", sliderId=" + sliderId + ", userId=" + userId + '}';
+    }
     
     
 }

@@ -14,6 +14,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -70,46 +73,49 @@ public class ChangePassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-        PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
+         HttpSession session = request.getSession();
         User x = (User) session.getAttribute("user");
         String oldPassword = request.getParameter("oldPass");
         String password1 = request.getParameter("pass1");
         String password2 = request.getParameter("pass2");
         String errorMessage = "";
+        
         UserDAO u = new UserDAO();
+//              User x = u.getUserByEmail("hieunmhe171624@fpt.edu.vn");
+
         if (!oldPassword.equals(x.getPassword())) {
             errorMessage = "Please re-enter old password";
-            sendResponse(response, errorMessage);
-            return;
+//            
+            
         }else if (!password1.matches("^(?=.*[A-Z!@#$%^&*(),.?\":{}|<>]).{6,20}$")) {
             errorMessage = "Please re-enter new password, it should be from 6 to 20 characters long, contain at least one special character or one uppercase letter";
-            sendResponse(response, errorMessage);
-            return;
+//           
+            
         } else if (!password1.equals(password2)) {
             errorMessage = "New password and new password again does not match";
-            sendResponse(response, errorMessage);
-            return;
+//            
+            
+        }else{
+            
+            try {
+                u.updatePassword(password2,x.getEmail());
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(ChangePassword.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                errorMessage= "Password change success";
+            
+            
         }
-//        u.updatePassword(x, password2);
-        sendResponse(response, "");
+        request.setAttribute("errorMessage", errorMessage);
+        request.getRequestDispatcher("changepassword.jsp").forward(request, response);
+        
+//        
     }
-
-    private void sendResponse(HttpServletResponse response, String errorMessage) throws IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
-        PrintWriter out = response.getWriter();
-        out.print(errorMessage);
-        out.flush();
-     }
-
     /** 
      * 
      * Returns a short description of the servlet.
      * @return a String containing servlet description
      */
-    @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
