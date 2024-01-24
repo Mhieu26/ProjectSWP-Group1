@@ -9,7 +9,7 @@ package Model;
  * @author toanl
  */
 public class Products {
-    int id;
+    Long id;
     String name;
     double price;
     String description;
@@ -21,7 +21,7 @@ public class Products {
     public Products() {
     }
 
-    public Products(int id, String name, double price, String description, String maker, int status, int inventory, int categoryid) {
+    public Products(Long id, String name, double price, String description, String maker, int status, int inventory, int categoryid) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -34,11 +34,11 @@ public class Products {
 
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
