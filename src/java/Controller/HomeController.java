@@ -5,7 +5,9 @@
 
 package Controller;
 
+import Dao.CategoryDAO;
 import Dao.ProductsDAO;
+import Model.Category;
 import Model.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,6 +60,12 @@ public class HomeController extends HttpServlet {
     throws ServletException, IOException {
           ProductsDAO pd=new ProductsDAO();
         ArrayList<Products> products=pd.getProducts();
+         ArrayList<Products> phone=pd.getProductsbyCateID(1);
+         ArrayList<Products> laptop=pd.getProductsbyCateID(2);
+         ArrayList<Products> headphone=pd.getProductsbyCateID(3);    
+         request.setAttribute("headphone", headphone);
+         request.setAttribute("phone", phone);
+         request.setAttribute("laptop", laptop);
         request.setAttribute("products", products);
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
     } 
