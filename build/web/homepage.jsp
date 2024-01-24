@@ -1307,43 +1307,7 @@
         <!-- newslater -->
         <!-- newslater -->
 
-        <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-                <h1 style="font-size: xx-large; margin-bottom: 2%;">Login</h1>
-
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit" class="btn" >Login</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                <div class="text-center">
-                    <p>Not a member? <a href="register">Register</a></p>
-                    <p><a href="resetpassword">Forgot your password ?</a></p>
-                    <p>or sign up with:</p>
-                    <div style="margin-top: 5%">
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-google"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-        </div>  
+        
 
 
 

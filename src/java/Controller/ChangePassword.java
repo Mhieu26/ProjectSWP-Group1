@@ -91,7 +91,7 @@ public class ChangePassword extends HttpServlet {
             sendResponse(response, errorMessage);
             return;
         }
-        u.updatePassword(x, password2);
+//        u.updatePassword(x, password2);
         sendResponse(response, "");
     }
 
