@@ -63,6 +63,10 @@ public class HomeController extends HttpServlet {
          ArrayList<Products> phone=pd.getProductsbyCateID(1);
          ArrayList<Products> laptop=pd.getProductsbyCateID(2);
          ArrayList<Products> headphone=pd.getProductsbyCateID(3);    
+         ArrayList<Products> watch=pd.getProductsbyCateID(4); 
+         ArrayList<Products> acs=pd.getProductsbyCateID(5); 
+         request.setAttribute("acs", acs);
+         request.setAttribute("watch", watch);
          request.setAttribute("headphone", headphone);
          request.setAttribute("phone", phone);
          request.setAttribute("laptop", laptop);

@@ -53,7 +53,7 @@
                         <input type="password" id="loginpassword" placeholder="Password" name="password">
                     </div>
                     <p class="text-center" id="btnlogin"><a>LOG IN</a></p>
-                    <p class="text-center"><a href="#">Forgot Password?</a></p>
+                    <p class="text-center"><a href="resetpassword">Forgot Password?</a></p>
                     <div class="text-center">
                         <p>Not a member? <a href="register">Register</a></p>
                         <p>or sign up with:</p>
