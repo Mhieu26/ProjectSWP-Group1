@@ -64,7 +64,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
-                                                <input name="phone" type="number" class="form-control" id="eMail" placeholder="Phone" value="${requestScope.user.phone}">
+                                                <input name="phone" type="number" class="form-control" id="email" placeholder="Phone" value="${requestScope.user.phone}">
                                             </div>
                                         </div>
 
