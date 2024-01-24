@@ -454,14 +454,18 @@
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
 
-            <div class="product-cards"> 
+ <div class="product-cards"> 
+  <% 
+             ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
+            for (Products p : phone) {
+        %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/p6.png" alt="">
                     </div>
                     <div class="card-body">
-                        <h3 class="text-center">Iphone 13 pro</h3>
-                        <p class="text-center">Feedback</p>
+                        <h3 class="text-center">  <%= p.getName()%></h3>
+                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -469,135 +473,12 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+                        <h2><%=p.getPrice()%></h2>
+                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/a1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Airpods</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/laptop2.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/iphone-14-pro_2__5.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Iphone 14 Pro Max</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/iphone-14-pro_2__5.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Iphone 14 Pro Max</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/iphone-14-pro_2__5.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Iphone 14 Pro Max</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/pr9.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/t1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Ipad</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-            </div>
+                </div>       
+        <% } %>
+ </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Laptop</a>
@@ -605,51 +486,18 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-            <div class="product-cards"> 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/p6.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Iphone 13 pro</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/a1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Airpods</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
+           <div class="product-cards"> 
+  <% 
+             ArrayList<Products> laptop = (ArrayList<Products>) request.getAttribute("laptop");
+            for (Products p : laptop) {
+        %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/laptop2.png" alt="">
                     </div>
                     <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
+                        <h3 class="text-center">  <%= p.getName()%></h3>
+                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -657,63 +505,12 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+                        <h2><%=p.getPrice()%></h2>
+                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/p6.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/pr9.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/t1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Ipad</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-            </div>
+                </div>       
+        <% } %>
+ </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Headphone</a>
@@ -721,14 +518,18 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-            <div class="product-cards"> 
+             <div class="product-cards"> 
+  <% 
+             ArrayList<Products> headphone = (ArrayList<Products>) request.getAttribute("headphone");
+            for (Products p : headphone) {
+        %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/p6.png" alt="">
+                        <img src="./images/h1.png" alt="">
                     </div>
                     <div class="card-body">
-                        <h3 class="text-center">Iphone 13 pro</h3>
-                        <p class="text-center">Feedback</p>
+                        <h3 class="text-center">  <%= p.getName()%></h3>
+                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -736,100 +537,12 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
+                        <h2><%=p.getPrice()%></h2>
+                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/a1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Airpods</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$100 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/laptop2.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/p6.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/pr9.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Laptop</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$200 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="./images/t1.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">Ipad</h3>
-                        <p class="text-center">Feedback</p>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2>$300 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
-                    </div>
-                </div>
-
-            </div>  
+                </div>       
+        <% } %>
+ </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Watch</a>

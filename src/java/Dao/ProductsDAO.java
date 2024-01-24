@@ -55,6 +55,28 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
+    public ArrayList<Products> getProductsbyCateID(int cateid) {
+        ArrayList<Products> list = new ArrayList<>();
+        try {
+            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String sql = "select * from product where categoryid = " +cateid;
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                Long id=rs.getLong(1);
+                String name=rs.getString(2);
+                double price=rs.getDouble(3);
+                String description=rs.getString(4);
+                String maker=rs.getString(5);
+                int status=rs.getInt(6);
+                int inventory=rs.getInt(7);
+                int categoryid=rs.getInt(8);
+                list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
+            }
+        } catch (Exception e) {
+            System.out.println("getlist Error:" + e.getMessage());
+        }
+        return list;
+    }
 //    public static void main(String[] args) {
 //        ProductsDAO pd=new ProductsDAO();
 //        ArrayList<Products> list=pd.getProducts();
