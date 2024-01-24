@@ -4,7 +4,7 @@
     Author     : toanl
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products"%>
+<%@page import="Model.Products, Model.User, Model.Image"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
@@ -50,7 +50,10 @@
 
     </head>
     <body>
-
+        <%
+            Image img = (Image)session.getAttribute("avatar");
+            User user = (User)session.getAttribute("User");
+        %>
         <!-- top navbar -->
         <!-- top navbar -->
 
@@ -82,14 +85,19 @@
                     <form class="d-flex" id="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <div class="btn" onclick="openForm()"><button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> </div>
-                    <div class="user-img"><img src="https://source.unsplash.com/h13Y8vyIXNU/150x150" alt="" onclick="toggleMenu()"></div>
+                    </form>              
+                    <div class="btn" onclick="openForm()">
+                        <%if(user == null){%>
+                        <button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> 
+                        <%}%>
+                    </div>
+                    <div class="user-img"><img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":img.getSource() %>" alt="" onclick="toggleMenu()"></div>
+                    <%if(user != null){%>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <img src="https://source.unsplash.com/h13Y8vyIXNU/150x150" alt="">
-                                <h3>Manh Toan</h3>
+                                <img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":img.getSource() %>" alt="">
+                                <h3><%= user.getName()%></h3>
                             </div>
                             <hr>
                             <a href="userController" class="sub-menu-link">
@@ -111,6 +119,7 @@
 
                         </div>
                     </div>
+                    <%}%>
                 </div>
             </div>
         </nav>
@@ -404,7 +413,7 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-        
+
             <div class="product-cards"> 
                 <div class="card">
                     <div class="card-img">
@@ -423,7 +432,7 @@
                         <h2>$1000 <span><li class="fa-solid fa-cart-shopping"></li></span></h2>
                     </div>
                 </div>
-    
+
 
                 <div class="card">
                     <div class="card-img">
@@ -1307,7 +1316,7 @@
         <!-- newslater -->
         <!-- newslater -->
 
-        
+
 
 
 

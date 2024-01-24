@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import Model.Role;
 
 /**
- *
+ * object that get roles in aplication
  * @author Admin
  */
 public class RoleDAO extends DBContext {

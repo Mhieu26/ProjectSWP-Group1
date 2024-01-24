@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Dao.ImageDAO;
 import Dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.BusinessRule;
+import Model.Image;
 import Model.User;
 
 /**
@@ -94,8 +96,11 @@ public class LoginController extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write("false");
         } else {
+            ImageDAO idb = new ImageDAO();
+            Image avatar = idb.getAvatarByUserId(user.getId());
             HttpSession ss = request.getSession();
             ss.setAttribute("User", user);  //store user in a session
+            ss.setAttribute("avatar", avatar); // store user avatar as well
             response.getWriter().write("true");
             request.getRequestDispatcher("./home").forward(request, response);
         }

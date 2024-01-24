@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * object to access database
  * @author Admin
  */
 public class DBContext {

@@ -15,7 +15,7 @@ import Model.Role;
 import Model.User;
 
 /**
- *
+ * object that get Users in application
  * @author Admin
  */
 public class UserDAO extends DBContext {
