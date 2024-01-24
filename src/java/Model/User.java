@@ -23,6 +23,7 @@ public class User {
 
     public User() {
     }
+    
 
     public User(long id, String email, String password, String name, String phone, String address, boolean sex, boolean status, String verificationCode, Role role) {
         this.id = id;

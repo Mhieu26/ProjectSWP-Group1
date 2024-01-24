@@ -169,7 +169,7 @@ public class UserDAO extends DBContext {
 //        System.out.println(hashPassword);
         
         try {
-            udb.updatePassword("123","hieunmhe171624@fpt.edu.vn");
+            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
 //
 ////                User user = udb.getUserByID(11);
 ////               Image img = udb.getImageByUserID(11);
