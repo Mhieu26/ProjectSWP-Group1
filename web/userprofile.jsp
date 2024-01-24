@@ -29,7 +29,7 @@
                                     <div class="account-settings">
                                         <div class="user-profile">
                                             <div class="user-avatar" style="padding-top: 100px">
-                                                <img src="images/${requestScope.img.source}" alt=" sai"
+                                                <img src="images/${requestScope.img.source}" alt=" Hinh anh"
 
 
                                                      class="img-fluid">
@@ -112,11 +112,11 @@
                                         <div class="row gutters">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
-                                                    <!--                                        <button 
-                                                                                                    class="btn btn-secondary back"><a href="home" >Cancel</a></button>-->
-                                                    <!--                                        <button type="button" id="submit" name="submit"
-                                                                                                    class="btn btn-success btn-primary " style="background-color: #ffc800">Update</button>--> 
-                                                    <button type="submit" value="submit">
+                                                                                            
+                                                                                                    <a   class="btn btn-secondary back" href="home" >Cancel</a>
+                                                                                            <button type="submit" name="submit"
+                                                                                                    class="btn btn-success btn-primary " style="background-color: #ffc800">Update</button> 
+<!--                                                   
 
                                                     </button>
                                                 </div>
