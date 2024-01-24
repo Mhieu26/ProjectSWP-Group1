@@ -72,7 +72,6 @@ public class ChangePassword extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
          HttpSession session = request.getSession();
         User x = (User) session.getAttribute("user");
         String oldPassword = request.getParameter("oldPass");
