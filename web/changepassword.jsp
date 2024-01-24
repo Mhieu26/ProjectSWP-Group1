@@ -52,13 +52,13 @@
                 <div class="row">
                     <form method="post" action="changePassword" class="changePW">
                         <div class="col-md-12">
-                        <input type="password" placeholder="Old Password">
+                            <input type="password" name="oldPass" placeholder="Old Password">
                     </div>
                     <div class="col-md-12">
-                        <input type="password" placeholder="New Password">
+                        <input type="password"  name="pass1" placeholder="New Password">
                     </div>
                     <div class="col-md-12">
-                        <input type="password" placeholder="Repeat Your New Password">
+                        <input type="password" name="pass2" placeholder="Repeat Your New Password">
                     </div>
                       <button type="submit" class="btn" >Confirm</button>
                     </form>
