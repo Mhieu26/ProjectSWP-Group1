@@ -84,3 +84,7 @@
     background-color: yellow;
     color: black; 
 }
+form{
+    display: flex;
+    margin: 0 auto;
+}

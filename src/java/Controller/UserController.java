@@ -15,6 +15,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -58,7 +61,7 @@ public class UserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
          UserDAO udb = new UserDAO();
-         HttpSession session = request.getSession();
+//         HttpSession session = request.getSession();
          
          User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn");
          request.setAttribute("user", user);
@@ -78,7 +81,22 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String image = request.getParameter("image");
+        Boolean gender = Boolean.valueOf(request.getParameter("gender"));
+        UserDAO dao = new UserDAO();
+         User user = dao.getUserByEmail("hieunmhe171624@fpt.edu.vn");
+        dao.updateUser(user, name, phone, gender, address);
+        try {
+            dao.updateImageByID(image, user.getId());
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String msg="sucssec";
+        request.setAttribute("msg", msg);
+        request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 
     /** 

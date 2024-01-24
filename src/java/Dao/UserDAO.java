@@ -171,9 +171,11 @@ public class UserDAO extends DBContext {
         try {
 //            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
 
-//                User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn"); 
-               Image img = udb.getImageByUserID(11);
-                System.out.println(img);
+                User user = udb.getUserByID(11);
+//               Image img = udb.getImageByUserID(11);
+//                System.out.println(img); 
+            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
+//            System.out.println("success");
 //            System.out.println(user);
         } catch (Exception e) {
             System.out.println("fail");
@@ -195,7 +197,7 @@ public class UserDAO extends DBContext {
         }
     }
      public Image getImageByUserID(int id) {
-        String sql = " select * from image where userid=? ";
+        String sql = " select * from image where user id=? ";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -218,5 +220,71 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
         return null;
+    }
+      public void updateUser(User user, String name, String phone, Boolean sex, String address) {
+    try {
+        String sql = "UPDATE user\n" +
+                     "SET name = ?,\n" +
+                     "    phone = ?,\n" +
+                     "    sex = ?,\n" +
+                     "    address = ?\n" +
+                     "WHERE id = ?";
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, name);
+        statement.setString(2, phone);
+        statement.setBoolean(3, sex);
+        statement.setString(4, address);
+        statement.setLong(5, user.getId());  // Thay user.getId() bằng cách lấy id của user cần cập nhật.
+
+        statement.executeUpdate();
+
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+}
+
+       public User getUserByID(long id ) {
+        String sql = " select * from user where id = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(null);
+
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+       
+       public void updateImageByID(String source,long id ) throws NoSuchAlgorithmException{
+        try{
+            String sql ="update image\n"
+                    + " set source = ?\n"
+                    + "where userid =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, source);
+            statement.setLong(2, id );
+           statement.executeUpdate();
+            
+        }catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 }
