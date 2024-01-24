@@ -94,7 +94,7 @@ public class UserController extends HttpServlet {
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String msg="sucssec";
+        String msg="Change sucessfully";
         request.setAttribute("msg", msg);
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }

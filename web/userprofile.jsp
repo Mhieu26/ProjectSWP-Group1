@@ -63,7 +63,7 @@
 
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
-                                                <label for="eMail">Phone</label>
+                                                <label for="phone">Phone</label>
                                                 <input name="phone" type="number" class="form-control" id="eMail" placeholder="Phone" value="${requestScope.user.phone}">
                                             </div>
                                         </div>
@@ -118,10 +118,11 @@
                                                                                                     class="btn btn-success btn-primary " style="background-color: #ffc800">Update</button> 
 <!--                                                   
 
-                                                    </button>
+-->                                                    
                                                 </div>
-                                            </div>
-                                            <H6>${requestScope.msg}</H6>
+                                                 <H6>${requestScope.msg}</H6>
+                                            </div><!--<!--
+-->                                           
                                         </div>
                                     </div>
                                 </div>

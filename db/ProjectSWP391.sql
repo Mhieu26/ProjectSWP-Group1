@@ -661,24 +661,167 @@ values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https:/
 		"detail", 20);
         
                      insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Laptop Dell Inspiron 14", 21490000, null, "Dell", true, 200, 2);
+values("Tai nghe Gaming chụp tai không dây Sony INZONE H5", 2490000, null, "Sony", true, 200, 3);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_32__1_6.png",
-		"thumbnail", 14);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_1.png",
+		"thumbnail", 21);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_34__1_3.png",
-		"detail", 14);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5-ksp-2.png",
+		"detail", 21);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_37__1_3.png",
-		"detail", 14);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_7_.png",
+		"detail", 21);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_39__1_4.png",
-		"detail", 14);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_3__1_1.png",
+		"detail", 21);
+        /* cate4-------------------------------------------------------*/
+        
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("
+Apple Watch SE 2 2023 40mm (GPS) viền nhôm", 5690000, null, "apple", true, 200, 4);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-2023-40mm.png",
+		"thumbnail", 22);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/2/a/2apple-watch-se-2023-40mm-vien-nhom-day-silicone-xanh-den-2.jpg",
+		"detail", 22);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-2023-40mm-vien-nhom-day-silicone-xanh-den-3.jpg",
+		"detail", 22);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-2023-40mm-vien-nhom-day-silicone-trang-starlight-3.jpg",
+		"detail", 22);
+        
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Apple Watch Series 9 41mm (GPS) viền nhôm dây vải ", 9490000, null, "apple", true, 200, 4);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple_lte_1_1.png",
+		"thumbnail", 23);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple_lte_1_1.png",
+		"detail", 23);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_23__1_11.png",
+		"detail", 23);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_24__1_11.png",
+		"detail", 23);
+        
+                  insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Tai nghe Bluetooth True Wireless Xiaomi Buds 3", 990000, null, "Xiaomi", true, 200, 3);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi_buds_3_31.png",
+		"thumbnail", 17);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/b/u/buds-3-4.jpg",
+		"detail", 17);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/b/u/buds-6.jpg",
+		"detail", 17);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-khong-day-xiaomi-buds-3-0_2_.png",
+		"detail", 17);
+        
+                        insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Tai nghe Bluetooth chụp tai Sony WH-CH520", 1390000, null, "Sony", true, 200, 3);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520.png",
+		"thumbnail", 18);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520-10.png",
+		"detail", 18);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520_3_.png",
+		"detail", 18);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520-7.png",
+		"detail", 18);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Tai nghe Apple EarPods Lightning", 490000, null, "apple", true, 200, 3);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/f/r/frame_3_3.png",
+		"thumbnail", 19);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/f/r/frame_3_3.png",
+		"detail", 19);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_9_3_1.jpg",
+		"detail", 19);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/u/audifonos-earpods-apple-iphone-7-8-x-lightning-original-d_nq_np_615134-mpe27006605233_032018-f.jpg",
+		"detail", 19);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Tai nghe Xiaomi Mi Basic", 140000, null, "Xiaomi", true, 200, 3);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_197_3.png",
+		"thumbnail", 20);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_197_3.png",
+		"detail", 20);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/p/m/pms_1538551358.72125327.png",
+		"detail", 20);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/p/m/pms_1538551418.63826349.png",
+		"detail", 20);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Tai nghe Gaming chụp tai không dây Sony INZONE H5", 2490000, null, "Sony", true, 200, 3);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_1.png",
+		"thumbnail", 21);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5-ksp-2.png",
+		"detail", 21);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_7_.png",
+		"detail", 21);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_3__1_1.png",
+		"detail", 21);
+
 
         
 
