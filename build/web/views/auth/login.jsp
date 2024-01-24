@@ -46,13 +46,13 @@
                     <h3 class="text-center"  >Welcome!</h3> 
                 </div>
                 <div class="col-md-7 py-3 py-md-0" id="side2">
-                    <h3 class="text-center">Account login</h3>
+                    <h3 class="text-center">Account login</h3>                    
                     <div class="input2 text-center">
                         <div id="loginprompt" class="text-danger"></div>
-                        <input type="name" placeholder="User Name">
-                        <input type="password" placeholder="Password">
+                        <input type="email" id="loginemail" placeholder="Email" name="email">
+                        <input type="password" id="loginpassword" placeholder="Password" name="password">
                     </div>
-                    <p class="text-center" id="btnlogin"><a href="#">LOG IN</a></p>
+                    <p class="text-center" id="btnlogin"><a>LOG IN</a></p>
                     <p class="text-center"><a href="#">Forgot Password?</a></p>
                     <div class="text-center">
                         <p>Not a member? <a href="register">Register</a></p>
@@ -111,6 +111,8 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./assets/js/app.js"></script>
     </body>
 </html> 
