@@ -16,7 +16,10 @@
     <title>UserProfile</title>
 </head>
 
-<body style="background-color: rgb(21, 44, 129)">
+<body style="background-color: rgb(21, 44, 129) " >
+    <div style="padding-top: 50px">
+        
+    
     <div class="container">
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -24,12 +27,14 @@
                     <div class="card-body">
                         <div class="account-settings">
                             <div class="user-profile">
-                                <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin"
+                                <div class="user-avatar" style="padding-top: 100px">
+                           <img src="images/${requestScope.img.source}" 
+
+                                    
                                         class="img-fluid">
                                 </div>
 
-                                <h6 class="user-email">nguyenmanhhieu267@gmail.com</h6>
+                                <h6 class="user-email">${requestScope.user.email}</h6>
                             </div>
 
                         </div>
@@ -46,7 +51,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name" value="${requestScope.user.name}" >
                                 </div>
                             </div>
 
@@ -58,7 +63,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Phone</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Phone">
+                                    <input type="email" class="form-control" id="eMail" placeholder="Phone" value="${requestScope.user.phone}">
                                 </div>
                             </div>
 
@@ -70,10 +75,10 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="gender">Gender</label>
-                                    <select class="form-control form-control-sm" id="gender" name="gender">
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option> <!-- Thêm option mới -->
+                                    <select class="form-control form-control-sm" id="gender" name="gender" >
+                                        <option value="male">${requestScope.user.sex?"Male":"Female"}</option>
+                                        <option value="female"></option>
+                                      
                                     </select>
                                 </div>
                             </div>
@@ -86,7 +91,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="Street">Address </label>
-                                    <input type="name" class="form-control" id="Street" placeholder="Enter Address">
+                                    <input type="name" class="form-control" id="Street" placeholder="Enter Address" value="${requestScope.user.address}">
                                 </div>
                             </div>
 
@@ -115,7 +120,7 @@
         </div>
 <!--           <a href="home" class="arrow"><i><img src="./images/home-icon.png" alt=""></i></a>-->
 
-
+</div>
 </body>
 
 </html>

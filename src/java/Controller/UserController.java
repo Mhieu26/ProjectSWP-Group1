@@ -5,12 +5,16 @@
 
 package Controller;
 
+import Dao.UserDAO;
+import Model.Image;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -53,7 +57,15 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+         UserDAO udb = new UserDAO();
+         HttpSession session = request.getSession();
+         
+         User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn");
+         request.setAttribute("user", user);
+         Image img = udb.getImageByUserID(11);
+         request.setAttribute("img", img);
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+        
     } 
 
     /** 
