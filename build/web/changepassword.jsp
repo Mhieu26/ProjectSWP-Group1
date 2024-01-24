@@ -52,7 +52,7 @@
                 <div class="row">
                     <form method="post" action="changePassword" class="changePW">
                         <div class="col-md-12">
-                            <input type="password" name="oldpass" placeholder="Old Password">
+                            <input type="password" name="oldPass" placeholder="Old Password">
                     </div>
                     <div class="col-md-12">
                         <input type="password"  name="pass1" placeholder="New Password">

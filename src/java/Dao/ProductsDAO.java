@@ -40,7 +40,7 @@ public class ProductsDAO extends DBContext {
             String sql = "select * from product";
             rs = stm.executeQuery(sql);
             while (rs.next()) {
-                int id=rs.getInt(1);
+                Long id=rs.getLong(1);
                 String name=rs.getString(2);
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);

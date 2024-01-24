@@ -121,7 +121,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <H3>${requestScope.msg}</H3>
+                                            <H6>${requestScope.msg}</H6>
                                         </div>
                                     </div>
                                 </div>

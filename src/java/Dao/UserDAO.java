@@ -169,13 +169,13 @@ public class UserDAO extends DBContext {
 //        System.out.println(hashPassword);
         
         try {
-//            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
-
-                User user = udb.getUserByID(11);
-//               Image img = udb.getImageByUserID(11);
-//                System.out.println(img); 
-            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
-//            System.out.println("success");
+            udb.updatePassword("123","hieunmhe171624@fpt.edu.vn");
+//
+////                User user = udb.getUserByID(11);
+////               Image img = udb.getImageByUserID(11);
+////                System.out.println(img); 
+////            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
+            System.out.println("success");
 //            System.out.println(user);
         } catch (Exception e) {
             System.out.println("fail");
