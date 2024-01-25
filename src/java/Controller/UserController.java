@@ -114,6 +114,12 @@ if ("1".equals(genderParam)) {
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
             return; // Stop further processing
         }
+         if (address == null || address.trim().isEmpty()) {
+            String msg = "Address cannot be empty";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+            return; // Stop further processing
+        }
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("User");
         
