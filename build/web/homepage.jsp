@@ -281,7 +281,7 @@
                                                 <img src="images/blog.png" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                             </a>
                                             <a href="#" class="right-banner__item button__link">
-                                                <img src="images/blog2.png" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/right%20banner%20ipad.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                             </a>
                                         </div>
                                     </div>
@@ -809,11 +809,11 @@
                         <div class="col-lg-3 col-md-6 footer-links">
                             <h4>Usefull Links</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Terms of service</a></li>
-                                <li><a href="#">Privacy policey</a></li>
+                                <li><a href="home">Home</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="blog">Blog</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
 

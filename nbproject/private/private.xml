@@ -3,18 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/changepassword.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/userprofile.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ResetPasswordController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/homepage.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/RegisterController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ProductsDAO.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/contact.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/UserController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ImageDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/RoleDAO.java</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/MyDAO.java</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/UserDAO.java</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Image.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/changepassword.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/homepage.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ChangePassword.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/RegisterController.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/HomeController.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Products.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ProductsDAO.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/about.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ImageDAO.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/RoleDAO.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style.css</file>
         </group>
     </open-files>
 </project-private>
