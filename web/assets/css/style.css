@@ -275,8 +275,10 @@ body .products{
 }
 .card{
     margin: 0 10px;
-    justify-content: center;
 
+}
+.card-body{
+    height: 160px;
 }
 .card-img img{
     width: 50%;
