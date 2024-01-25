@@ -80,8 +80,8 @@
                         <div class="">
                             <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password"
-                                   required>
-                        </div>
+                                   onchange="validatePassword(this.value)">
+                        </div>                        
                         <div class="ps-4">
                             <label for="cpwd">Confirm password:</label>
                             <input type="password" class="form-control" id="cpwd" placeholder="Confirm password"
@@ -89,6 +89,7 @@
                             <span id='message'></span>
                         </div>
                     </div>
+                    <p id="password-result" style="font-size: smaller; color: red; height: fit-content;"></p>
                     <div id="registerprompt" class="text-danger"></div>
                     <div class="mt-3 d-flex justify-content-center">
                         <button type="submit" id="btn-signup" class="btn btn-primary w-50 h-100">Sign up</button>

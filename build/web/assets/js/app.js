@@ -177,3 +177,20 @@ $('#pwd, #cpwd').on('keyup', function () {
     }
 
 });
+
+/**
+ * function to check the password inputted
+ * @param {type} password user input
+ * @returns {Boolean} check if the password is right or wrong format
+ */
+function validatePassword(password) {
+    const regex_pattern = /^(?=.*\d)(?=.*[a-z])[0-9a-z]{8,}$/;
+
+    if (regex_pattern.test(password)) {
+        document.getElementById("password-result").innerHTML = '';
+        return true;
+    } else {
+        document.getElementById("password-result").innerHTML = 'Password must have minimum 8 characters, at least 1 letter and 1 number';
+        return false;
+    }
+}
