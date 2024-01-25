@@ -81,7 +81,7 @@
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
                     <i class="fas fa-envelope"> Email</i>
-                    <h6>nguyenmanhhieu267@gmail.com</h6>
+                    <h6>toanluon507@gmail.com</h6>
                 </div>
             </div>
             <div class="col-md-4 py-3 py-md-0">
@@ -91,23 +91,24 @@
                 </div>
             </div>
         </div>
+        <form action="https://formspree.io/f/xrgneazy" method="post">
         <div class="row" style="margin-top: 30px;">
             <div class="col-md-4 py-3 py-md-0">
-                <input type="text" class="form-control form-control" placeholder="Name">
+                <input name="name" type="text" class="form-control form-control" placeholder="Name" required>
             </div>
             <div class="col-md-4 py-3 py-md-0">
-                <input type="text" class="form-control form-control" placeholder="Email">
+                <input name="email" type="text" class="form-control form-control" placeholder="Email" required>
             </div>
             <div class="col-md-4 py-3 py-md-0">
-                <input type="text" class="form-control form-control" placeholder="Phone">
+                <input name="phone" type="text" class="form-control form-control" placeholder="Phone" required>
             </div>
             <div class="form-group" style="margin-top: 30px;">
-                <textarea class="form-control" id="" rows="5" placeholder="Message"></textarea>
+                <textarea class="form-control"  rows="5" placeholder="Message" required></textarea>
             </div>
-            <div class="messagebtn text-center"><button>Message</button></div>
+            <div class="messagebtn text-center" ><button type="submit" >Message</button></div>
         </div>
     </div>
-
+</form>
 
 
 
