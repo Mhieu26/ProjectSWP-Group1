@@ -113,7 +113,7 @@
                                 <img src="images/shopping-cart.png" alt="">
                                 <p>Orders History</p>
                             </a>
-                            <a href="#" class="sub-menu-link">
+                            <a href="login" class="sub-menu-link">
                                 <img src="images/logout.png" alt="">
                                 <p>Log Out</p>
                             </a>
