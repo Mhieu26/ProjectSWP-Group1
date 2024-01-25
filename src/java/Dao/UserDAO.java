@@ -173,7 +173,7 @@ public class UserDAO extends DBContext {
 //
 ////                User user = udb.getUserByID(11);
                Image img = udb.getImageByUserID(11);
-////                System.out.println(img); 
+                System.out.println(img.getId()); 
 ////            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
 //            System.out.println("success");
 //            System.out.println(user);
@@ -197,7 +197,7 @@ public class UserDAO extends DBContext {
         }
     }
      public Image getImageByUserID(int id) {
-        String sql = " select * from image where user id=? ";
+        String sql = " select * from image where userid=? ";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);

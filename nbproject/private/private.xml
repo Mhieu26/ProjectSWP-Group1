@@ -3,33 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/swp/web/WEB-INF/web.xml</file>
-            <file>file:/D:/swp/web/views/auth/resetpassword.jsp</file>
-            <file>file:/D:/swp/src/java/Model/MailConfig.java</file>
-            <file>file:/D:/swp/src/java/Controller/ResetPasswordController.java</file>
-            <file>file:/D:/swp/src/java/Controller/ChangePassController.java</file>
-            <file>file:/D:/swp/src/java/Dao/UserDAO.java</file>
-            <file>file:/D:/swp/src/java/util/SendMailUlti.java</file>
-            <file>file:/D:/swp/web/changepass.jsp</file>
-            <file>file:/D:/swp/src/java/Controller/RegisterController.java</file>
-=======
             <file>file:/D:/group1-se1751/nbproject/build-impl.xml</file>
             <file>file:/D:/group1-se1751/src/java/Dao/UserDAO.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/RegisterController.java</file>
             <file>file:/D:/group1-se1751/src/java/Model/Image.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/LoginController.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/UserController.java</file>
+            <file>file:/D:/group1-se1751/src/java/Dao/ImageDAO.java</file>
             <file>file:/D:/group1-se1751/src/java/Model/BusinessRule.java</file>
             <file>file:/D:/group1-se1751/src/java/Controller/HomeController.java</file>
-            <file>file:/D:/group1-se1751/src/java/Controller/EmailConfig.java</file>
             <file>file:/D:/group1-se1751/web/userprofile.jsp</file>
             <file>file:/D:/group1-se1751/src/java/Controller/ChangePassword.java</file>
             <file>file:/D:/group1-se1751/web/changepassword.jsp</file>
             <file>file:/D:/group1-se1751/src/java/Model/User.java</file>
             <file>file:/D:/group1-se1751/web/homepage.jsp</file>
             <file>file:/D:/group1-se1751/web/assets/css/style.css</file>
->>>>>>> 3582b752c72105576f7460908ed90fde0e34e021
         </group>
     </open-files>
 </project-private>
