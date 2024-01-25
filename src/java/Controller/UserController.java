@@ -60,14 +60,15 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         UserDAO udb = new UserDAO();
-////         HttpSession session = request.getSession();
-//         
-         User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn");
+//         UserDAO udb = new UserDAO();
+         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+////         User user = (User) session.getAttribute("User");
+//         User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn");
          request.setAttribute("user", user);
-         Image img = udb.getImageByUserID(11);
-//         String sourceimg = img.getSource();
-         request.setAttribute("img", img);
+//         Image img = udb.getImageByUserID(11);
+////         String sourceimg = img.getSource();
+//         request.setAttribute("img", img);
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
         
     } 
@@ -86,13 +87,44 @@ public class UserController extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String image = request.getParameter("image");
-        Boolean gender = Boolean.valueOf(request.getParameter("gender"));
+//        Boolean gender = Boolean.valueOf(request.getParameter("gender"));
         UserDAO dao = new UserDAO();
-        
+        Boolean gender;
+
+String genderParam = request.getParameter("gender");
+
+if ("1".equals(genderParam)) {
+    gender = true;  // Male
+} else if ("0".equals(genderParam)) {
+    gender = false;  // Female
+} else {
+    // Handle invalid gender parameter here if needed
+    gender = null;  // or set a default value, depending on your requirements
+}
+
+        if (name == null || name.trim().isEmpty()) {
+            String msg = "Name cannot be empty";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+            return; // Stop further processing
+        }
+        if (phone == null || phone.trim().isEmpty() || !phone.matches("\\d{10}")) {
+            String msg = "Invalid phone number. It must be 10 digits long and contain only numeric characters.";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+            return; // Stop further processing
+        }
+         if (address == null || address.trim().isEmpty()) {
+            String msg = "Address cannot be empty";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+            return; // Stop further processing
+        }
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("User");
         
         dao.updateUser(user, name, phone, gender, address);
+        
         Image img = dao.getImageByUserID((int) user.getId());
         try {
             dao.updateImageByID(image, user.getId());

@@ -113,7 +113,7 @@
                                 <img src="images/shopping-cart.png" alt="">
                                 <p>Orders History</p>
                             </a>
-                            <a href="#" class="sub-menu-link">
+                            <a href="login" class="sub-menu-link">
                                 <img src="images/logout.png" alt="">
                                 <p>Log Out</p>
                             </a>
@@ -153,7 +153,7 @@
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-3.svg);"></i>
                                                             <a href="#" class="multiple-link">
-                                                                <span>Điện thoại </span>
+                                                                <span>Phone </span>
                                                             </a>                                                 
                                                         </div>
 
@@ -172,7 +172,7 @@
                                                     <a href="#" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-220.svg);"></i>
-                                                            <span class="single-link">Âm thanh</span>
+                                                            <span class="single-link">Headphone</span>
                                                         </div>
 
                                                     </a>
@@ -182,7 +182,7 @@
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-610.svg);"></i>
                                                             <a href="#" class="multiple-link">
-                                                                <span>Đồng hồ</span>
+                                                                <span>Watch</span>
                                                             </a>
                                                         </div>
 
@@ -192,7 +192,7 @@
                                                     <a href="#" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-30.svg);"></i>
-                                                            <span class="single-link">Phụ kiện</span>
+                                                            <span class="single-link">Accessories</span>
                                                         </div>
 
                                                     </a>
@@ -201,7 +201,7 @@
                                                     <a href="#" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-promotion.svg);"></i>
-                                                            <span class="single-link">Khuyến mãi</span>
+                                                            <span class="single-link">Promotion</span>
                                                         </div>
 
                                                     </a>
@@ -210,7 +210,7 @@
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cdn.cellphones.com.vn/media/icons/menu/icon-cps-tech.svg);"></i>
-                                                            <span class="single-link">Tin công nghệ</span>
+                                                            <span class="single-link">Tech news</span>
                                                         </div>
 
                                                     </a>

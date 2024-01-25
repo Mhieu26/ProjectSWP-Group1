@@ -42,7 +42,7 @@ public class ImageDAO extends DBContext {
         return null;
     }
  
-         public Image getThumbnailImagebyProductID(int pID) {
+         public ArrayList<Image> getThumbnailImagebyProductID(int pID) {
         String sql = "     select i.id,i.source,i.type,i.productid,p.name,p.price,p.description,p.maker from image i join product p on p.id=i.productid\n" +
 "where i.type=\"thumbnail\" and i.productid= ? ";
 ArrayList<Image> list = new ArrayList<>();
@@ -62,13 +62,21 @@ ArrayList<Image> list = new ArrayList<>();
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return null;
+        return list;
     }
+        
              public static void main(String[] args) {
-        ImageDAO pd=new ImageDAO();
-        Image list=pd.getThumbnailImagebyProductID(1);
+                 ImageDAO pd=new ImageDAO();
+                 try {
+                        
+        ArrayList<Image> list=pd.getThumbnailImagebyProductID(1);
                  
-                     System.out.println(list);
+                     System.out.println("success");
+                     
+                 } catch (Exception e) {
+                     System.out.println("false");
+                 }
+     
                  
     }
 
