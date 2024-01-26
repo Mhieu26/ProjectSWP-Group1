@@ -65,6 +65,8 @@ public class ActivateController extends HttpServlet {
             int updatedRow = udb.verifyUser(email, code);
             if (updatedRow != 0) {
                 request.setAttribute("notice", "Verify account successfully!!!");
+            }else{
+                request.setAttribute("notice", "Can not verify account!!!");
             }
         }
 

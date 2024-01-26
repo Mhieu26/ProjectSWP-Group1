@@ -92,7 +92,7 @@ $(document).ready(function () {
     $('#btn-signup').click(function () {
         let email = $('input[name="email"]').val();
         let phone = $('input[name="phone"]').val();
-        if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating) {
+        if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating && $("#password-result").val().length == 0) {
             isValidating = true;
             $.ajax({
                 type: 'POST',
