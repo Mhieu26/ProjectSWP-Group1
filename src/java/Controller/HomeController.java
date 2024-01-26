@@ -6,8 +6,10 @@
 package Controller;
 
 import Dao.CategoryDAO;
+import Dao.ImageDAO;
 import Dao.ProductsDAO;
 import Model.Category;
+import Model.Image;
 import Model.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -59,6 +61,10 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
           ProductsDAO pd=new ProductsDAO();
+          ImageDAO id=new ImageDAO();
+          String productID=request.getParameter("productId");
+//          Image img=id.getThumbnailImagebyProductID(Long.parseLong(productID));
+//          request.setAttribute("img", img.getSource());
         ArrayList<Products> products=pd.getProducts();
          ArrayList<Products> phone=pd.getProductsbyCateID(1);
          ArrayList<Products> laptop=pd.getProductsbyCateID(2);

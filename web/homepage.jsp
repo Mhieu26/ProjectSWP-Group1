@@ -7,6 +7,7 @@
 <%@page import="Model.Products, Model.User, Model.Image"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -93,7 +94,7 @@
                         <%}%>
                     </div>
                     <div class="user-img"><img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":img.getSource() %>" alt="" onclick="toggleMenu()"></div>
-                    <%if(user != null){%>
+                        <%if(user != null){%>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
@@ -280,7 +281,7 @@
                                                 <img src="images/blog.png" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                             </a>
                                             <a href="#" class="right-banner__item button__link">
-                                                <img src="images/blog2.png" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/right%20banner%20ipad.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                             </a>
                                         </div>
                                     </div>
@@ -398,8 +399,7 @@
             src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         ></script> 
 
-     
-        
+
 
 
 
@@ -416,18 +416,17 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-              <div class="product-cards"> 
-  <% 
-            ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
-            for (Products product : products) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
+                          for (Products product : products) {
+                %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/p6.png" alt="">
+                        <img src="./images/c1.png" alt="" value="${product.getID()}">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= product.getName()%></h3>
-                        <p class="text-center"><%=product.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -435,17 +434,23 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=product.getPrice()%></h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
+                        <h2><% 
+            double price = product.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
+                        <a href="contact.jsp"><span><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>
 
 
 
-           
-          
-        <% } %>
-         </div>
+
+                <% } %>
+            </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Phone</a>
@@ -454,18 +459,17 @@
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
 
- <div class="product-cards"> 
-  <% 
-             ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
-            for (Products p : phone) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                           ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
+                          for (Products p : phone) {
+                %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/p6.png" alt="">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
-                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -473,12 +477,19 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=p.getPrice()%></h2>
+                        <h2><% 
+            double price = p.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
                         <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>       
-        <% } %>
- </div>
+                <% } %>
+            </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Laptop</a>
@@ -486,18 +497,17 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-           <div class="product-cards"> 
-  <% 
-             ArrayList<Products> laptop = (ArrayList<Products>) request.getAttribute("laptop");
-            for (Products p : laptop) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                           ArrayList<Products> laptop = (ArrayList<Products>) request.getAttribute("laptop");
+                          for (Products p : laptop) {
+                %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/laptop2.png" alt="">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
-                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -505,12 +515,19 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=p.getPrice()%></h2>
+                        <h2><% 
+            double price = p.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
                         <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>       
-        <% } %>
- </div>
+                <% } %>
+            </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Headphone</a>
@@ -518,18 +535,17 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-             <div class="product-cards"> 
-  <% 
-             ArrayList<Products> headphone = (ArrayList<Products>) request.getAttribute("headphone");
-            for (Products p : headphone) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                           ArrayList<Products> headphone = (ArrayList<Products>) request.getAttribute("headphone");
+                          for (Products p : headphone) {
+                %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/h1.png" alt="">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
-                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -537,12 +553,19 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=p.getPrice()%></h2>
+                        <h2><% 
+            double price = p.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
                         <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>       
-        <% } %>
- </div>
+                <% } %>
+            </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Watch</a>
@@ -550,18 +573,17 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-               <div class="product-cards"> 
-  <% 
-             ArrayList<Products> watch = (ArrayList<Products>) request.getAttribute("watch");
-            for (Products p : watch) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                           ArrayList<Products> watch = (ArrayList<Products>) request.getAttribute("watch");
+                          for (Products p : watch) {
+                %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/pr9.png" alt="">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
-                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -569,12 +591,19 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=p.getPrice()%></h2>
+                        <h2><% 
+            double price = p.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
                         <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>       
-        <% } %>
- </div>
+                <% } %>
+            </div>
             <div class="products-title">
                 <h2>
                     <a href="#" class="button__link">PHỤ KIỆN</a>
@@ -582,18 +611,17 @@
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-                     <div class="product-cards"> 
-  <% 
-             ArrayList<Products> acs = (ArrayList<Products>) request.getAttribute("acs");
-            for (Products p : acs) {
-        %>    
+            <div class="product-cards"> 
+                <% 
+                           ArrayList<Products> acs = (ArrayList<Products>) request.getAttribute("acs");
+                          for (Products p : acs) {
+                %>    
                 <div class="card">
                     <div class="card-img">
                         <img src="./images/pr9.png" alt="">
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
-                        <p class="text-center"><%=p.getDescription()%></p>
                         <div class="star text-center">
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
@@ -601,12 +629,19 @@
                             <i class="fa-solid fa-star checked"></i>
                             <i class="fa-solid fa-star checked"></i>
                         </div>
-                        <h2><%=p.getPrice()%></h2>
+                        <h2><% 
+            double price = p.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %> ₫</h2>
                         <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
                     </div>
                 </div>       
-        <% } %>
- </div>  
+                <% } %>
+            </div>  
         </div>
 
         <!-- product cards -->
@@ -774,11 +809,11 @@
                         <div class="col-lg-3 col-md-6 footer-links">
                             <h4>Usefull Links</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Terms of service</a></li>
-                                <li><a href="#">Privacy policey</a></li>
+                                <li><a href="home">Home</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="blog">Blog</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
 
