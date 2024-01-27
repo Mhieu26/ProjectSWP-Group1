@@ -462,11 +462,16 @@
             <div class="product-cards"> 
                 <% 
                            ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
+                            ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
                           for (Products p : phone) {
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/p6.png" alt="">
+                        <%  for (Image tn : thumbnails) { %>
+                        <%if(p.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
+
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
@@ -504,7 +509,10 @@
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/laptop2.png" alt="">
+                          <%  for (Image tn : thumbnails) { %>
+                        <%if(p.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
@@ -542,7 +550,10 @@
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/h1.png" alt="">
+                          <%  for (Image tn : thumbnails) { %>
+                        <%if(p.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
@@ -580,7 +591,10 @@
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/pr9.png" alt="">
+                          <%  for (Image tn : thumbnails) { %>
+                        <%if(p.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>
@@ -618,7 +632,10 @@
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/pr9.png" alt="">
+                          <%  for (Image tn : thumbnails) { %>
+                        <%if(p.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= p.getName()%></h3>

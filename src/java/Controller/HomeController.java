@@ -62,9 +62,8 @@ public class HomeController extends HttpServlet {
     throws ServletException, IOException {
           ProductsDAO pd=new ProductsDAO();
           ImageDAO id=new ImageDAO();
-          String productID=request.getParameter("productId");
-//          Image img=id.getThumbnailImagebyProductID(Long.parseLong(productID));
-//          request.setAttribute("img", img.getSource());
+          ArrayList<Image> thumbnails=id.getThumbmails();
+          request.setAttribute("thumbnails", thumbnails);
         ArrayList<Products> products=pd.getProducts();
          ArrayList<Products> phone=pd.getProductsbyCateID(1);
          ArrayList<Products> laptop=pd.getProductsbyCateID(2);

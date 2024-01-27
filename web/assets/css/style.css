@@ -256,7 +256,9 @@ body .products{
     }
 }
 /* home content */
-
+.cps-container{
+    margin: 0 auto;
+}
 
 
 
