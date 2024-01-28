@@ -33,7 +33,7 @@
                                                      >
                                             </div>
                                                      <br><!-- comment -->
-                                            <h6 class="user-email">${requestScope.user.email}</h6>
+                                            <h6 class="user-email">${user.email}</h6>
                                         </div>
 
                                     </div>
@@ -50,7 +50,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="fullName">Full Name</label>
-                                                <input  name="name" type="text" class="form-control" id="fullName" placeholder="Enter full name" value="${requestScope.user.name}" >
+                                                <input  name="name" type="text" class="form-control" id="fullName" placeholder="Enter full name" value="${user.name}" >
                                             </div>
                                         </div>
 
@@ -62,7 +62,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
-                                                <input name="phone" type="number" class="form-control" id="email" placeholder="Phone" value="${requestScope.user.phone}">
+                                                <input name="phone" type="number" class="form-control" id="email" placeholder="Phone" value="${user.phone}">
                                             </div>
                                         </div>
 
@@ -88,7 +88,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="Street">Address </label>
-                                                <input type="name"  name="address" class="form-control" id="Street" placeholder="Enter Address" value="${requestScope.user.address}">
+                                                <input type="name"  name="address" class="form-control" id="Street" placeholder="Enter Address" value="${user.address}">
                                             </div>
                                         </div>
 
