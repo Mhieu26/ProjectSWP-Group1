@@ -90,7 +90,6 @@ public class ChangePassword extends HttpServlet {
         UserDAO u = new UserDAO();
         out.println(oldPassword);
         out.println(password2);
-//        out.println(x.getPassword());
 
         try {
             out.println(BusinessRule.encodePassword(oldPassword));
@@ -118,9 +117,13 @@ public class ChangePassword extends HttpServlet {
 
             }else if (oldPassword.equals(password1)){
                 errorMessage = "The old password and the new password must not be the same";
-
+            
+            
                 
             }
+            else if (!isPasswordValid(password1)) {
+                errorMessage = "New password must have at least 8 characters, start with an uppercase letter, and contain at least one special character";
+                  }
             else if (!password1.equals(password2)) {
                 errorMessage = "New password and repeat new password again does not match";
 //
@@ -155,5 +158,25 @@ public class ChangePassword extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    private boolean isPasswordValid(String password) {
+    // Kiểm tra có ít nhất 8 kí tự, chữ cái đầu tiên viết hoa, và ít nhất một ký tự đặc biệt
+    return password.length() >= 8 &&
+           Character.isUpperCase(password.charAt(0)) &&
+           containsSpecialCharacter(password);
+}
+
+// Hàm kiểm tra xem có ít nhất một ký tự đặc biệt trong mật khẩu
+private boolean containsSpecialCharacter(String password) {
+    // Thay thế bảng mã này bằng bảng mã thực tế của các ký tự đặc biệt mà bạn muốn kiểm tra
+    String specialCharacters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
+    
+    for (char c : specialCharacters.toCharArray()) {
+        if (password.contains(String.valueOf(c))) {
+            return true;
+        }
+    }
+    
+    return false;
+}
 
 }
