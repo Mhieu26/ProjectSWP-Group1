@@ -92,13 +92,15 @@
             </div>
             
 
-        </div></div>
+        </div>
     <br>
+    <div class="body">
     <p>${blog.getBriefinfo()}</p>
     <br>
     <p>${blog.getContent()}</p>
     <br><br><br>
-</div>
+    </div>
+
 
 
 

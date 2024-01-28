@@ -149,7 +149,7 @@ CREATE TABLE Blog
     author varchar (50) not null,
     postdate timestamp not null,
     status boolean not null,
-    blogcategoryid bigint not null    
+    blogcategoryid bigint not null   
 );
 alter table Blog add constraint fk_Blog_BlogCategory foreign key (blogcategoryid) references BlogCategory(id);
 
@@ -1058,8 +1058,27 @@ values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https:/
 insert into image(source, type, productid)
 values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl_40_nxt_paper_8gb_256gb_-_4.png",
 		"detail", 40);
+        
+        insert into BlogCategory(category)
+values("Tin Công nghệ")
+insert into BlogCategory(category)
+values("Tư vấn")
+insert into BlogCategory(category)
+values("Khuyến mãi")
+insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid,image)
+values("Xiaomi ra mắt cáp sạc nhanh 60W với giá chỉ 65 ngàn đồng","Xiaomi vừa mở rộng danh mục đầu tư của họ bằng cách tung ra cáp USB-C mới. Với mức giá phải chăng là 19 nhân dân tệ (khoảng 65 ngàn đồng), sản phẩm mới nhất hiện đã mở bán tại Trung Quốc."
+, "Cáp sạc mới của Xiaomi có chiều dài 1 mét nên khá lý tưởng để sạc các thiết bị hàng ngày của bạn như điện thoại thông minh hoặc máy tính bảng đồng thời giảm khả năng bị rối.Về mặt thẩm mỹ, cáp có tông màu trắng và xám tối giản, được làm từ cao su TPE, một loại vật liệu nổi tiếng với tính linh hoạt và độ bền, giúp nâng cao tuổi thọ. Nó hỗ trợ dòng điện 3A và sạc nhanh 60W. Ngoài ra, nó còn có tốc độ truyền dữ liệu lên tới 480 Mbps, tuân thủ tiêu chuẩn USB 2.0, quá đủ để truyền file và sao lưu ảnh",
+"Hải Nam","2024-01-28 17:47:00",true,1,"images/blog1.jpeg");
 
+insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid,image)
+values("Lenovo M20 5G ra mắt: MediaTek Kompanio 900T, màn hình 2K, giá từ 8.3 triệu đồng","Vừa qua, Lenovo đã ra mắt máy tính bảng K11 tại thị trường Nhật Bản. Nhà sản xuất tiếp tục trình làng máy tính bảng M20 5G tại thị trường Trung Quốc."
+, "Lenovo M20 5G được trang bị màn hình LCD với kích thước 10.4 inch độ phân giải 2K và độ sáng tối đa chỉ 280 nits.Về cấu hình, thiết bị sử dụng bộ vi xử lý MediaTek Kompanio 900T. Đây là một con chip của TSMC được sản xuất trên tiến trình 6 nm với 8 nhân bao gồm 2 nhân hiệu năng cao Cortex-A78 và 6 nhân tiết kiệm Cortex-A55, cùng với đó là GPU Mali G68 và APU MediaTek. Các lựa chọn bộ nhớ bao gồm 6GB/8GB/12GB RAM và 128GB/256GB/512GB bộ nhớ trong, ngoài ra người dùng có thể mở rộng không gian lưu",
+"Phạm Thanh Thư","2024-01-27 09:50:00",true,1,"images/blog2.jpg");
 
+insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid,image)
+values("So sánh OnePlus 12R và Samsung Galaxy S24: Nên mua máy nào?","Galaxy S24 và OnePlus 12R là hai “tân binh” mới nhất đến từ Samsung, OnePlus. Cả hai điện thoại này đều sở hữu thiết kế hiện đại, cấu hình phần cứng hấp dẫn và nhiều tính năng thú vị."
+, "Samsung Galaxy S24 mạnh mẽ hơn.OnePlus 12R có khả năng sạc nhanh hơn.Camera Galaxy S24 có khả năng zoom kỹ thuật số 30x.OnePlus 12R có màn hình lớn hơn.Tại sự kiện ra mắt dòng Galaxy S 2024, Samsung đã dành khá nhiều thời gian để giới thiệu các tính năng AI có trong loạt điện thoại này.Ngoài chỉnh sửa ảnh, AI còn hoạt động với Live Translate, giúp dịch trực tiếp hai chiều trong các cuộc gọi điện thoại. Galaxy AI sẽ phân tích những gì người khác nói và lặp lại nó bằng tiếng mẹ đẻ của bạn gần như",
+"Minh Thanh","2024-01-26 15:10:00",true,2,"images/blog3.jpeg");
         
 
 
