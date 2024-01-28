@@ -111,7 +111,7 @@ public class ChangePassword extends HttpServlet {
 //            Logger.getLogger(ChangePassword.class.getName()).log(Level.SEVERE, null, ex);
 //        }
             if (!BusinessRule.encodePassword(oldPassword).equals(x.getPassword())) {
-                errorMessage = "Password is incorrect. Please re-enter your password.";
+                errorMessage = "Old Password is incorrect. Please re-enter your old password.";
             
                 
 
@@ -122,7 +122,7 @@ public class ChangePassword extends HttpServlet {
                 
             }
             else if (!password1.equals(password2)) {
-                errorMessage = "New password and new password again does not match";
+                errorMessage = "New password and repeat new password again does not match";
 //
 
             } else {
