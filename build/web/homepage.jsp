@@ -54,6 +54,10 @@
     <body>
         <%
             Image img = (Image)session.getAttribute("avatar");
+            String googleAvt = (String)session.getAttribute("GoogleAvatar");
+            String avt = (img == null) ? 
+                    (googleAvt == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png" : googleAvt) 
+                    : img.getSource();
             User user = (User)session.getAttribute("User");
         %>
         <!-- top navbar -->
@@ -93,12 +97,12 @@
                         <button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> 
                         <%}%>
                     </div>
-                    <div class="user-img"><img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":img.getSource() %>" alt="" onclick="toggleMenu()"></div>
+                    <div class="user-img"><img src="<%= avt %>" alt="" onclick="toggleMenu()"></div>
                         <%if(user != null){%>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":img.getSource() %>" alt="">
+                                <img src="<%= avt %>" alt="">
                                 <h3><%= user.getName()%></h3>
                             </div>
                             <hr>
@@ -114,7 +118,7 @@
                                 <img src="images/shopping-cart.png" alt="">
                                 <p>Orders History</p>
                             </a>
-                            <a href="login" class="sub-menu-link">
+                            <a href="logout" class="sub-menu-link">
                                 <img src="images/logout.png" alt="">
                                 <p>Log Out</p>
                             </a>

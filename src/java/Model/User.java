@@ -19,6 +19,7 @@ public class User {
     private boolean sex;
     private boolean status;
     private String verificationCode;
+    private boolean isGoogleUser = false;
     private Role role;
 
     public User() {
@@ -116,6 +117,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public boolean isIsGoogleUser() {
+        return isGoogleUser;
+    }
+
+    public void setIsGoogleUser(boolean isGoogleUser) {
+        this.isGoogleUser = isGoogleUser;
     }
 
     @Override

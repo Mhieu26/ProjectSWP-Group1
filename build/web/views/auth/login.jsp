@@ -22,6 +22,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
         <!-- fonts links -->
+
+        <!-- link for google login -->
+        <meta name="google-signin-client_id"
+              content="84108154100-e5i8n0lqnoe59v0rlm5q4aki8chjuth4.apps.googleusercontent.com">
     </head>
     <body>
 
@@ -62,7 +66,10 @@
                         </button>
 
                         <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-google"></i>
+
+                            <a href="https://accounts.google.com/o/oauth2/auth?scope=profile%20email%20https://www.googleapis.com/auth/user.phonenumbers.read%20https://www.googleapis.com/auth/user.gender.read&redirect_uri=http://localhost:9999/SWP/googlelogin&response_type=code&client_id=84108154100-e5i8n0lqnoe59v0rlm5q4aki8chjuth4.apps.googleusercontent.com&approval_prompt=force">
+                                <i class="fab fa-google"></i>
+                            </a>
                         </button>
 
                         <button type="button" class="btn btn-link btn-floating mx-1">
@@ -113,6 +120,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="./assets/js/app.js"></script>
     </body>
 </html> 

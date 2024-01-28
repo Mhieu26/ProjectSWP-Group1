@@ -18,6 +18,7 @@ import Model.User;
 
 /**
  * object that get Users in application
+ *
  * @author Admin
  */
 public class UserDAO extends DBContext {
@@ -85,8 +86,20 @@ public class UserDAO extends DBContext {
         return null;
     }
 
+    /**
+     * get user by email that have not expired yet or curren
+     *
+     * @param email email that user enter
+     * @return user
+     */
     public User getUserByEmail(String email) {
-        String sql = " select * from user where email = ? AND expiredDatetime > now() ";
+        String sql = " select * from user \n"
+                + "where email = \"abc8@gmail.com\" \n"
+                + "		AND \n"
+                + "        (status is not null \n"
+                + "			OR \n"
+                + "			(status is null AND expiredDatetime > now())\n"
+                + "		) ";// email da ton tai hoac chua het han
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -105,6 +118,36 @@ public class UserDAO extends DBContext {
                 u.setStatus(rs.getBoolean("status"));
                 u.setVerificationCode(rs.getString("verificationCode"));
                 u.setRole(null);
+
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public User getGoogleUser(String email) {
+        String sql = " select * from user where email = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(null);
+                u.setIsGoogleUser(rs.getBoolean("isGoogleUser"));
 
                 return u;
             }
@@ -135,6 +178,53 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public void insertGoogleUser(String email, String name, String phone, String sex) {
+        String sql = " insert into user(email, name, phone, sex, isGoogleUser, roleid) "
+                + " values(?,?,?,?, true, 1)";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, name);
+            if (phone != null) {
+                statement.setString(3, phone.replace(" ", ""));
+            } else {
+                statement.setString(3, null);
+            }
+            if (sex == null) {
+                statement.setString(4, sex);
+            } else {
+                if (sex.equalsIgnoreCase("male")) {
+                    statement.setBoolean(4, true);
+                }
+                if (sex.equalsIgnoreCase("female")) {
+                    statement.setBoolean(4, false);
+                }
+            }
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void setGoogleUser(String email) {
+        String sql = " update user "
+                + " set isGoogleUser = true "
+                + " where email = ?";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public int verifyUser(String email, String verifyCode) {
         String sql = " update user\n"
                 + " set status=true, verificationCode=null, expiredDatetime=null \n"
@@ -151,52 +241,22 @@ public class UserDAO extends DBContext {
         return row;
     }
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
-        UserDAO udb = new UserDAO();
-//        ArrayList<User> users = udb.getUsers();
-//
-//        for (User u : users) {
-//            System.out.println(u);
-//        }
-
-//        MessageDigest md = MessageDigest.getInstance("MD5");
-//        md.update("123".getBytes());
-//        byte[] digest = md.digest();
-//        String hashPassword = DatatypeConverter
-//                .printHexBinary(digest).toUpperCase();
-//
-//        System.out.println(udb.getUserByLogin("abc7@gmail.com", "202CB962AC59075B964B07152D234B70"));
-//        System.out.println(hashPassword);
-        
+    public void updatePassword(String pass, String email) throws NoSuchAlgorithmException {
         try {
-//            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
-//
-////                User user = udb.getUserByID(11);
-               Image img = udb.getImageByUserID(11);
-                System.out.println(img.getId()); 
-////            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
-//            System.out.println("success");
-//            System.out.println(user);
-        } catch (Exception e) {
-            System.out.println("fail");
-        }
-    }
-    
-    public void updatePassword(String pass , String email ) throws NoSuchAlgorithmException{
-        try{
-            String sql ="update user\n"
+            String sql = "update user\n"
                     + " set password = ?\n"
                     + "where email =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, BusinessRule.encodePassword(pass));
-            statement.setString(2, email );
-           statement.executeUpdate();
-            
-        }catch (SQLException e) {
+            statement.setString(2, email);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
-     public Image getImageByUserID(int id) {
+
+    public Image getImageByUserID(int id) {
         String sql = " select * from image where userid=? ";
 
         try {
@@ -205,7 +265,7 @@ public class UserDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
-               Image img= new Image();
+                Image img = new Image();
                 img.setId(rs.getLong("id"));
                 img.setSource(rs.getString("source"));
                 img.setType(rs.getString("type"));
@@ -221,30 +281,31 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-      public void updateUser(User user, String name, String phone, Boolean sex, String address) {
-    try {
-        String sql = "UPDATE user\n" +
-                     "SET name = ?,\n" +
-                     "    phone = ?,\n" +
-                     "    sex = ?,\n" +
-                     "    address = ?\n" +
-                     "WHERE id = ?";
-        
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, name);
-        statement.setString(2, phone);
-        statement.setBoolean(3, sex);
-        statement.setString(4, address);
-        statement.setLong(5, user.getId());  // Thay user.getId() bằng cách lấy id của user cần cập nhật.
 
-        statement.executeUpdate();
+    public void updateUser(User user, String name, String phone, Boolean sex, String address) {
+        try {
+            String sql = "UPDATE user\n"
+                    + "SET name = ?,\n"
+                    + "    phone = ?,\n"
+                    + "    sex = ?,\n"
+                    + "    address = ?\n"
+                    + "WHERE id = ?";
 
-    } catch (SQLException e) {
-        System.out.println(e);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, phone);
+            statement.setBoolean(3, sex);
+            statement.setString(4, address);
+            statement.setLong(5, user.getId());  // Thay user.getId() bằng cách lấy id của user cần cập nhật.
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
-}
 
-       public User getUserByID(long id ) {
+    public User getUserByID(long id) {
         String sql = " select * from user where id = ? ";
 
         try {
@@ -272,18 +333,18 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-       
-       public void updateImageByID(String source,long id ) throws NoSuchAlgorithmException{
-        try{
-            String sql ="update image\n"
+
+    public void updateImageByID(String source, long id) throws NoSuchAlgorithmException {
+        try {
+            String sql = "update image\n"
                     + " set source = ?\n"
                     + "where userid =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, source);
-            statement.setLong(2, id );
-           statement.executeUpdate();
-            
-        }catch (SQLException e) {
+            statement.setLong(2, id);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
