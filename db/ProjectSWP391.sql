@@ -721,106 +721,355 @@ values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https:/
 insert into image(source, type, productid)
 values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_24__1_11.png",
 		"detail", 23);
-        
                   insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Tai nghe Bluetooth True Wireless Xiaomi Buds 3", 990000, null, "Xiaomi", true, 200, 3);
+values("Samsung Galaxy Watch6 40mm Bluetooth", 5990000, null, "Samsung", true, 200, 4);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi_buds_3_31.png",
-		"thumbnail", 17);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/w/a/watch6_thumbnail.png",
+		"thumbnail", 24);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/b/u/buds-3-4.jpg",
-		"detail", 17);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/l/slider_galaxy_watch6_5_.png",
+		"detail", 24);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/b/u/buds-6.jpg",
-		"detail", 17);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/l/slider_galaxy_watch6_2_.png",
+		"detail", 24);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-khong-day-xiaomi-buds-3-0_2_.png",
-		"detail", 17);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/l/slider_galaxy_watch6_3_.png",
+		"detail", 24);
         
                         insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Tai nghe Bluetooth chụp tai Sony WH-CH520", 1390000, null, "Sony", true, 200, 3);
+values("Đồng hồ thông minh Xiaomi Redmi Watch 4", 2390000, null, "Xiaomi", true, 200, 4);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520.png",
-		"thumbnail", 18);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomiii.png",
+		"thumbnail", 25);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520-10.png",
-		"detail", 18);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/n/6/n65-black-front_1.png",
+		"detail", 25);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520_3_.png",
-		"detail", 18);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/n/6/n65-black-frontright45_1.png",
+		"detail", 25);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520-7.png",
-		"detail", 18);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/n/6/n65-black-right_1.png",
+		"detail", 25);
         
                      insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Tai nghe Apple EarPods Lightning", 490000, null, "apple", true, 200, 3);
+values("Samsung Galaxy Watch6 Classic 47mm Bluetooth", 7490000, null, "samsung", true, 200, 4);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/f/r/frame_3_3.png",
-		"thumbnail", 19);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/w/a/watch6_classic_thumbnail.png",
+		"thumbnail", 26);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/f/r/frame_3_3.png",
-		"detail", 19);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-watch-6-classic-43mm-slider_1__1.png",
+		"detail", 26);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_9_3_1.jpg",
-		"detail", 19);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-watch-6-classic-43mm-slider_3__1.png",
+		"detail", 26);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/u/audifonos-earpods-apple-iphone-7-8-x-lightning-original-d_nq_np_615134-mpe27006605233_032018-f.jpg",
-		"detail", 19);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-watch-6-classic-43mm-slider_2__1.png",
+		"detail", 26);
         
                      insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Tai nghe Xiaomi Mi Basic", 140000, null, "Xiaomi", true, 200, 3);
+values("Apple Watch SE 2 2023 40mm (4G) viền nhôm", 7140000, null, "apple", true, 200, 4);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_197_3.png",
-		"thumbnail", 20);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-lte-2023-44mm-vien-nhom-day-silicone-thumb_1.png",
+		"thumbnail", 27);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_197_3.png",
-		"detail", 20);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-lte-2023-44mm-vien-nhom-day-silicone-dayngan-trang-starlight-1_2.jpg",
+		"detail", 27);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/p/m/pms_1538551358.72125327.png",
-		"detail", 20);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-lte-2023-44mm-vien-nhom-day-silicone-day-ngan-xanh-duong-nhat-1_1.jpg",
+		"detail", 27);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/p/m/pms_1538551418.63826349.png",
-		"detail", 20);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple-watch-se-lte-2023-44mm-vien-nhom-day-silicone-day-ngan-xanh-den-2_1.jpg",
+		"detail", 27);
         
                      insert into product(name,price,description,maker,status,inventory,categoryid)
-values("Tai nghe Gaming chụp tai không dây Sony INZONE H5", 2490000, null, "Sony", true, 200, 3);
+values("Apple Watch Series 8 45mm 4G viền thép dây cao su", 12490000, null, "apple", true, 200, 4);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_1.png",
-		"thumbnail", 21);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple_lte_4_.png",
+		"thumbnail", 28);
        
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5-ksp-2.png",
-		"detail", 21);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_262.jpg",
+		"detail", 28);
 
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_7_.png",
-		"detail", 21);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/3/_/3_235.jpg",
+		"detail", 28);
         
 insert into image(source, type, productid)
-values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tai-nghe-chup-tai-sony-inzone-h5_3__1_1.png",
-		"detail", 21);
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/m/p/mp6v3ref_vw_34fr_watch-41-stainless-silver-cell-8s_vw_34fr_wf_co_1.jpg",
+		"detail", 28);
+        
+          /* cate5-------------------------------------------------------*/
+        
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Sạc nhanh 20W Apple MHJE3ZA", 490000, null, "apple", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_117_1.png",
+		"thumbnail", 29);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_117_1.png",
+		"detail", 29);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/6/3/637387863045632122_pk-apple-00720432-3.jpg",
+		"detail", 29);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/a/d/adapter-20w-apple-1_1.jpg",
+		"detail", 29);
+        
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Chuột Apple Magic Mouse 2021 MK2E3", 1490000, null, "apple", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_145_2.png",
+		"thumbnail", 30);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_145_2.png",
+		"detail", 30);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/c/h/chuot-apple-magic-mouse-2021-2.jpg",
+		"detail", 30);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/c/h/chuot-apple-magic-mouse-2021-3.jpg",
+		"detail", 30);
+                  insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Ốp lưng iPhone 15 Pro Max Silicone hỗ trợ sạc Magsafe", 1290000, null, "apple", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/o/p/op-lung-magsafe-iphone-15-pro-max-silicone.png",
+		"thumbnail", 31);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/o/p/op-iphone-15-pro-chinh-hang-12.png",
+		"detail", 31);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/o/p/op-iphone-15-pro-chinh-hang-04_2.png",
+		"detail", 31);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/o/p/op-iphone-15-pro-chinh-hang-08_2.png",
+		"detail", 31);
+        
+                        insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Bộ vệ sinh Laptop Pro 10 món", 290000, null, "laptop", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/c/screenshot_6_12.png",
+		"thumbnail", 32);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/8/5/855d7a90283056c51a6a70cbbb01ff35.jpg",
+		"detail", 32);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/c/6/c641ea49be9ca68c44025dc00d051e0f.jpg",
+		"detail", 32);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/8/5/855d7a90283056c51a6a70cbbb01ff35.jpg",
+		"detail", 32);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Lót chuột Rapoo V1 30 x 25 cm", 150000, null, "rapoo", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tam-lot-chuot-rapoo-v1-30-25cm-1.jpg",
+		"thumbnail", 33);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tam-lot-chuot-rapoo-v1-30-25cm-1.jpg",
+		"detail", 33);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tam-lot-chuot-rapoo-v1-30-25cm-3.jpg",
+		"detail", 33);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/a/tam-lot-chuot-rapoo-v1-30-25cm-2.jpg",
+		"detail", 33);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Pin sạc dự phòng Xiaomi Redmi 20000mAh sạc nhanh 18W", 540000, null, "Xiaomi", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiao-mi-sac-nhanh.png",
+		"thumbnail", 34);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/0/5/05d5ceed13cf249556fbbd01ca1844d8-removebg-preview.png",
+		"detail", 34);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/0/b/0b4759a5a9d28d291468d9ba28a683ac.jpeg",
+		"detail", 34);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/p/i/pin-sac-du-phong-xiaomi-redmi-20000mah-sac-nhanh-18w_1_.jpg",
+		"detail", 34);
+        
+                     insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Webcam Logitech C922 FULLHD 1080P", 2490000, null, "logitech", true, 200, 5);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/6/6/66_1_11.jpg",
+		"thumbnail", 35);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/6/8/68_1_5.jpg",
+		"detail", 35);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/6/7/67_1_8.jpg",
+		"detail", 35);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/6/5/65_1_9.jpg",
+		"detail", 35);
+        
+          insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Samsung Galaxy A15 ", 7140000, null, "samsung", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/a/galaxy-a15-xanh-01.png",
+		"thumbnail", 36);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_a15_lte_8gb_128gb_-_1.png",
+		"detail", 36);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_a15_lte_8gb_128gb_-_7.png",
+		"detail", 36);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_a15_lte_8gb_128gb_-_5.png",
+		"detail", 36);
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Đồng hồ thông minh Xiaomi Watch 2 Pro ", 5790000, null, "Xiaomi", true, 200, 4);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_1__2_63.png",
+		"thumbnail", 37);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/m/a/main_ksp_2.png",
+		"detail", 37);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/w/a/watch_3_pro.png",
+		"detail", 37);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_38_1_1.png",
+		"detail", 37);
+                      insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Xiaomi Redmi Note 13 ", 4790000, null, "Xiaomi", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13_1__1_1.png",
+		"thumbnail", 38);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi_redmi_note_13_6gb_128gb_-_1.png",
+		"detail", 38);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi_redmi_note_13_6gb_128gb_-_2.png",
+		"detail", 38);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi_redmi_note_13_6gb_128gb_-_7.png",
+		"detail", 38);
+        
+            insert into product(name,price,description,maker,status,inventory,categoryid)
+values("TECNO SPARK 20 8GB 128GB ", 3190000, null, "TECNO", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/e/tecno-spark-20_2_.png",
+		"thumbnail", 39);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/_/i/_i_n_tho_i_tecno_spark_20_-_2.png",
+		"detail", 39);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/_/i/_i_n_tho_i_tecno_spark_20_-_3.png",
+		"detail", 39);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/_/i/_i_n_tho_i_tecno_spark_20_-_6new.png",
+		"detail", 39);
+                insert into product(name,price,description,maker,status,inventory,categoryid)
+values("TCL 40 NXT PAPER 8GB 256GB", 4190000, null, "TCL", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl-40-nxt-paper_3_.png",
+		"thumbnail", 40);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl_40_nxt_paper_8gb_256gb_-_2.png",
+		"detail", 40);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl_40_nxt_paper_8gb_256gb_-_9.png",
+		"detail", 40);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl_40_nxt_paper_8gb_256gb_-_4.png",
+		"detail", 40);
+
+
+        
+
+
+
+
+        
+
+
+
+
 
 
         

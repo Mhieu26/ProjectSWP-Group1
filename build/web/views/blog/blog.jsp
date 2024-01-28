@@ -197,11 +197,9 @@
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quibusdam.</p>
 
                                 <div class="socail-links mt-3">
-                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-skype"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                   <a href="https://gitlab.com/Mhieu26/group1-se1751"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100012285902227"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="mailto:nguyenmanhhieu267@gmail.com"><i class="fa-brands fa-google"></i></a>
                                 </div>
 
                             </div>

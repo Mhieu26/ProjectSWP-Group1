@@ -4,6 +4,7 @@
  */
 package Model;
 
+
 /**
  *
  * @author toanl
@@ -31,8 +32,7 @@ public class Products {
         this.inventory = inventory;
         this.categoryid = categoryid;
     }
-
-
+    
 
     public Long getId() {
         return id;

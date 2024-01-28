@@ -86,7 +86,7 @@ public class UserDAO extends DBContext {
     }
 
     public User getUserByEmail(String email) {
-        String sql = " select * from user where email = ? ";
+        String sql = " select * from user where email = ? AND expiredDatetime > now() ";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -115,8 +115,8 @@ public class UserDAO extends DBContext {
     }
 
     public void insertUser(String email, String password, String name, String phone, String address, boolean sex, String verificationCode) {
-        String sql = " insert into user(email, password, name, phone, address, sex, status, verificationCode, roleid)\n "
-                + " values(?, ?, ?, ?, ?, ?, null, ?, 1) ";
+        String sql = " insert into user(email, password, name, phone, address, sex, status, verificationCode, expiredDatetime, roleid)\n "
+                + " values(?, ?, ?, ?, ?, ?, null, ?, (now() + interval 1 minute), 1) ";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -137,8 +137,8 @@ public class UserDAO extends DBContext {
 
     public int verifyUser(String email, String verifyCode) {
         String sql = " update user\n"
-                + " set status=true, verificationCode=null\n"
-                + " Where email = ?  AND verificationCode = ? ";
+                + " set status=true, verificationCode=null, expiredDatetime=null \n"
+                + " Where email = ?  AND verificationCode = ? AND expiredDatetime > now() ";
         int row = 0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);

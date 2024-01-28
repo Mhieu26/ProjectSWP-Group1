@@ -42,42 +42,64 @@ public class ImageDAO extends DBContext {
         return null;
     }
  
-         public ArrayList<Image> getThumbnailImagebyProductID(int pID) {
-        String sql = "     select i.id,i.source,i.type,i.productid,p.name,p.price,p.description,p.maker from image i join product p on p.id=i.productid\n" +
+         public Image getThumbnailImagebyProductID(Long pID) {
+        String sql = "     select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n" +
 "where i.type=\"thumbnail\" and i.productid= ? ";
-ArrayList<Image> list = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
+             statement.setLong(1, pID);
             ResultSet rs = statement.executeQuery();
-              statement.setInt(1, pID);
-
+            
             if (rs.next()) {             
                 Image img = new Image();
                 img.setId(rs.getLong("id"));
                 img.setSource(rs.getString("source"));
                 img.setType(rs.getString("type"));        
-                img.setProductId(rs.getLong("productid"));
-                list.add(img);
+                img.setProductId(pID);
+               return img;
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return list;
+        return null;
+    }
+            public ArrayList<Image> getThumbmails() {
+        String sql = "  select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
+                + "where i.type=\"thumbnail\"";
+        ArrayList<Image> imgs = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Image img = new Image();
+                img.setId(rs.getLong("id"));
+                img.setSource(rs.getString("source"));
+                img.setType(rs.getString("type"));
+                img.setProductId(rs.getLong("productid"));
+                imgs.add(img);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return imgs;
     }
         
-             public static void main(String[] args) {
-                 ImageDAO pd=new ImageDAO();
-                 try {
-                        
-        ArrayList<Image> list=pd.getThumbnailImagebyProductID(1);
-                 
-                     System.out.println("success");
-                     
-                 } catch (Exception e) {
-                     System.out.println("false");
-                 }
-     
-                 
-    }
+//             public static void main(String[] args) {
+//               ProductsDAO pd=new ProductsDAO();
+//          ImageDAO id=new ImageDAO();
+//          ArrayList<Image> thumbnails=id.getThumbmails();
+//          ArrayList<Products> phone=pd.getProductsbyCateID(1);
+//        ArrayList<Products> products=pd.getProducts();
+//                 for (Products p : phone) {
+//                     for (Image tn : thumbnails) {
+//                         if(p.getId()==tn.getProductId()){
+//                             System.out.println(tn.getSource());
+//                         }
+//                     }
+//                     
+//                 }
+//                 
+//    }
 
 }
