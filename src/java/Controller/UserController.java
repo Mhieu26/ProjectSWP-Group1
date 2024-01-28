@@ -60,15 +60,16 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//         UserDAO udb = new UserDAO();
+//        
          HttpSession session = request.getSession();
         User user = (User) session.getAttribute("User");
-////         User user = (User) session.getAttribute("User");
-//         User user = udb.getUserByEmail("hieunmhe171624@fpt.edu.vn");
-         request.setAttribute("user", user);
-//         Image img = udb.getImageByUserID(11);
-////         String sourceimg = img.getSource();
-//         request.setAttribute("img", img);
+         UserDAO dao = new UserDAO();
+//         User user = dao.getUserByEmail("hieunmhe171624@fpt.edu.vn");
+      
+         Image img = dao.getImageByUserID((int) user.getId());
+//         String sourceimg = img.getSource();
+        request.setAttribute("img", img);
+        request.setAttribute("user", user);
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
         
     } 
@@ -87,7 +88,6 @@ public class UserController extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String image = request.getParameter("image");
-//        Boolean gender = Boolean.valueOf(request.getParameter("gender"));
         UserDAO dao = new UserDAO();
         Boolean gender;
 
@@ -126,11 +126,11 @@ if ("1".equals(genderParam)) {
         dao.updateUser(user, name, phone, gender, address);
         
         Image img = dao.getImageByUserID((int) user.getId());
-        try {
-            dao.updateImageByID(image, user.getId());
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            dao.updateImageByID(image, user.getId());
+//        } catch (NoSuchAlgorithmException ex) {
+//            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         String msg="Change sucessfully";
         request.setAttribute("msg", msg);
         request.setAttribute("img", img);
