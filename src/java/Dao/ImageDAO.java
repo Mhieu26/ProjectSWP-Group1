@@ -63,19 +63,42 @@ public class ImageDAO extends DBContext {
         }
         return null;
     }
+            public ArrayList<Image> getThumbmails() {
+        String sql = "  select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
+                + "where i.type=\"thumbnail\"";
+        ArrayList<Image> imgs = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Image img = new Image();
+                img.setId(rs.getLong("id"));
+                img.setSource(rs.getString("source"));
+                img.setType(rs.getString("type"));
+                img.setProductId(rs.getLong("productid"));
+                imgs.add(img);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return imgs;
+    }
         
 //             public static void main(String[] args) {
-//                 ImageDAO pd=new ImageDAO();
-//                 try {
-//                        
-//      Image list=pd.getThumbnailImagebyProductID(Long.parseLong("5"));
-//                 
-//                     System.out.println(list.getSource());
+//               ProductsDAO pd=new ProductsDAO();
+//          ImageDAO id=new ImageDAO();
+//          ArrayList<Image> thumbnails=id.getThumbmails();
+//          ArrayList<Products> phone=pd.getProductsbyCateID(1);
+//        ArrayList<Products> products=pd.getProducts();
+//                 for (Products p : phone) {
+//                     for (Image tn : thumbnails) {
+//                         if(p.getId()==tn.getProductId()){
+//                             System.out.println(tn.getSource());
+//                         }
+//                     }
 //                     
-//                 } catch (Exception e) {
-//                     System.out.println("false");
 //                 }
-//     
 //                 
 //    }
 

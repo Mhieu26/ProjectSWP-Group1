@@ -5,22 +5,20 @@
 
 package Controller;
 
-import Dao.UserDAO;
+import Dao.BlogDAO;
+import Model.Blog;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author ducng
+ * @author Admin
  */
-public class ChangePassController extends HttpServlet {
+public class BlogDetailController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,16 +31,11 @@ public class ChangePassController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ChangePassController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ChangePassController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String id = request.getParameter("id");
+            BlogDAO blogDAO = new BlogDAO();
+            Blog blog = blogDAO.getBlogByID(Integer.parseInt(id));
+            request.setAttribute("blog", blog);
+            request.getRequestDispatcher("./views/blog/blogdetail.jsp").forward(request, response);
         }
     } 
 
@@ -57,9 +50,7 @@ public class ChangePassController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String email = request.getParameter("email");        
-        request.setAttribute("email", email);
-        request.getRequestDispatcher("changepass.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
@@ -72,15 +63,7 @@ public class ChangePassController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        UserDAO userDAO = new UserDAO();
-        try {
-            userDAO.updatePassword(password,email);
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(ChangePassController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        response.sendRedirect("home");
+        processRequest(request, response);
     }
 
     /** 

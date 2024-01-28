@@ -256,7 +256,9 @@ body .products{
     }
 }
 /* home content */
-
+.cps-container{
+    margin: 0 auto;
+}
 
 
 
@@ -968,6 +970,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 /* about */
 
 

@@ -57,10 +57,6 @@
                             <a class="nav-link" href="contact.jsp">Contact</a>
                         </li>
                     </ul>
-                    <form class="d-flex" id="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -75,9 +71,12 @@
 
         <div class="container" id="about">
             <h3>PRODUCT</h3>
-            <hr><p>Hello</p>
+            <hr><p style="font-weight: bold">General principles:</p>
+            <p>- Electronic Shop website is owned by the SWP project of FPT school, developed, operated and operated by group 1 of class SE1751. The target audience is all customers who want to purchase or place orders through e-commerce websites.</p>
+
+            <p>- Products sold at Electronic Shop must fully meet state regulations on origin, origin of goods, and product quality.</p>
             <hr>
-            <div class="row" style="margin-top: 50px;">
+<!--            <div class="row" style="margin-top: 50px;">
                 <div class="col-md-5 py-3 py-md-0">
                     <div class="card">
                         <img src="./images/background.png" alt="">
@@ -87,7 +86,7 @@
                     <p>Hello</p>
                     <button>Read More...</button>
                 </div>
-            </div>
+            </div>-->
         </div>
 
 
@@ -163,11 +162,9 @@
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quibusdam.</p>
 
                             <div class="socail-links mt-3">
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-skype"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                              <a href="https://gitlab.com/Mhieu26/group1-se1751"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100012285902227"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="mailto:nguyenmanhhieu267@gmail.com"><i class="fa-brands fa-google"></i></a>
                             </div>
 
                         </div>

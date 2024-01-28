@@ -28,13 +28,12 @@
                                 <div class="card-body">
                                     <div class="account-settings">
                                         <div class="user-profile">
-                                            <div class="user-avatar" style="padding-top: 100px">
-                                                <img src=" https://www.google.com/url?sa=i&url=https%3A%2F%2Fvn.pikbest.com%2Fphoto%2Ffree-best-morning-nature-pictures-%2526-images_9190361.html&psig=AOvVaw2j8BkAYZ8kAFqqee-_Zdnl&ust=1706205231341000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCNC8rffL9oMDFQAAAAAdAAAAABAE " 
-
-                                                     class="img-fluid">
+                                            <div class="user-avatar">
+                                                <img src="./images/${requestScope.img.source}" alt="fail"
+                                                     >
                                             </div>
-
-                                            <h6 class="user-email">${requestScope.user.email}</h6>
+                                                     <br><!-- comment -->
+                                            <h6 class="user-email">${user.email}</h6>
                                         </div>
 
                                     </div>
@@ -51,7 +50,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="fullName">Full Name</label>
-                                                <input  name="name" type="text" class="form-control" id="fullName" placeholder="Enter full name" value="${requestScope.user.name}" >
+                                                <input  name="name" type="text" class="form-control" id="fullName" placeholder="Enter full name" value="${user.name}" >
                                             </div>
                                         </div>
 
@@ -63,7 +62,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="phone">Phone</label>
-                                                <input name="phone" type="number" class="form-control" id="email" placeholder="Phone" value="${requestScope.user.phone}">
+                                                <input name="phone" type="number" class="form-control" id="email" placeholder="Phone" value="${user.phone}">
                                             </div>
                                         </div>
 
@@ -74,14 +73,7 @@
 
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group ">
-                                                <!--                                    <label for="gender">Gender</label>
-                                                                                    <select class="form-control form-control-sm" id="gender" name="
-                                                                                            
-                                                                                            gender" >
-                                                                                        <option value="male"></option>
-                                                                                        <option value="female"></option>
-                                                                                      
-                                                                                    </select>--> 
+                                             
                                                 <input type="radio" name="gender" value="1" checked="">Male<!-- comment -->
                                                 <input type="radio" name="gender" value="0" >FeMale<!-- comment -->
 
@@ -96,7 +88,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="Street">Address </label>
-                                                <input type="name"  name="address" class="form-control" id="Street" placeholder="Enter Address" value="${requestScope.user.address}">
+                                                <input type="name"  name="address" class="form-control" id="Street" placeholder="Enter Address" value="${user.address}">
                                             </div>
                                         </div>
 
