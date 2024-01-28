@@ -125,12 +125,12 @@ if ("1".equals(genderParam)) {
         
         dao.updateUser(user, name, phone, gender, address);
         
-        Image img = dao.getImageByUserID((int) user.getId());
-//        try {
-//            dao.updateImageByID(image, user.getId());
-//        } catch (NoSuchAlgorithmException ex) {
-//            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        Image img = dao.getImageByUserID((int) user.getId());      
+        try {
+            dao.updateImageByID(image, user.getId());
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String msg="Change sucessfully";
         request.setAttribute("msg", msg);
         request.setAttribute("img", img);

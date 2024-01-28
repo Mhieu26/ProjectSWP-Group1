@@ -29,7 +29,7 @@
                                     <div class="account-settings">
                                         <div class="user-profile">
                                             <div class="user-avatar">
-                                                <img src="${requestScope.img.source}" alt="fail"
+                                                <img src="./images/${requestScope.img.source}" alt="fail"
                                                      >
                                             </div>
                                                      <br><!-- comment -->
