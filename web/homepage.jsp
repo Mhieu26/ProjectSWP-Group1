@@ -233,22 +233,13 @@
                                                         <a href="#" class="button__link">
                                                             <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-a15a25-new-t1.png" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-dkinhantin-1.png" width="690" height="300" alt="SIÊU PHẨM SAMSUNG&lt;br&gt;Đăng kí ngay" loading="lazy">
-                                                        </a>
-                                                    </div>
+                                                    </
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
                                                             <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-note13-dattruoc-1.jpg" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                         </a>
                                                     </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/robot-roborock-q5-pro-01-2024.jpg" width="690" height="300" alt="ROBOROCK Q5 PRO&lt;br&gt;Ưu đãi chỉ 6.99 triệu" loading="lazy">
-                                                        </a>
-                                                    </div>
+          
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
                                                             <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/rog strix scar.jpg" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
@@ -281,7 +272,7 @@
                                                 <img src="images/blog.png" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                             </a>
                                             <a href="#" class="right-banner__item button__link">
-                                                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/right%20banner%20ipad.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <img src="https://hanoicomputercdn.com/media/banner/28_Dec87b0c4404f3a34d876d22d609413727d.png" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                             </a>
                                         </div>
                                     </div>
@@ -418,12 +409,16 @@
             </div>
             <div class="product-cards"> 
                 <% 
-                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
+                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("featured");
+                          ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
                           for (Products product : products) {
                 %>    
                 <div class="card">
                     <div class="card-img">
-                        <img src="./images/c1.png" alt="" value="${product.getID()}">
+                         <%  for (Image tn : thumbnails) { %>
+                        <%if(product.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="">
+                        <% } } %>
                     </div>
                     <div class="card-body">
                         <h3 class="text-center">  <%= product.getName()%></h3>
@@ -462,7 +457,7 @@
             <div class="product-cards"> 
                 <% 
                            ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
-                            ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                            
                           for (Products p : phone) {
                 %>    
                 <div class="card">
@@ -855,11 +850,9 @@
                             <p>Feedback</p>
 
                             <div class="socail-links mt-3">
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-skype"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://gitlab.com/Mhieu26/group1-se1751"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100012285902227"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="mailto:nguyenmanhhieu267@gmail.com"><i class="fa-brands fa-google"></i></a>
                             </div>
 
                         </div>

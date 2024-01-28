@@ -63,13 +63,16 @@ public class HomeController extends HttpServlet {
           ProductsDAO pd=new ProductsDAO();
           ImageDAO id=new ImageDAO();
           ArrayList<Image> thumbnails=id.getThumbmails();
-          request.setAttribute("thumbnails", thumbnails);
+          
+          ArrayList<Products> featured=pd.getFeaturedProducts();
         ArrayList<Products> products=pd.getProducts();
          ArrayList<Products> phone=pd.getProductsbyCateID(1);
          ArrayList<Products> laptop=pd.getProductsbyCateID(2);
          ArrayList<Products> headphone=pd.getProductsbyCateID(3);    
          ArrayList<Products> watch=pd.getProductsbyCateID(4); 
          ArrayList<Products> acs=pd.getProductsbyCateID(5); 
+         request.setAttribute("featured", featured);
+         request.setAttribute("thumbnails", thumbnails);
          request.setAttribute("acs", acs);
          request.setAttribute("watch", watch);
          request.setAttribute("headphone", headphone);
