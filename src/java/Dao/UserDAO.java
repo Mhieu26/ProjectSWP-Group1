@@ -172,8 +172,8 @@ public class UserDAO extends DBContext {
 //            udb.updatePassword("12345","hieunmhe171624@fpt.edu.vn");
 //
 ////                User user = udb.getUserByID(11);
-               Image img = udb.getImageByUserID(11);
-                System.out.println(img.getId()); 
+               Image img = udb.getImageByUserID(13);
+                System.out.println(img.getSource()); 
 ////            udb.updateUser(user, "Nguyen Manh Hieu", "0565021612", false, "Hai Phong");
 //            System.out.println("success");
 //            System.out.println(user);
