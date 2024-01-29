@@ -94,7 +94,7 @@ public class UserDAO extends DBContext {
      */
     public User getUserByEmail(String email) {
         String sql = " select * from user \n"
-                + "where email = \"abc8@gmail.com\" \n"
+                + "where email = ? \n"
                 + "		AND \n"
                 + "        (status is not null \n"
                 + "			OR \n"
