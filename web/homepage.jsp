@@ -31,6 +31,7 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
             />
+         <link rel="stylesheet" href="./assets/css/style1.css">
         <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
         <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
         <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
@@ -49,9 +50,26 @@
         <link rel="stylesheet" href="./assets/css/right_banner.css">
         <link rel="stylesheet" href="./assets/css/block-slider.css">
         <link rel="stylesheet" href="./assets/css/phukien.css">
+         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+         
+  
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="./assets/plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
+  
+  <!-- Animate css -->
+  <link rel="stylesheet" href="./assets/plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="./assets/plugins/slick/slick.css">
+  <link rel="stylesheet" href="./assets/plugins/slick/slick-theme.css">
+ 
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style1.css">
 
     </head>
-    <body>
+    <body id="body">
+        
         <%
             Image img = (Image)session.getAttribute("avatar");
             String googleAvt = (String)session.getAttribute("GoogleAvatar");
@@ -64,71 +82,241 @@
         <!-- top navbar -->
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg" id="navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="home" id="logo"><span id="span1">E</span>Lectronic <span>Shop</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><img src="./images/menu.png" alt="" width="30px"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.jsp">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.jsp">Contact</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" id="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>              
-                    <div class="btn" onclick="openForm()">
-                        <%if(user == null){%>
-                        <button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> 
-                        <%}%>
-                    </div>
-                    <div class="user-img"><img src="<%= avt %>" alt="" onclick="toggleMenu()"></div>
-                        <%if(user != null){%>
-                    <div class="sub-menu-wrap" id="subMenu">
-                        <div class="sub-menu">
-                            <div class="user-info">
-                                <img src="<%= avt %>" alt="">
-                                <h3><%= user.getName()%></h3>
-                            </div>
-                            <hr>
-                            <a href="userController" class="sub-menu-link">
-                                <img src="images/user.png" alt="">
-                                <p>Edit Profile</p>
-                            </a>
-                            <a href="changePassword" class="sub-menu-link">
-                                <img src="images/pw.png" alt="">
-                                <p>Change Password</p>
-                            </a>
-                            <a href="#" class="sub-menu-link">
-                                <img src="images/shopping-cart.png" alt="">
-                                <p>Orders History</p>
-                            </a>
-                            <a href="logout" class="sub-menu-link">
-                                <img src="images/logout.png" alt="">
-                                <p>Log Out</p>
-                            </a>
+        <section class="top-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<div class="contact-number">
+					<i class="tf-ion-ios-telephone"></i>
+					<span>0969146075</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<!-- Site Logo -->
+				<div class="logo text-center">
+					<a href="home">
+						<!-- replace logo here -->
+						<svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="35"
+								font-family="AustinBold, Austin" font-weight="bold">
+								<g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+									<text id="AVIATO">
+										<tspan x="108.94" y="325">LaViBan</tspan>
+									</text>
+								</g>
+							</g>
+						</svg>
+					</a>
+				</div>
+			</div> 	
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<!-- Cart -->
+				<ul class="top-menu text-right list-inline">
+					<li class="dropdown cart-nav dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+								class="tf-ion-android-cart"></i>Cart</a>
+						<div class="dropdown-menu cart-dropdown">
+							<!-- Cart Item -->
+							<div class="media">
+								<a class="pull-left" href="#!">
+									<img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
+									<div class="cart-price">
+										<span>1 x</span>
+										<span>1250.00</span>
+									</div>
+									<h5><strong>$1200</strong></h5>
+								</div>
+								<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+							</div><!-- / Cart Item -->
+							<!-- Cart Item -->
+							<div class="media">
+								<a class="pull-left" href="#!">
+									<img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
+									<div class="cart-price">
+										<span>1 x</span>
+										<span>1250.00</span>
+									</div>
+									<h5><strong>$1200</strong></h5>
+								</div>
+								<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+							</div><!-- / Cart Item -->
 
-                        </div>
-                    </div>
-                    <%}%>
-                </div>
-            </div>
-        </nav>
+							<div class="cart-summary">
+								<span>Total</span>
+								<span class="total-price">$1799.00</span>
+							</div>
+							<ul class="text-center cart-buttons">
+								<li><a href="cart.html" class="btn btn-small">View Cart</a></li>
+								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+							</ul>
+						</div>
+
+					</li><!-- / Cart -->
+
+					<!-- Search -->
+					<li class="dropdown search dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+								class="tf-ion-ios-search-strong"></i> Search</a>
+						<ul class="dropdown-menu search-dropdown">
+							<li>
+								<form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+							</li>
+						</ul>
+					</li><!-- / Search -->
+
+					<!-- Languages -->
+					
+
+				</ul><!-- / .nav .navbar-nav .navbar-right -->
+			</div>
+		</div>
+	</div>
+</section>
+        <section class="menu">
+	<nav class="navbar navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<h2 class="menu-title">Main Menu</h2>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+			</div><!-- / .navbar-header -->
+
+			<!-- Navbar Links -->
+			<div id="navbar" class="navbar-collapse collapse text-center">
+				<ul class="nav navbar-nav">
+
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="home">Home</a>
+					</li><!-- / Home -->
+
+
+					<!-- Elements -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
+
+								<!-- Basic -->
+								<div class="col-lg-6 col-md-6 mb-sm-3">
+									<ul>
+										<li class="dropdown-header">Pages</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="shop.html">Shop</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Cart</a></li>
+										<li><a href="confirmation.html">Confirmation</a></li>
+
+									</ul>
+								</div>
+
+								<!-- Layout -->
+								<div class="col-lg-6 col-md-6 mb-sm-3">
+									<ul>
+										<li class="dropdown-header">Layout</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="product-single.html">Product Details</a></li>
+										<li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
+
+									</ul>
+								</div>
+
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Elements -->
+
+
+					<!-- Pages -->
+					<li class="dropdown full-width dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
+
+								<!-- Introduction -->
+								<div class="col-sm-3 col-xs-12">
+									<ul>
+										<li class="dropdown-header">Introduction</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="contact.jsp">Contact Us</a></li>
+										<li><a href="about.jsp">About Us</a></li>
+									</ul>
+								</div>
+
+								<!-- Contact -->
+								<div class="col-sm-3 col-xs-12">
+									<ul>
+										<li class="dropdown-header">Dashboard</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="dashboard.html">User Interface</a></li>
+										<li><a href="order.html">Orders</a></li>
+										<li><a href="address.html">Address</a></li>
+										<li><a href="profile-details.html">Profile Details</a></li>
+									</ul>
+								</div>
+
+								<!-- Utility -->
+								<div class="col-sm-3 col-xs-12">
+									<ul>
+										<li class="dropdown-header">Utility</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="login.html">Login Page</a></li>
+										<li><a href="signin.html">Signin Page</a></li>
+										<li><a href="forget-password.html">Forget Password</a></li>
+									</ul>
+								</div>
+
+								<!-- Mega Menu -->
+								<div class="col-sm-3 col-xs-12">
+									<a href="shop.html">
+										<img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
+									</a>
+								</div>
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Pages -->
+
+
+
+					<!-- Blog -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+							<li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+							<li><a href="blog-full-width.html">Blog Full Width</a></li>
+							<li><a href="blog-grid.html">Blog 2 Columns</a></li>
+							<li><a href="blog-single.html">Blog Single</a></li>
+						</ul>
+					</li><!-- / Blog -->
+
+					<!-- Shop -->
+				
+				</ul><!-- / .nav .navbar-nav -->
+
+			</div>
+			<!--/.navbar-collapse -->
+		</div><!-- / .container -->
+	</nav>
+</section>
         <!-- navbar -->
 
 
@@ -403,277 +591,125 @@
 
 
         <div class="products">
-            <h1 class="text-center">PRODUCTS</h1>
-            <div class="products-title">
+            <h1 class="text-center">PRODUCTS</h1>      
+        </div>
+            <section class="product section bg-gray">
+	<div class="container">
+		<div class="products-title">
                 <h2>
                     <a href="#" class="button__link">Featured Products</a>
 
                 </h2>
                 <a href="#" class="btn-show-more button__link">Xem tất cả</a>
             </div>
-            <div class="product-cards"> 
-                <% 
-                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("featured");
+		<div class="product-list">
+		
+							              
+				 <% 
+                           ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("featured");
                           ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
                           for (Products product : products) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                         <%  for (Image tn : thumbnails) { %>
+                %> 
+				<div class="product-item">
+                                    
+					<div class="product-thumb">
+                                             <%  for (Image tn : thumbnails) { %>
                         <%if(product.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
+                        <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
                         <% } } %>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= product.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
+<!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+						<div class="preview-meta">
+							<ul>
+								<li>
+									<span  data-toggle="modal" data-target="#product-modal">
+										<i class="tf-ion-ios-search-strong"></i>
+									</span>
+								</li>
+								<li>
+			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+								</li>
+								<li>
+									<a href="#!"><i class="tf-ion-android-cart"></i></a>
+								</li>
+							</ul>
+                      	</div>
+					</div>
+					<div class="product-content">
+						<h4><a href="product-single.html"> <%= product.getName()%></a></h4>
+						<p class="price"><% 
             double price = product.getPrice();
             DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
             String formattedPrice = decimalFormat.format(price);
             formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
             out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>
+                            %>₫</p>
+					</div>
+                                     
+				</div>
+                                                <% } %>
+			
+			
+				
+			
+		
+		<!-- Modal -->
+
+		</div>
+		<ul class="listPage">
+            
+        </ul>
+	</div>
+</section>
+
+        <!-- product cards -->
+
+        <!-- product cards -->
 
 
 
 
-                <% } %>
-            </div>
-            <div class="products-title">
-                <h2>
-                    <a href="#" class="button__link">Phone</a>
 
-                </h2>
-                <a href="#" class="btn-show-more button__link">Xem tất cả</a>
-            </div>
 
-            <div class="product-cards"> 
-                <% 
-                           ArrayList<Products> phone = (ArrayList<Products>) request.getAttribute("phone");
-                            
-                          for (Products p : phone) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                        <%  for (Image tn : thumbnails) { %>
-                        <%if(p.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
-                        <% } } %>
 
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= p.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
-            double price = p.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>       
-                <% } %>
-            </div>
-            <div class="products-title">
-                <h2>
-                    <a href="#" class="button__link">Laptop</a>
-
-                </h2>
-                <a href="#" class="btn-show-more button__link">Xem tất cả</a>
-            </div>
-            <div class="product-cards"> 
-                <% 
-                           ArrayList<Products> laptop = (ArrayList<Products>) request.getAttribute("laptop");
-                          for (Products p : laptop) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                          <%  for (Image tn : thumbnails) { %>
-                        <%if(p.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
-                        <% } } %>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= p.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
-            double price = p.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>       
-                <% } %>
-            </div>
-            <div class="products-title">
-                <h2>
-                    <a href="#" class="button__link">Headphone</a>
-
-                </h2>
-                <a href="#" class="btn-show-more button__link">Xem tất cả</a>
-            </div>
-            <div class="product-cards"> 
-                <% 
-                           ArrayList<Products> headphone = (ArrayList<Products>) request.getAttribute("headphone");
-                          for (Products p : headphone) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                          <%  for (Image tn : thumbnails) { %>
-                        <%if(p.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
-                        <% } } %>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= p.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
-            double price = p.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>       
-                <% } %>
-            </div>
-            <div class="products-title">
-                <h2>
-                    <a href="#" class="button__link">Watch</a>
-
-                </h2>
-                <a href="#" class="btn-show-more button__link">Xem tất cả</a>
-            </div>
-            <div class="product-cards"> 
-                <% 
-                           ArrayList<Products> watch = (ArrayList<Products>) request.getAttribute("watch");
-                          for (Products p : watch) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                          <%  for (Image tn : thumbnails) { %>
-                        <%if(p.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
-                        <% } } %>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= p.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
-            double price = p.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>       
-                <% } %>
-            </div>
-            <div class="products-title">
-                <h2>
-                    <a href="#" class="button__link">PHỤ KIỆN</a>
-
-                </h2>
-                <a href="#" class="btn-show-more button__link">Xem tất cả</a>
-            </div>
-            <div class="product-cards"> 
-                <% 
-                           ArrayList<Products> acs = (ArrayList<Products>) request.getAttribute("acs");
-                          for (Products p : acs) {
-                %>    
-                <div class="card">
-                    <div class="card-img">
-                          <%  for (Image tn : thumbnails) { %>
-                        <%if(p.getId()==tn.getProductId()){ %>
-                        <img src="<%= tn.getSource()%>" alt="">
-                        <% } } %>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-center">  <%= p.getName()%></h3>
-                        <div class="star text-center">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                        </div>
-                        <h2><% 
-            double price = p.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                            %> ₫</h2>
-                        <a href="contact.jsp"><span style="text-align: center"><li class="fa-solid fa-cart-shopping"></li></span> </a> 
-                    </div>
-                </div>       
-                <% } %>
-            </div>  
+ <div class="hero-slider">
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/laptop-la-gi-760x427.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 text-center">
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year<br> Sale</h1>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
         </div>
-
-        <!-- product cards -->
-
-        <!-- product cards -->
-
-
-
-
-
-
-
-
+      </div>
+    </div>
+  </div>
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/galaxy-watch6-kv-pc.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 text-left">
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/iphone__ky2k6x5u6vue_og.png);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 text-right">
+          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- other cards -->
-        <div class="container" id="other-cards">
+<!--        <div class="container" id="other-cards">
             <div class="row">
                 <div class="col-md-6 py-3 py-md-0">
                     <div class="card">
@@ -698,7 +734,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- other cards -->
 
 
@@ -800,77 +836,50 @@
         <!-- newslater -->
         <!-- newslater -->
 
+<footer class="footer section text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="social-media">
+					<li>
+						<a href="https://www.facebook.com/profile.php?id=100012285902227">
+							<i class="tf-ion-social-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://gitlab.com/Mhieu26/group1-se1751">
+							<i class="tf-ion-social-github"></i>
+						</a>
+					</li>
+					<li>
+						<a href="mailto:nguyenmanhhieu267@gmail.com">
+							<i class="tf-ion-social-google-outline"></i>
+						</a>
+					</li>
+				</ul>
+				<ul class="footer-menu text-uppercase">
+					<li>
+						<a href="contact.jsp">CONTACT</a>
+					</li>
+					<li>
+						<a href="shop.html">SHOP</a>
+					</li>
+					<li>
+						<a href="blog">Blog</a>
+					</li>
+					<li>
+						<a href="about.jsp">About</a>
+					</li>
+				</ul>
+				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
 
 
 
-
-        <!-- footer -->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-3 col-md-6 footer-contact">
-                            <h3>Electronic Shop</h3>
-                            <p>
-                                số 1 Lê Thánh Tông <br>
-                                Quận Ngô Quyền <br>
-                                Thành Phố Hải Phòng <br>
-                            </p>
-                            <strong style="color: #ffffff;">Phone:</strong> +84565021612 <br>
-                            <strong style="color: #ffffff;">Email:</strong> nguyenmanhhieu267@gmail.com <br>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Usefull Links</h4>
-                            <ul>
-                                <li><a href="home">Home</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="blog">Blog</a></li>
-                                <li><a href="about.jsp">About</a></li>
-                                <li><a href="contact.jsp">Contact</a></li>
-                            </ul>
-                        </div>
-
-
-
-
-
-                        <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Our Services</h4>
-
-                            <ul>
-                                <li><a href="#">Laptop</a></li>
-                                <li><a href="#">Iphone</a></li>
-                                <li><a href="#">Headphone</a></li>
-                                <li><a href="#">Watch</a></li>
-                                <li><a href="#">Accessory</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Our Social Networks</h4>
-                            <p>Feedback</p>
-
-                            <div class="socail-links mt-3">
-                                <a href="https://gitlab.com/Mhieu26/group1-se1751"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://www.facebook.com/profile.php?id=100012285902227"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="mailto:nguyenmanhhieu267@gmail.com"><i class="fa-brands fa-google"></i></a>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="container py-4">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>Electronic Shop</span></strong>. All Rights Reserved
-                </div>
-            </div>
-        </footer>
         <!-- footer -->
 
 
@@ -890,7 +899,29 @@
 
 
 
+<!-- Main jQuery -->
+    <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
+    <!-- slick Carousel -->
+    <script src="./assets/plugins/slick/slick.min.js"></script>
+    <script src="./assets/plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Google Mapl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
+
+    <!-- Main Js File -->
+    <script src="./assets/js/script.js"></script>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
