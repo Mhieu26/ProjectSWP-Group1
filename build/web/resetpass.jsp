@@ -53,7 +53,7 @@
                     <h3 class="text-center">Reset Password</h3>
                     <div class="input2 text-center">
                         <div class="row">
-                            <form method="post" action="changepass" onsubmit="return validateForm()" class="changePW">
+                            <form method="post" action="resetpass" onsubmit="return validateForm()" class="changePW">
                                 <input type="text" name="email" value="${requestScope.email}" readonly="${requestScope.email}">
                                 <div class="col-md-12">
                                     <input type=password id="password" name="password" placeholder="New Password">
@@ -89,6 +89,8 @@
                     return true;
                 }
             }
+            
         </script>
+       
     </body>
 </html>
