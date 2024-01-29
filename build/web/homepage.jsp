@@ -97,11 +97,7 @@
                         <button><i class="fa fa-sign-in"></i> <a href="login" style="color: white;">Login</a> </button> 
                         <%}%>
                     </div>
-<!--<<<<<<< HEAD-->
                     <div class="user-img"><img src="<%= avt %>" alt="" onclick="toggleMenu()"></div>
-<!--=======-->
-<!--                    <div class="user-img"><img src="<%= img == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png":"./images/img.getSource()" %>" alt="fail" onclick="toggleMenu()"></div>-->
-<!-->>>>>>> 75a0caa180d9e58eec38bbbc0ff514715de09181-->
                         <%if(user != null){%>
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
