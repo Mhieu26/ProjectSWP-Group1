@@ -5,15 +5,18 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="Model.Products, Model.User, Model.Image"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electronic Shop</title>
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>LaViBAn</title>
+        <link rel="stylesheet" href="/SWP/assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <!-- bootstrap links -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -22,26 +25,26 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./assets/css/testpro4.css">
-        <link rel="stylesheet" href="./assets/css/right_banner.css">
-        <link rel="stylesheet" href="./assets/css/block-slider.css">
-        <link rel="stylesheet" href="./assets/css/phukien.css">
-         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+         <link rel="stylesheet" href="/SWP/assets/css/testpro4.css">
+        <link rel="stylesheet" href="/SWP/assets/css/right_banner.css">
+        <link rel="stylesheet" href="/SWP/assets/css/block-slider.css">
+        <link rel="stylesheet" href="/SWP/assets/css/phukien.css">
+         <link rel="shortcut icon" type="image/x-icon" href="/SWP/images/favicon.png" />
          
   
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="./assets/plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="/SWP/assets/plugins/themefisher-font/style.css">
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/SWP/assets/plugins/bootstrap/css/bootstrap.min.css">
   
   <!-- Animate css -->
-  <link rel="stylesheet" href="./assets/plugins/animate/animate.css">
+  <link rel="stylesheet" href="/SWP/assets/plugins/animate/animate.css">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="./assets/plugins/slick/slick.css">
-  <link rel="stylesheet" href="./assets/plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="/SWP/assets/plugins/slick/slick.css">
+  <link rel="stylesheet" href="/SWP/assets/plugins/slick/slick-theme.css">
  
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style1.css">
+  <link rel="stylesheet" href="/SWP/assets/css/style1.css">
         <!-- fonts links -->
     </head>
     <body>
@@ -50,7 +53,7 @@
         <!-- top navbar -->
 
         <!-- navbar -->
-             <section class="top-header">
+          <section class="top-header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
@@ -88,7 +91,7 @@
 							<!-- Cart Item -->
 							<div class="media">
 								<a class="pull-left" href="#!">
-									<img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+									<img class="media-object" src="/SWP/images/shop/cart/cart-1.jpg" alt="image" />
 								</a>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
@@ -103,7 +106,7 @@
 							<!-- Cart Item -->
 							<div class="media">
 								<a class="pull-left" href="#!">
-									<img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
+									<img class="media-object" src="/SWP/images/shop/cart/cart-2.jpg" alt="image" />
 								</a>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
@@ -195,7 +198,7 @@
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a href="home">Home</a>
+						<a href="/SWP/home">Home</a>
 					</li><!-- / Home -->
 
 
@@ -279,8 +282,8 @@
 
 								<!-- Mega Menu -->
 								<div class="col-sm-3 col-xs-12">
-									<a href="shop.html">
-										<img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
+									<a href="shop.jsp">
+										<img class="img-responsive" src="/SWP/images/c5.png" alt="menu image" />
 									</a>
 								</div>
 							</div><!-- / .row -->
@@ -292,15 +295,8 @@
 					<!-- Blog -->
 					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-							<li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-							<li><a href="blog-full-width.html">Blog Full Width</a></li>
-							<li><a href="blog-grid.html">Blog 2 Columns</a></li>
-							<li><a href="blog-single.html">Blog Single</a></li>
-						</ul>
+							role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+						
 					</li><!-- / Blog -->
 
 					<!-- Shop -->
@@ -312,16 +308,16 @@
 		</div><!-- / .container -->
 	</nav>
 </section>
-        
-        <section class="page-header">
+       
+<section class="page-header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">About Us</h1>
+					<h1 class="page-name">Shop</h1>
 					<ol class="breadcrumb">
-						<li><a href="home">Home</a></li>
-						<li class="active">about us</li>
+						<li><a href="/SWP/home">Home</a></li>
+						<li class="active">shop</li>
 					</ol>
 				</div>
 			</div>
@@ -329,64 +325,88 @@
 	</div>
 </section>
         <!-- navbar -->
-<section class="about section">
+<section class="products section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-                            <img class="img-responsive" src="images/iphone__ky2k6x5u6vue_og.png">
+			<div class="col-md-3">
+				<div class="widget">
+					<h4 class="widget-title">Short By</h4>
+					<form method="post" action="#">
+                        <select class="form-control">
+                            <option>Man</option>
+                            <option>Women</option>
+                            <option>Accessories</option>
+                            <option>Shoes</option>
+                        </select>
+                    </form>
+	            </div>
+				<div class="widget product-category">
+					<h4 class="widget-title">Categories</h4>
+					<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
+					  	<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      	<h4 class="panel-title">
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          	Shoes
+						        	</a>
+						      	</h4>
+						    </div>
+					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<ul>
+									<li><a href="#!">Brand & Twist</a></li>
+									<li><a href="#!">Shoe Color</a></li>
+									<li><a href="#!">Shoe Color</a></li>
+								</ul>
+							</div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingTwo">
+					      <h4 class="panel-title">
+					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					         	Duty Wear
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					    	<div class="panel-body">
+					     		<ul>
+									<li><a href="#!">Brand & Twist</a></li>
+									<li><a href="#!">Shoe Color</a></li>
+									<li><a href="#!">Shoe Color</a></li>
+								</ul>
+					    	</div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingThree">
+					      <h4 class="panel-title">
+					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					          	WorkOut Shoes
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					    	<div class="panel-body">
+					      		<ul>
+									<li><a href="#!">Brand & Twist</a></li>
+									<li><a href="#!">Shoe Color</a></li>
+									<li><a href="#!">Gladian Shoes</a></li>
+									<li><a href="#!">Swis Shoes</a></li>
+								</ul>
+					    	</div>
+					    </div>
+					  </div>
+					</div>
+					
+				</div>
 			</div>
-			<div class="col-md-6">
-				<h2 class="mt-40">General principles:</h2>
-				 <p>- LaViBan Shop website is owned by the SWP project of FPT school, developed, operated and operated by group 1 of class SE1751. The target audience is all customers who want to purchase or place orders through e-commerce websites.</p>
-
-            <p>- Products sold at Electronic Shop must fully meet state regulations on origin, origin of goods, and product quality.</p>
+			<div class="col-md-9">
 				
+								
 			</div>
-		</div>
 		
-	</div>
-</section>
-<section class="team-members ">
-	<div class="container">
-		<div class="row">
-			<div class="title"><h2>Team Members</h2></div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="team-member text-center">
-					<img class="img-circle" src="images/team/team-1.jpg">
-					<h4>Nguyen Manh Hieu</h4>
-					<p>Founder</p>
-				</div>
-			</div>
-                    <div class="col-md-3">
-				<div class="team-member text-center">
-					<img class="img-circle" src="images/team/team-1.jpg">
-					<h4>Hoang Manh Toan</h4>
-					<p>Developer</p>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="team-member text-center">
-					<img class="img-circle" src="images/team/team-2.jpg">
-					<h4>Duong Thanh Dat</h4>
-					<p>Developer</p>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="team-member text-center">
-					<img class="img-circle" src="images/team/team-3.jpg">
-					<h4>Bui Thi Xuan Thu</h4>
-					<p>Developer</p>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="team-member text-center">
-					<img class="img-circle" src="images/team/team-1.jpg">
-					<h4>Nghiem Phu Duc</h4>
-					<p>Developer</p>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -470,10 +490,41 @@
 
 
 
-        <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
+        <a href="#" class="arrow"><i><img src="/SWP/images/arrow.png" alt=""></i></a>
 
 
 
+    <!-- Google Mapl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="/SWP/assets/plugins/google-map/gmap.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Main Js File -->
+    <script src="/SWP/assets/js/script.js"></script>
+
+
+       <script src="/SWP/assets/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="/SWP/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="/SWP/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="/SWP/assets/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="/SWP/assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="/SWP/assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <!-- slick Carousel -->
+    <script src="/SWP/assets/plugins/slick/slick.min.js"></script>
+    <script src="/SWP/assets/plugins/slick/slick-animation.min.js"></script>
+        <script src="/SWP/assets/js/app.js"></script>
+        <script src="/SWP/assets/js/product_card.js"></script> 
+        <script src="/SWP/assets/js/shop.js"></script> 
+      
 
 
 
