@@ -56,7 +56,7 @@ public class SendMailUlti {
             // Set Subject: header field
             message.setSubject("Reset Password");
             // Now set the actual message
-            message.setContent("Click your <a href='http://localhost:9999/SWP/changepass?email=" + email + "'>here</a> to reset password","text/html; charset=utf-8");
+            message.setContent("Click your <a href='http://localhost:9999/SWP/resetpass?email=" + email + "'>here</a> to reset password","text/html; charset=utf-8");
 
             // Send message
             Transport.send(message);

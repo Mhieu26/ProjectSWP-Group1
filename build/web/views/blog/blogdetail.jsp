@@ -147,11 +147,11 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policey</a></li>
+                          <li><a href="home">Home</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="blog">Blog</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                     </ul>
                 </div>
 

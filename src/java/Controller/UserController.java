@@ -124,16 +124,18 @@ if ("1".equals(genderParam)) {
         User user = (User) session.getAttribute("User");
         
         dao.updateUser(user, name, phone, gender, address);
-        
+        if(image.endsWith(".jpg")){
         Image img = dao.getImageByUserID((int) user.getId());      
         try {
             dao.updateImageByID(image, user.getId());
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                request.setAttribute("img", img);
+
+        }
         String msg="Change sucessfully";
         request.setAttribute("msg", msg);
-        request.setAttribute("img", img);
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 

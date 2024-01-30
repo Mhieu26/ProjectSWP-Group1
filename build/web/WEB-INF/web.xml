@@ -40,10 +40,6 @@
         <servlet-class>Controller.ResetPasswordController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ChangePassController</servlet-name>
-        <servlet-class>Controller.ChangePassController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginWithGoogleController</servlet-name>
         <servlet-class>Controller.LoginWithGoogleController</servlet-class>
     </servlet>
@@ -54,6 +50,10 @@
     <servlet>
         <servlet-name>BlogDetailController</servlet-name>
         <servlet-class>Controller.BlogDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>Controller.ResetPassword</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -92,10 +92,6 @@
         <url-pattern>/activate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ChangePassController</servlet-name>
-        <url-pattern>/changepass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginWithGoogleController</servlet-name>
         <url-pattern>/googlelogin</url-pattern>
     </servlet-mapping>
@@ -106,6 +102,10 @@
     <servlet-mapping>
         <servlet-name>BlogDetailController</servlet-name>
         <url-pattern>/blogdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/resetpass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
