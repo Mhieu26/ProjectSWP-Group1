@@ -43,7 +43,7 @@
         <!-- top navbar -->
 
         <!-- navbar -->
-         <section class="top-header">
+                <section class="top-header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
@@ -131,6 +131,33 @@
 							</li>
 						</ul>
 					</li><!-- / Search -->
+                                        <li class="dropdown people dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+								class="tf-ion-ios-person-outline"></i> Account</a>
+						<div class="dropdown-menu">
+							<div class="row">
+
+								<!-- Introduction -->						
+
+								<!-- Contact -->
+							
+
+								<!-- Utility -->
+								
+									<ul>
+										<li class="dropdown-header">Utility</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="login">Login Page</a></li>
+										<li><a href="register">Signin Page</a></li>
+										<li><a href="resetpassword">Forget Password</a></li>
+									</ul>
+								
+
+								<!-- Mega Menu -->
+								
+							</div><!-- / .row -->
+						</div>
+					</li><!-- / Search -->
 
 					<!-- Languages -->
 					
@@ -142,7 +169,7 @@
 </section>
          <section class="menu">
 	<nav class="navbar navigation">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="navbar-header">
 				<h2 class="menu-title">Main Menu</h2>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"

@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electronic Shop</title>
+        <title>LaViBan</title>
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -32,20 +32,22 @@
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
             />
          <link rel="stylesheet" href="./assets/css/style1.css">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
-        <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
+    <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
+    <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
+    <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
         <link rel="stylesheet" href="./assets/css/testpro4.css">
         <link rel="stylesheet" href="./assets/css/right_banner.css">
         <link rel="stylesheet" href="./assets/css/block-slider.css">
@@ -170,6 +172,33 @@
 							</li>
 						</ul>
 					</li><!-- / Search -->
+                                        <li class="dropdown people dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+								class="tf-ion-ios-person-outline"></i> Account</a>
+						<div class="dropdown-menu">
+							<div class="row">
+
+								<!-- Introduction -->						
+
+								<!-- Contact -->
+							
+
+								<!-- Utility -->
+								
+									<ul>
+										<li class="dropdown-header">Utility</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="login">Login Page</a></li>
+										<li><a href="register">Signin Page</a></li>
+										<li><a href="resetpassword">Forget Password</a></li>
+									</ul>
+								
+
+								<!-- Mega Menu -->
+								
+							</div><!-- / .row -->
+						</div>
+					</li><!-- / Search -->
 
 					<!-- Languages -->
 					
@@ -181,7 +210,8 @@
 </section>
         <section class="menu">
 	<nav class="navbar navigation">
-		<div class="container">
+           
+		<div class="container-fluid">
 			<div class="navbar-header">
 				<h2 class="menu-title">Main Menu</h2>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -206,7 +236,7 @@
 
 					<!-- Elements -->
 					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						<a href="shop.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
 								class="tf-ion-ios-arrow-down"></span></a>
 						<div class="dropdown-menu">
@@ -217,7 +247,7 @@
 									<ul>
 										<li class="dropdown-header">Pages</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="shop.html">Shop</a></li>
+										<li><a href="./views/shop/shop.jsp">Shop</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="cart.html">Cart</a></li>
 										<li><a href="confirmation.html">Confirmation</a></li>
@@ -285,7 +315,7 @@
 								<!-- Mega Menu -->
 								<div class="col-sm-3 col-xs-12">
 									<a href="shop.html">
-										<img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
+                                                                            <img class="img-responsive" src="images/c5.png" alt="menu image" />
 									</a>
 								</div>
 							</div><!-- / .row -->
@@ -295,17 +325,9 @@
 
 
 					<!-- Blog -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-							<li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-							<li><a href="blog-full-width.html">Blog Full Width</a></li>
-							<li><a href="blog-grid.html">Blog 2 Columns</a></li>
-							<li><a href="blog-single.html">Blog Single</a></li>
-						</ul>
+					<li class="dropdown">
+						<a href="blog">Blog</a>
+					
 					</li><!-- / Blog -->
 
 					<!-- Shop -->
@@ -418,38 +440,38 @@
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-home-iphone15.jpg" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
+                                                            <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-a15a25-new-t1.png" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
+                                                            <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
                                                     </
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/sliding-note13-dattruoc-1.jpg" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
+                                                            <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                         </a>
                                                     </div>
           
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/rog strix scar.jpg" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
+                                                            <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/watch 2 pro.jpg" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
+                                                            <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/tecno-2024-sliding.png" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
+                                                            <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a href="#" class="button__link">
-                                                            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:80/plain/https://dashboard.cellphones.com.vn/storage/tcl-sliding-txt-th111-4390.jpg" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
+                                                            <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
                                                         </a>
                                                     </div>
                                                 </div>                                   
@@ -899,28 +921,26 @@
 
 
 
-<!-- Main jQuery -->
+
     <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.1 -->
+     
     <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Touchpin -->
+    
     <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <!-- Instagram Feed Js -->
+     
     <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-    <!-- Video Lightbox Plugin -->
+     
     <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-    <!-- Count Down Js -->
     <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
-    <!-- slick Carousel -->
     <script src="./assets/plugins/slick/slick.min.js"></script>
     <script src="./assets/plugins/slick/slick-animation.min.js"></script>
 
-    <!-- Google Mapl -->
+   
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
     <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
 
-    <!-- Main Js File -->
+  
     <script src="./assets/js/script.js"></script>
 
 
