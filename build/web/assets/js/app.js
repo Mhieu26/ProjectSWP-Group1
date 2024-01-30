@@ -71,7 +71,7 @@ $(document).ready(function () {
                 if (responseText === 'false') {
                     $('#loginprompt').text("Email or password is wrong!");
                 } else {
-                    $(location).attr('href', 'home');
+                    $(location).attr('href', '/SWP/home');
                 }
             },
             error: function (req, textStatus, errorThrown) {
@@ -96,7 +96,7 @@ $(document).ready(function () {
             isValidating = true;
             $.ajax({
                 type: 'POST',
-                url: 'register',
+                url: '/SWP/register',
                 data: {
                     email: $('input[name="email"]').val(),
                     name: $('input[name="name"]').val(),
@@ -109,13 +109,10 @@ $(document).ready(function () {
                 success: function (responseText) {
                     if (responseText === 'false') {
                         $('#email-result').text("Email address existed!");
-                    } else {
-                        $.blockUI({message: "Loading..."});
-                        setTimeout(function () {
-                            $.unblockUI();
-                        }, 99999);
                         isValidating = false;
-                        $(location).attr('href', 'register?success=true');
+                    } else {
+                        isValidating = false;
+                        $(location).attr('href', '/SWP/register?success=true');
                     }
                 },
                 error: function (req, textStatus, errorThrown) {

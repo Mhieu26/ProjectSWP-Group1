@@ -1,4 +1,6 @@
+.gitignore
 /build.xml/
+/build-impl.xml/
 /ant-deploy.xml/
 /genfiles.properties/
 /project.properties/
