@@ -179,8 +179,8 @@ public class UserDAO extends DBContext {
     }
 
     public void insertGoogleUser(String email, String name, String phone, String sex) {
-        String sql = " insert into user(email, name, phone, sex, isGoogleUser, roleid) "
-                + " values(?,?,?,?, true, 1)";
+        String sql = " insert into user(email, name, phone, sex, status, isGoogleUser, roleid) "
+                + " values(?,?,?,?, true, true, 1)";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
