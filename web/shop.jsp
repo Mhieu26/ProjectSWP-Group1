@@ -3,9 +3,9 @@
     Created on : Jan 16, 2024, 6:32:09 PM
     Author     : toanl
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image"%>
+<%@page import="Model.Products, Model.User, Model.Image,Model.Category"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -328,88 +328,94 @@
 <section class="products section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
-				<div class="widget">
-					<h4 class="widget-title">Short By</h4>
-					<form method="post" action="#">
-                        <select class="form-control">
-                            <option>Man</option>
-                            <option>Women</option>
-                            <option>Accessories</option>
-                            <option>Shoes</option>
-                        </select>
-                    </form>
-	            </div>
+			<div class="col-md-3">			
 				<div class="widget product-category">
 					<h4 class="widget-title">Categories</h4>
 					<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
-					  	<div class="panel panel-default">
+                                            <c:forEach var="c" items="${cate}">	
+                                            <div class="panel panel-default">
 						    <div class="panel-heading" role="tab" id="headingOne">
 						      	<h4 class="panel-title">
-						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          	Shoes
+						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="contact.jsp" aria-expanded="true" aria-controls="collapseOne">
+						          	${c.getCategory()}
 						        	</a>
 						      	</h4>
-						    </div>
-					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-								<ul>
-									<li><a href="#!">Brand & Twist</a></li>
-									<li><a href="#!">Shoe Color</a></li>
-									<li><a href="#!">Shoe Color</a></li>
-								</ul>
-							</div>
-					    </div>
+						    </div>					 
 					  </div>
-					  <div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="headingTwo">
-					      <h4 class="panel-title">
-					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					         	Duty Wear
-					        </a>
-					      </h4>
-					    </div>
-					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-					    	<div class="panel-body">
-					     		<ul>
-									<li><a href="#!">Brand & Twist</a></li>
-									<li><a href="#!">Shoe Color</a></li>
-									<li><a href="#!">Shoe Color</a></li>
-								</ul>
-					    	</div>
-					    </div>
-					  </div>
-					  <div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="headingThree">
-					      <h4 class="panel-title">
-					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-					          	WorkOut Shoes
-					        </a>
-					      </h4>
-					    </div>
-					    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-					    	<div class="panel-body">
-					      		<ul>
-									<li><a href="#!">Brand & Twist</a></li>
-									<li><a href="#!">Shoe Color</a></li>
-									<li><a href="#!">Gladian Shoes</a></li>
-									<li><a href="#!">Swis Shoes</a></li>
-								</ul>
-					    	</div>
-					    </div>
-					  </div>
+                                            </c:forEach>
+										 
 					</div>
 					
 				</div>
 			</div>
-			<div class="col-md-9">
+                    <div class="col-md-9">
+			<div class="container">
+		<div class="product-list">
+		
+							              
+				 <% 
+                           ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
+                          ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                          for (Products product : products) {
+                %> 
+				<div class="product-item">
+                                    
+					<div class="product-thumb">
+                                             <%  for (Image tn : thumbnails) { %>
+                        <%if(product.getId()==tn.getProductId()){ %>
+                        <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
+                        <% } } %>
+<!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+						<div class="preview-meta">
+							<ul>
+								<li>
+									<span  data-toggle="modal" data-target="#product-modal">
+										<i class="tf-ion-ios-search-strong"></i>
+									</span>
+								</li>
+								<li>
+			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+								</li>
+								<li>
+									<a href="#!"><i class="tf-ion-android-cart"></i></a>
+								</li>
+							</ul>
+                      	</div>
+					</div>
+					<div class="product-content">
+						<h4><a href="product-single.html"> <%= product.getName()%></a></h4>
+						<p class="price"><% 
+            double price = product.getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                            %>₫</p>
+					</div>
+                                     
+				</div>
+                                                <% } %>
+			
+			
 				
-								
+			
+		
+		<!-- Modal -->
+
+		</div>
+                                                                                    <ul class="listPage">         
+        </ul>
+		
+	</div>				
 			</div>
+			
 		
 		</div>
+            
 	</div>
 </section>
+
 
 
 
@@ -495,47 +501,36 @@
 
 
     <!-- Google Mapl -->
+   
+
+    <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
+     
+    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+     
+    <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
+     
+    <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <script src="./assets/plugins/slick/slick.min.js"></script>
+    <script src="./assets/plugins/slick/slick-animation.min.js"></script>
+
+   
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-    <script type="text/javascript" src="/SWP/assets/plugins/google-map/gmap.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
 
-    <!-- Main Js File -->
-    <script src="/SWP/assets/js/script.js"></script>
-
-
-       <script src="/SWP/assets/plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.1 -->
-    <script src="/SWP/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Touchpin -->
-    <script src="/SWP/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <!-- Instagram Feed Js -->
-    <script src="/SWP/assets/plugins/instafeed/instafeed.min.js"></script>
-    <!-- Video Lightbox Plugin -->
-    <script src="/SWP/assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-    <!-- Count Down Js -->
-    <script src="/SWP/assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
-
-    <!-- slick Carousel -->
-    <script src="/SWP/assets/plugins/slick/slick.min.js"></script>
-    <script src="/SWP/assets/plugins/slick/slick-animation.min.js"></script>
-        <script src="/SWP/assets/js/app.js"></script>
-        <script src="/SWP/assets/js/product_card.js"></script> 
-        <script src="/SWP/assets/js/shop.js"></script> 
-      
-
-
-
-
-
-
-
-
-
+  
+    <script src="./assets/js/script.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/product_card.js"></script>
+        <script src="./assets/js/menu.js"></script>
+<!--        <script src="./assets/js/shoplist.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

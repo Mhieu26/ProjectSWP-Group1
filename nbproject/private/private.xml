@@ -3,55 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/home.css.map</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/DBContext.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/userprofile.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/notice.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/BusinessRule.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/MyDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Image.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/views/auth/resetpassword.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/changepassword.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/views/blog/blogdetail.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/block-slider.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/HomeController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Products.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/testpro4.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/menu.js</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/about.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/userprofile.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ImageDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/RoleDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/util/Helper.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/home.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/script.js</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/product_card.js</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style1.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/views/blog/blog.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ResetPasswordController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ActivateController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/contact.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/phukien.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/BlogController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/UserController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/UserDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/changepass.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/util/SendMailUlti.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/right_banner.css</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/shoplist.js</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/homepage.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ChangePassword.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/RegisterController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ProductsDAO.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style.css.map</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/BlogDetailController.java</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/app.js</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/testpro4.css</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/contact.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/HomeController.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/about.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/phukien.css</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ProductsController.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/views/shop/shop.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style.css</file>
-=======
-            <file>file:/D:/swp/src/java/Controller/ResetPassword.java</file>
-            <file>file:/D:/swp/web/resetpass.jsp</file>
-            <file>file:/D:/swp/web/assets/js/app.js</file>
->>>>>>> db71c7803abf10dc4ff9fbb729195b1b1b0d0da4
         </group>
     </open-files>
 </project-private>

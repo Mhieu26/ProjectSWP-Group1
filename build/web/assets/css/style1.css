@@ -119,7 +119,53 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   box-shadow: none;
   border: 1px solid #000;
 }
+/*.product-list{
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  column-gap: 40px;
+}
+.product-item .modal-image img{
+  height: 200px;
+  transition: 0.5s;
+}
 
+.title{
+  font-size: x-large;
+}
+.item .content .des{
+  opacity: .7;
+  margin: 10px 0;
+}
+.item .content .price{
+  font-size: large;
+  letter-spacing: 3px;
+  margin-bottom: 3px;
+}
+.item .content .add{
+  background-color: #B192EF;
+  padding: 20px;
+  color: #fff;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+}
+
+.listPage{
+  padding: 10px;
+  text-align: center;
+  list-style: none;
+}
+.listPage li{
+  background-color: #ffffffBD;
+  padding: 20px;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.listPage .active{
+  background-color:#B192EF;
+  color: #fff;
+}*/
 .btn-main, .btn-small, .btn-transparent, .btn-solid-border {
   background: #000;
   color: #fff;

@@ -4,6 +4,7 @@
  */
 package Dao;
 
+import Model.Category;
 import Model.Products;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -101,10 +102,27 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
+      public ArrayList<Category> getCategory() {
+        ArrayList<Category> list = new ArrayList<>();
+        try {
+            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String sql = "select * from category";
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+               int id=rs.getInt(1);
+               String category=rs.getString(2);
+                list.add(new Category(id, category));
+            }
+        } catch (Exception e) {
+            System.out.println("getlist Error:" + e.getMessage());
+        }
+        return list;
+    }
+     
 //    public static void main(String[] args) {
 //        ProductsDAO pd=new ProductsDAO();
-//        ArrayList<Products> list=pd.getFeaturedProducts();
-//        for (Products products : list) {
+//        ArrayList<Category> list=pd.getCategory();
+//        for (Category products : list) {
 //            System.out.println(products);
 //            
 //        }
