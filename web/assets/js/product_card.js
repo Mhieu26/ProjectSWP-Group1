@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.product-cards').slick({
-        slidesToShow: 5,
+        slidesToShow: 10,
         slidesToScroll: 1,
         autoplay: true,
   autoplaySpeed: 3000,

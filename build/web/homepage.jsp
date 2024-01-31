@@ -615,6 +615,7 @@
 				<div class="product-item">
                                     
 					<div class="product-thumb">
+                                            <span class="bage">Sale</span>
                                              <%  for (Image tn : thumbnails) { %>
                         <%if(product.getId()==tn.getProductId()){ %>
                         <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
@@ -638,14 +639,23 @@
 					</div>
 					<div class="product-content">
 						<h4><a href="product-single.html"> <%= product.getName()%></a></h4>
-						<p class="price"><% 
+						<div class="price">
+                                    <span class="oldprice"><% 
             double price = product.getPrice();
             DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
             String formattedPrice = decimalFormat.format(price);
             formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
             out.print(formattedPrice);
-                            %>₫</p>
+                            %>₫</span>
+                                    <span class="onprice"><% 
+           double oldPrice = product.getPrice();
+            double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
+            String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+            out.print(formattedDiscountedPrice);
+                            %>₫</span>
+                                </div>
 					</div>
                                      
 				</div>

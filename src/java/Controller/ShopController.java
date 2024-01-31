@@ -64,10 +64,12 @@ public class ShopController extends HttpServlet {
           ArrayList<Image> thumbnails=id.getThumbmails();
           ArrayList<Category> cate=pd.getCategory();
           ArrayList<Products> featured=pd.getFeaturedProducts();
+          ArrayList<Products> get3newest=pd.get3Newest();
         ArrayList<Products> products=pd.getProducts();
         request.setAttribute("cate", cate);
          request.setAttribute("featured", featured);
          request.setAttribute("thumbnails", thumbnails);
+         request.setAttribute("get3newest", get3newest);
         request.setAttribute("products", products);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     } 
