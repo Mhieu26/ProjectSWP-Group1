@@ -79,7 +79,7 @@ public class LoginWithGoogleController extends HttpServlet {
             if(user != null && !user.isIsGoogleUser()){//this google user is a customer already
                 udb.setGoogleUser(googlePojo.getEmail());
             }
-     
+            user = udb.getGoogleUser(googlePojo.getEmail());
             HttpSession ss = request.getSession();
             ss.setAttribute("User", user);  //store user in a session
             ss.setAttribute("GoogleAvatar", googlePojo.getPicture()); // store user avatar as well

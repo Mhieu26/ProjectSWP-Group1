@@ -186,11 +186,15 @@
 								<!-- Utility -->
 								
 									<ul>
-										<li class="dropdown-header">Utility</li>
+										<li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
 										<li role="separator" class="divider"></li>
-										<li><a href="login">Login Page</a></li>
-										<li><a href="register">Signin Page</a></li>
+                                                                                <% if(user == null){ %>
+										<li><a href="login">Login</a></li>
+										<li><a href="register">Sign up</a></li>
 										<li><a href="resetpassword">Forget Password</a></li>
+                                                                                <%}else {%>
+                                                                                <li><a href="logout">Logout</a></li>
+                                                                                <%}%>
 									</ul>
 								
 
