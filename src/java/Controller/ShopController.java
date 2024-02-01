@@ -61,12 +61,46 @@ public class ShopController extends HttpServlet {
     throws ServletException, IOException {
            ProductsDAO pd=new ProductsDAO();
           ImageDAO id=new ImageDAO();
-          ArrayList<Image> thumbnails=id.getThumbmails();
-          ArrayList<Category> cate=pd.getCategory();
+           ArrayList<Image> thumbnails=id.getThumbmails();
+          ArrayList<Category> listc=pd.getCategory();
           ArrayList<Products> featured=pd.getFeaturedProducts();
           ArrayList<Products> get3newest=pd.get3Newest();
         ArrayList<Products> products=pd.getProducts();
+        ArrayList<Products> listp=pd.getAllProduct(null, null, null, null);
+          String action = request.getParameter("action");
+        String cate = request.getParameter("cate");
+        String minPrice = request.getParameter("minPrice");
+        String maxPrice = request.getParameter("maxPrice");
+        String search = request.getParameter("search");
+          if (action == null || action.equals("")) {
+            listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null);
+       
+        } else if (action.equals("cate")) {
+            listp = (ArrayList<Products>) pd.getAllProduct(null, cate, null, null);
+   
+        } else if (action.equals("search")) {
+            listp = (ArrayList<Products>) pd.getAllProduct(search, null, null, null);
+            
+        } else if (action.equals("price")) {
+            if (minPrice.equals("")) {
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, maxPrice);
+             
+            } else if (maxPrice.equals("")) {
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, null);
+            }else if (maxPrice.equals("") && minPrice.equals("")){
+                 listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null);
+            } else{
+                  listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, maxPrice);
+            }
+        }
+          
+          request.setAttribute("listp", listp);
+           request.setAttribute("action", action);
         request.setAttribute("cate", cate);
+        request.setAttribute("minPrice", minPrice);
+        request.setAttribute("maxPrice", maxPrice);
+        request.setAttribute("search", search);
+        request.setAttribute("listc", listc);
          request.setAttribute("featured", featured);
          request.setAttribute("thumbnails", thumbnails);
          request.setAttribute("get3newest", get3newest);

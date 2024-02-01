@@ -78,6 +78,7 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
+  
     
     public ArrayList<Products> getProductsbyCateID(int cateid) {
         ArrayList<Products> list = new ArrayList<>();
@@ -141,11 +142,51 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
-     
+       public ArrayList<Products> getAllProduct(String search, String categories,  String minPrice, String maxPrice) {
+        String whereSql = "";
+        if (search != null) {
+            whereSql = "where p.name like '%" + search + "%';";
+        }
+        if (categories != null) {
+            whereSql = "where c.id like '" + categories + "'";
+        }
+      
+        if (minPrice != null && maxPrice == null) {
+            whereSql = "where (p.price-(p.price*10/100)) >= " + minPrice;
+        } else if (minPrice == null && maxPrice != null) {
+            whereSql = "where (p.price-(p.price*10/100)) <= " + maxPrice;
+        } else if (minPrice != null && maxPrice != null) {
+            whereSql = "where (p.price IS NOT NULL AND (p.price-(p.price*10/100)) BETWEEN " + minPrice + " AND " + maxPrice + ")";
+        }
+      
+       
+      ArrayList<Products> list = new ArrayList<>();
+        try {
+            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String sql = "select p.id,p.name,p.price,p.description,p.maker,p.status,p.inventory,c.id from product p  join category c on p.categoryid=c.id "+
+                    whereSql;
+            
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                Long id=rs.getLong(1);
+                String name=rs.getString(2);
+                double price=rs.getDouble(3);
+                String description=rs.getString(4);
+                String maker=rs.getString(5);
+                int status=rs.getInt(6);
+                int inventory=rs.getInt(7);
+                int categoryid=rs.getInt(8);
+                list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
+            }
+        } catch (Exception e) {
+            System.out.println("getlist Error:" + e.getMessage());
+        }
+        return list;
+    }
 //    public static void main(String[] args) {
 //        ProductsDAO pd=new ProductsDAO();
-//        ArrayList<Category> list=pd.getCategory();
-//        for (Category products : list) {
+//        ArrayList<Products> list=pd.getAllProduct(null, null, "5000000", "30000000");
+//        for (Products products : list) {
 //            System.out.println(products);
 //            
 //        }
