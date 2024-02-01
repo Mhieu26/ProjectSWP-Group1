@@ -13,6 +13,7 @@ body .products{
 /* top navbar */
 .price {
     margin: 0 0 10px 0;
+    text-align: center;
 }
 .price {
     font-family: 'Open Sans', sans-serif;

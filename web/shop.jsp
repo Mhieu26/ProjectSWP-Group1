@@ -215,7 +215,7 @@
                                             <ul>
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
-                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop">Shop</a></li>
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="cart.html">Cart</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
@@ -262,7 +262,7 @@
 
                                         <!-- Mega Menu -->
                                         <div class="col-sm-6 col-xs-12">
-                                            <a href="shop.html">
+                                            <a href="shop">
                                                 <img class="img-responsive" src="images/c5.png" alt="menu image" />
                                             </a>
                                         </div>
@@ -310,14 +310,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="search-box">
-                            <form class="search-form" action="ShopController">
+                            <form class="search-form" action="shop">
                                 <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
                                 <input type="hidden" name="action" value="search">
                                 <button type="submit" class="search-btn"><i class="fa-solid fa-chevron-up fa-rotate-90"
                                                                             style="color: #ffffff;"></i></button>
                             </form>
                         </div>
-                        <form class="price-form" action="ShopController">
+                        <form class="price-form" action="shop">
                             <div class="pricing-slider">
                                 <h3>Pricing</h3>
                                 <div class="price-input">
@@ -344,10 +344,9 @@
                                         <div class="panel-body">
 
                                             <ul>
-                                                <c:forEach var="c" items="${cate}">
-                                                    <li><a href="#!" style="    text-transform: uppercase;
+                                                <c:forEach var="c" items="${listc}">
+                                                    <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
                                                            font-size: 10px;">${c.getCategory()}</a></li>
-
                                                 </c:forEach>
                                             </ul>
 
@@ -432,7 +431,7 @@
 
 
                                 <% 
-                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("products");
+                          ArrayList<Products> products = (ArrayList<Products>) request.getAttribute("listp");
                          
                          for (Products product : products) {
                                 %> 
@@ -490,12 +489,41 @@
 
 
 
-                                <!-- Modal -->
+                          <!-- Modal -->
+                                <div class="modal product-modal fade" id="product-modal">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<i class="tf-ion-close"></i>
+			</button>
+		  	<div class="modal-dialog " role="document">
+		    	<div class="modal-content">
+			      	<div class="modal-body">
+			        	<div class="row">
+			        		<div class="col-md-8 col-sm-6 col-xs-12">
+			        			<div class="modal-image">
+				        			<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+			        			</div>
+			        		</div>
+			        		<div class="col-md-4 col-sm-6 col-xs-12">
+			        			<div class="product-short-details">
+			        				<h2 class="product-title">GM Pendant, Basalt Grey</h2>
+			        				<p class="product-price">$200</p>
+			        				<p class="product-short-description">
+			        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
+			        				</p>
+			        				<a href="cart.html" class="btn btn-main">Add To Cart</a>
+			        				<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </div>
+		    	</div>
+		  	</div>
+		</div>
 
                             </div>
                             <ul class="listPage">         
                             </ul>
-
+      
                         </div>				
                     </div>
 
