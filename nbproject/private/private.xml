@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/product_card.js</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/shoplist.js</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style1.css</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/userprofile.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/contact.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/shop.jsp</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/ShopController.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Category.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/js/shoplist.js</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/homepage.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/testpro4.css</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/contact.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Controller/HomeController.java</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Products.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Dao/ProductsDAO.java</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/about.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/shop.jsp</file>
-            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/src/java/Model/Category.java</file>
+            <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/shopdetail.jsp</file>
             <file>file:/F:/FPT/SP24/GitLab/group1-se1751/web/assets/css/style.css</file>
         </group>
     </open-files>

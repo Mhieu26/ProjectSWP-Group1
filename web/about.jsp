@@ -134,7 +134,9 @@
 								class="tf-ion-ios-search-strong"></i> Search</a>
 						<ul class="dropdown-menu search-dropdown">
 							<li>
-								<form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+								  <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                            <input type="hidden" name="action" value="search">
+                                        </form>
 							</li>
 						</ul>
 					</li><!-- / Search -->
