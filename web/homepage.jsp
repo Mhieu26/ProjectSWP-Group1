@@ -231,7 +231,7 @@
                                     <div class="row">
 
                                         <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
+                                        
                                             <ul>
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
@@ -241,18 +241,10 @@
                                                 <li><a href="confirmation.html">Confirmation</a></li>
 
                                             </ul>
-                                        </div>
+                                       
 
                                         <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shopdetail.jsp">Product Details</a></li>
-
-
-                                            </ul>
-                                        </div>
+                                       
 
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
@@ -407,38 +399,38 @@
                                             <div class="swiper-container gallery-top">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
+                                                        <a href="shopdetail?id=4" class="button__link">
                                                             <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
+                                                        <a href="shopdetail?id=42" class="button__link">
                                                             <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
                                                         </
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                             </a>
                                                         </div>
 
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=41" class="button__link">
                                                                 <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=40" class="button__link">
                                                                 <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=38" class="button__link">
                                                                 <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
                                                             </a>
                                                         </div>
@@ -612,9 +604,9 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
+                                           <a href="shopdetail?id=<%= product.getId()%>">
+                                                        <i class="tf-ion-ios-search-strong"></i>
+                                                          </a>
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -628,21 +620,23 @@
                             <div class="product-content">
                                 <h4><a href="shopdetail.jsp"> <%= product.getName()%></a></h4>
                                 <div class="price">
-                                    <span class="oldprice"><% 
-            double price = product.getPrice();
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            String formattedPrice = decimalFormat.format(price);
-            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-            out.print(formattedPrice);
-                                        %>₫</span>
-                                    <span class="onprice"><% 
+                                     <span class="onprice"><% 
+                                         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
            double oldPrice = product.getPrice();
             double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
             String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
             formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
             out.print(formattedDiscountedPrice);
                                         %>₫</span>
+                                    <span class="oldprice"><% 
+            double price = product.getPrice();
+            
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                                        %>₫</span>
+                                   
                                 </div>
                             </div>
 
@@ -758,7 +752,7 @@
                         <a href="#" class="button__link">PHỤ KIỆN</a>
 
                     </h2>
-                    <a href="shop" class="btn-show-more button__link">Xem tất cả</a>
+                    <a href="shop?cate=5&action=cate" class="btn-show-more button__link">Xem tất cả</a>
                 </div>
                 <div class="categories-content">
                     <div class="categories-content-wrapper is-flex">

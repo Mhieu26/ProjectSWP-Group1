@@ -84,11 +84,32 @@ public class ImageDAO extends DBContext {
         }
         return imgs;
     }
-        
+             public ArrayList<Image> getDetails() {
+        String sql = "  select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
+                + "where i.type=\"detail\"";
+        ArrayList<Image> imgs = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Image img = new Image();
+                img.setId(rs.getLong("id"));
+                img.setSource(rs.getString("source"));
+                img.setType(rs.getString("type"));
+                img.setProductId(rs.getLong("productid"));
+                imgs.add(img);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return imgs;
+    }
+//        
 //             public static void main(String[] args) {
 //               ProductsDAO pd=new ProductsDAO();
 //          ImageDAO id=new ImageDAO();
-//          ArrayList<Image> thumbnails=id.getThumbmails();
+//          ArrayList<Image> thumbnails=id.getDetails();
 //          ArrayList<Products> phone=pd.getProductsbyCateID(1);
 //        ArrayList<Products> products=pd.getProducts();
 //                 for (Products p : phone) {

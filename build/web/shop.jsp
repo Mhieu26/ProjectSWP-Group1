@@ -137,7 +137,7 @@
                                         class="tf-ion-ios-search-strong"></i> Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                          <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                        <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
                                             <input type="hidden" name="action" value="search">
                                         </form>
                                     </li>
@@ -213,28 +213,15 @@
                                     <div class="row">
 
                                         <!-- Basic -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
+                                        <ul>
+                                            <li class="dropdown-header">Pages</li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="shop">Shop</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="confirmation.html">Confirmation</a></li>
 
-                                            </ul>
-                                        </div>
-
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.html">Product Details</a></li>
-                                                <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-                                            </ul>
-                                        </div>
+                                        </ul>
 
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
@@ -349,83 +336,85 @@
                                                 <c:forEach var="c" items="${listc}">
                                                     <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
                                                            font-size: 10px;">${c.getCategory()}</a></li>
-                                                </c:forEach>
+                                                    </c:forEach>
                                             </ul>
 
                                         </div>
                                     </div>
 
                                 </div>	
-                        
+
                             </div>
 
                         </div>
-                                           <div class="slide-bar-product">
+                        <div class="slide-bar-product">
 
 
-                                <% 
-                          ArrayList<Products> get3newest = (ArrayList<Products>) request.getAttribute("get3newest");
-                         ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
-                         for (Products product : get3newest) {
-                                %> 
-                                <div class="slide-product">
-                                    <h3>Newest Products</h3>
+                            <% 
+                      ArrayList<Products> get3newest = (ArrayList<Products>) request.getAttribute("get3newest");
+                     ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                     for (Products product : get3newest) {
+                            %> 
+                            <div class="slide-product">
+                                <h3>Newest Products</h3>
 
-                                    <div class="product-thumb">
-                                        <span class="bage">Sale</span>
-                                        <%  for (Image tn : thumbnails) { %>
-                                        <%if(product.getId()==tn.getProductId()){ %>
-                                        <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
-                                        <% } } %>
-                                        <!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
-                                        <div class="preview-meta">
-                                            <ul>
-                                                <li>
-                                                    <span  data-toggle="modal" data-target="#product-modal">
-                                                        <i class="tf-ion-ios-search-strong"></i>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!"><i class="tf-ion-android-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                <div class="product-thumb">
+                                    <span class="bage">Sale</span>
+                                    <%  for (Image tn : thumbnails) { %>
+                                    <%if(product.getId()==tn.getProductId()){ %>
+                                    <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
+                                    <% } } %>
+                                    <!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <a href="shopdetail?id=<%= product.getId()%>">
+                                                    <i class="tf-ion-ios-search-strong"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="product-content">
-                                        <h4><a href="product-single.html"> <%= product.getName()%></a></h4>
-
-                                    </div>
-                                    <div class="price">
-                                        <span class="oldprice"><% 
-                double price = product.getPrice();
-                DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-                String formattedPrice = decimalFormat.format(price);
-                formattedPrice = formattedPrice.replaceAll("\\.00$", "");
-
-                out.print(formattedPrice);
-                                            %>₫</span>
-                                        <span class="onprice"><% 
-               double oldPrice = product.getPrice();
-                double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-                String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
-                formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-                out.print(formattedDiscountedPrice);
-                                            %>₫</span>
-                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="product-single.html"> <%= product.getName()%></a></h4>
 
                                 </div>
-                                <% } %>
+                                <div class="price">
+                                    <span class="onprice"><% 
+                                        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
+           String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
+                                        %>₫</span>
+                                    <span class="oldprice"><% 
+            double price = product.getPrice();
+                
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
+            out.print(formattedPrice);
+                                        %>₫</span>
 
-
-
-
-                                <!-- Modal -->
+                                </div>
 
                             </div>
+                            <% } %>
+
+
+
+
+
+                            <!-- Modal -->
+
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <div class="container">
@@ -449,9 +438,13 @@
                                         <div class="preview-meta">
                                             <ul>
                                                 <li>
-                                                    <span  data-toggle="modal" data-target="#product-modal">
+
+
+                                                    <a href="shopdetail?id=<%= product.getId()%>">
                                                         <i class="tf-ion-ios-search-strong"></i>
-                                                    </span>
+                                                    </a>
+
+
                                                 </li>
                                                 <li>
                                                     <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -467,21 +460,23 @@
 
                                     </div>
                                     <div class="price">
+                                        <span class="onprice"><% 
+              double oldPrice = product.getPrice();
+               DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+               double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
+               String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+               formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+               out.print(formattedDiscountedPrice);
+                                            %>₫</span>
                                         <span class="oldprice"><% 
                 double price = product.getPrice();
-                DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+               
                 String formattedPrice = decimalFormat.format(price);
                 formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
                 out.print(formattedPrice);
                                             %>₫</span>
-                                        <span class="onprice"><% 
-               double oldPrice = product.getPrice();
-                double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-                String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
-                formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-                out.print(formattedDiscountedPrice);
-                                            %>₫</span>
+
                                     </div>
 
                                 </div>
@@ -491,13 +486,13 @@
 
 
 
-                          <!-- Modal -->
-                          
+                                <!-- Modal -->
+
 
                             </div>
                             <ul class="listPage">         
                             </ul>
-      
+
                         </div>				
                     </div>
 

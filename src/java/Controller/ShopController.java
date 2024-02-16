@@ -16,7 +16,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,6 +74,7 @@ public class ShopController extends HttpServlet {
           ArrayList<Products> get3newest=pd.get3Newest();
         ArrayList<Products> products=pd.getProducts();
         ArrayList<Products> listp=pd.getAllProduct(null, null, null, null);
+        String productid=request.getParameter("id");
           String action = request.getParameter("action");
         String cate = request.getParameter("cate");
         String minPrice = request.getParameter("minPrice");
@@ -93,6 +101,11 @@ public class ShopController extends HttpServlet {
                   listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, maxPrice);
             }
         }
+//          if(Integer.parseInt(productid)!=0){
+//               request.getRequestDispatcher("shop.jsp").forward(request, response);
+//              }else{
+//               request.getRequestDispatcher("shopdetail.jsp").forward(request, response);
+//          }
           
           request.setAttribute("listp", listp);
            request.setAttribute("action", action);
@@ -118,7 +131,38 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        
+//
+//    Connection cnn; // ket noi db
+//    Statement stm; // thuc thi cac cau lenh sql
+//    ResultSet rs; // luu tru va xu ly du lieu
+           String productid = request.getParameter("id");
+
+        HttpSession session = request.getSession();
+        java.util.Enumeration em = session.getAttributeNames();
+//
+        Products product = (Products) session.getAttribute(productid);
+//        try {
+//            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+//            String sql = "select * from product where id = " +productid;
+//            rs = stm.executeQuery(sql);
+//            while (rs.next()) {
+//                Long id=rs.getLong(1);
+//                String name=rs.getString(2);
+//                double price=rs.getDouble(3);
+//                String description=rs.getString(4);
+//                String maker=rs.getString(5);
+//                int status=rs.getInt(6);
+//                int inventory=rs.getInt(7);
+//                int categoryid=rs.getInt(8);
+//             product=new Products(Long.parseLong(productid), name, 0, description, maker, status, inventory, categoryid);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("getlist Error:" + e.getMessage());
+//        }
+//        
+        session.setAttribute(productid, product);
+        response.sendRedirect("shop?id=" + productid);
     }
 
     /** 

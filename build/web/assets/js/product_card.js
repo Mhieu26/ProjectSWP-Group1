@@ -1,11 +1,12 @@
 $(document).ready(function(){
-    $('.product-cards').slick({
-        slidesToShow: 10,
+    $('.image-slider').slick({
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        dots: true,
   autoplaySpeed: 3000,
-  prevArrow:`<div class="swiper-button-prev" style="color: black;"></div>`,
-  nextArrow:`<div class="swiper-button-next" style="color: black;"></div>`,
+  prevArrow:`<div class="swiper-button-prev" style="color: #5A40C3;"></div>`,
+  nextArrow:`<div class="swiper-button-next" style="color: #5A40C3;"></div>`,
             responsive: [
                 {
                   breakpoint: 1025,
@@ -39,3 +40,36 @@ $(document).ready(function(){
                
         });
   });
+  
+  document.getElementById("open-popup-btn").addEventListener("click",function(){
+    document.getElementsByClassName("wrapper")[0].classList.add("active"); 
+});
+document.getElementById("close-btn").addEventListener("click",function(){
+    document.getElementsByClassName("wrapper")[0].classList.remove("active"); 
+});
+
+
+
+const allStar = document.querySelectorAll('.rating .star');
+const ratingValue = document.querySelector('.rating input');
+
+allStar.forEach((item, idx)=> {
+	item.addEventListener('click', function () {
+		let click = 0;
+		ratingValue.value = idx + 1;
+
+		allStar.forEach(i=> {
+			i.classList.replace('bxs-star', 'bx-star');
+			i.classList.remove('active');
+		})
+		for(let i=0; i<allStar.length; i++) {
+			if(i <= idx) {
+				allStar[i].classList.replace('bx-star', 'bxs-star');
+				allStar[i].classList.add('active');
+			} else {
+				allStar[i].style.setProperty('--i', click);
+				click++;
+			}
+		}
+	})
+});

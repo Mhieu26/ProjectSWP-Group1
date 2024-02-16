@@ -210,28 +210,15 @@
 							<div class="row">
 
 								<!-- Basic -->
-								<div class="col-lg-6 col-md-6 mb-sm-3">
-									<ul>
-										<li class="dropdown-header">Pages</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="shop">Shop</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="confirmation.html">Confirmation</a></li>
+								   <ul>
+                                                <li class="dropdown-header">Pages</li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="shop">Shop</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="cart.html">Cart</a></li>
+                                                <li><a href="confirmation.html">Confirmation</a></li>
 
-									</ul>
-								</div>
-
-								<!-- Layout -->
-								<div class="col-lg-6 col-md-6 mb-sm-3">
-									<ul>
-										<li class="dropdown-header">Layout</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="product-single.html">Product Details</a></li>
-										<li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-									</ul>
-								</div>
+                                            </ul>
 
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
