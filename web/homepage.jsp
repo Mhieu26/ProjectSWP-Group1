@@ -118,7 +118,9 @@
                             <li class="dropdown cart-nav dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
+
                                     <% if(user != null){%>
+
                                 <div class="dropdown-menu cart-dropdown">
                                     <!-- Cart Item -->
                                     <div class="media">
@@ -241,23 +243,32 @@
 
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
-                                <a href="shop.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                <a href="shop" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Shop <span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
                                         <!-- Basic -->
+<<<<<<< HEAD
                                         <div class="col-lg-6 col-md-6 mb-sm-3">
                                             <ul>
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="./views/shop/shop.jsp">Shop</a></li>
+=======
+                                        
+                                            <ul>
+                                                <li class="dropdown-header">Pages</li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="shop">Shop</a></li>
+>>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="cart.html">Cart</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
 
                                             </ul>
+<<<<<<< HEAD
                                         </div>
 
                                         <!-- Layout -->
@@ -271,13 +282,24 @@
                                             </ul>
                                         </div>
 
+=======
+                                       
+
+                                        <!-- Layout -->
+                                       
+
+>>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
                             </li><!-- / Elements -->
 
 
                             <!-- Pages -->
+<<<<<<< HEAD
                             <li class="dropdown full-width dropdown-slide">
+=======
+                            <li class="dropdown dropdown-slide">
+>>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
                                         class="tf-ion-ios-arrow-down"></span></a>
@@ -285,7 +307,11 @@
                                     <div class="row">
 
                                         <!-- Introduction -->
+<<<<<<< HEAD
                                         <div class="col-sm-3 col-xs-12">
+=======
+                                        <div class="col-sm-6 col-xs-12">
+>>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                             <ul>
                                                 <li class="dropdown-header">Introduction</li>
                                                 <li role="separator" class="divider"></li>
@@ -295,6 +321,7 @@
                                         </div>
 
                                         <!-- Contact -->
+<<<<<<< HEAD
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header">Dashboard</li>
@@ -320,6 +347,13 @@
                                         <!-- Mega Menu -->
                                         <div class="col-sm-3 col-xs-12">
                                             <a href="shop.html">
+=======
+
+
+                                        <!-- Mega Menu -->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <a href="shop">
+>>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                                 <img class="img-responsive" src="images/c5.png" alt="menu image" />
                                             </a>
                                         </div>
@@ -372,7 +406,7 @@
                                                     <div class="label-item multiple">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-3.svg);"></i>
-                                                            <a href="#" class="multiple-link">
+                                                            <a href="http://localhost:9999/SWP/shop?cate=1&action=cate" class="multiple-link">
                                                                 <span>Phone </span>
                                                             </a>                                                 
                                                         </div>
@@ -380,7 +414,7 @@
                                                     </div>
                                                 </div>
                                                 <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
+                                                    <a href="http://localhost:9999/SWP/shop?cate=2&action=cate" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-380.svg);"></i>
                                                             <span class="single-link">Laptop</span>
@@ -389,7 +423,7 @@
                                                     </a>
                                                 </div>
                                                 <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
+                                                    <a href="http://localhost:9999/SWP/shop?cate=3&action=cate" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-220.svg);"></i>
                                                             <span class="single-link">Headphone</span>
@@ -401,7 +435,7 @@
                                                     <div class="label-item multiple">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-610.svg);"></i>
-                                                            <a href="#" class="multiple-link">
+                                                            <a href="http://localhost:9999/SWP/shop?cate=4&action=cate" class="multiple-link">
                                                                 <span>Watch</span>
                                                             </a>
                                                         </div>
@@ -409,7 +443,7 @@
                                                     </div>
                                                 </div>
                                                 <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
+                                                    <a href="http://localhost:9999/SWP/shop?cate=5&action=cate" target="_self" class="label-item">
                                                         <div class="right-content">
                                                             <i class="icons-cate" style="background-image:url(https://cellphones.com.vn/media/icons/menu/icon-cps-30.svg);"></i>
                                                             <span class="single-link">Accessories</span>
@@ -444,38 +478,38 @@
                                             <div class="swiper-container gallery-top">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
+                                                        <a href="shopdetail?id=4" class="button__link">
                                                             <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <a href="#" class="button__link">
+                                                        <a href="shopdetail?id=42" class="button__link">
                                                             <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
                                                         </
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                             </a>
                                                         </div>
 
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=41" class="button__link">
                                                                 <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=40" class="button__link">
                                                                 <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="#" class="button__link">
+                                                            <a href="shopdetail?id=38" class="button__link">
                                                                 <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
                                                             </a>
                                                         </div>
@@ -487,11 +521,11 @@
                                         </div>
                                         <div class="block-top-home__right-banner">
                                             <div class="right-banner">
-                                                <a href="#" class="right-banner__item button__link">
-                                                    <img src="images/blog.png" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=5" class="right-banner__item button__link">
+                                                    <img src="images/blog3.jpeg" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                                 </a>
-                                                <a href="#" class="right-banner__item button__link">
-                                                    <img src="https://hanoicomputercdn.com/media/banner/28_Dec87b0c4404f3a34d876d22d609413727d.png" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=6" class="right-banner__item button__link">
+                                                    <img src="images/blog4.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                                 </a>
                                             </div>
                                         </div>
@@ -627,7 +661,7 @@
                             <a href="#" class="button__link">Featured Products</a>
 
                         </h2>
-                        <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+                        <a href="shop" class="btn-show-more button__link">Xem tất cả</a>
                     </div>
                     <div class="product-list">
 
@@ -640,6 +674,7 @@
                         <div class="product-item">
 
                             <div class="product-thumb">
+                                <span class="bage">Sale</span>
                                 <%  for (Image tn : thumbnails) { %>
                                 <%if(product.getId()==tn.getProductId()){ %>
                                 <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
@@ -648,9 +683,9 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-                                            <span  data-toggle="modal" data-target="#product-modal">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </span>
+                                           <a href="shopdetail?id=<%= product.getId()%>">
+                                                        <i class="tf-ion-ios-search-strong"></i>
+                                                          </a>
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -662,18 +697,30 @@
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4><a href="product-single.html"> <%= product.getName()%></a></h4>
-                                <p class="price"><% 
-double price = product.getPrice();
-DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-String formattedPrice = decimalFormat.format(price);
-formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+                                <h4><a href="shopdetail.jsp"> <%= product.getName()%></a></h4>
+                                <div class="price">
+                                     <span class="onprice"><% 
+                                         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+           double oldPrice = product.getPrice();
+            double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
+            String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+            out.print(formattedDiscountedPrice);
+                                        %>₫</span>
+                                    <span class="oldprice"><% 
+            double price = product.getPrice();
+            
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
-out.print(formattedPrice);
-                                    %>₫</p>
+            out.print(formattedPrice);
+                                        %>₫</span>
+                                   
+                                </div>
                             </div>
 
                         </div>
+
                         <% } %>
 
 
@@ -706,7 +753,7 @@ out.print(formattedPrice);
                             <div class="col-lg-8 text-center">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year<br> Sale</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -717,7 +764,7 @@ out.print(formattedPrice);
                             <div class="col-lg-8 text-left">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -728,7 +775,7 @@ out.print(formattedPrice);
                             <div class="col-lg-8 text-right">
                                 <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
                                 <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
-                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -778,7 +825,7 @@ out.print(formattedPrice);
                         <a href="#" class="button__link">PHỤ KIỆN</a>
 
                     </h2>
-                    <a href="#" class="btn-show-more button__link">Xem tất cả</a>
+                    <a href="shop?cate=5&action=cate" class="btn-show-more button__link">Xem tất cả</a>
                 </div>
                 <div class="categories-content">
                     <div class="categories-content-wrapper is-flex">
@@ -889,7 +936,7 @@ out.print(formattedPrice);
                                     <a href="contact.jsp">CONTACT</a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">SHOP</a>
+                                    <a href="shop">SHOP</a>
                                 </li>
                                 <li>
                                     <a href="blog">Blog</a>

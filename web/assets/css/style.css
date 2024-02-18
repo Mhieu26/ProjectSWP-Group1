@@ -11,7 +11,20 @@ body .products{
 }
 /* top navbar */
 /* top navbar */
+.price {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+.price {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
 
+.oldprice {
+    text-decoration: line-through;
+    color: #9e9e9e;
+    padding-right: 5px;
+}
 /* navbar */
 
 /*slider */
@@ -1020,6 +1033,15 @@ button .btn .btn-link :hover{
   height: 200px;
   transition: 0.5s;
 }
+.shop-list{
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  column-gap: 40px;
+}
+
+
+
+
 .title{
   font-size: x-large;
 }
@@ -1048,7 +1070,7 @@ button .btn .btn-link :hover{
 }
 .listPage li{
   background-color: #ffffffBD;
-  padding: 20px;
+  padding: 10px;
   display: inline-block;
   margin: 0 10px;
   cursor: pointer;
@@ -1057,3 +1079,74 @@ button .btn .btn-link :hover{
   background-color:#B192EF;
   color: #fff;
 }
+
+.search-box {
+    display: flex;
+    margin-bottom: 3rem;
+}
+.search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 5px;
+    font-family: 'Merriweather', serif;
+    margin: 0px 0px 0px 6px;
+    padding: 0px 12px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.search-btn:hover {
+    background-color: #505050;
+}
+.search-btn-box{
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-form{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.price-form{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.pricing-slider>h3{
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    text-transform: uppercase
+}
+
+.pricing-slider {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.pricing-slider input{
+    border: none;
+    width: 10rem;
+    height: 2rem;
+    border-bottom: 1px solid black;
+    outline: none;
+    
+}
+.price-search{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.slide-product>h3{
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    text-transform: uppercase
+}
+

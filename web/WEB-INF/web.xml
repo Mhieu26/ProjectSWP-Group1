@@ -71,6 +71,14 @@
         <servlet-name>UpdateQuantityCartItemController</servlet-name>
         <servlet-class>Controller.UpdateQuantityCartItemController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShopController</servlet-name>
+        <servlet-class>Controller.ShopController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShopDetailController</servlet-name>
+        <servlet-class>Controller.ShopDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -128,16 +136,20 @@
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UpdateCartController</servlet-name>
-        <url-pattern>/updatecart</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>DeleteCartItemController</servlet-name>
         <url-pattern>/deleteitem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateQuantityCartItemController</servlet-name>
         <url-pattern>/updatequantity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShopController</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShopDetailController</servlet-name>
+        <url-pattern>/shopdetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

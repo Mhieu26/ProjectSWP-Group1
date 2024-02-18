@@ -5,7 +5,9 @@
 
 package Controller;
 
+import Dao.ImageDAO;
 import Dao.ProductsDAO;
+import Model.Image;
 import Model.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author toanl
  */
-public class ProductsController extends HttpServlet {
+public class ShopDetailController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +38,10 @@ public class ProductsController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductsController</title>");  
+            out.println("<title>Servlet ShopDetailController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductsController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ShopDetailController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +58,14 @@ public class ProductsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
+        String productid=request.getParameter("id");
+        ProductsDAO pd=new ProductsDAO();
+          ImageDAO id=new ImageDAO();
+          ArrayList<Image> detail=id.getDetails();
+        Products product= pd.getProductsbyID(Integer.parseInt(productid));
+        request.setAttribute("detail", detail);
+        request.setAttribute("product", product);
+        request.getRequestDispatcher("shopdetail.jsp").forward(request, response);
     } 
 
     /** 
@@ -69,7 +78,7 @@ public class ProductsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
+        processRequest(request, response);
     }
 
     /** 
