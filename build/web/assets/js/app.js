@@ -117,7 +117,7 @@ $(document).ready(function () {
                 },
                 error: function (req, textStatus, errorThrown) {
                     //this is going to happen when you send something different from a 200 OK HTTP
-                    alert('Ooops, something happened: ' + textStatus + ' ' + errorThrown);
+                    alert('Ooops, somethingd happened: ' + textStatus + ' ' + errorThrown);
                 }
             });
         }
@@ -190,4 +190,38 @@ function validatePassword(password) {
         document.getElementById("password-result").innerHTML = 'Password must have minimum 8 characters, at least 1 letter and 1 number';
         return false;
     }
+}
+
+/**
+ * method send request to update cart
+ */
+//$(document).ready(function () {
+//    $("#item-quantity").bind('keyup mouseup', function () {
+//        $.ajax({
+//            type: 'GET',
+//            url: '/SWP/updatecart',
+//            data: {
+//                quantity: $('#item-quantity').val(),
+//                cartItemId: $('#item-id').val(),
+//                productid: $('#item-productid').val(),
+//                action : "quantity"
+//            },
+//            datatype: 'text',
+//            success: function (responseText) {
+//                if (responseText === 'false') {
+//                    $('#loginprompt').text("Email or password is wrong!");
+//                } else {
+//                    $(location).attr('href', '/SWP/home');
+//                }
+//            },
+//            error: function (req, textStatus, errorThrown) {
+//                //this is going to happen when you send something different from a 200 OK HTTP
+//                alert('Ooops, something happened: ' + textStatus + ' ' + errorThrown);
+//            }
+//        });
+//    });
+//});
+
+function updateQuantity(cartItemId, quantity){
+    $(location).attr('href', '/SWP/updatequantity?cartItemId='+cartItemId+'&quantity='+quantity);
 }

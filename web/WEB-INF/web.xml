@@ -55,6 +55,22 @@
         <servlet-name>ResetPassword</servlet-name>
         <servlet-class>Controller.ResetPassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>Controller.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartController</servlet-name>
+        <servlet-class>Controller.UpdateCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCartItemController</servlet-name>
+        <servlet-class>Controller.DeleteCartItemController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateQuantityCartItemController</servlet-name>
+        <servlet-class>Controller.UpdateQuantityCartItemController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -106,6 +122,22 @@
     <servlet-mapping>
         <servlet-name>ResetPassword</servlet-name>
         <url-pattern>/resetpass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartController</servlet-name>
+        <url-pattern>/updatecart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCartItemController</servlet-name>
+        <url-pattern>/deleteitem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateQuantityCartItemController</servlet-name>
+        <url-pattern>/updatequantity</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
