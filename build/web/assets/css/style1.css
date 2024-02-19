@@ -2756,3 +2756,35 @@ textarea {
 	transform: scale(.7);
 	box-shadow: 0 0 0 4px #fff, 0 0 0 6px black;
 }
+/*them tu day*/
+.submitcp button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.submitcp .confirm-btn {
+  color: white;
+  background-color: black;
+  font-size: 16px;
+}
+
+.submitcp .cancel-btn {
+  color: black;
+  background-color: #ccc;
+  font-size: 16px;
+}
+
+/* Hover effect: Thay đổi màu nền khi di chuột qua */
+.submitcp .confirm-btn:hover {
+  background-color: #333;
+}
+
+.user-avatar img {
+  width: 250px !important;
+  height: 250px !important;
+}
