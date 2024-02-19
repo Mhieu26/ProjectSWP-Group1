@@ -215,169 +215,106 @@
                 </div>
             </div>
         </section>
-        <section class="menu">
-            <nav class="navbar navigation">
+         <section class="menu">
+	<nav class="navbar navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h2 class="menu-title">Main Menu</h2>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+			</div><!-- / .navbar-header -->
 
-                    </div><!-- / .navbar-header -->
+			<!-- Navbar Links -->
+			<div id="navbar" class="navbar-collapse collapse text-center">
+				<ul class="nav navbar-nav">
 
-                    <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
-
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home">Home</a>
-                            </li><!-- / Home -->
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="home">Home</a>
+					</li><!-- / Home -->
 
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="shop" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
+					<!-- Elements -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
 
-                                        <!-- Basic -->
-<<<<<<< HEAD
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="./views/shop/shop.jsp">Shop</a></li>
-=======
-                                        
-                                            <ul>
+								<!-- Basic -->
+								   <ul>
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="shop">Shop</a></li>
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="cart.html">Cart</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
 
                                             </ul>
-<<<<<<< HEAD
-                                        </div>
 
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.html">Product Details</a></li>
-                                                <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-                                            </ul>
-                                        </div>
-
-=======
-                                       
-
-                                        <!-- Layout -->
-                                       
-
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Elements -->
 
 
-                            <!-- Pages -->
-<<<<<<< HEAD
-                            <li class="dropdown full-width dropdown-slide">
-=======
-                            <li class="dropdown dropdown-slide">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
+					<!-- Pages -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
 
-                                        <!-- Introduction -->
-<<<<<<< HEAD
-                                        <div class="col-sm-3 col-xs-12">
-=======
-                                        <div class="col-sm-6 col-xs-12">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
-                                            <ul>
-                                                <li class="dropdown-header">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.jsp">Contact Us</a></li>
-                                                <li><a href="about.jsp">About Us</a></li>
-                                            </ul>
-                                        </div>
+								<!-- Introduction -->
+								<div class="col-sm-6 col-xs-12">
+									<ul>
+										<li class="dropdown-header">Introduction</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="contact.jsp">Contact Us</a></li>
+										<li><a href="about.jsp">About Us</a></li>
+									</ul>
+								</div>
 
-                                        <!-- Contact -->
-<<<<<<< HEAD
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Dashboard</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="dashboard.html">User Interface</a></li>
-                                                <li><a href="order.html">Orders</a></li>
-                                                <li><a href="address.html">Address</a></li>
-                                                <li><a href="profile-details.html">Profile Details</a></li>
-                                            </ul>
-                                        </div>
+								<!-- Contact -->
+								
 
-                                        <!-- Utility -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Utility</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="login.html">Login Page</a></li>
-                                                <li><a href="signin.html">Signin Page</a></li>
-                                                <li><a href="forget-password.html">Forget Password</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop.html">
-=======
-
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-6 col-xs-12">
-                                            <a href="shop">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
-                                                <img class="img-responsive" src="images/c5.png" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
+								<!-- Mega Menu -->
+								<div class="col-sm-6 col-xs-12">
+									<a href="shop.html">
+                                                                            <img class="img-responsive" src="images/c5.png" alt="menu image" />
+									</a>
+								</div>
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Pages -->
 
 
 
-                            <!-- Blog -->
-                            <li class="dropdown">
-                                <a href="blog">Blog</a>
 
-                            </li><!-- / Blog -->
+					<!-- Blog -->
+					<li class=" dropdown-slide">
+						<a href="blog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
+								class="tf-ion-ios-arrow-down"></span></a>
+					
+					</li><!-- / Blog -->
 
-                            <!-- Shop -->
+					<!-- Shop -->
+				
+				</ul><!-- / .nav .navbar-nav -->
 
-                        </ul><!-- / .nav .navbar-nav -->
-
-                    </div>
-                    <!--/.navbar-collapse -->
-                </div><!-- / .container -->
-            </nav>
-        </section>
+			</div>
+			<!--/.navbar-collapse -->
+		</div><!-- / .container -->
+	</nav>
+</section>
         <!-- navbar -->
 
 
