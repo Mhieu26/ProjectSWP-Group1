@@ -2271,6 +2271,7 @@ img{
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   border-radius: 0;
+  width:500px;
 }
 .contact-form input:hover,
 .contact-form textarea:hover,
@@ -2579,12 +2580,13 @@ img{
 }
 .wrapper{
 
-  z-index: 2;
+  z-index: 15;
   text-align: center;
   opacity: 0;
   top: -200%;
   transform: translate(-50%,-50%) scale(0.5);
   transition: opacity 300ms ease-in-out, top 1000ms ease-in-out, transform 1000ms;
+  position: fixed;
 }
 .wrapper.active{
 opacity: 1;
@@ -2713,4 +2715,44 @@ textarea {
   line-height: 15px;
   border-radius: 15px;
   cursor: pointer;
+}
+
+.colors .form .select-color{
+	display: flex;
+	align-items: center;
+}
+.colors .form .select-color label{
+	display: flex;
+	align-items: center;
+
+}
+.colors .form .select-color input{display: none;}
+.colors .form .select-color span{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.colors .form .select-color .color-1{
+	background-color: red;
+
+}
+.colors .form .select-color .color-2{
+	background-color: green;
+
+}
+.colors .form .select-color .color-3{
+	background-color: blue;
+
+}
+.colors .form .select-color .color-4{
+	background-color: pink;
+
+}
+.colors .form .select-color label input:checked + span{
+	transform: scale(.7);
+	box-shadow: 0 0 0 4px #fff, 0 0 0 6px black;
 }

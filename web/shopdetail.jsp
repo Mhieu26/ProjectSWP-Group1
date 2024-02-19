@@ -334,7 +334,7 @@
 
 
                                 <!-- thumb -->
-                            
+
 
                             </div>
 
@@ -367,43 +367,55 @@
 
 
 
-
+                  <% if(products.getCategoryid()==1){ %>
                             <div class="color-swatches">
-                                <span>color:</span>
-                                <ul>
-                                    <li>
-                                        <a href="#!" class="swatch-violet"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-black"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-cream"></a>
-                                    </li>
-                                </ul>
+                                <span>Color:</span>
+                                <div class="colors">
+                                    <form action="" class="form">
+                                        <div class="select-color">
+                                            <label for="red">
+                                                <input type="radio" name="color" id="red">
+                                                <span class="color-1"></span>
+                                            </label>
+                                            <label for="green">
+                                                <input type="radio" name="color" id="green">
+                                                <span class="color-2"></span>
+                                            </label>
+                                            <label for="blue">
+                                                <input type="radio" name="color" id="blue">
+                                                <span class="color-3"></span>
+                                            </label>
+                                            <label for="pink">
+                                                <input type="radio" name="color" id="pink">
+                                                <span class="color-4"></span>
+                                            </label>
+
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="product-size">
-                                <span>Size:</span>
-                                <select class="form-control">
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
-                            </div>
+                            
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="text" value="0" name="product-quantity">
                                 </div>
                             </div>
-                            <div class="product-category">
-                                <span>Categories:</span>
-                                <ul>
-                                    <li><a href="product-single.html">Products</a></li>
-                                    <li><a href="product-single.html">Soap</a></li>
-                                </ul>
+                            <% }else{%>
+                            <div class="product-quantity">
+                                <span>Quantity:</span>
+                                <div class="product-quantity-slider">
+                                    <input id="product-quantity" type="text" value="0" name="product-quantity">
+                                </div>
                             </div>
+                            <%}%>
+                            <!--                            <div class="product-category">
+                                                            <span>Categories:</span>
+                                                            <ul>
+                                                                <li><a href="product-single.html">Products</a></li>
+                                                                <li><a href="product-single.html">Soap</a></li>
+                                                            </ul>
+                                                        </div>-->
                             <a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
                         </div>
                     </div>
