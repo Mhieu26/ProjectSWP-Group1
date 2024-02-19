@@ -1,10 +1,14 @@
-.body {
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding-top: 100px;
+    padding-top: 140px;
     color: #2e323c;
+    background: #f5f6fa;
     position: relative;
     height: 100%;
-    background-color: rgb(21, 44, 129);
+}
+.user-avatar{
+    padding-top: 50px;
 }
 
 .account-settings .user-profile {
@@ -12,7 +16,16 @@
     padding-bottom: 1rem;
     text-align: center;
 }
-
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
 .account-settings .user-profile h5.user-name {
     margin: 0 0 0.5rem 0;
 }
@@ -51,40 +64,16 @@
     border: 0;
     margin-bottom: 1rem;
 }
-.user-avatar {
-    text-align: center;
+/* Add the following styles to change button color */
+.btn-dark {
+    background-color: #000;
+    color: #fff;
 }
 
-.user-avatar img {
-    max-width: 100%;
-    height: auto;
+/* Remove the address section */
+.row.gutters:nth-child(3) {
+    display: none;
 }
-
-.btn-success {
-    background-color: #4CAF50;
-    border-color: #4CAF50;
-}
-
-.btn-success:hover {
-    background-color: #45a049;
-    border-color: #45a049;
-}
-.test-success{
-    color: #45a049;
-}
-.back a {
-    color: white;
-    text-decoration: none;
-}
-.yellow-text {
-    color: yellow;
-}
-
-.btn-yellow {
-    background-color: yellow;
-    color: black; 
-}
-form{
-    display: flex;
-    margin: 0 auto;
+h3.text-primary {
+    color: #000 !important;
 }
