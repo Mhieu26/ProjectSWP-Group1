@@ -7,8 +7,10 @@ package Controller;
 
 import Dao.ImageDAO;
 import Dao.ProductsDAO;
+import Dao.SpecificationDAO;
 import Model.Image;
 import Model.Products;
+import Model.Specification;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -60,11 +62,14 @@ public class ShopDetailController extends HttpServlet {
     throws ServletException, IOException {
         String productid=request.getParameter("id");
         ProductsDAO pd=new ProductsDAO();
+        SpecificationDAO sd=new SpecificationDAO();
           ImageDAO id=new ImageDAO();
           ArrayList<Image> detail=id.getDetails();
+          ArrayList<Specification> spec=sd.getSpecByPId(Integer.parseInt(productid));
         Products product= pd.getProductsbyID(Integer.parseInt(productid));
         request.setAttribute("detail", detail);
         request.setAttribute("product", product);
+        request.setAttribute("spec", spec);
         request.getRequestDispatcher("shopdetail.jsp").forward(request, response);
     } 
 

@@ -196,6 +196,8 @@
                                             <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
                                                 <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -299,10 +301,9 @@
 
 
 					<!-- Blog -->
-					<li class=" dropdown-slide">
-						<a href="blog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-								class="tf-ion-ios-arrow-down"></span></a>
+					<li class="dropdown dropdown-slide">
+						<a href="blog" >Blog
+								</a>
 					
 					</li><!-- / Blog -->
 
@@ -388,15 +389,7 @@
 
                                                     </a>
                                                 </div>
-                                                <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
-                                                        <div class="right-content">
-                                                            <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-promotion.svg);"></i>
-                                                            <span class="single-link">Promotion</span>
-                                                        </div>
-
-                                                    </a>
-                                                </div>
+                    
                                                 <div href="blog" target="_self" class="label-menu-tree">
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">

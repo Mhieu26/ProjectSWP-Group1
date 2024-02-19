@@ -254,9 +254,8 @@
 
 					<!-- Blog -->
 					<li class="dropdown dropdown-slide">
-						<a href="blog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Blog <span
-								class="tf-ion-ios-arrow-down"></span></a>
+						<a href="blog" >Blog
+								</a>
 						
 					</li><!-- / Blog -->
 
