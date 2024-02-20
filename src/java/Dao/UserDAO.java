@@ -53,6 +53,39 @@ public class UserDAO extends DBContext {
         }
         return users;
     }
+    public ArrayList<User> getUsersByRoleID(int id) {
+        ArrayList<User> users = new ArrayList<>();
+        
+        String sql = " select user.id, email, password, name, phone, address, sex, "
+                + "status, verificationCode, roleid, role \n"
+                + "from user join role on user.roleid = role.id \n"
+                + "where roleid=? ";
+        try {
+            
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(new Role(rs.getLong("roleid"), rs.getString("role")));
+
+                users.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return users;
+    }
 
     public User getUserByLogin(String email, String hashPassword) {
         String sql = "select user.id, email, password, name, phone, address, sex, status, verificationCode, roleid, role \n"
@@ -92,7 +125,7 @@ public class UserDAO extends DBContext {
      * @param email email that user enter
      * @return user
      */
-    public User getUserByEmail(String email) {
+        public User getUserByEmail(String email) {
         String sql = " select * from user \n"
                 + "where email = ? \n"
                 + "		AND \n"
@@ -304,6 +337,34 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
+    public User getUserByName(String name) {
+        String sql = " select * from user where name = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(null);
+
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
     public User getUserByID(long id) {
         String sql = " select * from user where id = ? ";
@@ -333,6 +394,7 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
+    
 
     public void updateImageByID(String source, long id) throws NoSuchAlgorithmException {
         try {
