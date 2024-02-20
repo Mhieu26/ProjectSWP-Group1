@@ -5,7 +5,7 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image,Model.Category"%>
+<%@page import="Model.Products, Model.User, Model.Image,Model.Category,Model.Specification"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -261,10 +261,10 @@
 
                             <!-- Blog -->
                             <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-
-                            </li><!-- / Blog -->
+						<a href="blog" >Blog
+								</a>
+					
+					</li><!-- / Blog -->
 
                             <!-- Shop -->
 
@@ -334,7 +334,7 @@
 
 
                                 <!-- thumb -->
-                            
+
 
                             </div>
 
@@ -367,61 +367,99 @@
 
 
 
-
+                  <% if(products.getCategoryid()==1){ %>
                             <div class="color-swatches">
-                                <span>color:</span>
-                                <ul>
-                                    <li>
-                                        <a href="#!" class="swatch-violet"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-black"></a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="swatch-cream"></a>
-                                    </li>
-                                </ul>
+                                <span>Color:</span>
+                                <div class="colors">
+                                    <form action="" class="form">
+                                        <div class="select-color">
+                                            <label for="red">
+                                                <input type="radio" name="color" id="red">
+                                                <span class="color-1"></span>
+                                            </label>
+                                            <label for="green">
+                                                <input type="radio" name="color" id="green">
+                                                <span class="color-2"></span>
+                                            </label>
+                                            <label for="blue">
+                                                <input type="radio" name="color" id="blue">
+                                                <span class="color-3"></span>
+                                            </label>
+                                            <label for="pink">
+                                                <input type="radio" name="color" id="pink">
+                                                <span class="color-4"></span>
+                                            </label>
+
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="product-size">
-                                <span>Size:</span>
-                                <select class="form-control">
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
-                            </div>
+                            
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="text" value="0" name="product-quantity">
                                 </div>
                             </div>
-                            <div class="product-category">
-                                <span>Categories:</span>
-                                <ul>
-                                    <li><a href="product-single.html">Products</a></li>
-                                    <li><a href="product-single.html">Soap</a></li>
-                                </ul>
+                            <% }else{%>
+                            <div class="product-quantity">
+                                <span>Quantity:</span>
+                                <div class="product-quantity-slider">
+                                    <input id="product-quantity" type="text" value="0" name="product-quantity">
+                                </div>
                             </div>
+                            <%}%>
+                            <!--                            <div class="product-category">
+                                                            <span>Categories:</span>
+                                                            <ul>
+                                                                <li><a href="product-single.html">Products</a></li>
+                                                                <li><a href="product-single.html">Soap</a></li>
+                                                            </ul>
+                                                        </div>-->
+         
                             <a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+                     
+                                               <div class="cps-block-technicalInfo mb-3 ml-3 px-3 pt-3 pb-1">
+                      
+    <div class="is-flex is-justify-content-space-between is-align-items-center">
+      <h2 class="title is-6 mb-3">Thông số kỹ thuật</h2> 
+     </div> 
+                   
+     <ul class="technical-content">
+                                                                                           <% 
+                  
+                           ArrayList<Specification> list = (ArrayList<Specification>) request.getAttribute("spec");
+         
+                         
+                      for(Specification s : list){
+                                
+                %> 
+      <li class="technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2">
+        <p><%=s.getName()%></p> 
+        <div style="font-family: Poppins, sans-serif;"><%=s.getValue()%></div></li>
+          <% }%>
+     </ul>
+         
+
+        
+                                               
+     </div>
                         </div>
                     </div>
+     
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>
-                                <li class=""><a data-toggle="tab" href="#reviews" aria-expanded="false">Reviews (3)</a></li>
+<!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
+                                <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews (3)</a></li>
                             </ul>
                             <div class="tab-content patternbg">
-                                <div id="details" class="tab-pane fade active in">
-                                    <h4>Product Description</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut per spici</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis delectus quidem repudiandae veniam distinctio repellendus magni pariatur molestiae asperiores animi, eos quod iusto hic doloremque iste a, nisi iure at unde molestias enim fugit, nulla voluptatibus. Deserunt voluptate tempora aut illum harum, deleniti laborum animi neque, praesentium explicabo, debitis ipsa?</p>
-                                </div>
-                                <div id="reviews" class="tab-pane fade">
+                   
+                               
+                             
+                                <div id="reviews" class="tab-pane fade active in">
                                     <div class="post-comments">
                                         <ul class="media-list comments-list m-bot-50 clearlist">
                                             <!-- Comment Item start-->

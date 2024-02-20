@@ -170,6 +170,8 @@
                                             <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
                                                 <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -189,44 +191,48 @@
                 </div>
             </div>
         </section>
-        <section class="menu">
-            <nav class="navbar navigation">
+         <section class="menu">
+	<nav class="navbar navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h2 class="menu-title">Main Menu</h2>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+			</div><!-- / .navbar-header -->
 
-                    </div><!-- / .navbar-header -->
+			<!-- Navbar Links -->
+			<div id="navbar" class="navbar-collapse collapse text-center">
+				<ul class="nav navbar-nav">
 
-                    <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
-
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home">Home</a>
-                            </li><!-- / Home -->
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="home">Home</a>
+					</li><!-- / Home -->
 
 
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="shop" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
+					<!-- Elements -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
 
+<<<<<<< HEAD
                                         <!-- Basic -->
 
                                        
                                             <ul>
+=======
+								<!-- Basic -->
+								   <ul>
+>>>>>>> 9c3d508e61acd319b7e1c24cd0723ca639a6f590
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="shop">Shop</a></li>
@@ -235,6 +241,7 @@
                                                 <li><a href="confirmation.html">Confirmation</a></li>
 
                                             </ul>
+<<<<<<< HEAD
                                        
 
                                         <!-- Layout -->
@@ -297,24 +304,64 @@
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
                             </li><!-- / Pages -->
+=======
+
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Elements -->
+
+
+					<!-- Pages -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+							role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+								class="tf-ion-ios-arrow-down"></span></a>
+						<div class="dropdown-menu">
+							<div class="row">
+
+								<!-- Introduction -->
+								<div class="col-sm-6 col-xs-12">
+									<ul>
+										<li class="dropdown-header">Introduction</li>
+										<li role="separator" class="divider"></li>
+										<li><a href="contact.jsp">Contact Us</a></li>
+										<li><a href="about.jsp">About Us</a></li>
+									</ul>
+								</div>
+
+								<!-- Contact -->
+								
+
+								<!-- Mega Menu -->
+								<div class="col-sm-6 col-xs-12">
+									<a href="shop.html">
+                                                                            <img class="img-responsive" src="images/c5.png" alt="menu image" />
+									</a>
+								</div>
+							</div><!-- / .row -->
+						</div><!-- / .dropdown-menu -->
+					</li><!-- / Pages -->
+>>>>>>> 9c3d508e61acd319b7e1c24cd0723ca639a6f590
 
 
 
-                            <!-- Blog -->
-                            <li class="dropdown">
-                                <a href="blog">Blog</a>
 
-                            </li><!-- / Blog -->
+					<!-- Blog -->
+					<li class="dropdown dropdown-slide">
+						<a href="blog" >Blog
+								</a>
+					
+					</li><!-- / Blog -->
 
-                            <!-- Shop -->
+					<!-- Shop -->
+				
+				</ul><!-- / .nav .navbar-nav -->
 
-                        </ul><!-- / .nav .navbar-nav -->
-
-                    </div>
-                    <!--/.navbar-collapse -->
-                </div><!-- / .container -->
-            </nav>
-        </section>
+			</div>
+			<!--/.navbar-collapse -->
+		</div><!-- / .container -->
+	</nav>
+</section>
         <!-- navbar -->
 
 
@@ -388,15 +435,7 @@
 
                                                     </a>
                                                 </div>
-                                                <div href="#" target="_self" class="label-menu-tree">
-                                                    <a href="#" target="_self" class="label-item">
-                                                        <div class="right-content">
-                                                            <i class="icons-cate" style="background-image:url(https://cdn2.cellphones.com.vn/x/media/icons/menu/icon-cps-promotion.svg);"></i>
-                                                            <span class="single-link">Promotion</span>
-                                                        </div>
-
-                                                    </a>
-                                                </div>
+                    
                                                 <div href="blog" target="_self" class="label-menu-tree">
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">
