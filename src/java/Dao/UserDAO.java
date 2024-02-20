@@ -348,4 +348,16 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
+
+    public void createUserCart(Long userid) {
+        String sql = " insert into cart(total, userid)\n"
+                + "values(0, ? ) ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, userid);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 }

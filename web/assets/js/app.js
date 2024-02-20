@@ -225,3 +225,22 @@ function validatePassword(password) {
 function updateQuantity(cartItemId, quantity){
     $(location).attr('href', '/SWP/updatequantity?cartItemId='+cartItemId+'&quantity='+quantity);
 }
+
+
+$(document).ready(function () {
+    $('#cart').hover(function () {
+        $.ajax({
+            type: 'POST',
+            url: '/SWP/checkout',
+            data: {
+                userid: $('#userid').val()                
+            },
+            datatype: 'text',
+            success: function (responseText) {
+                console.log($('#userid').val());
+                console.log(responseText);
+                $('#cart-popup').html(responseText);
+            }
+        });
+    });
+});

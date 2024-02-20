@@ -63,7 +63,8 @@ public class ActivateController extends HttpServlet {
         if (email != null && code != null && !email.isEmpty() && !code.isEmpty()) {
             UserDAO udb = new UserDAO();
             int updatedRow = udb.verifyUser(email, code);
-            if (updatedRow != 0) {
+            if (updatedRow != 0) { //system can verify account
+                udb.createUserCart( udb.getUserByEmail(email).getId() );
                 request.setAttribute("notice", "Verify account successfully!!!");
             }else{
                 request.setAttribute("notice", "Can not verify account!!!");

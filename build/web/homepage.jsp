@@ -4,7 +4,7 @@
     Author     : toanl
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -116,42 +116,16 @@
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-
+                                        
                                     <% if(user != null){%>
-
-                                <div class="dropdown-menu cart-dropdown">
+                                    <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
 
                                     <div class="cart-summary">
                                         <span>Total</span>
@@ -159,7 +133,7 @@
                                     </div>
                                     <ul class="text-center cart-buttons">
                                         <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
                                 <%}%>
@@ -250,56 +224,29 @@
                                     <div class="row">
 
                                         <!-- Basic -->
-<<<<<<< HEAD
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="./views/shop/shop.jsp">Shop</a></li>
-=======
-                                        
+
+                                       
                                             <ul>
                                                 <li class="dropdown-header">Pages</li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="shop">Shop</a></li>
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="cart.html">Cart</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
 
                                             </ul>
-<<<<<<< HEAD
-                                        </div>
-
-                                        <!-- Layout -->
-                                        <div class="col-lg-6 col-md-6 mb-sm-3">
-                                            <ul>
-                                                <li class="dropdown-header">Layout</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="product-single.html">Product Details</a></li>
-                                                <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-                                            </ul>
-                                        </div>
-
-=======
                                        
 
                                         <!-- Layout -->
                                        
 
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
                             </li><!-- / Elements -->
 
 
                             <!-- Pages -->
-<<<<<<< HEAD
-                            <li class="dropdown full-width dropdown-slide">
-=======
                             <li class="dropdown dropdown-slide">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
                                         class="tf-ion-ios-arrow-down"></span></a>
@@ -307,11 +254,7 @@
                                     <div class="row">
 
                                         <!-- Introduction -->
-<<<<<<< HEAD
-                                        <div class="col-sm-3 col-xs-12">
-=======
                                         <div class="col-sm-6 col-xs-12">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                             <ul>
                                                 <li class="dropdown-header">Introduction</li>
                                                 <li role="separator" class="divider"></li>
@@ -321,7 +264,6 @@
                                         </div>
 
                                         <!-- Contact -->
-<<<<<<< HEAD
                                         <div class="col-sm-3 col-xs-12">
                                             <ul>
                                                 <li class="dropdown-header">Dashboard</li>
@@ -344,16 +286,11 @@
                                             </ul>
                                         </div>
 
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-3 col-xs-12">
-                                            <a href="shop.html">
-=======
 
 
                                         <!-- Mega Menu -->
                                         <div class="col-sm-6 col-xs-12">
                                             <a href="shop">
->>>>>>> 1f7ba937a66a4037703d570223442d10481adc1a
                                                 <img class="img-responsive" src="images/c5.png" alt="menu image" />
                                             </a>
                                         </div>

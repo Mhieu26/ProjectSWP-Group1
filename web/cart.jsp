@@ -87,6 +87,7 @@
 
         <%
             Cart cart = (Cart)request.getAttribute("Cart");
+            User user = (User)session.getAttribute("User");
         %>
 
         <section class="page-header">
@@ -154,7 +155,7 @@
 
                                             </tbody>
                                         </table>
-                                        <a href="checkout.html" class="btn btn-main pull-right">Checkout</a>
+                                        <a href="/SWP/checkout?userid=<%=user.getId()%>" class="btn btn-main pull-right">Checkout</a>
                                     </form>
                                 </div>
                                 <%}else{%>
