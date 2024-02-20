@@ -1058,7 +1058,76 @@ values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https:/
 insert into image(source, type, productid)
 values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/t/c/tcl_40_nxt_paper_8gb_256gb_-_4.png",
 		"detail", 40);
+         insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Samsung Galaxy S24 Ultra 12GB 256GB", 27090000, null, "samsung", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/s/ss-s24-ultra-xam-222.png",
+		"thumbnail", 41);
+       
         
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_10.png",
+		"detail", 41);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_12.png",
+		"detail", 41);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_1.png",
+		"detail", 41);
+        insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_4.png",
+		"detail", 41);
+        insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_3.png",
+		"detail", 41);
+               insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Samsung Galaxy S23 Ultra 256GB", 22190000, null, "samsung", true, 200, 1);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-s23-ultra.png",
+		"thumbnail", 42);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_s23_ultra_-_1.png",
+		"detail", 42);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_s23_ultra_-_8.png",
+		"detail", 42);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_s23_ultra_-_3.png",
+		"detail", 42);
+        insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_s23_ultra_-_9.png",
+		"detail", 42);
+        insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_s23_ultra_-_6.png",
+		"detail", 42);
+         insert into product(name,price,description,maker,status,inventory,categoryid)
+values("Laptop Asus Gaming ROG Strix SCAR 18", 113190000, null, "samsung", true, 200, 2);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_d_i_4__2.png",
+		"thumbnail", 43);
+       
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_34__6_1.png",
+		"detail", 43);
+
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_39__4_1.png",
+		"detail", 43);
+        
+insert into image(source, type, productid)
+values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_43__1_2_1.png",
+		"detail", 43);
+  
         insert into BlogCategory(category)
 values("Tin Công nghệ")
 insert into BlogCategory(category)
@@ -1079,8 +1148,233 @@ insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid
 values("So sánh OnePlus 12R và Samsung Galaxy S24: Nên mua máy nào?","Galaxy S24 và OnePlus 12R là hai “tân binh” mới nhất đến từ Samsung, OnePlus. Cả hai điện thoại này đều sở hữu thiết kế hiện đại, cấu hình phần cứng hấp dẫn và nhiều tính năng thú vị."
 , "Samsung Galaxy S24 mạnh mẽ hơn.OnePlus 12R có khả năng sạc nhanh hơn.Camera Galaxy S24 có khả năng zoom kỹ thuật số 30x.OnePlus 12R có màn hình lớn hơn.Tại sự kiện ra mắt dòng Galaxy S 2024, Samsung đã dành khá nhiều thời gian để giới thiệu các tính năng AI có trong loạt điện thoại này.Ngoài chỉnh sửa ảnh, AI còn hoạt động với Live Translate, giúp dịch trực tiếp hai chiều trong các cuộc gọi điện thoại. Galaxy AI sẽ phân tích những gì người khác nói và lặp lại nó bằng tiếng mẹ đẻ của bạn gần như",
 "Minh Thanh","2024-01-26 15:10:00",true,2,"images/blog3.jpeg");
-        
 
+insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid,image)
+values("So sánh Redmi Note 13 4G và Redmi Note 13 Pro 5G: Có gì khác biệt?","Redmi Note 13 4G và Redmi Note 13 Pro 5G là hai trong số 3 “tân binh” thuộc dòng Redmi Note 13 vừa được Xiaomi giới thiệu với người dùng Việt Nam cách đây không lâu."
+, "Tổng quan về thiết kế, Redmi Note 13 4G và Redmi Note 13 Pro 5G sở hữu ngoại hình khá giống nhau. Cả hai điện thoại này đều sở hữu thiết kế vuông vắn với khung viền và mặt trước lẫn sau đều vát phẳng. Chưa hết, chúng đều sở hữu màn hình đục lỗ hiện đại ở mặt trước và có viền bezel các cạnh khá mỏng nên cho cảm giác cao cấp khi cầm trên tay. Trong thời đại bị mạng xã hội thống trị, khả năng chụp ảnh của smartphone là hết sức quan trọng. Redmi Note 13 5G với thiết lập 3 camera sau hứa hẹn mang lại",
+"Minh Thanh","2024-01-25 08:36:00",true,2,"images/blog4.jpg");
+
+
+
+
+                alter table user add column expiredDatetime datetime null after verificationCode;
+SET GLOBAL event_scheduler = ON;
+
+CREATE EVENT if not exists Event_tbl_User_Delete_Expired_verificationCode
+ON SCHEDULE
+    EVERY 1 minute
+    STARTS now() ON COMPLETION PRESERVE ENABLE 
+DO
+  DELETE FROM User
+  where expiredDatetime < now();
+  
+  
+  Alter table User modify column password varchar(255) default null;
+Alter table User modify column phone varchar(10) default null;
+Alter table User modify column address text default null;
+Alter table User modify column sex boolean default null;
+Alter table User add constraint UC_User UNIQUE(email);
+
+Alter table User add column isGoogleUser boolean default false after expiredDatetime ;
+select * from specification;
+
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.7 inch",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 13",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","512GB",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","3700 mAh",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Ultra wide camera: 12MP, F2.2, 123°, 1.12 μm, FF
+Main camera: 12MP, F1.8, Dual Pixel, 1.8μm, OIS",1,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","10MP, F2.4, 1.22μm",1,1);
+--
+
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.7 inch",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","iOS 16",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","6GB",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","128GB",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","4.323 mAh",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main camera: 48 MP, f/1.8, 24mm, 1.22µm, PDAF, OIS
+Ultra wide-angle camera: 12 MP, f/2.2, 13mm, 120˚, 1.4µm, PDAF
+Telephoto camera: 12 MP, f/2.8, 77mm (telephoto), PDAF, OIS, 3x optical zoom
+TOF 3D LiDAR depth sensor",2,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","Camera selfie: 12 MP, f/1.9, 23mm, 1/3.6, PDAF",2,1);
+--
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.7 inch",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","iOS 17",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","256GB",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","4422 mAh",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main camera: 48MP, 24mm, ƒ/1.78,
+Ultra wide-angle camera: 12 MP, 13 mm, ƒ/2.2
+Telephoto camera 5x: 12 MP, 120 mm, ƒ/2.8
+Tele camera 2x: 12 MP, 48 mm, ƒ/1.78",4,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","12MP, ƒ/1.9",4,1);
+--
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.1 inch",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","iOS 17",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","6GB",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","128GB",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","3349 mAh",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main camera: 48MP, 26mm, ƒ/1.6,
+Wide-angle camera: 12MP, 13 mm, ƒ/2.4
+Tele camera 2x: 12MP, 52 mm, ƒ/1.6",5,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","12MP, ƒ/1.9",5,1);
+/* 2*/
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","7-core GPU, 16-core Neural Engine",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","macOS Big Sur",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram Type","LPDDR4",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","49.9-watt lithium-polymer, 30W charger",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","256GB SSD",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","13.3 inches",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","2560 x 1600 pixels (2K)",8,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","2 Thunderbolt / USB 4 ports",8,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","8 GPU cores, 16 Neural Engine cores",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","MacOS",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","52,6 Wh",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","256GB SSD",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","13.6 inches",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","2560 x 1664 pixels",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","2 x Thunderbolt 3
+3.5 mm headphone jack
+MagSafe 3",9,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","AMD Radeon Graphics",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Home",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","16GB",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","42WHrs, 3S1P, Li-ion 3 cell",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","SSD 512GB M.2 NVMe PCIe 3.0",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","14 inches",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","1920 x 1080 pixels (FullHD)",10,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1 x USB 2.0 Type-A
+1 x USB 3.2 Gen 1 Type-A
+1 x USB 3.2 Gen 1 Type-C
+1 x HDMI 1.4
+1 x 3.5mm headphone jack
+1 x DC Input",10,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","NVIDIA GeForce RTX 2050 4GB",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Home",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","48WHrs, 3-cell Li-ion",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","512GB M.2 PCIE G3X2
+1x empty M.2 SSD slot",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","15.6 inches",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","1920 x 1080 pixels (FullHD)",11,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1x RJ45 LAN Port
+3x USB 3.2 Gen 1 Type-A
+1x Thunderbolt 4 supports DisplayPort
+1x HDMI 2.0b
+1x 3.5mm headphone jack",11,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","Intel Iris Xe Graphics",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Home",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram Type","DDR4",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","3cell - 41Wh",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","512GB SSD",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","13 inches",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","2160 x 1350 pixels",12,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1x USB-C 3.2 Gen 1 (support data transfer and Always On)
+1x USB-C 3.2 Gen 1 (supports data transfer and Power Delivery 3.0)
+1x Thunderbolt 4 (supports data transfer, Power Delivery 3.0, and DisplayPort 1.4)
+1x microSD card reader
+1x Headphone",12,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","NVIDIA GeForce RTX 4050 6GB GDDR6, Boost Clock 2370MHz, TGP 95W",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Home SL",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","16GB",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram Type","DDR5-5600",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","60Wh",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","512GB SSD M.2 2242 PCIe 4.0x4 NVMe (1 empty M.2 SSD slot for maximum upgrade to 1TB)",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","15.6 inches",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","1920 x 1080 pixels (FullHD)",13,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1x USB-C 3.2 Gen 1 (support data transfer and Always On)
+1x USB-C 3.2 Gen 1 (supports data transfer and Power Delivery 3.0)
+1x Thunderbolt 4 (supports data transfer, Power Delivery 3.0, and DisplayPort 1.4)
+1x microSD card reader
+1x Headphone",13,2);
 
 
 

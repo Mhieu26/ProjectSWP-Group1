@@ -288,6 +288,7 @@
                     </div>
 
                 </div>
+                
                 <% 
                   
                            ArrayList<Image> details = (ArrayList<Image>) request.getAttribute("detail");
@@ -347,20 +348,19 @@
                             <h2><%=products.getName()%></h2>
                             <div class="price">
                                 <span class="onprice"><% 
-  double oldPrice = products.getPrice();
-   DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-   double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-   String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
-   formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-   out.print(formattedDiscountedPrice);
+    DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+           double oldPrice = products.getPrice();
+            String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+            out.print(formattedDiscountedPrice);
                                     %>₫</span>
                                 <span class="oldprice"><% 
-        double price = products.getPrice();
-               
-        String formattedPrice = decimalFormat.format(price);
-        formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+         double price = products.getPrice()+0.1*products.getPrice();
+            
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
-        out.print(formattedPrice);
+            out.print(formattedPrice);
                                     %>₫</span>
 
                             </div>

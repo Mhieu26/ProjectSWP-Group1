@@ -163,8 +163,9 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
-       public ArrayList<Products> getAllProduct(String search, String categories,  String minPrice, String maxPrice) {
+       public ArrayList<Products> getAllProduct(String search, String categories,  String minPrice, String maxPrice,String sort) {
         String whereSql = "";
+        String sortSql = "";
         if (search != null) {
             whereSql = "where p.name like '%" + search + "%';";
         }
@@ -179,13 +180,16 @@ public class ProductsDAO extends DBContext {
         } else if (minPrice != null && maxPrice != null) {
             whereSql = "where (p.price IS NOT NULL AND (p.price-(p.price*10/100)) BETWEEN " + minPrice + " AND " + maxPrice + ")";
         }
+         if (sort != null) {
+            sortSql = "order by p.price " + sort;
+        }
       
        
       ArrayList<Products> list = new ArrayList<>();
         try {
             stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String sql = "select p.id,p.name,p.price,p.description,p.maker,p.status,p.inventory,c.id from product p  join category c on p.categoryid=c.id "+
-                    whereSql;
+                    whereSql+"\n"+ sortSql + "\n";
             
             rs = stm.executeQuery(sql);
             while (rs.next()) {

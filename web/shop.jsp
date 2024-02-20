@@ -389,13 +389,13 @@
                                     <span class="onprice"><% 
                                         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
           double oldPrice = product.getPrice();
-           double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-           String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+           
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
            out.print(formattedDiscountedPrice);
                                         %>₫</span>
                                     <span class="oldprice"><% 
-            double price = product.getPrice();
+            double price = product.getPrice()+0.1*product.getPrice();
                 
             String formattedPrice = decimalFormat.format(price);
             formattedPrice = formattedPrice.replaceAll("\\.00$", "");
@@ -417,6 +417,16 @@
                         </div>
                     </div>
                     <div class="col-md-9">
+                          <div class="text-sort">
+                    
+                    <div class="sort-box">
+                        <select class="select-sort" id="select" onchange="window.location.href = 'shop?action=${action}&search=${search}&cate=${cate}&minPrice=${minPrice}&maxPrice=${maxPrice}&sort=' + document.getElementById('select').value;">
+                            <option <c:if test="${sort eq ''}">selected=""</c:if> value="">Default</option>
+                            <option <c:if test="${sort eq 'asc'}">selected=""</c:if> value="asc">Low</option>
+                            <option <c:if test="${sort eq 'desc'}">selected=""</c:if> value="desc">High</option>
+                            </select>
+                        </div>
+                    </div>
                         <div class="container">
                             <div class="shop-list">
 
@@ -461,20 +471,20 @@
                                     </div>
                                     <div class="price">
                                         <span class="onprice"><% 
-              double oldPrice = product.getPrice();
-               DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-               double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-               String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
-               formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-               out.print(formattedDiscountedPrice);
+                 DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
                                             %>₫</span>
                                         <span class="oldprice"><% 
-                double price = product.getPrice();
-               
-                String formattedPrice = decimalFormat.format(price);
-                formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+               double price = product.getPrice()+0.1*product.getPrice();
+                
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
 
-                out.print(formattedPrice);
+            out.print(formattedPrice);
                                             %>₫</span>
 
                                     </div>

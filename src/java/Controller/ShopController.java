@@ -73,32 +73,34 @@ public class ShopController extends HttpServlet {
           ArrayList<Products> featured=pd.getFeaturedProducts();
           ArrayList<Products> get3newest=pd.get3Newest();
         ArrayList<Products> products=pd.getProducts();
-        ArrayList<Products> listp=pd.getAllProduct(null, null, null, null);
+      
         String productid=request.getParameter("id");
           String action = request.getParameter("action");
         String cate = request.getParameter("cate");
+        String sort=request.getParameter("sort");
         String minPrice = request.getParameter("minPrice");
         String maxPrice = request.getParameter("maxPrice");
         String search = request.getParameter("search");
+          ArrayList<Products> listp=pd.getAllProduct(null, null, null, null,sort);
           if (action == null || action.equals("")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null);
+            listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null,sort);
        
         } else if (action.equals("cate")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(null, cate, null, null);
+            listp = (ArrayList<Products>) pd.getAllProduct(null, cate, null, null,sort);
    
         } else if (action.equals("search")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(search, null, null, null);
+            listp = (ArrayList<Products>) pd.getAllProduct(search, null, null, null,sort);
             
         } else if (action.equals("price")) {
             if (minPrice.equals("")) {
-                listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, maxPrice);
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, maxPrice,sort);
              
             } else if (maxPrice.equals("")) {
-                listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, null);
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, null,sort);
             }else if (maxPrice.equals("") && minPrice.equals("")){
-                 listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null);
+                 listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null,sort);
             } else{
-                  listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, maxPrice);
+                  listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, maxPrice,sort);
             }
         }
 //          if(Integer.parseInt(productid)!=0){
@@ -110,6 +112,7 @@ public class ShopController extends HttpServlet {
           request.setAttribute("listp", listp);
            request.setAttribute("action", action);
         request.setAttribute("cate", cate);
+        request.setAttribute("sort", sort);
         request.setAttribute("minPrice", minPrice);
         request.setAttribute("maxPrice", maxPrice);
         request.setAttribute("search", search);
