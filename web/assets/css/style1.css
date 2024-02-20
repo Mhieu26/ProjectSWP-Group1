@@ -2802,3 +2802,17 @@ textarea {
   width: 250px !important;
   height: 250px !important;
 }
+
+.text-sort {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+}
+
+.text-sort>span {
+    color: #333333;
+    line-height: 16px;
+    margin: 16px 0px;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
+}
