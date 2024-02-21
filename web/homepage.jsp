@@ -606,13 +606,12 @@
                                      <span class="onprice"><% 
                                          DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
            double oldPrice = product.getPrice();
-            double discountedPrice = oldPrice - (oldPrice * 0.10); // Subtract 10%
-            String formattedDiscountedPrice = decimalFormat.format(discountedPrice);
+            String formattedDiscountedPrice = decimalFormat.format(oldPrice);
             formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
             out.print(formattedDiscountedPrice);
                                         %>₫</span>
                                     <span class="oldprice"><% 
-            double price = product.getPrice();
+            double price = product.getPrice()+0.1*product.getPrice();
             
             String formattedPrice = decimalFormat.format(price);
             formattedPrice = formattedPrice.replaceAll("\\.00$", "");
