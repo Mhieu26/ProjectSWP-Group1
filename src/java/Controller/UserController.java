@@ -90,7 +90,7 @@ public class UserController extends HttpServlet {
         String image = request.getParameter("image");
         UserDAO dao = new UserDAO();
         Boolean gender;
-
+        String msg = "";
 String genderParam = request.getParameter("gender");
 
 if ("1".equals(genderParam)) {
@@ -103,19 +103,19 @@ if ("1".equals(genderParam)) {
 }
 
         if (name == null || name.trim().isEmpty()) {
-            String msg = "Name cannot be empty";
+             msg = "Name cannot be empty";
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
             return; // Stop further processing
         }
         if (phone == null || phone.trim().isEmpty() || !phone.matches("\\d{10}")) {
-            String msg = "Invalid phone number. It must be 10 digits long and contain only numeric characters.";
+             msg = "Invalid phone number. It must be 10 digits long and contain only numeric characters.";
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
             return; // Stop further processing
         }
          if (address == null || address.trim().isEmpty()) {
-            String msg = "Address cannot be empty";
+             msg = "Address cannot be empty";
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("userprofile.jsp").forward(request, response);
             return; // Stop further processing
@@ -134,8 +134,10 @@ if ("1".equals(genderParam)) {
                 request.setAttribute("img", img);
 
         }
-        String msg="Change sucessfully";
+        String msg1="Change sucessfully";
         request.setAttribute("msg", msg);
+                request.setAttribute("msg1", msg1);
+
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 

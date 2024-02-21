@@ -86,6 +86,8 @@ public class ChangePassword extends HttpServlet {
         String password1 = request.getParameter("pass1");
         String password2 = request.getParameter("pass2");
         String errorMessage = "";
+                String errorMessage1 = "";
+
         BusinessRule bs = new BusinessRule();
         UserDAO u = new UserDAO();
         out.println(oldPassword);
@@ -137,13 +139,15 @@ public class ChangePassword extends HttpServlet {
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(ChangePassword.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                errorMessage = "Password change successfully";
+                errorMessage1 = "Password change successfully";
                 
             }
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(ChangePassword.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("errorMessage", errorMessage);
+                request.setAttribute("errorMessage1", errorMessage1);
+
         request.getRequestDispatcher("changepassword.jsp").forward(request, response);
 
 //        

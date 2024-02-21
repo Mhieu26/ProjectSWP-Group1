@@ -66,87 +66,92 @@
                         </div>
                         <h2 class="text-center">Change password</h2>
                         <form method="post" action="changePassword" >
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="password" name="oldPass" class="form-control" id="ipnPassword" placeholder="Old Password" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="btnPassword">
-                                            <span class="fa fa-eye"></span>
-                                        </button>
+                            <div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="password" name="oldPass" class="form-control" id="ipnPassword" placeholder="Old Password" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="btnPassword">
+                                                <span class="fa fa-eye"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="password" name="pass1" class="form-control" id="ipnNewPassword" placeholder="New Password" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="btnNewPassword">
-                                            <span class="fa fa-eye"></span>
-                                        </button>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="password" name="pass1" class="form-control" id="ipnNewPassword" placeholder="New Password" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="btnNewPassword">
+                                                <span class="fa fa-eye"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="password" name="pass2" class="form-control" id="ipnReNewPassword" placeholder="Re-New Password" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="btnReNewPassword">
-                                            <span class="fa fa-eye"></span>
-                                        </button>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="password" name="pass2" class="form-control" id="ipnReNewPassword" placeholder="Re-New Password" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="btnReNewPassword">
+                                                <span class="fa fa-eye"></span>
+                                            </button>
+                                        </div>
                                     </div>
+
                                 </div>
-                                
+                                <div id="matchingMessage" class="error-message"></div>
+
                             </div>
-                           
-                            
+
 
                             <div class="submitcp">
                                 <button type="submit" class="confirm-btn">Confirm</button>
                                 <br>
 
-                                <button type="button" class="cancel-btn" ><a><a href="home">Back to home</a></button>
+                                <button type="button" class="cancel-btn" ><a href="home">Back to home</a></button>
                             </div>
-                             <div>
-                        <H6>${requestScope.errorMessage}</H6>
-                    </div>
+                            <div>
+                                <H4 style="color: red">${requestScope.errorMessage}</H4>
+                                 <H4 style="color: green">${requestScope.errorMessage1}</H4>
+                            </div>
                         </form>
-                            
+
                     </div>
-                   
-                    
+
+
                 </div>
 
-                
+
             </div>
         </div>
-    
-
-</section>
 
 
+    </section>
 
-<script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.1 -->
-<script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!-- Bootstrap Touchpin -->
-<script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-<!-- Instagram Feed Js -->
-<script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-<!-- Video Lightbox Plugin -->
-<script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-<!-- Count Down Js -->
-<script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
-<!-- slick Carousel -->
-<script src="./assets/plugins/slick/slick.min.js"></script>
-<script src="./assets/plugins/slick/slick-animation.min.js"></script>
 
-<!-- Google Mapl -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
+    <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
-<!-- Main Js File -->
-<script src="./assets/js/cp.js"></script>
+    <!-- slick Carousel -->
+    <script src="./assets/plugins/slick/slick.min.js"></script>
+    <script src="./assets/plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Google Mapl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
+
+    <!-- Main Js File -->
+    <script src="./assets/js/cp.js"></script>
 
 
 
