@@ -586,9 +586,7 @@
                                                         <i class="tf-ion-ios-search-strong"></i>
                                                           </a>
 
-                                            <a href="shopdetail?id=<%= product.getId()%>">
-                                                <i class="tf-ion-ios-search-strong"></i>
-                                            </a>
+                                          
 
                                         </li>
                                         <li>

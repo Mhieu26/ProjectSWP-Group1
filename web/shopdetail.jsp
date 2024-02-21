@@ -136,13 +136,18 @@
                                         <!-- Utility -->
 
                                         <ul>
-                                            <li class="dropdown-header">Utility</li>
+                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="login">Login Page</a></li>
-                                            <li><a href="register">Signin Page</a></li>
+                                                <% if(user == null){ %>
+                                            <li><a href="login">Login</a></li>
+                                            <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
+                                                <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="logout">Logout</a></li>
+                                                <%}%>
                                         </ul>
-
 
                                         <!-- Mega Menu -->
 
@@ -495,11 +500,10 @@ for(Specification s : list){
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
                                 <!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
-<<<<<<< HEAD
+
                                 <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews</a></li>
-=======
-                                <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews (3)</a></li>
->>>>>>> 120893cd0b89147c80364a758c8a320b0eca71bc
+
+                               
                             </ul>
                             <div class="tab-content patternbg">
 
