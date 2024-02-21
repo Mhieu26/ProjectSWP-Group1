@@ -553,7 +553,7 @@
                                                 <i class='bx bx-star star' style="--i: 3;"></i>
                                                 <i class='bx bx-star star' style="--i: 4;"></i>
                                             </div>
-                                            <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+                                            <textarea name="content" cols="30" rows="5" placeholder="Your opinion..."></textarea>
                                             <div class="btn-group">
                                                 <button type="submit" class="btn submit">Submit</button>
 
@@ -563,9 +563,9 @@
                                     </div>
 
                                     <div class="button__review-container">
-                                        <p class="has-text-centered my-2 subtitle is-6">Bạn đánh giá sao về sản phẩm này?</p> 
+                                        <p class="has-text-centered my-2 subtitle is-6">How do you rate this product?</p> 
                                         <div class="has-text-centered">
-                                            <button class="button has-text-white button__review" id="open-popup-btn">Đánh giá ngay
+                                            <button class="button has-text-white button__review" id="open-popup-btn">Rating now
                                             </button></div></div>
                                 </div>
                             </div>
