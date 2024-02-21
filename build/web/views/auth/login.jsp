@@ -67,7 +67,7 @@
                             <div class="text-center" style="margin-top: 4%;">
                                     <h5>Or login with</h5>
                                     <a href="https://accounts.google.com/o/oauth2/auth?scope=profile%20email%20https://www.googleapis.com/auth/user.phonenumbers.read%20https://www.googleapis.com/auth/user.gender.read&redirect_uri=http://localhost:9999/SWP/googlelogin&response_type=code&client_id=84108154100-e5i8n0lqnoe59v0rlm5q4aki8chjuth4.apps.googleusercontent.com&approval_prompt=force">
-                                        <img src="https://account.cellphones.com.vn/_nuxt/img/image45.93ceca6.png" alt="google" width="5%"/>
+                                        <img src="https://account.cellphones.com.vn/_nuxt/img/image45.93ceca6.png" alt="google" style="width: 5%;"/>
                                     </a>
                                 </div>
                         </div>

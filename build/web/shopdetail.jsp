@@ -53,7 +53,9 @@
 
         <!-- top navbar -->
         <!-- top navbar -->
-
+        <%
+            User user = (User)session.getAttribute("User");
+        %>
         <!-- navbar -->
         <section class="top-header">
             <div class="container">
@@ -87,50 +89,27 @@
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                <div class="dropdown-menu cart-dropdown">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
 
                                     <div class="cart-summary">
                                         <span>Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
-
+                                <%}%>
                             </li><!-- / Cart -->
 
                             <!-- Search -->
@@ -516,7 +495,11 @@ for(Specification s : list){
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
                                 <!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
+<<<<<<< HEAD
                                 <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews</a></li>
+=======
+                                <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews (3)</a></li>
+>>>>>>> 120893cd0b89147c80364a758c8a320b0eca71bc
                             </ul>
                             <div class="tab-content patternbg">
 
