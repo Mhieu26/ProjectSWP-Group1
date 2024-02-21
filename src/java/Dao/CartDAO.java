@@ -35,8 +35,8 @@ public class CartDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 CartItem item = new CartItem(rs.getLong("id"), rs.getLong("productid"), rs.getString("name"),
-                         rs.getInt("quantity"), rs.getDouble("price"),
-                         rs.getString("source"), rs.getLong("cartid"));
+                        rs.getInt("quantity"), rs.getDouble("price"),
+                        rs.getString("source"), rs.getLong("cartid"));
                 cartitems.add(item);
 
             }
@@ -64,7 +64,7 @@ public class CartDAO extends DBContext {
             }
 
         } catch (SQLException e) {
-         
+
         }
         return cart;
     }
@@ -143,6 +143,23 @@ public class CartDAO extends DBContext {
             statement.setDouble(2, price);
             statement.setLong(3, id);
 
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertNewCartItem(int quantity, double price, Long cartid, Long productid) {
+        String sql = "insert into cartitem(quantity, price, cartid, productid)\n"
+                + "values(?, ?, ?, ?);";
+        
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, quantity);
+            statement.setDouble(2, price);
+            statement.setLong(3, cartid);
+            statement.setLong(4, productid);
+            
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);

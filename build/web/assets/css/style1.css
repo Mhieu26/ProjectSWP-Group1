@@ -2802,3 +2802,7 @@ textarea {
   width: 250px !important;
   height: 250px !important;
 }
+
+.bootstrap-touchspin-down, .bootstrap-touchspin-up{
+    display: none;
+}

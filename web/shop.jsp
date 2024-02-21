@@ -450,7 +450,7 @@
                                                     <a href="#" ><i class="tf-ion-ios-heart"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                                    <a href="addtocart?productid=<%= product.getId()%>&quantity=1"><i class="tf-ion-android-cart"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
