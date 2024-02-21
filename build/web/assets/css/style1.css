@@ -2807,6 +2807,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     margin-bottom: 64px;
+    justify-content: right;
 }
 
 .text-sort>span {

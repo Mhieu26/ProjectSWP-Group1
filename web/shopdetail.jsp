@@ -422,7 +422,7 @@
                                                <div class="cps-block-technicalInfo mb-3 ml-3 px-3 pt-3 pb-1">
                       
     <div class="is-flex is-justify-content-space-between is-align-items-center">
-      <h2 class="title is-6 mb-3">Thông số kỹ thuật</h2> 
+      <h2 class="title is-6 mb-3">Specifications</h2> 
      </div> 
                    
      <ul class="technical-content">
