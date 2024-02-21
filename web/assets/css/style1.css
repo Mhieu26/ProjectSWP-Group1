@@ -2803,11 +2803,9 @@ textarea {
   height: 250px !important;
 }
 
-<<<<<<< HEAD
 .bootstrap-touchspin-down, .bootstrap-touchspin-up{
     display: none;
 }
-=======
 .text-sort {
     display: flex;
     justify-content: space-between;
@@ -2822,4 +2820,3 @@ textarea {
     font-weight: 800;
     font-family: 'Open Sans', sans-serif;
 }
->>>>>>> 4a7c7a7272983ce648efa583b211cee401ba559f
