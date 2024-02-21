@@ -51,7 +51,9 @@
 
         <!-- top navbar -->
         <!-- top navbar -->
-
+        <%
+            User user = (User)session.getAttribute("User");
+        %>
         <!-- navbar -->
         <section class="top-header">
             <div class="container">
@@ -85,50 +87,27 @@
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                <div class="dropdown-menu cart-dropdown">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
 
                                     <div class="cart-summary">
                                         <span>Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
-
+                                <%}%>
                             </li><!-- / Cart -->
 
                             <!-- Search -->
@@ -261,10 +240,10 @@
 
                             <!-- Blog -->
                             <li class="dropdown dropdown-slide">
-						<a href="blog" >Blog
-								</a>
-					
-					</li><!-- / Blog -->
+                                <a href="blog" >Blog
+                                </a>
+
+                            </li><!-- / Blog -->
 
                             <!-- Shop -->
 
@@ -288,7 +267,7 @@
                     </div>
 
                 </div>
-                
+
                 <% 
                   
                            ArrayList<Image> details = (ArrayList<Image>) request.getAttribute("detail");
@@ -367,7 +346,7 @@
 
 
 
-                  <% if(products.getCategoryid()==1){ %>
+                            <% if(products.getCategoryid()==1){ %>
                             <div class="color-swatches">
                                 <span>Color:</span>
                                 <div class="colors">
@@ -394,7 +373,7 @@
                                     </form>
                                 </div>
                             </div>
-                            
+
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
@@ -418,47 +397,47 @@
                                                         </div>-->
                             <input type="text" id="productid-addtocart" value="<%= products.getId()%>" hidden="">
                             <a href="addtocart?productid=<%= products.getId()%>&quantity=1" id="href-addtocart" class="btn btn-main mt-20">Add To Cart</a>
-                     
-                                               <div class="cps-block-technicalInfo mb-3 ml-3 px-3 pt-3 pb-1">
-                      
-    <div class="is-flex is-justify-content-space-between is-align-items-center">
-      <h2 class="title is-6 mb-3">Specifications</h2> 
-     </div> 
-                   
-     <ul class="technical-content">
-                                                                                           <% 
+
+                            <div class="cps-block-technicalInfo mb-3 ml-3 px-3 pt-3 pb-1">
+
+                                <div class="is-flex is-justify-content-space-between is-align-items-center">
+                                    <h2 class="title is-6 mb-3">Specifications</h2> 
+                                </div> 
+
+                                <ul class="technical-content">
+                                    <% 
                   
-                           ArrayList<Specification> list = (ArrayList<Specification>) request.getAttribute("spec");
+ArrayList<Specification> list = (ArrayList<Specification>) request.getAttribute("spec");
          
                          
-                      for(Specification s : list){
+for(Specification s : list){
                                 
-                %> 
-      <li class="technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2">
-        <p><%=s.getName()%></p> 
-        <div style="font-family: Poppins, sans-serif;"><%=s.getValue()%></div></li>
-          <% }%>
-     </ul>
-         
+                                    %> 
+                                    <li class="technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2">
+                                        <p><%=s.getName()%></p> 
+                                        <div style="font-family: Poppins, sans-serif;"><%=s.getValue()%></div></li>
+                                        <% }%>
+                                </ul>
 
-        
-                                               
-     </div>
+
+
+
+                            </div>
                         </div>
                     </div>
-     
+
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
-<!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
+                                <!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
                                 <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews (3)</a></li>
                             </ul>
                             <div class="tab-content patternbg">
-                   
-                               
-                             
+
+
+
                                 <div id="reviews" class="tab-pane fade active in">
                                     <div class="post-comments">
                                         <ul class="media-list comments-list m-bot-50 clearlist">
