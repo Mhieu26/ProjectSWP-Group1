@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -312,8 +312,50 @@
                         %>
                     </select>
                     <button type="submit">Submit</button>
-                </form> 
-            </div>
+                </form>
+                 <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
+    
+            
+                    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>OrderlineID</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>OrderID</th>
+                <th>SaleID</th>
+                <th>ProductID</th>
+                <th>OrderDate</th>
+                <th>EndDate</th>
+                <th>Status</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+            ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
+            if (orderlines != null) {
+                for (OrderLine orderline : orderlines) {
+            %>
+            <tr>
+                <td><%= orderline.getId() %></td>
+                <td><%= orderline.getQuantity() %></td>
+        <td ><div class="text-right"><%= orderline.getPrice() %>  đồng </div></td>
+                <td><%= orderline.getOrderID() %></td>
+                <td><%= orderline.getSaleID() %></td>
+                <td><%= orderline.getProductID() %></td>
+                <td><%= orderline.getOrderDate() %></td>
+                <td><%= orderline.getEndDate() %></td>
+                <td><%= orderline.getStatus() %></td>
+                
+            </tr>
+            <% 
+                }
+            }
+            %>
+        </tbody>
+    </table>
+        </div>  
             <% }else{
             %>
             <h3 class="text-center">  You do not have permission to use this site </h3>

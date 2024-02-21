@@ -118,9 +118,9 @@
                             <li class="dropdown cart-nav dropdown-slide">
                                 <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                        
-                                    <% if(user != null){%>
-                                    <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
                                 <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
                                     <!-- / Cart Item -->
@@ -191,105 +191,109 @@
                 </div>
             </div>
         </section>
-         <section class="menu">
-	<nav class="navbar navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<h2 class="menu-title">Main Menu</h2>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+        <section class="menu">
+            <nav class="navbar navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2 class="menu-title">Main Menu</h2>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-			</div><!-- / .navbar-header -->
+                    </div><!-- / .navbar-header -->
 
-			<!-- Navbar Links -->
-			<div id="navbar" class="navbar-collapse collapse text-center">
-				<ul class="nav navbar-nav">
+                    <!-- Navbar Links -->
+                    <div id="navbar" class="navbar-collapse collapse text-center">
+                        <ul class="nav navbar-nav">
 
-					<!-- Home -->
-					<li class="dropdown ">
-						<a href="home">Home</a>
-					</li><!-- / Home -->
+                            <!-- Home -->
+                            <li class="dropdown ">
+                                <a href="home">Home</a>
+                            </li><!-- / Home -->
 
 
-					<!-- Elements -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
+                            <!-- Elements -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+                                        class="tf-ion-ios-arrow-down"></span></a>
+                                <div class="dropdown-menu">
+                                    <div class="row">
 
-								<!-- Basic -->
-								   <ul>
-                                                <li class="dropdown-header">Pages</li>
+                                        <!-- Basic -->
+                                        <ul>
+                                            <li class="dropdown-header">Pages</li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="shop">Shop</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="confirmation.html">Confirmation</a></li>
+
+                                        </ul>
+
+                                    </div><!-- / .row -->
+                                </div><!-- / .dropdown-menu -->
+                            </li><!-- / Elements -->
+
+
+                            <!-- Pages -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+                                        class="tf-ion-ios-arrow-down"></span></a>
+                                <div class="dropdown-menu">
+                                    <div class="row">
+
+                                        <!-- Introduction -->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <ul>
+                                                <li class="dropdown-header">Introduction</li>
                                                 <li role="separator" class="divider"></li>
-                                                <li><a href="shop">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
-
+                                                <li><a href="contact.jsp">Contact Us</a></li>
+                                                <li><a href="about.jsp">About Us</a></li>
                                             </ul>
+                                        </div>
 
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
-					</li><!-- / Elements -->
+                                        <!-- Contact -->
 
 
-					<!-- Pages -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
-
-								<!-- Introduction -->
-								<div class="col-sm-6 col-xs-12">
-									<ul>
-										<li class="dropdown-header">Introduction</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="contact.jsp">Contact Us</a></li>
-										<li><a href="about.jsp">About Us</a></li>
-									</ul>
-								</div>
-
-								<!-- Contact -->
-								
-
-								<!-- Mega Menu -->
-								<div class="col-sm-6 col-xs-12">
-									<a href="shop.html">
-                                                                            <img class="img-responsive" src="images/c5.png" alt="menu image" />
-									</a>
-								</div>
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
-					</li><!-- / Pages -->
+                                        <!-- Mega Menu -->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <a href="shop.html">
+                                                <img class="img-responsive" src="images/c5.png" alt="menu image" />
+                                            </a>
+                                        </div>
+                                    </div><!-- / .row -->
+                                </div><!-- / .dropdown-menu -->
+                            </li><!-- / Pages -->
 
 
 
 
-					<!-- Blog -->
-					<li class="dropdown dropdown-slide">
-						<a href="blog" >Blog
-								</a>
-					
-					</li><!-- / Blog -->
+                            <!-- Blog -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="blog" >Blog
+                                </a>
 
-					<!-- Shop -->
-				
-				</ul><!-- / .nav .navbar-nav -->
+                            </li><!-- / Blog -->
+                            <%if(user!=null){
+                            int role = (int)(user.getRole().getId());
+                             if(role==2||role==3||role==4){
 
-			</div>
-			<!--/.navbar-collapse -->
-		</div><!-- / .container -->
-	</nav>
-</section>
+                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard.jsp" >Sale Dashboard</a> </li><%}}%>
+                            <!-- Shop -->
+
+                        </ul><!-- / .nav .navbar-nav -->
+
+                    </div>
+                    <!--/.navbar-collapse -->
+                </div><!-- / .container -->
+            </nav>
+        </section>
         <!-- navbar -->
 
 
@@ -363,7 +367,7 @@
 
                                                     </a>
                                                 </div>
-                    
+
                                                 <div href="blog" target="_self" class="label-menu-tree">
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">
@@ -587,9 +591,9 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-                                           <a href="shopdetail?id=<%= product.getId()%>">
-                                                        <i class="tf-ion-ios-search-strong"></i>
-                                                          </a>
+                                            <a href="shopdetail?id=<%= product.getId()%>">
+                                                <i class="tf-ion-ios-search-strong"></i>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -603,12 +607,12 @@
                             <div class="product-content">
                                 <h4><a href="shopdetail.jsp"> <%= product.getName()%></a></h4>
                                 <div class="price">
-                                     <span class="onprice"><% 
-                                         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-           double oldPrice = product.getPrice();
-            String formattedDiscountedPrice = decimalFormat.format(oldPrice);
-            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-            out.print(formattedDiscountedPrice);
+                                    <span class="onprice"><% 
+                                        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
                                         %>₫</span>
                                     <span class="oldprice"><% 
             double price = product.getPrice()+0.1*product.getPrice();
@@ -618,7 +622,7 @@
 
             out.print(formattedPrice);
                                         %>₫</span>
-                                   
+
                                 </div>
                             </div>
 

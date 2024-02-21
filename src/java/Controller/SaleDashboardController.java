@@ -96,13 +96,14 @@ public class SaleDashboardController extends HttpServlet {
         UserDAO udao = new UserDAO();
         ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
         if (name.equals("all")) {
-            orderlines = orderdao.getOrderLines();
+            orderlines = orderdao.getOrderLinesIn7Day();
         } else {
             User user = new User();
             user = udao.getUserByName(name);
-            orderlines = orderdao.getOrderLinesBySaleID(user.getId());
+            orderlines = orderdao.getOrderLinesBySaleIDIn7Day(user.getId());
         }     
         request.setAttribute("orderlines", orderlines);
+        //  response.getWriter().print(orderlines.get(0).getPrice());
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
     }
 
