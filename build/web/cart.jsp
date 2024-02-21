@@ -143,8 +143,8 @@
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="SWP/cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="SWP/checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
                                 <%}%>
