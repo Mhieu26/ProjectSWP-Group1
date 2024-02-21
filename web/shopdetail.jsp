@@ -398,14 +398,14 @@
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="text" value="0" name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1"  name="product-quantity">
                                 </div>
                             </div>
                             <% }else{%>
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="text" value="0" name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1" name="product-quantity">
                                 </div>
                             </div>
                             <%}%>
@@ -416,8 +416,8 @@
                                                                 <li><a href="product-single.html">Soap</a></li>
                                                             </ul>
                                                         </div>-->
-         
-                            <a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+                            <input type="text" id="productid-addtocart" value="<%= products.getId()%>" hidden="">
+                            <a href="addtocart?productid=<%= products.getId()%>&quantity=1" id="href-addtocart" class="btn btn-main mt-20">Add To Cart</a>
                      
                                                <div class="cps-block-technicalInfo mb-3 ml-3 px-3 pt-3 pb-1">
                       

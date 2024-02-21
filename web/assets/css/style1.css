@@ -2803,6 +2803,9 @@ textarea {
   height: 250px !important;
 }
 
+.bootstrap-touchspin-down, .bootstrap-touchspin-up{
+    display: none;
+}
 .text-sort {
     display: flex;
     justify-content: space-between;

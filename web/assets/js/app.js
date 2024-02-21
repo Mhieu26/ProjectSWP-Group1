@@ -244,3 +244,14 @@ $(document).ready(function () {
         });
     });
 });
+
+/**
+ * method for add to cart in shopdetail
+ */
+$(document).ready(function () {
+    $('#product-quantity').change(function () {
+        quantity = $('#product-quantity').val();
+        productid = $('#productid-addtocart').val();
+        $('#href-addtocart').attr('href', 'addtocart?productid='+productid+'&quantity='+quantity);;
+    });
+});
