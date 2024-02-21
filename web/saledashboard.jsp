@@ -309,7 +309,7 @@
             if(role==2||role==3||role==4){%>
             <div class="products">
                 <form action="saledashboard" method="post">
-                    <h5><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
+                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
                         <select name="selectedSale">
                             <option value="all">All</option>
                             <% 

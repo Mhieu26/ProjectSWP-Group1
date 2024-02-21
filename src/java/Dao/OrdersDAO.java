@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class OrdersDAO extends DBContext {
 
-    public ArrayList<Orders> getOrderLinesIn7Day() {
+    public ArrayList<Orders> getOrders() {
         User user = new User();
         UserDAO userDao = new UserDAO();
         ArrayList<Orders> orderlines = new ArrayList<>();
@@ -38,29 +38,29 @@ public class OrdersDAO extends DBContext {
                 + "JOIN \n"
                 + "    `swp391`.`product` ON `swp391`.`orderline`.`productid` = `swp391`.`product`.`id`order by `orders`.`id`";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 1;
+        int flag = 0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
                 Orders o = new Orders();
+                if (flag != rs.getInt("id")) {
+                    orderlines.add(o);
+                    flag = rs.getInt("id");
+                    nameOfProduct = new ArrayList<String>() ;
+                }
                 o.setId(rs.getInt("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
                 o.setUserName(userDao.getUserByID(rs.getLong("userid")).getName());
                 o.setProductName(nameOfProduct);
                 o.setTotal(rs.getInt("total"));
                 o.setStatus(rs.getString("status"));
-                if (flag == rs.getInt("id")) {
-                    nameOfProduct.add(rs.getString("name"));
-                }
-                if (flag != rs.getInt("id")) {
-                    nameOfProduct = null;
-                    flag = rs.getInt("id");
 
-                }
+                nameOfProduct.add(rs.getString("name"));
                 o.setProductName(nameOfProduct);
-                orderlines.set(rs.getInt("id"), o);
+                orderlines.set(rs.getInt("id") - 1, o);
+
             }
         } catch (SQLException e) {
             System.out.println(e);

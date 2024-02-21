@@ -11,6 +11,7 @@ package Model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Orders {
     private int id;
@@ -56,9 +57,12 @@ public class Orders {
         this.userName = userName;
     }
 
-    public ArrayList<String> getProductName() {
-        return productName;
+    public String getProductName() {
+        
+            return productName.toString();
+        
     }
+    
 
     public void setProductName(ArrayList<String> productName) {
         this.productName = productName;

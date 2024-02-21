@@ -4,15 +4,11 @@
  */
 package Controller;
 
-import Dao.OrderLineDAO;
-import Dao.UserDAO;
-import Model.OrderLine;
-import Model.User;
+import Dao.OrdersDAO;
+import Model.Orders;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,8 +18,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-@WebServlet(name = "SaleDashboardController", urlPatterns = {"/saledashboard"})
-public class SaleDashboardController extends HttpServlet {
+public class OrdersListController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,17 +37,12 @@ public class SaleDashboardController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SaleDashboardController</title>");
+            out.println("<title>Servlet OrdersListController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SaleDashboardController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet OrdersListController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-            User user = new User();
-            int role = (int) user.getRole().getId();
-            if (role == 1 || role == 5 || role == 6) {
-                System.out.println("hehe");
-            }
         }
     }
 
@@ -68,16 +58,7 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        UserDAO users = new UserDAO();  
-        ArrayList<User> saleList = users.getUsersByRoleID(3);
-        ArrayList<String> saleName = new ArrayList<>();
-        for (User u : saleList) {
-            saleName.add(u.getName());
-        }
-        request.getSession().setAttribute("saleName", saleName);
-        //response.getWriter().print(saleName.get(0));
-        request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
     /**
@@ -91,21 +72,15 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("selectedSale");
-        //response.getWriter().print(name);
-        OrderLineDAO orderdao = new OrderLineDAO();
-        UserDAO udao = new UserDAO();
-        ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
-        if (name.equals("all")) {
-            orderlines = orderdao.getOrderLinesIn7Day();
-        } else {
-            User user = new User();
-            user = udao.getUserByName(name);
-            orderlines = orderdao.getOrderLinesBySaleIDIn7Day(user.getId());
-        }     
-        request.setAttribute("orderlines", orderlines);
-        //  response.getWriter().print(orderlines.get(0).getPrice());
-        request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
+        OrdersDAO ordersDao = new OrdersDAO();
+        ArrayList<Orders> listOrders = new ArrayList<Orders>();
+
+        String select = request.getParameter("selectedSale");
+        if (select.equals("all")) {
+            listOrders = ordersDao.getOrders();
+        }
+        request.setAttribute("listOrders", listOrders);
+        request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
     /**
