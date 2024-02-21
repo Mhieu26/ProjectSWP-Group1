@@ -216,35 +216,15 @@
                             </li><!-- / Home -->
 
 
-<<<<<<< HEAD
+
 					<!-- Elements -->
 					<li class="dropdown dropdown-slide">
 						<a href="shop" >Shop
 								</a>
 					</li><!-- / Elements -->
-=======
+
                             <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <ul>
-                                            <li class="dropdown-header">Pages</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-
-                                        </ul>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Elements -->
+                      
 
 
                             <!-- Pages -->
@@ -266,7 +246,7 @@
                                         </div>
 
                                         <!-- Contact -->
->>>>>>> 120893cd0b89147c80364a758c8a320b0eca71bc
+
 
 
                                         <!-- Mega Menu -->
@@ -601,15 +581,15 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-<<<<<<< HEAD
+
                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>"">
                                                         <i class="tf-ion-ios-search-strong"></i>
                                                           </a>
-=======
+
                                             <a href="shopdetail?id=<%= product.getId()%>">
                                                 <i class="tf-ion-ios-search-strong"></i>
                                             </a>
->>>>>>> 120893cd0b89147c80364a758c8a320b0eca71bc
+
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
