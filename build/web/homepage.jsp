@@ -280,11 +280,7 @@
                                 </a>
 
                             </li><!-- / Blog -->
-                                                        <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
-
-                            </li><!-- / Blog -->
+                                                        
                             <%if(user!=null){
                                                         int role = (int)(user.getRole().getId());
                                                          if(role==2||role==3||role==4){
