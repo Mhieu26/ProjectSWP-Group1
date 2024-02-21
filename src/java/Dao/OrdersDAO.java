@@ -18,27 +18,23 @@ import java.util.ArrayList;
  */
 public class OrdersDAO extends DBContext {
 
-    public ArrayList<Orders> getOrders() {
+    public ArrayList<Orders> getOrders(String condition) {
         User user = new User();
         UserDAO userDao = new UserDAO();
         ArrayList<Orders> orderlines = new ArrayList<>();
 
-        String sql = " SELECT `orders`.`id`,\n"
-                + "`orderdate`,\n"
-                + "`orders`.`userid`,\n"
-                + "    \n"
-                + "    `product`.`name`,\n"
-                + "    `orders`.`total`,\n"
-                + "    `orders`.`status`\n"
-                + "    \n"
-                + "    \n"
-                + "FROM `swp391`.`orders`\n"
-                + "JOIN \n"
-                + "   `swp391`.`orderline` ON `swp391`.`orders`.`id` = `swp391`.`orderline`.`orderid`\n"
-                + "JOIN \n"
-                + "    `swp391`.`product` ON `swp391`.`orderline`.`productid` = `swp391`.`product`.`id`order by `orders`.`id`";
+        String sql = " SELECT `orders`.`id`, orders.orderdate,`orders`.`userid`,        `product`.`name`,    `orders`.`total`,    `orders`.`status` ,`user`.`name` as userName \n" +
+"FROM `swp391`.`user` \n" +
+"                JOIN `swp391`.`orders`\n" +
+"                ON `swp391`.`orders`.`userid`=`swp391`.`user`.`id`\n" +
+"                JOIN    `swp391`.`orderline` \n" +
+"                ON `swp391`.`orders`.`id` = `swp391`.`orderline`.`orderid`\n" +
+"                JOIN     `swp391`.`product` \n" +
+"                ON `swp391`.`orderline`.`productid` = `swp391`.`product`.`id`\n" +
+"GROUP BY id , name\n" +
+"ORDER BY  " + condition+"id";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 0;
+        int flag = 0, index =0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -48,18 +44,19 @@ public class OrdersDAO extends DBContext {
                 if (flag != rs.getInt("id")) {
                     orderlines.add(o);
                     flag = rs.getInt("id");
-                    nameOfProduct = new ArrayList<String>() ;
+                    nameOfProduct = new ArrayList<String>();
                 }
                 o.setId(rs.getInt("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setUserName(userDao.getUserByID(rs.getLong("userid")).getName());
+                o.setUserName(rs.getString("userName"));
                 o.setProductName(nameOfProduct);
                 o.setTotal(rs.getInt("total"));
                 o.setStatus(rs.getString("status"));
 
-                nameOfProduct.add(rs.getString("name"));
+                nameOfProduct.add(rs.getString("name"));    
                 o.setProductName(nameOfProduct);
-                orderlines.set(rs.getInt("id") - 1, o);
+                index= orderlines.size()-1;
+                orderlines.set( index, o);
 
             }
         } catch (SQLException e) {

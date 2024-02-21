@@ -74,10 +74,22 @@ public class OrdersListController extends HttpServlet {
             throws ServletException, IOException {
         OrdersDAO ordersDao = new OrdersDAO();
         ArrayList<Orders> listOrders = new ArrayList<Orders>();
-
+        
         String select = request.getParameter("selectedSale");
         if (select.equals("all")) {
-            listOrders = ordersDao.getOrders();
+            listOrders = ordersDao.getOrders("");
+        }
+        if (select.equals("orderdate")) {
+            listOrders = ordersDao.getOrders("orderdate,");
+        }
+        if (select.equals("customername")) {     
+            listOrders = ordersDao.getOrders("user.name,");
+        }
+        if (select.equals("totalcost")) {
+            listOrders = ordersDao.getOrders("orders.total, ");
+        }
+        if (select.equals("status")) {
+            listOrders = ordersDao.getOrders("orders.status,");
         }
         request.setAttribute("listOrders", listOrders);
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
