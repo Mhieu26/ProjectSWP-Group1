@@ -68,6 +68,7 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         UserDAO users = new UserDAO();
         ArrayList<User> saleList = users.getUsersByRoleID(3);
         ArrayList<String> saleName = new ArrayList<>();

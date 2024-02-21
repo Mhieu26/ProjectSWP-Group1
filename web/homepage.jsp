@@ -280,11 +280,17 @@
                                 </a>
 
                             </li><!-- / Blog -->
-                            <%if(user!=null){
-                            int role = (int)(user.getRole().getId());
-                             if(role==2||role==3||role==4){
+                                                        <li class="dropdown dropdown-slide">
+                                <a href="blog" >Blog
+                                </a>
 
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard.jsp" >Sale Dashboard</a> </li><%}}%>
+                            </li><!-- / Blog -->
+                            <%if(user!=null){
+                                                        int role = (int)(user.getRole().getId());
+                                                         if(role==2||role==3||role==4){
+
+                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
+                                <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                             <!-- Shop -->
 
                         </ul><!-- / .nav .navbar-nav -->
