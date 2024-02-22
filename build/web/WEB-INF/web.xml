@@ -71,16 +71,6 @@
         <servlet-name>UpdateQuantityCartItemController</servlet-name>
         <servlet-class>Controller.UpdateQuantityCartItemController</servlet-class>
     </servlet>
-    
-    <servlet>
-        <servlet-name>MyOrderController</servlet-name>
-        <servlet-class>Controller.MyOrderController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>OrdersListController</servlet-name>
-        <servlet-class>Controller.OrdersListController</servlet-class>
-    </servlet>
-   
     <servlet>
         <servlet-name>ShopController</servlet-name>
         <servlet-class>Controller.ShopController</servlet-class>
@@ -100,6 +90,10 @@
     <servlet>
         <servlet-name>FeedbackController</servlet-name>
         <servlet-class>Controller.FeedbackController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>Controller.ContactController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -185,13 +179,9 @@
         <servlet-name>FeedbackController</servlet-name>
         <url-pattern>/feedback</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
-        <servlet-name>MyOrderController</servlet-name>
-        <url-pattern>/myorder</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>OrdersListController</servlet-name>
-        <url-pattern>/orderslist</url-pattern>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

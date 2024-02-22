@@ -6,6 +6,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -147,16 +151,12 @@
 
 								<!-- Utility -->
 								
-<<<<<<< HEAD
-					<ul>
-<!--										<li class="dropdown-header">Utility</li>-->
-										<li role="separator" class="divider"></li>
-										<li><a href="login">Login Page</a></li>
-										<li><a href="register">Signin Page</a></li>
-										<li><a href="resetpassword">Forget Password</a></li>
-									</ul>
+   <%
+           
+            User user = (User)session.getAttribute("User");
+        %>
+					
 
-=======
 									 <ul>
                                             <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
@@ -170,9 +170,7 @@
                                             <li><a href="myoder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
-                                        </ul>
->>>>>>> a5dcd9a3a2bcda18b914b11d0e83fe920c1a3527
-								
+                                        </ul>								
 
 								<!-- Mega Menu -->
 								
