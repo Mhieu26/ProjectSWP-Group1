@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine,Model.Orders"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -176,12 +176,10 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
+                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
-                                            
                                                 <%}%>
                                         </ul>
-
 
 
                                         <!-- Mega Menu -->
@@ -289,80 +287,54 @@
                             </li><!-- / Blog -->
 
                             <!-- Shop -->
-                                                        <li class="dropdown dropdown-slide">
+                            <li class="dropdown dropdown-slide">
                                 <a href="blog" >Blog
                                 </a>
 
                             </li><!-- / Blog -->
                             <%if(user!=null){
-                                                        int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==1){
-
+                            int role = (int)(user.getRole().getId());
+                                                         if(role==2||role==3||role==4){
                             %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                                <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                         </ul><!-- / .nav .navbar-nav -->
 
-                    </div>
+                    </div>  
                     <!--/.navbar-collapse -->
                 </div><!-- / .container -->
             </nav>
-            <%
-            if(user!=null){
-            int role = (int)(user.getRole().getId());
-            if(role==2||role==1){%>
+            <%if(user!=null){                                                     
+            %>
             <div class="products">
-                <form action="saledashboard" method="post">
-                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
-                        <select name="selectedSale">
-                            <option value="all">All</option>
-                            <% 
-                            ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
-                            if (saleName != null) {
-                                for (String sale : saleName) {
-                            %>
-                            <option value="<%= sale %>"><%= sale %></option>
-                            <% 
-                                }
-                            }
-                            %>
-                        </select>
-                        <button type="submit">Submit</button>
-                </form>
-                <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
-
+                <h3><label>List Of My Orders</label></h3>
 
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>OrderlineID</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>OrderID</th>
-                            <th>SaleID</th>
-                            <th>ProductID</th>
-                            <th>OrderDate</th>
-                            <th>EndDate</th>
+                            <th>ID</th>
+                            <th>Ordered Date</th>                         
+                            <th>Product</th>
+                            <th>Total Cost</th>
                             <th>Status</th>
-
+                            <th>Option</th>
                         </tr>
-                    </thead>
+                    </thead>    
                     <tbody>
                         <% 
-                        ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
-                        if (orderlines != null) {
-                            for (OrderLine orderline : orderlines) {
+                            int index = 1;
+                        ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("myOrder");
+                       
+                        if (listOrders != null) {
+                            for (Orders order : listOrders) {
                         %>
                         <tr>
-                            <td><%= orderline.getId() %></td>
-                            <td><%= orderline.getQuantity() %></td>
-                            <td ><div class="text-right"><%= orderline.getPrice() %>  đồng </div></td>
-                            <td><%= orderline.getOrderID() %></td>
-                            <td><%= orderline.getSaleID() %></td>
-                            <td><%= orderline.getProductID() %></td>
-                            <td><%= orderline.getOrderDate() %></td>
-                            <td><%= orderline.getEndDate() %></td>
-                            <td><%= orderline.getStatus() %></td>
-
+                            <td><%= index %></td>
+                            <td><%= order.getOrderDate() %></td>                         
+                            <td><%= order.getProductName() %></td>
+                            <td><%= order.getTotal() %></td>
+                            <td><%= order.getStatus() %></td>
+                            <td><a href="orderinformation?index=<%=index%>" style="color: #007aff"  >More information</a></td>
+                            <% index++; %>
                         </tr>
                         <% 
                             }
@@ -371,7 +343,7 @@
                     </tbody>
                 </table>
             </div>  
-            <% }}else{
+            <% }else{
             %>
             <h3 class="text-center">  You do not have permission to use this site </h3>
             <%}%>
@@ -500,4 +472,3 @@
 
                         </body>
                         </html> 
-

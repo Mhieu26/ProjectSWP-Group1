@@ -71,6 +71,16 @@
         <servlet-name>UpdateQuantityCartItemController</servlet-name>
         <servlet-class>Controller.UpdateQuantityCartItemController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>MyOrderController</servlet-name>
+        <servlet-class>Controller.MyOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrdersListController</servlet-name>
+        <servlet-class>Controller.OrdersListController</servlet-class>
+    </servlet>
+   
     <servlet>
         <servlet-name>ShopController</servlet-name>
         <servlet-class>Controller.ShopController</servlet-class>
@@ -174,6 +184,14 @@
     <servlet-mapping>
         <servlet-name>FeedbackController</servlet-name>
         <url-pattern>/feedback</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>MyOrderController</servlet-name>
+        <url-pattern>/myorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrdersListController</servlet-name>
+        <url-pattern>/orderslist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

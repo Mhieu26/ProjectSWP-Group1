@@ -177,7 +177,7 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
+                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -301,7 +301,7 @@
                             <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                         </ul><!-- / .nav .navbar-nav -->
 
-                    </div>
+                    </div>  
                     <!--/.navbar-collapse -->
                 </div><!-- / .container -->
             </nav>
