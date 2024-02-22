@@ -153,19 +153,14 @@
 
                                         <!-- Utility -->
 
-                                        <ul>
-                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
-                                            <li role="separator" class="divider"></li>
-                                                <% if(user == null){ %>
-                                            <li><a href="login">Login</a></li>
-                                            <li><a href="register">Sign up</a></li>
-                                            <li><a href="resetpassword">Forget Password</a></li>
-                                                <%}else {%>
-                                            <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="logout">Logout</a></li>
-                                                <%}%>
-                                        </ul>
+                                      <ul>
+<!--										<li class="dropdown-header">Utility</li>-->
+										<li role="separator" class="divider"></li>
+										<li><a href="login">Login Page</a></li>
+										<li><a href="register">Signin Page</a></li>
+										<li><a href="resetpassword">Forget Password</a></li>
+									</ul>
+
 
 
                                         <!-- Mega Menu -->
@@ -218,7 +213,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 

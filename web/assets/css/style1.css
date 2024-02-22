@@ -2852,3 +2852,6 @@ textarea {
   height: 250px !important;
 }
 /*# sourceMappingURL=style.css.map */
+.comment-content{
+    display:flex;
+}

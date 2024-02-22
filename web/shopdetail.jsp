@@ -199,7 +199,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -503,7 +503,7 @@ for(Specification s : list){
 
                                 <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews</a></li>
 
-                               
+
                             </ul>
                             <div class="tab-content patternbg">
 
@@ -529,24 +529,78 @@ for(Specification s : list){
                                                 <div class="media-body">
                                                     <div class="comment-info">
                                                         <%  for (User u : users) { %>
-                                <%if(fb.getUserid()==u.getId()){ %>
-                              
-                               
+                                                        <%if(fb.getUserid()==u.getId()){ %>
+
+
                                                         <h4 class="comment-author">
                                                             <%=u.getName()%>
                                                         </h4>
-                                                         <% } } %> 
+                                                        <% } } %> 
+                                                        <div class="comment-content">
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
-
-                                                
-                                               
-                                           
+                                                        <% int rating=fb.getStar();
+                                                        if(rating==5){%>
+                                                        <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==4){ %>
+                                                          <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==3){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else if(rating==2){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                         </div>
+                                                         <% }else if(rating==1){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else{ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star " data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                        <% } %>
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
 
                                                     <p>
                                                         <%=fb.getContent()%>
                                                     </p>
+                                                    </div>
                                                 </div>
 
                                             </li>
@@ -566,7 +620,7 @@ for(Specification s : list){
                                         <form action="feedback" id="feedbackForm">
                                             <input type="hidden" name="id" value="<%= products.getId()%>">
                                             <input type="hidden" name="cateid" value="<%= products.getCategoryid()%>">
-                                            
+
                                             <div class="rating">
                                                 <input type="number" name="rating" hidden>
                                                 <i class='bx bx-star star' style="--i: 0;"></i>
