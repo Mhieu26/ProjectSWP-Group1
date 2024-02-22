@@ -515,6 +515,7 @@ for(Specification s : list){
                                             <!-- Comment Item start-->
                                             <% 
                                     ArrayList<Feedback> feedback = (ArrayList<Feedback>) request.getAttribute("feedback");
+                                    ArrayList<User> users = (ArrayList<User>) request.getAttribute("user");
                
                                    for (Feedback fb : feedback) {
                                   
@@ -527,12 +528,19 @@ for(Specification s : list){
 
                                                 <div class="media-body">
                                                     <div class="comment-info">
+                                                        <%  for (User u : users) { %>
+                                <%if(fb.getUserid()==u.getId()){ %>
+                              
+                               
                                                         <h4 class="comment-author">
-                                                            <p name="userid" value="<%=fb.getUserid()%>">Jonathon Andrew</p>
-
+                                                            <%=u.getName()%>
                                                         </h4>
+                                                         <% } } %> 
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
 
+                                                
+                                               
+                                           
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
 
@@ -555,7 +563,7 @@ for(Specification s : list){
                                         <h3><%=products.getName()%></h3>
                                         <p>General Assessment</p>
                                         <div id="close-btn">&times</div>
-                                        <form action="shopdetail" id="feedbackForm">
+                                        <form action="feedback" id="feedbackForm">
                                             <input type="hidden" name="id" value="<%= products.getId()%>">
                                             <input type="hidden" name="cateid" value="<%= products.getCategoryid()%>">
                                             

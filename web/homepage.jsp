@@ -33,20 +33,6 @@
             />
         <link rel="stylesheet" href="./assets/css/style1.css">
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
-        <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
         <link rel="stylesheet" href="./assets/css/testpro4.css">
         <link rel="stylesheet" href="./assets/css/right_banner.css">
@@ -376,38 +362,38 @@
                                             <div class="swiper-container gallery-top">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <a href="shopdetail?id=4" class="button__link">
+                                                        <a href="shopdetail?id=4&cateid=1" class="button__link">
                                                             <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <a href="shopdetail?id=42" class="button__link">
+                                                        <a href="shopdetail?id=42&cateid=1" class="button__link">
                                                             <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
                                                         </
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43" class="button__link">
+                                                            <a href="shopdetail?id=43&cateid=2" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                             </a>
                                                         </div>
 
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43" class="button__link">
+                                                            <a href="shopdetail?id=43&cateid=2" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=41" class="button__link">
+                                                            <a href="shopdetail?id=41&cateid=1" class="button__link">
                                                                 <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=40" class="button__link">
+                                                            <a href="shopdetail?id=40&cateid=1" class="button__link">
                                                                 <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=38" class="button__link">
+                                                            <a href="shopdetail?id=38&cateid=1" class="button__link">
                                                                 <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
                                                             </a>
                                                         </div>
