@@ -800,6 +800,7 @@ html{
 .input2 input ::placeholder{
     font-weight: bold;
 }
+   
 #btnlogin{
     padding-top: 10px;
 }
