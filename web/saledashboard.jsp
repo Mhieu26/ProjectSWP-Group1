@@ -176,6 +176,7 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -268,7 +269,7 @@
                             </li><!-- / Blog -->
 
                             <!-- Shop -->
-                                                        <li class="dropdown dropdown-slide">
+                            <li class="dropdown dropdown-slide">
                                 <a href="blog" >Blog
                                 </a>
 
@@ -278,7 +279,7 @@
                                                          if(role==2||role==3||role==4){
 
                             %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                                <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>
@@ -292,20 +293,20 @@
             <div class="products">
                 <form action="saledashboard" method="post">
                     <h4><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
-                        <select name="selectedSale">
-                            <option value="all">All</option>
-                            <% 
-                            ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
-                            if (saleName != null) {
-                                for (String sale : saleName) {
-                            %>
-                            <option value="<%= sale %>"><%= sale %></option>
-                            <% 
-                                }
+                    <select name="selectedSale">
+                        <option value="all">All</option>
+                        <% 
+                        ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
+                        if (saleName != null) {
+                            for (String sale : saleName) {
+                        %>
+                        <option value="<%= sale %>"><%= sale %></option>
+                        <% 
                             }
-                            %>
-                        </select>
-                        <button type="submit">Submit</button>
+                        }
+                        %>
+                    </select>
+                    <button type="submit">Submit</button>
                 </form>
                 <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
 

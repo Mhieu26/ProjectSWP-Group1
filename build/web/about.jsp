@@ -153,6 +153,7 @@
 
                                         <!-- Utility -->
 
+<<<<<<< HEAD
                                       <ul>
 <!--										<li class="dropdown-header">Utility</li>-->
 										<li role="separator" class="divider"></li>
@@ -161,6 +162,22 @@
 										<li><a href="resetpassword">Forget Password</a></li>
 									</ul>
 
+=======
+                                        <ul>
+                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
+                                            <li role="separator" class="divider"></li>
+                                                <% if(user == null){ %>
+                                            <li><a href="login">Login</a></li>
+                                            <li><a href="register">Sign up</a></li>
+                                            <li><a href="resetpassword">Forget Password</a></li>
+                                                <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="myoder">My Order</a></li>
+                                            <li><a href="logout">Logout</a></li>
+                                                <%}%>
+                                        </ul>
+>>>>>>> a5dcd9a3a2bcda18b914b11d0e83fe920c1a3527
 
 
                                         <!-- Mega Menu -->

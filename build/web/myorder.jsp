@@ -1,9 +1,8 @@
 <%-- 
-    Document   : orderlist
-    Created on : Feb 21, 2024, 2:07:56 PM
+    Document   : myorder
+    Created on : Feb 22, 2024, 2:27:16 PM
     Author     : phuduc
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine,Model.Orders"%>
@@ -294,9 +293,8 @@
 
                             </li><!-- / Blog -->
                             <%if(user!=null){
-                                                        int role = (int)(user.getRole().getId());
+                            int role = (int)(user.getRole().getId());
                                                          if(role==2||role==3||role==4){
-
                             %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
                             <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                         </ul><!-- / .nav .navbar-nav -->
@@ -305,53 +303,38 @@
                     <!--/.navbar-collapse -->
                 </div><!-- / .container -->
             </nav>
-            <%
-            if(user!=null){
-            int role = (int)(user.getRole().getId());
-            if(role==2||role==3||role==4){%>
+            <%if(user!=null){                                                     
+            %>
             <div class="products">
-                <h4><label  for="selectOption">List Of Orders</label></h4>
-
-                <form action="orderslist" method="post">
-                    <label  for="selectOption">shorted by</label> 
-                    <select name="selectedSale">
-                        <option value="all">All</option>                      
-                        <option value="orderdate">order date</option>
-                        <option value="customername">customer name</option>
-                        <option value="totalcost">total cost</option>
-                        <option value="status">status</option>
-
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
-
-
+                <h3><label>List Of My Orders</label></h3>
 
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Ordered Date</th>
-                            <th>Customer Name</th>
+                            <th>Ordered Date</th>                         
                             <th>Product</th>
                             <th>Total Cost</th>
                             <th>Status</th>
+                            <th>Option</th>
                         </tr>
                     </thead>    
                     <tbody>
                         <% 
-                        ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("listOrders");
+                            int index = 1;
+                        ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("myOrder");
+                       
                         if (listOrders != null) {
                             for (Orders order : listOrders) {
                         %>
                         <tr>
-                            <td><%= order.getId() %></td>
-                            <td><%= order.getOrderDate() %></td>
-                            <td><%= order.getUserName() %></td>
+                            <td><%= index %></td>
+                            <td><%= order.getOrderDate() %></td>                         
                             <td><%= order.getProductName() %></td>
                             <td><%= order.getTotal() %></td>
                             <td><%= order.getStatus() %></td>
-
+                            <td><a href="orderinformation?index=<%=index%>" style="color: #007aff"  >More information</a></td>
+                            <% index++; %>
                         </tr>
                         <% 
                             }
@@ -360,7 +343,7 @@
                     </tbody>
                 </table>
             </div>  
-            <% }}else{
+            <% }else{
             %>
             <h3 class="text-center">  You do not have permission to use this site </h3>
             <%}%>
