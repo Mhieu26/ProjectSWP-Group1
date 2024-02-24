@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +53,10 @@
         <!-- top navbar -->
         <!-- top navbar -->
 
-        <!-- navbar -->
+        <!-- navbar -->   <%
+           
+            User user = (User)session.getAttribute("User");
+        %>
         <section class="top-header">
             <div class="container">
                 <div class="row">
@@ -153,6 +160,7 @@
 
                                         <!-- Utility -->
 
+
                                         <ul>
                                             <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
@@ -167,6 +175,7 @@
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
+
 
 
                                         <!-- Mega Menu -->
@@ -219,7 +228,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 

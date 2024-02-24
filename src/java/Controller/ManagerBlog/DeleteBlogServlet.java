@@ -2,27 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package Controller.ManagerBlog;
 
-import Dao.BlogCategoryDAO;
-import Dao.BlogDAO;
-import Model.Blog;
-import Model.BlogCategory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import util.Pagination;
 
 /**
  *
- * @author Admin
+ * @author tungl
  */
-public class BlogController extends HttpServlet {
+public class DeleteBlogServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +34,10 @@ public class BlogController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BlogController</title>");
+            out.println("<title>Servlet DeleteBlogServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet BlogController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteBlogServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,38 +55,7 @@ public class BlogController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BlogCategoryDAO blogCategoryDAO = new BlogCategoryDAO();
-        List<BlogCategory> blogCategories = blogCategoryDAO.getBlogCategorys();
-        String search = request.getParameter("search");
-        String blogcategoryID = request.getParameter("blogcategoryID");
-        BlogDAO blogDAO = new BlogDAO();
-        List<Blog> blogs = blogDAO.getBlogs(search, blogcategoryID);
-        request.setAttribute("blogs", blogs);
-
-        HttpSession session = request.getSession();
-        //pagging
-        // pagging
-        int litmitPage = 2;
-        if (request.getParameter("cp") == null) {
-            Pagination Page = new Pagination(blogs, litmitPage, 1);
-            Pagination<Blog> pagination = new Pagination<>(blogs, litmitPage, 1);
-            blogs = pagination.getItemsOnPage();
-            session.setAttribute("page", Page);
-            request.setAttribute("blogs", pagination.getItemsOnPage());
-        } else if (request.getParameter("cp") != null) {
-            int cp = Integer.parseInt(request.getParameter("cp"));
-            Pagination Page = new Pagination(blogs, litmitPage, cp);
-            Pagination<Blog> pagination = new Pagination<>(blogs, litmitPage, cp);
-            blogs = pagination.getItemsOnPage();
-            session.setAttribute("page", Page);
-            request.setAttribute("blogs", blogs);
-        }
-        // set URL
-        request.setAttribute("pagging", "blog");
-
-        request.setAttribute("blogcategories", blogCategories);
-        request.setAttribute("blogcategoryID", blogcategoryID);
-        request.getRequestDispatcher("./views/blog/blog.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

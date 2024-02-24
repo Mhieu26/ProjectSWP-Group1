@@ -254,3 +254,5 @@ $(document).ready(function () {
         $('#href-addtocart').attr('href', 'addtocart?productid='+productid+'&quantity='+quantity);;
     });
 });
+
+

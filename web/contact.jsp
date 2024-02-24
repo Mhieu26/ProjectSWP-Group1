@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : contact
     Created on : Jan 17, 2024, 8:47:26 AM
@@ -5,6 +6,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -146,6 +151,12 @@
 
 								<!-- Utility -->
 								
+   <%
+           
+            User user = (User)session.getAttribute("User");
+        %>
+					
+
 									 <ul>
                                             <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
@@ -158,8 +169,7 @@
                                             <li><a href="changePassword">Change Password</a></li>                                           
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
-                                        </ul>
-								
+                                        </ul>								
 
 								<!-- Mega Menu -->
 								

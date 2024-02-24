@@ -296,37 +296,47 @@
         </section>
         <!-- navbar -->
         <div class="container" id="about">
+            <%@ include file="../../common/Message.jsp" %>
+
             <h2>Tin tức cập nhật</h2>
-            <form action="blog">
-                <select name="blogcategoryID" onchange="this.form.submit()">
+            <form class="d-flex" action="blog">
+                <select class="form-select" name="blogcategoryID" onchange="this.form.submit()">
                     <c:forEach items="${requestScope.blogcategories}" var="item">
                         <option ${requestScope.blogcategoryID == item.id ? 'selected' : ''} value="${item.id}">${item.name}</option>
                     </c:forEach>
                 </select>
+                <a href="CreateBlog" class="btn btn-primary ms-2">
+                    Add Blog
+                </a>
             </form>
-            <hr>           
+            <hr> 
+
             <c:forEach items="${requestScope.blogs}" var="item">
-                <!--                <p class="right-align">
-                <fmt:parseDate value="${item.getPostedDate()}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
-                <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${parsedDateTime}" />
-            </p>-->
                 <div class="frame">
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-5 py-3 py-md-0">
                             <div class="card">
-                                <img src="${item.getImage()}" alt=""  width="450" height="200">
+                                <img src="${item.getImage()}" alt="" width="450" height="200">
                             </div>
                         </div>
                         <div class="col-md-7 py-3 py-md-0">
                             <h2>${item.getTitle()}</h2>
                             <br>
                             ${item.getBriefinfo()}
-                            <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><k style="color: black">Xem thêm</k></a>
+                            <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><span style="color: black;">Xem thêm</span></a>
+                            <br>
+
+                            <!-- Edit button -->
+                            <a href="${pageContext.request.contextPath}/UpdateBlog?id=${item.getId()}" class="btn btn-primary btn-sm">Edit</a>
+
+                            <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
+                            <a href="${pageContext.request.contextPath}/DeleteBlog?id=${item.getId()}" class="btn btn-danger btn-sm">Delete</a>
                         </div>
                     </div>
                 </div>
                 <br><br><br>
             </c:forEach>
+                <%@ include file="../../common/pagination.jsp" %>
 
         </div>
         <!-- footer -->
@@ -371,37 +381,13 @@
             </div>
         </footer>
 
-
-
-
         <!-- footer -->
 
-
-
-
-
-
-
         <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
-
-
-
-
-
-
-
-
-
-
-
         <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-
         <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
         <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
         <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-
         <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
         <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
@@ -411,11 +397,7 @@
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
         <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
-
-
         <script src="./assets/js/script.js"></script>
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="./assets/js/app.js"></script>
@@ -423,7 +405,6 @@
         <script src="./assets/js/menu.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     </body>
 </html>
 

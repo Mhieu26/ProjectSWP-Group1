@@ -199,7 +199,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -268,8 +268,127 @@
                 %> 
 
                 <div class="row mt-20">
+                       <div class="col-md-2">
+                        <div class="search-box">
+                            <form class="search-form" action="shop">
+                                <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                <input type="hidden" name="action" value="search">
+                                <button type="submit" class="search-btn"><i class="fa-solid fa-chevron-up fa-rotate-90"
+                                                                            style="color: #ffffff;"></i></button>
+                            </form>
+                        </div>
+                        <form class="price-form" action="shop">
+                            <div class="pricing-slider">
+                                <h3>Pricing</h3>
+                                <div class="price-input">
+                                    <span>From</span> <input type="number" value="${minPrice}" name="minPrice"> <span>To</span> <input type="number" value="${maxPrice}" name="maxPrice"> 
+                                </div>
+                            </div>
+                            <div class="search-btn-box"><button type="submit" class="price-search">Search</button>
+                            </div>
+                            <input type="hidden" name="action" value="price">
+                        </form>
+                        <div class="widget product-category">
 
-                    <div class="col-md-8">
+                            <div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Categories
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+
+                                            <ul>
+                                                <c:forEach var="c" items="${listc}">
+                                                    <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
+                                                           font-size: 10px;">${c.getCategory()}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>	
+
+                            </div>
+
+                        </div>
+                        <div class="slide-bar-product">
+
+
+                            <% 
+                      ArrayList<Products> get3newest = (ArrayList<Products>) request.getAttribute("get3newest");
+                     ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                     for (Products product : get3newest) {
+                            %> 
+                            <div class="slide-product">
+                                <h3>Newest Products</h3>
+
+                                <div class="product-thumb">
+                                    <span class="bage">Sale</span>
+                                    <%  for (Image tn : thumbnails) { %>
+                                    <%if(product.getId()==tn.getProductId()){ %>
+                                    <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
+                                    <% } } %>
+                                    <!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
+                                                    <i class="tf-ion-ios-search-strong"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="product-single.html"> <%= product.getName()%></a></h4>
+
+                                </div>
+                                <div class="price">
+                                    <span class="onprice"><% 
+                                        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
+                                        %>₫</span>
+                                    <span class="oldprice"><% 
+            double price = product.getPrice()+0.1*product.getPrice();
+                
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                                        %>₫</span>
+
+                                </div>
+
+                            </div>
+                            <% } %>
+
+
+
+
+
+                            <!-- Modal -->
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
 
                         <div class="single-product-slider">
 
@@ -312,7 +431,7 @@
 
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="single-product-details">
                             <h2><%=products.getName()%></h2>
                             <div class="price">
@@ -431,7 +550,7 @@ for(Specification s : list){
 
                         <% 
                   ArrayList<Products> categories = (ArrayList<Products>) request.getAttribute("categories");
-                 ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                
                  for (Products product : categories) {
                         %> 
                         <div class="product-item">
@@ -536,10 +655,71 @@ for(Specification s : list){
                                                             <%=u.getName()%>
                                                         </h4>
                                                         <% } } %> 
+
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
 
 
 
+
+
+                                                        <div class="comment-content">
+                                                        <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
+                                                        <% int rating=fb.getStar();
+                                                        if(rating==5){%>
+                                                        <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==4){ %>
+                                                          <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==3){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else if(rating==2){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                         </div>
+                                                         <% }else if(rating==1){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else{ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star " data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                        <% } %>
 
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
@@ -547,6 +727,7 @@ for(Specification s : list){
                                                     <p>
                                                         <%=fb.getContent()%>
                                                     </p>
+                                                    </div>
                                                 </div>
 
                                             </li>

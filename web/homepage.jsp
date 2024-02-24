@@ -126,12 +126,14 @@
                             </li><!-- / Cart -->
 
                             <!-- Search -->
-                            <li class="dropdown search dropdown-slide">
+                              <li class="dropdown search dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-ios-search-strong"></i> Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                        <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+                                        <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                            <input type="hidden" name="action" value="search">
+                                        </form>
                                     </li>
                                 </ul>
                             </li><!-- / Search -->
@@ -218,7 +220,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -821,7 +823,7 @@
                             </ul>
                             <ul class="footer-menu text-uppercase">
                                 <li>
-                                    <a href="contact.jsp">CONTACT</a>
+                                    <a href="contact">CONTACT</a>
                                 </li>
                                 <li>
                                     <a href="shop">SHOP</a>

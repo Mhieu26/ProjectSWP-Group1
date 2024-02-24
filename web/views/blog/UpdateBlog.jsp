@@ -1,14 +1,15 @@
 <%-- 
-    Document   : about
-    Created on : Jan 16, 2024, 6:32:09 PM
-    Author     : toanl
+    Document   : blog.jsp
+    Created on : Jan 19, 2024, 3:17:14 PM
+    Author     : bxthu
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
 <%@page import="Dao.ProductsDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.*, java.text.*" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electronic Shop</title>
+        <title>LaViBan</title>
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <!-- bootstrap links -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,6 +28,29 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+        <!-- fonts links -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+            />
+        <link rel="stylesheet" href="./assets/css/style1.css">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
+        <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
+        <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
+        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
+        <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
         <link rel="stylesheet" href="./assets/css/testpro4.css">
         <link rel="stylesheet" href="./assets/css/right_banner.css">
         <link rel="stylesheet" href="./assets/css/block-slider.css">
@@ -46,16 +71,26 @@
 
         <!-- Main Stylesheet -->
         <link rel="stylesheet" href="./assets/css/style1.css">
-        <!-- fonts links -->
+        <style>
+            .right-align {
+                text-align: right;
+            }
+            .frame {
+                border: 1px solid black;
+                padding: 5px;
+                box-shadow: 5px 5px 5px grey;
+            }
+        </style>
     </head>
-    <body>
-
+    <body id="body">
         <!-- top navbar -->
-        <!-- top navbar -->
-
-        <!-- navbar -->   <%
-           
-            User user = (User)session.getAttribute("User");
+        <%
+                    Image img = (Image)session.getAttribute("avatar");
+                    String googleAvt = (String)session.getAttribute("GoogleAvatar");
+                    String avt = (img == null) ? 
+                            (googleAvt == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png" : googleAvt) 
+                            : img.getSource();
+                    User user = (User)session.getAttribute("User");
         %>
         <section class="top-header">
             <div class="container">
@@ -89,50 +124,27 @@
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                <div class="dropdown-menu cart-dropdown">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
 
                                     <div class="cart-summary">
                                         <span>Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
-
+                                <%}%>
                             </li><!-- / Cart -->
 
                             <!-- Search -->
@@ -141,8 +153,8 @@
                                         class="tf-ion-ios-search-strong"></i> Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                        <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
-                                            <input type="hidden" name="action" value="search">
+                                        <form class="d-flex" id="search" action="blog">
+                                            <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">                                         
                                         </form>
                                     </li>
                                 </ul>
@@ -160,7 +172,6 @@
 
                                         <!-- Utility -->
 
-
                                         <ul>
                                             <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
@@ -171,11 +182,9 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
-
 
 
                                         <!-- Mega Menu -->
@@ -217,18 +226,22 @@
                             </li><!-- / Home -->
 
 
+
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
                                 <a href="shop" >Shop
-								</a>
+                                </a>
                             </li><!-- / Elements -->
+
+                            <!-- Elements -->
+
 
 
                             <!-- Pages -->
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        ></span></a>
+                                        class="tf-ion-ios-arrow-down"></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -243,6 +256,7 @@
                                         </div>
 
                                         <!-- Contact -->
+
 
 
                                         <!-- Mega Menu -->
@@ -265,6 +279,12 @@
 
                             </li><!-- / Blog -->
 
+                            <%if(user!=null){
+                                                        int role = (int)(user.getRole().getId());
+                                                         if(role==2||role==3||role==4){
+
+                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                             <!-- Shop -->
 
                         </ul><!-- / .nav .navbar-nav -->
@@ -274,115 +294,76 @@
                 </div><!-- / .container -->
             </nav>
         </section>
-
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="content">
-                            <h1 class="page-name">About Us</h1>
-                            <ol class="breadcrumb">
-                                <li><a href="home">Home</a></li>
-                                <li class="active">about us</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- navbar -->
-        <section class="about section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive" src="images/iphone__ky2k6x5u6vue_og.png">
-                    </div>
-                    <div class="col-md-6">
-                        <h2 class="mt-40">General principles:</h2>
-                        <p>- LaViBan Shop website is owned by the SWP project of FPT school, developed, operated and operated by group 1 of class SE1751. The target audience is all customers who want to purchase or place orders through e-commerce websites.</p>
 
-                        <p>- Products sold at Electronic Shop must fully meet state regulations on origin, origin of goods, and product quality.</p>
 
-                    </div>
+        <div class="container" id="about">
+            <h2>Update Blog</h2>
+            <%@ include file="../../common/Message.jsp" %>
+
+            <form action="UpdateBlog" method="post" enctype="multipart/form-data">
+
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" value="${blog.getTitle()}" required>
                 </div>
 
-            </div>
-        </section>
-        <section class="team-members ">
-            <div class="container">
-                <div class="row">
-                    <div class="title"><h2>Team Members</h2></div>
+                <!-- Brief Information -->
+                <div class="mb-3">
+                    <label for="briefinfo" class="form-label">Brief Information</label>
+                    <textarea class="form-control" id="briefinfo" name="briefinfo" rows="3" required>${blog.getBriefinfo()}</textarea>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="team-member text-center">
-                            <img class="img-circle" src="images/team/team-1.jpg">
-                            <h4>Nguyen Manh Hieu</h4>
-                            <p>Founder</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="team-member text-center">
-                            <img class="img-circle" src="images/team/team-1.jpg">
-                            <h4>Hoang Manh Toan</h4>
-                            <p>Developer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="team-member text-center">
-                            <img class="img-circle" src="images/team/team-2.jpg">
-                            <h4>Duong Thanh Dat</h4>
-                            <p>Developer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="team-member text-center">
-                            <img class="img-circle" src="images/team/team-3.jpg">
-                            <h4>Bui Thi Xuan Thu</h4>
-                            <p>Developer</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="team-member text-center">
-                            <img class="img-circle" src="images/team/team-1.jpg">
-                            <h4>Nghiem Phu Duc</h4>
-                            <p>Developer</p>
-                        </div>
-                    </div>
+
+                <!-- Content -->
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="6" required>${blog.getContent()}</textarea>
                 </div>
-            </div>
-        </section>
 
+                <!-- Author -->
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" value="${blog.getAuthor()}" required>
+                </div>
 
+                <!-- Image File Upload -->
+                <div class="mb-3">
+                    <label for="file" class="form-label">Image File</label>
+                    <!-- Image File Upload -->
+                    <div class="mb-3">
+                        <label for="file" class="form-label">New Image File</label>
+                        <input type="file" class="form-control" id="file" name="file" accept="image/*">
+                    </div>                
+                    <!-- Current Image File Name Display -->
+                    <div class="mb-3">
+                        <label for="currentImage" class="form-label">Current Image</label>
+                        </br>
+                        <img src="${blog.getImage()}" class="w-50 h-50  "/>
+                    </div>
 
+                </div>
 
+                <!-- Blog Category -->
+                <div class="mb-3">
+                    <label for="blogcategory" class="form-label">Blog Category</label>
+                    <select class="form-select" id="blogcategory" name="blogcategory" required>
 
+                        <c:forEach var="b" items="${blogcategories}">
+                            <c:set var="selected" value="${blog.getBlogCategory().getId() == b.getId() ? 'selected' : ''}" />
+                            <option value="${b.getId()}" ${selected}>${b.getName()}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <input type="text" name="blogId" value="${blog.getId()}" hidden="" />
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
 
-
-
-
-
-
-
-
-
-        <!-- offer -->
-
-        <!-- offer -->
-
-
-
-
-
-
-        <!-- newslater -->
-        <!-- newslater -->
-
-
-
-
-
-
+                <hr>
+                <a href="blog" class="btn btn-secondary">Back to List Blog</a>
+            </form>
+        </div>
         <!-- footer -->
         <footer class="footer section text-center">
             <div class="container">
@@ -424,29 +405,31 @@
                 </div>
             </div>
         </footer>
+
         <!-- footer -->
 
-
-
-
-
-
-
         <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
+        <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
+        <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+        <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
+        <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+        <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+        <script src="./assets/plugins/slick/slick.min.js"></script>
+        <script src="./assets/plugins/slick/slick-animation.min.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+        <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
+        <script src="./assets/js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/product_card.js"></script>
+        <script src="./assets/js/menu.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>
+

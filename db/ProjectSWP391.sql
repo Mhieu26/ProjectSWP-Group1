@@ -1127,13 +1127,13 @@ values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https:/
 insert into image(source, type, productid)
 values("https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_43__1_2_1.png",
 		"detail", 43);
-  
+  alter table blog add column image text not null;
         insert into BlogCategory(category)
-values("Tin Công nghệ")
+values("Tin Công nghệ");
 insert into BlogCategory(category)
-values("Tư vấn")
+values("Tư vấn");
 insert into BlogCategory(category)
-values("Khuyến mãi")
+values("Khuyến mãi");
 insert into blog(title, briefinfor,content,author,postdate,status,blogcategoryid,image)
 values("Xiaomi ra mắt cáp sạc nhanh 60W với giá chỉ 65 ngàn đồng","Xiaomi vừa mở rộng danh mục đầu tư của họ bằng cách tung ra cáp USB-C mới. Với mức giá phải chăng là 19 nhân dân tệ (khoảng 65 ngàn đồng), sản phẩm mới nhất hiện đã mở bán tại Trung Quốc."
 , "Cáp sạc mới của Xiaomi có chiều dài 1 mét nên khá lý tưởng để sạc các thiết bị hàng ngày của bạn như điện thoại thông minh hoặc máy tính bảng đồng thời giảm khả năng bị rối.Về mặt thẩm mỹ, cáp có tông màu trắng và xám tối giản, được làm từ cao su TPE, một loại vật liệu nổi tiếng với tính linh hoạt và độ bền, giúp nâng cao tuổi thọ. Nó hỗ trợ dòng điện 3A và sạc nhanh 60W. Ngoài ra, nó còn có tốc độ truyền dữ liệu lên tới 480 Mbps, tuân thủ tiêu chuẩn USB 2.0, quá đủ để truyền file và sao lưu ảnh",
@@ -1230,6 +1230,87 @@ Telephoto camera 5x: 12 MP, 120 mm, ƒ/2.8
 Tele camera 2x: 12 MP, 48 mm, ƒ/1.78",4,1);
 insert into specification(name,value,productid,categoryid)
 values("Front Camera","12MP, ƒ/1.9",4,1);
+-------
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.67 inch",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 13",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","6GB",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","128GB",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main 108 MP & Secondary 8 MP, 2 MP",38,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","16MP",38,1);
+-------------
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.56 inch",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 13",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB+Plus 8GB",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","128GB",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main 108 MP & Secondary 8 MP, 2 MP",39,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","32MP",39,1);
+-----
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.78 inch",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 13",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB+Plus 8GB",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","256GB",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main 108 MP & Secondary 8 MP, 2 MP",40,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","32MP",40,1);
+----
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.8 inch",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 14, One UI 6.1",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","12GB",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","256GB",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main camera: 200MP, Laser AF, OIS
+Camera: 50MP, PDAF, OIS, 5x optical zoom
+Telephoto camera: 10MP
+Ultra wide-angle camera: 12 MP, f/2.2, 13mm, 120˚",41,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","12 MP, f/2.2",41,1);
+-------
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.8 inch",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 14, One UI 6.1",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","256GB",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Ultra wide: 12MP F2.2 (Dual Pixel AF)
+Main: 200MP F1.7 OIS ±3° (Super Quad Pixel AF)
+Tele 1: 10MP F4.9 (10X, Dual Pixel AF) OIS,
+Tele 2: 10MP F2.4 (3X, Dual Pixel AF) OIS 100X spatial zoom˚",42,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","12MP F2.2 (Dual Pixel AF)",42,1);
 --
 insert into specification(name,value,productid,categoryid)
 values("Screen Size","6.1 inch",5,1);
@@ -1247,6 +1328,21 @@ Wide-angle camera: 12MP, 13 mm, ƒ/2.4
 Tele camera 2x: 12MP, 52 mm, ƒ/1.6",5,1);
 insert into specification(name,value,productid,categoryid)
 values("Front Camera","12MP, ƒ/1.9",5,1);
+-------------
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","6.5 inch",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Android 14",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Ram","8GB",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","128GB",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Battery","5000 mAh",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Rear Camera","Main 50 MP & Secondary 5 MP, 2 MP",36,1);
+insert into specification(name,value,productid,categoryid)
+values("Front Camera","13MP",36,1);
 /* 2*/
 insert into specification(name,value,productid,categoryid)
 values("Graphics Card","7-core GPU, 16-core Neural Engine",8,2);
@@ -1285,6 +1381,30 @@ insert into specification(name,value,productid,categoryid)
 values("Communication Port","2 x Thunderbolt 3
 3.5 mm headphone jack
 MagSafe 3",9,2);
+------
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","NVIDIA GeForce RTX 4090 16GB GDDR6",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Home",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","64GB",9,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","90WHrs, 4S1P, 4-cell Li-ion",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","2TB PCIe 4.0 NVMe M.2 SSD
+1 empty slot",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","13.6 inches",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","2560 x 1600 pixels (2K)",43,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1x 2.5G LAN
+1x Thunderbolt 4 (DisplayPort / G-SYNC)
+1x USB 3.2 Gen 2 Type-C (DisplayPort / Charging / G-SYNC)
+2x USB 3.2 Gen 2 Type-A
+1x HDMI 2.1 FRL
+1x 3.5mm Combo Audio Jack",43,2);
 
 insert into specification(name,value,productid,categoryid)
 values("Graphics Card","AMD Radeon Graphics",10,2);
@@ -1370,11 +1490,362 @@ values("Screen Size","15.6 inches",13,2);
 insert into specification(name,value,productid,categoryid)
 values("Screen Resolution","1920 x 1080 pixels (FullHD)",13,2);
 insert into specification(name,value,productid,categoryid)
-values("Communication Port","1x USB-C 3.2 Gen 1 (support data transfer and Always On)
-1x USB-C 3.2 Gen 1 (supports data transfer and Power Delivery 3.0)
-1x Thunderbolt 4 (supports data transfer, Power Delivery 3.0, and DisplayPort 1.4)
-1x microSD card reader
-1x Headphone",13,2);
+values("Communication Port","1x Ethernet (RJ-45)
+1x HDMI 2.1, up to 8K/60Hz
+1x Headphone/microphone combo jack (3.5mm)
+1x Power connector
+1x USB 2.0
+1x USB-C 3.2 Gen 2 (Data transfer, charging, DisplayPort 1.4)
+2x USB 3.2 Gen 2",13,2);
+
+insert into specification(name,value,productid,categoryid)
+values("Graphics Card","Intel Iris Xe Graphics",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Windows 11 Pro",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram","16GB",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Ram Type","LPDDR5, 4800 MT/s (onboard)",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Battery","4 Cell, 54 Wh",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Hard Drive","1 TB, M.2, PCIe NVMe, SSD",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Size","14 inches",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Screen Resolution","1920 x 1200 pixels (FullHD+)",14,2);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","1x HDMI 1.4
+2x Intel Thunderbolt 4.0
+1x USB 3.2 Gen 1 Type-A
+1x Universal audio jack
+1x SD card reader",14,2);
+
+/* 3*/
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Headphones: Use 6 hours
+Charging box: Use 30 hours",15,3);
+insert into specification(name,value,productid,categoryid)
+values("Audio Technology","Active Noise Cancellation
+Chip Apple H2
+Adaptive EQ",15,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",15,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Touch sensor",15,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",15,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Listen/receive calls
+Play/pause music
+Switch songs
+Increase/decrease volume
+Turn on virtual assistant
+Switch noise canceling On/Off mode",15,3);
+------
+
+--
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Headphones: Use 8 hours
+Charging box: Use 29 hours",16,3);
+insert into specification(name,value,productid,categoryid)
+values("Audio Technology","Active Noise Canceling
+360 Reality Audio
+Ambient Sound
+Hi-Fi sound",16,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",16,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Touch sensor",16,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Samsung",16,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Change post
+Adjust the volume
+Answer the call
+Activate virtual assistant",16,3);
+
+--
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Headphones: Use 6 hours
+Charging box: Use 24 hours",17,3);
+insert into specification(name,value,productid,categoryid)
+values("Audio Technology","Active noise cancellation.
+Crosstalk",17,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",17,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Touch sensor",17,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Xiaomi",17,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Change post,
+Adjust the volume,
+Music control,
+Switch between different modes",17,3);
+-------------------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","40 hours",18,3);
+insert into specification(name,value,productid,categoryid)
+values("Audio Technology","Digital audio",18,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",18,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Physical buttons",18,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Sony",18,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Change post,
+Adjust the volume,
+Music control,
+Switch between different modes",18,3);
+---------------------
+insert into specification(name,value,productid,categoryid)
+values("Connector","Lightning",19,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",19,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Physical buttons",19,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",19,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Change post,
+Adjust the volume,
+Answer the call",19,3);
+-----------------
+insert into specification(name,value,productid,categoryid)
+values("Connector","3.5mm",20,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",20,3);
+insert into specification(name,value,productid,categoryid)
+values("Control Method","Physical buttons",20,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Xiaomi",20,3);
+insert into specification(name,value,productid,categoryid)
+values("Control operation","Pause or play music,
+Answer the call",20,3);
+------------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","28 hours",21,3);
+insert into specification(name,value,productid,categoryid)
+values("Audio Technology","360 Spatial Sound",21,3);
+insert into specification(name,value,productid,categoryid)
+values("Micro","Have",21,3);
+insert into specification(name,value,productid,categoryid)
+values("Other function","Noise canceling conversations",21,3);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Sony",21,3);
+/* 4 */
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","18 hours",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","Digital audio",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","32GB",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WatchOS",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Fall detection, Abnormal heart rate warning, Cycle tracking",22,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",22,4);
+------------------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","65 hours",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","AMOLED",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","32GB",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WearOS",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Xiaomi",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Fall detection, Abnormal heart rate warning, Cycle tracking",37,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",37,4);
+------------------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Smart mode: 18 hours
+Battery saving mode: 36 hours",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","Retina",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","64GB",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WatchOS",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",23,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",23,4);
+-------------------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","40 hours (Always on Display off)
+Up to 30 hours (Always on Display enabled)",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","Super Amoled",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","16GB",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WearOS",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Samsung",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",24,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",24,4);
+-----------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","About 20 days (Basic mode)
+About 10 days (when using Always-On Display mode)",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","AMOLED",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","16GB",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Other",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Xiao Mi",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",25,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",25,4);
+--
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Up to 40 hours (Always on Display off)
+Up to 30 hours (Always on Display enabled)",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","Super AMOLED",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","16GB",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","Other",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Samsung",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",26,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",26,4);
+------------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","18 hours",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","Retina LTPO OLED",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","32GB",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WatchOS",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",27,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",27,4);
+----------
+insert into specification(name,value,productid,categoryid)
+values("Battery Life","Smart mode: About 0.75 days
+Battery saving mode: About 1.5 days",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Screen Technology","OLED",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Internal Memory","32GB",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Operating System","WatchOS",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Health Benefits","Training mode, Sleep monitoring, Heart rate measurement, Blood oxygen measurement, Step counting, Calorie consumption calculation, Running distance calculation, Stress level measurement, Temperature sensor, Fall detection",28,4);
+insert into specification(name,value,productid,categoryid)
+values("Smart Features","Has GPS positioning, Install applications, Play music on the watch, Practice mode, Display phone notifications, Customize the watch face, Listen to calls on the watch, Control music playback, Connect headphones, Press Time, Alarm, Call via Bluetooth",28,4);
+---
+insert into specification(name,value,productid,categoryid)
+values("Charging Port","1 x Type-C",29,5);
+insert into specification(name,value,productid,categoryid)
+values("Charging capacity","20W",29,5);
+insert into specification(name,value,productid,categoryid)
+values("Feature","Power Delivery",29,5);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","USB-C",29,5);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",29,5);
+------------
+insert into specification(name,value,productid,categoryid)
+values("Resolution","1600 DPI",30,5);
+insert into specification(name,value,productid,categoryid)
+values("Compatible","MacOS, PadOS",30,5);
+insert into specification(name,value,productid,categoryid)
+values("How to connect","Bluetoorh",30,5);
+insert into specification(name,value,productid,categoryid)
+values("Charging Port","Lightning",30,5);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",30,5);
+----------
+insert into specification(name,value,productid,categoryid)
+values("Product Line","iPhone 15 Pro Max",31,5);
+insert into specification(name,value,productid,categoryid)
+values("Cladding classification","Hard plastic case",31,5);
+insert into specification(name,value,productid,categoryid)
+values("Feature","Supports MagSafe charging, Supports wireless charging",31,5);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Apple",31,5);
+------------
+insert into specification(name,value,productid,categoryid)
+values("Other Features","Cleans fingerprints and smudges
+Effective disinfection
+Suitable for all products with LCD display screens",32,5);
+-----------
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Rapoo",33,5);
+---------------
+insert into specification(name,value,productid,categoryid)
+values("Output power","18W",34,5);
+insert into specification(name,value,productid,categoryid)
+values("Input charging port","Micro-USB / USB-C",34,5);
+insert into specification(name,value,productid,categoryid)
+values("Output charging port","2 × USB-A",34,5);
+insert into specification(name,value,productid,categoryid)
+values("Battery core","Lithium-ion Polymer",34,5);
+insert into specification(name,value,productid,categoryid)
+values("Battery capacity","20000mAh",34,5);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Xiaomi",34,5);
+----------------
+insert into specification(name,value,productid,categoryid)
+values("Resolution","1080p/30 fps - 720p/ 60 fps",35,5);
+insert into specification(name,value,productid,categoryid)
+values("Swivel angle","78 degrees",35,5);
+insert into specification(name,value,productid,categoryid)
+values("Recording support","Micrô tích hợp: Âm thanh nổi
+Phạm vi của mic: Lên tới 1 m",35,5);
+insert into specification(name,value,productid,categoryid)
+values("Communication Port","USB-A Port",35,5);
+insert into specification(name,value,productid,categoryid)
+values("Other Features","Mega pixel cameras: 3
+Auto focus
+Lens: Glass",35,5);
+insert into specification(name,value,productid,categoryid)
+values("Manufacturer","Logitech",35,5);
+
+alter table orderline add column orderdate datetime null after productid;
+alter table orderline add column enddate datetime null after orderdate;
+alter table orderline add column status varchar(100) null after enddate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1386,6 +1857,27 @@ values("Communication Port","1x USB-C 3.2 Gen 1 (support data transfer and Alway
 
 
         
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+        
+
+
 
 
 
