@@ -9,6 +9,7 @@ import Dao.ImageDAO;
 import Dao.ProductsDAO;
 import Dao.SpecificationDAO;
 import Dao.UserDAO;
+import Model.Category;
 import Model.Feedback;
 import Model.Image;
 import Model.Products;
@@ -71,7 +72,7 @@ public class ShopDetailController extends HttpServlet {
         String cateid = request.getParameter("cateid");
 
         ProductsDAO pd = new ProductsDAO();
-
+        ArrayList<Products> get3newest = pd.get3Newest();
         SpecificationDAO sd = new SpecificationDAO();
         ImageDAO id = new ImageDAO();
         FeedbackDAO fd = new FeedbackDAO();
@@ -79,12 +80,14 @@ public class ShopDetailController extends HttpServlet {
         ArrayList<User> user = ud.getUsers();
         ArrayList<Feedback> feedback = fd.getFeedbackByProducgtID(Integer.parseInt(productid));
         ArrayList<Image> thumbnails = id.getThumbmails();
+        ArrayList<Category> listc = pd.getCategory();
 
         ArrayList<Products> categories = pd.getProductsbyCateID(Integer.parseInt(cateid));
         ArrayList<Image> detail = id.getDetails();
         ArrayList<Specification> spec = sd.getSpecByPId(Integer.parseInt(productid));
         Products product = pd.getProductsbyID(Integer.parseInt(productid));
-
+        request.setAttribute("listc", listc);
+        request.setAttribute("get3newest", get3newest);
         request.setAttribute("user", user);
         request.setAttribute("feedback", feedback);
         request.setAttribute("categories", categories);
