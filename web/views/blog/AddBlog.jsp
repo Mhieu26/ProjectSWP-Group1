@@ -296,48 +296,57 @@
         </section>
         <!-- navbar -->
         <div class="container" id="about">
+            <h2>Add Blog</h2>
             <%@ include file="../../common/Message.jsp" %>
 
-            <h2>Tin tức cập nhật</h2>
-            <form class="d-flex" action="blog">
-                <select class="form-select" name="blogcategoryID" onchange="this.form.submit()">
-                    <c:forEach items="${requestScope.blogcategories}" var="item">
-                        <option ${requestScope.blogcategoryID == item.id ? 'selected' : ''} value="${item.id}">${item.name}</option>
-                    </c:forEach>
-                </select>
-                <a href="CreateBlog" class="btn btn-primary ms-2">
-                    Add Blog
-                </a>
-            </form>
-            <hr> 
-
-            <c:forEach items="${requestScope.blogs}" var="item">
-                <div class="frame">
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-5 py-3 py-md-0">
-                            <div class="card">
-                                <img src="${item.getImage()}" alt="" width="450" height="200">
-                            </div>
-                        </div>
-                        <div class="col-md-7 py-3 py-md-0">
-                            <h2>${item.getTitle()}</h2>
-                            <br>
-                            ${item.getBriefinfo()}
-                            <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><span style="color: black;">Xem thêm</span></a>
-                            <br>
-
-                            <!-- Edit button -->
-                            <a href="${pageContext.request.contextPath}/UpdateBlog?id=${item.getId()}" class="btn btn-primary btn-sm">Edit</a>
-
-                            <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
-                            <a href="${pageContext.request.contextPath}/DeleteBlog?id=${item.getId()}" class="btn btn-danger btn-sm">Delete</a>
-                        </div>
-                    </div>
+            <form action="${pageContext.request.contextPath}/CreateBlog" method="post" enctype="multipart/form-data">
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" required>
                 </div>
-                <br><br><br>
-            </c:forEach>
-                <%@ include file="../../common/pagination.jsp" %>
 
+                <!-- Brief Information -->
+                <div class="mb-3">
+                    <label for="briefinfo" class="form-label">Brief Information</label>
+                    <textarea class="form-control" id="briefinfo" name="briefinfo" rows="3" required></textarea>
+                </div>
+
+                <!-- Content -->
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+                </div>
+
+                <!-- Author -->
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" required>
+                </div>
+
+                <!-- Image File Upload -->
+                <div class="mb-3">
+                    <label for="file" class="form-label">Image File</label>
+                    <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
+                </div>
+
+                <!-- Blog Category -->
+                <div class="mb-3">
+                    <label for="blogcategory" class="form-label">Blog Category</label>
+                    <select class="form-select" id="blogcategory" name="blogcategory" required>
+                        <c:forEach var="b" items="${blogcategories}">
+                            <option value="${b.getId()}">${b.getName()}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <hr>
+                <a href="blog" class="btn btn-secondary">Back to List Blog</a>
+
+            </form>
         </div>
         <!-- footer -->
         <footer class="footer section text-center">

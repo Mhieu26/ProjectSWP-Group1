@@ -6,6 +6,8 @@ package Model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.DatatypeConverter;
 
 /**
@@ -27,5 +29,13 @@ public class BusinessRule {
                 .printHexBinary(digest).toUpperCase();
 
         return hashPassword;
+    }
+    public static void main(String[] args) {
+        try {
+            System.out.println(encodePassword("123456789"));;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(BusinessRule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }
