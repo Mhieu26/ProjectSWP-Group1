@@ -172,6 +172,38 @@
         <url-pattern>/shopdetail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>SaleDashBoardController</servlet-name>
+        <url-pattern>/saledashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderInfomationController</servlet-name>
+        <url-pattern>/orderinfomation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyOrderController</servlet-name>
+        <url-pattern>/myorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrdersListController</servlet-name>
+        <url-pattern>/orderslist</url-pattern>
+    </servlet-mapping>
+ <servlet>
+        <servlet-name>MyOrderController</servlet-name>
+        <servlet-class>Controller.MyOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderInfomationController</servlet-name>
+        <servlet-class>Controller.OrderInfomationController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrdersListController</servlet-name>
+        <servlet-class>Controller.OrdersListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaleDashBoardController</servlet-name>
+        <servlet-class>Controller.SaleDashBoardController</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
