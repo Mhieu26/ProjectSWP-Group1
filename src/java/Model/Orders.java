@@ -9,6 +9,7 @@ package Model;
  * @author Admin
  */
 
+import Dao.ProductsDAO;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -59,6 +60,21 @@ public class Orders {
     public String getProductName() {
         
             return productName.toString();
+        
+    }
+    public ArrayList<Products> getListProduct() {
+        ArrayList<Products> listProducts = new ArrayList<Products>();
+        ArrayList<Products> filteredList = new ArrayList<Products>();
+        ProductsDAO proDao = new ProductsDAO();
+        listProducts = proDao.getProducts();
+        for (Products product  : listProducts) {
+            
+                if(productName.contains(product.getName())){
+                    filteredList.add(product);
+                
+            }
+        }
+        return filteredList;  
         
     }
     

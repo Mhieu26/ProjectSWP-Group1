@@ -4,6 +4,8 @@
  */
 package Controller;
 
+
+import Dao.*;
 import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -59,11 +61,27 @@ public class OrderInformationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("myOrder");
+        
+       
+        
         int index = Integer.parseInt(request.getParameter("index"));
-        listOrders.get(index);
-        Orders order = new Orders();
-        request.setAttribute("order", order);
+        
+        User user = (User)request.getSession().getAttribute("User");
+        
+ 
+        
+        
+        if(user!=null){
+          OrderLineDAO lineDao = new OrderLineDAO();
+        
+        OrdersDAO orders = new OrdersDAO();
+        Orders myOrder = new Orders();
+        myOrder = orders.getOrdersByOrdersID(index);  
+       
+        request.setAttribute("orders", myOrder);
+        request.setAttribute("orderlines", lineDao.getOrderLinesByOrderID(index));
+        }
+        
         request.getRequestDispatcher("orderinfomation.jsp").forward(request, response);
     }
 

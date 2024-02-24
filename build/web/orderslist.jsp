@@ -341,6 +341,7 @@
                     <tbody>
                         <% 
                         ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("listOrders");
+                        
                         if (listOrders != null) {
                             for (Orders order : listOrders) {
                         %>

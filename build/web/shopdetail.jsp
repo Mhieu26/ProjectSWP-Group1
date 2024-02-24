@@ -144,8 +144,7 @@
                                             <li><a href="resetpassword">Forget Password</a></li>
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>                                         
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -504,7 +503,7 @@ for(Specification s : list){
 
                                 <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews</a></li>
 
-                               
+
                             </ul>
                             <div class="tab-content patternbg">
 
@@ -530,18 +529,18 @@ for(Specification s : list){
                                                 <div class="media-body">
                                                     <div class="comment-info">
                                                         <%  for (User u : users) { %>
-                                <%if(fb.getUserid()==u.getId()){ %>
-                              
-                               
+                                                        <%if(fb.getUserid()==u.getId()){ %>
+
+
                                                         <h4 class="comment-author">
                                                             <%=u.getName()%>
                                                         </h4>
-                                                         <% } } %> 
+                                                        <% } } %> 
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
 
-                                                
-                                               
-                                           
+
+
+
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
 
@@ -567,7 +566,7 @@ for(Specification s : list){
                                         <form action="feedback" id="feedbackForm">
                                             <input type="hidden" name="id" value="<%= products.getId()%>">
                                             <input type="hidden" name="cateid" value="<%= products.getCategoryid()%>">
-                                            
+
                                             <div class="rating">
                                                 <input type="number" name="rating" hidden>
                                                 <i class='bx bx-star star' style="--i: 0;"></i>

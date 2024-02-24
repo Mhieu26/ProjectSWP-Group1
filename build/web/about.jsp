@@ -163,7 +163,7 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
+                                            
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>

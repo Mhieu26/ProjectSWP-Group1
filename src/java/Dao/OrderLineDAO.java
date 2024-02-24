@@ -90,5 +90,42 @@ public class OrderLineDAO extends DBContext {
         }
         return orderlines;
     }
+    public ArrayList<OrderLine> getOrderLinesByOrderID(long id) {
+        ArrayList<OrderLine> orderlines = new ArrayList<>();
+
+        String sql = " SELECT `orderline`.`id`,\n"
+                + "                    `orderline`.`quantity`,\n"
+                + "                 `orderline`.`price`,\n"
+                + "                  `orderline`.`orderid`,\n"
+                + "                    `orderline`.`saleid`,\n"
+                + "                   `orderline`.`productid`,\n"
+                + "                  `orderline`.`orderdate`,\n"
+                + "                  `orderline`.`enddate`,\n"
+                + "                  `orderline`.`status`\n"
+                + "                FROM `swp391`.`orderline` Where orderid = ?  ; ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                OrderLine o = new OrderLine();
+                o.setId(rs.getInt("id"));
+                o.setQuantity(rs.getInt("quantity"));
+                o.setPrice(rs.getInt("price"));
+                o.setOrderID(rs.getInt("orderid"));
+                o.setSaleID(rs.getInt("saleid"));
+                o.setProductID(rs.getInt("productid"));
+                o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                o.setStatus(rs.getString("status"));
+                orderlines.add(o);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return orderlines;
+    }
+
 
 }

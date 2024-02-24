@@ -158,10 +158,9 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
-                                            
-                                                <%}%>
+
+                                            <%}%>
                                         </ul>
 
 
@@ -205,14 +204,14 @@
 
 
 
-					<!-- Elements -->
-					<li class="dropdown dropdown-slide">
-						<a href="shop" >Shop
-								</a>
-					</li><!-- / Elements -->
+                            <!-- Elements -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="shop" >Shop
+                                </a>
+                            </li><!-- / Elements -->
 
                             <!-- Elements -->
-                      
+
 
 
                             <!-- Pages -->
@@ -256,13 +255,13 @@
                                 </a>
 
                             </li><!-- / Blog -->
-                                                        
+
                             <%if(user!=null){
                                                         int role = (int)(user.getRole().getId());
                                                          if(role==2||role==3||role==4){
 
                             %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                                <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                             <!-- Shop -->
 
                         </ul><!-- / .nav .navbar-nav -->
@@ -570,11 +569,11 @@
                                     <ul>
                                         <li>
 
-                                           <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>"">
-                                                        <i class="tf-ion-ios-search-strong"></i>
-                                                          </a>
+                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>"">
+                                                <i class="tf-ion-ios-search-strong"></i>
+                                            </a>
 
-                                          
+
 
                                         </li>
                                         <li>
