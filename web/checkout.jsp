@@ -302,7 +302,7 @@
                                     <div id="phone-result" style="font-size: smaller; color: red; height: fit-content;"></div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="" value="<%= user.getEmail()%>" onchange="validateEmail(this.value)">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="" value="<%= user.getEmail()%>" onchange="validateEmail(this.value)" disabled >
                                     </div>
                                     <div id="email-result" style="font-size: smaller; color: red; height: fit-content;"></div>
                                 </form>

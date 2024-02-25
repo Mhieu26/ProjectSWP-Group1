@@ -69,7 +69,7 @@ $(document).ready(function () {
             datatype: 'text',
             success: function (responseText) {
                 if (responseText === 'false') {
-                    $('#loginprompt').text("Email or password is wrong!");
+                    $('#loginprompt').text("Email or password is invalid!");
                 } else {
                     $(location).attr('href', '/SWP/home');
                 }
