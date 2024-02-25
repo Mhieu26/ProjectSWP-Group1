@@ -12,6 +12,10 @@
         <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>OrdersListController</servlet-name>
+        <servlet-class>Controller.OrdersListController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>Controller.RegisterController</servlet-class>
     </servlet>
@@ -122,6 +126,10 @@
     <servlet-mapping>
         <servlet-name>BlogController</servlet-name>
         <url-pattern>/blog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrdersListController</servlet-name>
+        <url-pattern>/orderslist</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>
