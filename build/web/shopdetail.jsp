@@ -144,7 +144,8 @@
                                             <li><a href="resetpassword">Forget Password</a></li>
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>                                         
+                                            <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="myoder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -655,13 +656,6 @@ for(Specification s : list){
                                                             <%=u.getName()%>
                                                         </h4>
                                                         <% } } %> 
-
-                                                        <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
-
-
-
-
-
                                                         <div class="comment-content">
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
                                                         <% int rating=fb.getStar();
@@ -720,7 +714,6 @@ for(Specification s : list){
                                                             <i class="fa-solid fa-star " data-index="4"></i>
                                                         </div>
                                                         <% } %>
-
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
 
