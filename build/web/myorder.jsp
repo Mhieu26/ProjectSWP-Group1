@@ -333,7 +333,7 @@
                             <td><%= order.getProductName() %></td>
                             <td><%= order.getTotal() %></td>
                             <td><%= order.getStatus() %></td>
-                            <td><a href="orderinformation?index=<%=index%>" style="color: #007aff"  >More information</a></td>
+                            <td><a href="orderinformation?index=<%=order.getId()%>" style="color: #007aff"  >More information</a></td>
                             <% index++; %>
                         </tr>
                         <% 

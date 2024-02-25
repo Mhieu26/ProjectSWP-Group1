@@ -135,7 +135,7 @@
 
                                         <!-- Utility -->
 
-                                         <ul>
+                                        <ul>
                                             <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
                                                 <% if(user == null){ %>
@@ -145,7 +145,6 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myoder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -193,7 +192,7 @@
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
                                 <a href="shop" >Shop
-								</a>
+                                </a>
                             </li><!-- / Elements -->
 
 

@@ -1,12 +1,12 @@
 <%-- 
-    Document   : myorder
-    Created on : Feb 22, 2024, 2:27:16 PM
-    Author     : phuduc
+    Document   : orderinfomation
+    Created on : Feb 22, 2024, 4:38:28 PM
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine,Model.Orders"%>
-<%@page import="Dao.ProductsDAO"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine,Model.Orders,Model.*"%>
+<%@page import="Dao.ProductsDAO,Dao.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
@@ -303,132 +303,139 @@
                     <!--/.navbar-collapse -->
                 </div><!-- / .container -->
             </nav>
-            <%if(user!=null){                                                     
+            <%if(user!=null){
+            ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
+                
+            Orders orders = (Orders) request.getAttribute("orders"); 
+            
             %>
             <div class="products">
-                <h3><label>List Of My Orders</label></h3>
+                <h3><label>User Information</label></h3>
 
-                <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ordered Date</th>                         
-                            <th>Product</th>
-                            <th>Total Cost</th>
-                            <th>Status</th>
-                            <th>Option</th>
-                        </tr>
-                    </thead>    
-                    <tbody>
-                        <% 
-                            int index = 1;
-                        ArrayList<Orders> listOrders = (ArrayList<Orders>) request.getAttribute("myOrder");
-                       
-                        if (listOrders != null) {
-                            for (Orders order : listOrders) {
-                        %>
-                        <tr>
-                            <td><%= index %></td>
-                            <td><%= order.getOrderDate() %></td>                         
-                            <td><%= order.getProductName() %></td>
-                            <td><%= order.getTotal() %></td>
-                            <td><%= order.getStatus() %></td>
-                            <td><a href="orderinformation?index=<%=order.getId()%>" style="color: #007aff"  >More information</a></td>
-                            <% index++; %>
-                        </tr>
-                        <% 
-                            }
-                        }
-                        %>
-                    </tbody>
-                </table>
-            </div>  
-            <% }else{
-            %>
-            <h3 class="text-center">  You do not have permission to use this site </h3>
-            <%}%>
-        </section>
-        <!-- navbar -->
+                <h4><label>User name: <%= user.getName()%> </label></h4>
+                <%
+                    if(user.isSex()){
+                %>
+                <h4><label>Gender: Male</label></h4>
+                <%}else{%>  
+                <h4><label>Gender: Female</label></h4>
+                <%}%>
+                <h4><label>Email: <%= user.getEmail()%></label></h4>
+                <h4><label>Phone Number: <%= user.getPhone()%></label></h4>
+                <p></p>
+                <p></p>
+                <p></p>
+                <h3><label>The Order</label></h3>
+                <h4><label>Order ID: <%= orders.getId()%></label></h4>
+                <h4><label>Order Date: <%= orders.getOrderDate()%></label></h4>
+                <h4><label>Total Cost: <%= orders.getTotal()%></label></h4>
+                <h4><label>Status: <%= orders.getStatus()%></label></h4>
 
 
-        <!--slider-->
-        <div data-server-rendered="true" id="__nuxt">
-            <!---->
-            <div id="__layout">
-                <div id="layout-desktop" class="cps-page">
-                    <div></div>
-                    <!---->
-                    <div class="cps-container cps-body">
-                        <div style="display:none;">
-                            <div id="page_loader">
-                                <div class="logo"></div>
-                                <div class="loader"></div>
-                            </div>
+
+                <% ProductsDAO proDAO = new ProductsDAO();
+CategoryDAO cateDao = new CategoryDAO();
+for (OrderLine item : orderlines){ImageDAO id=new ImageDAO();
+Image thumbnail=id.getThumbnailImagebyProductID((long)item.getProductID());
+                %>
+
+                <h4 class=""><label >Product: </label><img style="width: 7%;" src="<%= thumbnail.getSource()%>" alt="thumbnail" />//<a href="#!"><%= proDAO.getProductsbyID(item.getProductID()).getName() %>//</a>
+                    Category: <%= cateDao.getCategoryByID(proDAO.getProductsbyID(item.getProductID()).getCategoryid()).getCategory() %>//Price: <%= proDAO.getProductsbyID(item.getProductID()).getPrice()%>//
+                    Quantity: <%= item.getQuantity()%>//Total <%= item.getQuantity()*proDAO.getProductsbyID(item.getProductID()).getPrice() %><a href="#" style="color: #007ae1">Re-buy</a>
+
+                </h4>
+
+
+
+
+
+
+                <%}%>
+
+
+
+
+            </div>
+
+        </div>      
+        <% }else{
+        %>
+        <h3 class="text-center">  You do not have permission to use this site </h3>
+        <%}%>
+    </section>
+    <!-- navbar -->
+
+
+    <!--slider-->
+    <div data-server-rendered="true" id="__nuxt">
+        <!---->
+        <div id="__layout">
+            <div id="layout-desktop" class="cps-page">
+                <div></div>
+                <!---->
+                <div class="cps-container cps-body">
+                    <div style="display:none;">
+                        <div id="page_loader">
+                            <div class="logo"></div>
+                            <div class="loader"></div>
                         </div>
+                    </div>
 
-                        <!-- offer -->
-
-
-
+                    <!-- offer -->
 
 
 
-                        <!-- newslater -->
-                        <!-- newslater -->
 
-                        <footer class="footer section text-center">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <ul class="social-media">
-                                            <li>
-                                                <a href="https://www.facebook.com/profile.php?id=100012285902227">
-                                                    <i class="tf-ion-social-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://gitlab.com/Mhieu26/group1-se1751">
-                                                    <i class="tf-ion-social-github"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:nguyenmanhhieu267@gmail.com">
-                                                    <i class="tf-ion-social-google-outline"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="footer-menu text-uppercase">
-                                            <li>
-                                                <a href="contact.jsp">CONTACT</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop">SHOP</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog">Blog</a>
-                                            </li>
-                                            <li>
-                                                <a href="about.jsp">About</a>
-                                            </li>
-                                        </ul>
-                                        <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
-                                    </div>
+
+
+                    <!-- newslater -->
+                    <!-- newslater -->
+
+                    <footer class="footer section text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="social-media">
+                                        <li>
+                                            <a href="https://www.facebook.com/profile.php?id=100012285902227">
+                                                <i class="tf-ion-social-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://gitlab.com/Mhieu26/group1-se1751">
+                                                <i class="tf-ion-social-github"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:nguyenmanhhieu267@gmail.com">
+                                                <i class="tf-ion-social-google-outline"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="footer-menu text-uppercase">
+                                        <li>
+                                            <a href="contact.jsp">CONTACT</a>
+                                        </li>
+                                        <li>
+                                            <a href="shop">SHOP</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog">Blog</a>
+                                        </li>
+                                        <li>
+                                            <a href="about.jsp">About</a>
+                                        </li>
+                                    </ul>
+                                    <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
                                 </div>
                             </div>
-                        </footer>
+                        </div>
+                    </footer>
 
 
 
 
-                        <!-- footer -->
-
-
-
-
-
-
-
-                        <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
+                    <!-- footer -->
 
 
 
@@ -436,39 +443,47 @@
 
 
 
+                    <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
 
 
 
 
-                        <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-
-                        <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-                        <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
-                        <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-
-                        <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-                        <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
-
-                        <script src="./assets/plugins/slick/slick.min.js"></script>
-                        <script src="./assets/plugins/slick/slick-animation.min.js"></script>
 
 
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-                        <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
 
 
-                        <script src="./assets/js/script.js"></script>
 
 
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                        <script src="./assets/js/app.js"></script>
-                        <script src="./assets/js/product_card.js"></script>
-                        <script src="./assets/js/menu.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-                        </body>
-                        </html> 
+                    <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
+
+                    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+                    <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+
+                    <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
+
+                    <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+                    <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+                    <script src="./assets/plugins/slick/slick.min.js"></script>
+                    <script src="./assets/plugins/slick/slick-animation.min.js"></script>
+
+
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+                    <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
+
+
+                    <script src="./assets/js/script.js"></script>
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                    <script src="./assets/js/app.js"></script>
+                    <script src="./assets/js/product_card.js"></script>
+                    <script src="./assets/js/menu.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+                    </body>
+                    </html> 

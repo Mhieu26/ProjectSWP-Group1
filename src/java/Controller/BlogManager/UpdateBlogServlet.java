@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller.ManagerBlog;
+package Controller.BlogManager;
 
 import Dao.BlogCategoryDAO;
 import Dao.BlogDAO;
@@ -16,6 +16,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import java.io.File;
 import java.io.InputStream;
@@ -24,64 +25,82 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ *
+ * @author tungl
+ */
 @MultipartConfig
-@WebServlet(name = "CreateBlogServlet", urlPatterns = {"/CreateBlog"})
-public class CreateBlogServlet extends HttpServlet {
+@WebServlet(name = "UpdateBlogServlet", urlPatterns = {"/UpdateBlog"})
+public class UpdateBlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BlogCategoryDAO blogCategoryDAO = new BlogCategoryDAO();
         List<BlogCategory> blogCategories = blogCategoryDAO.getBlogCategorys();
-        String search = request.getParameter("search");
-        String blogcategoryID = request.getParameter("blogcategoryID");
         BlogDAO blogDAO = new BlogDAO();
-        List<Blog> blogs = blogDAO.getBlogs(search, blogcategoryID);
-        request.setAttribute("blogs", blogs);
+        request.setAttribute("blog", blogDAO.getBlogByID(Integer.parseInt(request.getParameter("id"))));
         request.setAttribute("blogcategories", blogCategories);
-        request.setAttribute("blogcategoryID", blogcategoryID);
-        request.getRequestDispatcher("./views/blog/AddBlog.jsp").forward(request, response);
+        request.getRequestDispatcher("./views/blog/UpdateBlog.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = 0;
+        String blogId = request.getParameter("blogId");
+        try {
+            id = Integer.parseInt(blogId);
+        } catch (Exception e) {
+            response.sendRedirect("blog");
+            return;
+        }
+
+        BlogDAO bDAO = new BlogDAO();
+        Blog blogUpdate = bDAO.getBlogByID(id);
+        if (blogUpdate == null) {
+            response.sendRedirect("blog");
+            return;
+        }
+
         String title = request.getParameter("title");
         String briefinfo = request.getParameter("briefinfo");
         String content = request.getParameter("content");
         String author = request.getParameter("author");
-
+        String imagePath = null;
         // Handle file upload
         Part filePart = request.getPart("file");
-        String fileName = getSubmittedFileName(filePart);
-        String uploadPath = getServletContext().getRealPath("") + File.separator + "images";
-        String imagePath = uploadFile(filePart, fileName, uploadPath);
+        if (filePart != null && filePart.getSize() > 1) {
+            String fileName = getSubmittedFileName(filePart);
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "images";
+            imagePath = uploadFile(filePart, fileName, uploadPath);
+        }
 
         int blogcategoryId = Integer.parseInt(request.getParameter("blogcategory"));
         BlogCategoryDAO blogCategoryDAO = new BlogCategoryDAO();
         BlogCategory blogCategory = blogCategoryDAO.getBlogCategoryByID(blogcategoryId);
 
-        // Create a new Blog object
-        Blog newBlog = new Blog();
-        newBlog.setTitle(title);
-        newBlog.setBriefinfo(briefinfo);
-        newBlog.setContent(content);
-        newBlog.setAuthor(author);
-        newBlog.setImage(imagePath);
-        newBlog.setPostedDate(LocalDateTime.now());
-        newBlog.setStatus(Boolean.TRUE);
-        newBlog.setBlogCategory(blogCategory);
+        // Update a  Blog object
+        blogUpdate.setTitle(title);
+        blogUpdate.setBriefinfo(briefinfo);
+        blogUpdate.setContent(content);
+        blogUpdate.setAuthor(author);
+        if (imagePath != null) {
+            blogUpdate.setImage(imagePath);
+        }
+        blogUpdate.setPostedDate(LocalDateTime.now());
+        blogUpdate.setStatus(Boolean.TRUE);
+        blogUpdate.setBlogCategory(blogCategory);
 
         // Add the new blog to the database
-        BlogDAO bDAO = new BlogDAO();
         try {
-            bDAO.addBlog(newBlog);
-            request.setAttribute("messSuccess", "Add Blog Successfuly!");
+            bDAO.updateBlog(blogUpdate);
         } catch (Exception e) {
             request.setAttribute("messErrror", e.getMessage());
         }
         // Redirect to the main page or a confirmation page
-        request.getRequestDispatcher("./views/blog/AddBlog.jsp").forward(request, response);
+        request.setAttribute("messSuccess", "Update Successfuly!");
+        response.sendRedirect("blog");
     }
 
     private String getSubmittedFileName(Part part) {

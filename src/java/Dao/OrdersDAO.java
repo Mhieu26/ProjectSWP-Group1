@@ -4,7 +4,7 @@
  */
 package Dao;
 
-import Model.OrderLine;
+import Model.*;
 import Model.Orders;
 import Model.User;
 import java.sql.PreparedStatement;
@@ -64,6 +64,31 @@ public class OrdersDAO extends DBContext {
             System.out.println(e);
         }
         return orderlines;
+    }
+     public Orders getOrdersByOrdersID(long id) {
+        
+
+        String sql = " SELECT * FROM swp391.orders where id = ?;";
+        Orders o = new Orders();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+            
+            UserDAO u = new UserDAO();
+            while (rs.next()) {
+                
+                o.setId(rs.getInt("id"));
+                o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
+                o.setStatus(rs.getString("status"));
+                o.setUserName(u.getUserByID(rs.getInt("userid")).getName());
+                o.setTotal(rs.getInt("total"));
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return o;
     }
     public ArrayList<Orders> getOrders(String condition) {
         User user = new User();
