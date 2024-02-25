@@ -40,6 +40,48 @@ $(document).ready(function(){
                
         });
   });
+  $(document).ready(function(){
+    $('.swiper-wrapper').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+       
+  autoplaySpeed: 3000,
+  prevArrow:`<div class="swiper-button-prev" ></div>`,
+  nextArrow:`<div class="swiper-button-next"></div>`,
+            responsive: [
+                {
+                  breakpoint: 1025,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                   
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                  }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+              ] 
+               
+        });
+  });
   
   document.getElementById("open-popup-btn").addEventListener("click",function(){
     document.getElementsByClassName("wrapper")[0].classList.add("active"); 
@@ -73,3 +115,21 @@ allStar.forEach((item, idx)=> {
 		}
 	})
 });
+
+//document.addEventListener("DOMContentLoaded", function() {
+//        const form = document.querySelector("#feedbackForm");
+//
+//        form.addEventListener("submit", function(event) {
+//            event.preventDefault(); // Prevent the form from submitting normally
+//
+//            // You may perform validation here if needed
+//
+//            // Construct the redirect URL
+//            const id = form.querySelector('input[name="id"]').value;
+//            const cateid = form.querySelector('input[name="cateid"]').value;
+//            const redirectURL = "shopdetail?id=" + id + "&cateid=" + cateid;
+//
+//            // Redirect the user to the desired URL
+//            window.location.href = redirectURL;
+//        });
+//    });

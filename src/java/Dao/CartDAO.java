@@ -170,10 +170,7 @@ public class CartDAO extends DBContext {
         CartDAO dao = new CartDAO();
         Cart cart = dao.getCartByUserID(new Long(76));
 
-        System.out.println();
-        for (CartItem item : cart.getItems()) {
-            System.out.println(item);
-        }
+        System.out.println(cart);
 
     }
 

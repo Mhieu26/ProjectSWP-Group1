@@ -87,7 +87,7 @@
                                 </div>
                                 </form>
                                 <p class="mt-20">Already hava an account ?<a href="/SWP/login"> Login</a></p>
-                                <p><a href="#"> Forgot your password?</a></p>
+                                <p><a href="/SWP/resetpassword"> Forgot your password?</a></p>
                             </div>
                         </div>
                     </div>

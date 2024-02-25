@@ -800,6 +800,7 @@ html{
 .input2 input ::placeholder{
     font-weight: bold;
 }
+   
 #btnlogin{
     padding-top: 10px;
 }
@@ -1029,6 +1030,7 @@ button .btn .btn-link :hover{
   grid-template-columns: 200px 200px 200px 200px 200px;
   column-gap: 40px;
 }
+
 .product-item .modal-image img{
   height: 200px;
   transition: 0.5s;

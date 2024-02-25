@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : contact
     Created on : Jan 17, 2024, 8:47:26 AM
@@ -5,6 +6,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
+<%@page import="Dao.ProductsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -146,14 +151,25 @@
 
 								<!-- Utility -->
 								
-									<ul>
-										<li class="dropdown-header">Utility</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="login">Login Page</a></li>
-										<li><a href="register">Signin Page</a></li>
-										<li><a href="resetpassword">Forget Password</a></li>
-									</ul>
-								
+   <%
+           
+            User user = (User)session.getAttribute("User");
+        %>
+					
+
+									 <ul>
+                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
+                                            <li role="separator" class="divider"></li>
+                                                <% if(user == null){ %>
+                                            <li><a href="login">Login</a></li>
+                                            <li><a href="register">Sign up</a></li>
+                                            <li><a href="resetpassword">Forget Password</a></li>
+                                                <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>                                           
+                                            <li><a href="logout">Logout</a></li>
+                                                <%}%>
+                                        </ul>								
 
 								<!-- Mega Menu -->
 								
@@ -196,25 +212,7 @@
 
 					<!-- Elements -->
 					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
-
-								<!-- Basic -->
-							   <ul>
-                                                <li class="dropdown-header">Pages</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="shop">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
-
-                                            </ul>
-
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
+                                            <a href="shop">Shop</a>
 					</li><!-- / Elements -->
 
 

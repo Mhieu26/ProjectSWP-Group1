@@ -5,10 +5,12 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image,Model.Category,Model.Specification"%>
+<%@page import="Model.Products, Model.User, Model.Image,Model.Category,Model.Specification,Model.Feedback"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Timestamp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -134,13 +136,19 @@
                                         <!-- Utility -->
 
                                         <ul>
-                                            <li class="dropdown-header">Utility</li>
+                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="login">Login Page</a></li>
-                                            <li><a href="register">Signin Page</a></li>
+                                                <% if(user == null){ %>
+                                            <li><a href="login">Login</a></li>
+                                            <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
+                                                <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="myoder">My Order</a></li>
+                                            <li><a href="logout">Logout</a></li>
+                                                <%}%>
                                         </ul>
-
 
                                         <!-- Mega Menu -->
 
@@ -183,25 +191,8 @@
 
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <ul>
-                                            <li class="dropdown-header">Pages</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-
-                                        </ul>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
+                                <a href="shop" >Shop
+                                </a>
                             </li><!-- / Elements -->
 
 
@@ -209,7 +200,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -278,8 +269,127 @@
                 %> 
 
                 <div class="row mt-20">
+                       <div class="col-md-2">
+                        <div class="search-box">
+                            <form class="search-form" action="shop">
+                                <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                <input type="hidden" name="action" value="search">
+                                <button type="submit" class="search-btn"><i class="fa-solid fa-chevron-up fa-rotate-90"
+                                                                            style="color: #ffffff;"></i></button>
+                            </form>
+                        </div>
+                        <form class="price-form" action="shop">
+                            <div class="pricing-slider">
+                                <h3>Pricing</h3>
+                                <div class="price-input">
+                                    <span>From</span> <input type="number" value="${minPrice}" name="minPrice"> <span>To</span> <input type="number" value="${maxPrice}" name="maxPrice"> 
+                                </div>
+                            </div>
+                            <div class="search-btn-box"><button type="submit" class="price-search">Search</button>
+                            </div>
+                            <input type="hidden" name="action" value="price">
+                        </form>
+                        <div class="widget product-category">
 
-                    <div class="col-md-8">
+                            <div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Categories
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+
+                                            <ul>
+                                                <c:forEach var="c" items="${listc}">
+                                                    <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
+                                                           font-size: 10px;">${c.getCategory()}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>	
+
+                            </div>
+
+                        </div>
+                        <div class="slide-bar-product">
+
+
+                            <% 
+                      ArrayList<Products> get3newest = (ArrayList<Products>) request.getAttribute("get3newest");
+                     ArrayList<Image> thumbnails = (ArrayList<Image>) request.getAttribute("thumbnails");
+                     for (Products product : get3newest) {
+                            %> 
+                            <div class="slide-product">
+                                <h3>Newest Products</h3>
+
+                                <div class="product-thumb">
+                                    <span class="bage">Sale</span>
+                                    <%  for (Image tn : thumbnails) { %>
+                                    <%if(product.getId()==tn.getProductId()){ %>
+                                    <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
+                                    <% } } %>
+                                    <!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
+                                                    <i class="tf-ion-ios-search-strong"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="product-single.html"> <%= product.getName()%></a></h4>
+
+                                </div>
+                                <div class="price">
+                                    <span class="onprice"><% 
+                                        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
+                                        %>₫</span>
+                                    <span class="oldprice"><% 
+            double price = product.getPrice()+0.1*product.getPrice();
+                
+            String formattedPrice = decimalFormat.format(price);
+            formattedPrice = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice);
+                                        %>₫</span>
+
+                                </div>
+
+                            </div>
+                            <% } %>
+
+
+
+
+
+                            <!-- Modal -->
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
 
                         <div class="single-product-slider">
 
@@ -322,7 +432,7 @@
 
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="single-product-details">
                             <h2><%=products.getName()%></h2>
                             <div class="price">
@@ -427,12 +537,93 @@ for(Specification s : list){
                     </div>
 
                 </div>
+
+                <div class="container">
+                    <div class="products-title">
+                        <h2>
+                            <a href="#" class="button__link">Related Products</a>
+
+                        </h2>
+
+                    </div>
+                    <div class="products-cards">
+
+
+                        <% 
+                  ArrayList<Products> categories = (ArrayList<Products>) request.getAttribute("categories");
+                
+                 for (Products product : categories) {
+                        %> 
+                        <div class="product-item">
+
+                            <div class="product-thumb">
+                                <span class="bage">Sale</span>
+                                <%  for (Image tn : thumbnails) { %>
+                                <%if(product.getId()==tn.getProductId()){ %>
+                                <img src="<%= tn.getSource()%>" alt="" class="img-responsive">
+                                <% } } %>
+                                <!--						<img class="img-responsive" src="images/shop/products/product-2.jpg" alt="product-img" />-->
+                                <div class="preview-meta">
+                                    <ul>
+                                        <li>
+                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
+                                                <i class="tf-ion-ios-search-strong"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ><i class="tf-ion-ios-heart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="addtocart?productid=<%= product.getId()%>&quantity=1"><i class="tf-ion-android-cart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h4><a href="shopdetail.jsp"> <%= product.getName()%></a></h4>
+                                <div class="price">
+                                    <span class="onprice"><% 
+                                       
+          double oldPrice1 = product.getPrice();
+           String formattedDiscountedPrice1 = decimalFormat.format(oldPrice1);
+           formattedDiscountedPrice1 = formattedDiscountedPrice1.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice1);
+                                        %>₫</span>
+                                    <span class="oldprice"><% 
+            double price1 = product.getPrice()+0.1*product.getPrice();
+            
+            String formattedPrice1 = decimalFormat.format(price);
+            formattedPrice1 = formattedPrice.replaceAll("\\.00$", "");
+
+            out.print(formattedPrice1);
+                                        %>₫</span>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <% } %>
+
+
+
+
+
+                        <!-- Modal -->
+
+                    </div>
+
+                </div>
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="tabCommon mt-20">
                             <ul class="nav nav-tabs">
                                 <!--                                <li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>-->
-                                <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews (3)</a></li>
+
+                                <li class="active"><a data-toggle="tab" href="#reviews" aria-expanded="true">Reviews</a></li>
+
+
                             </ul>
                             <div class="tab-content patternbg">
 
@@ -442,6 +633,13 @@ for(Specification s : list){
                                     <div class="post-comments">
                                         <ul class="media-list comments-list m-bot-50 clearlist">
                                             <!-- Comment Item start-->
+                                            <% 
+                                    ArrayList<Feedback> feedback = (ArrayList<Feedback>) request.getAttribute("feedback");
+                                    ArrayList<User> users = (ArrayList<User>) request.getAttribute("user");
+               
+                                   for (Feedback fb : feedback) {
+                                  
+                                            %> 
                                             <li class="media">
 
                                                 <a class="pull-left" href="#!">
@@ -450,80 +648,99 @@ for(Specification s : list){
 
                                                 <div class="media-body">
                                                     <div class="comment-info">
+                                                        <%  for (User u : users) { %>
+                                                        <%if(fb.getUserid()==u.getId()){ %>
+
+
                                                         <h4 class="comment-author">
-                                                            <a href="#!">Jonathon Andrew</a>
-
+                                                            <%=u.getName()%>
                                                         </h4>
-                                                        <time datetime="2013-04-06T13:53">July 02, 2015, at 11:34</time>
+                                                        <% } } %> 
+                                                        <div class="comment-content">
+                                                        <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
+                                                        <% int rating=fb.getStar();
+                                                        if(rating==5){%>
+                                                        <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==4){ %>
+                                                          <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="3"></i>
+                                                            <i class="fa-solid fa-star" data-index="4"></i>
+                                                        </div>
+                                                        <% }else if(rating==3){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else if(rating==2){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star checked" data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                         </div>
+                                                         <% }else if(rating==1){ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star checked" data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                         <% }else{ %>
+                                                         <div class="star ">
+                                                           
+                                                            <i class="fa-solid fa-star " data-index="0"></i>
+                                                            <i class="fa-solid fa-star " data-index="1"></i>
+                                                            <i class="fa-solid fa-star " data-index="2"></i>
+                                                            <i class="fa-solid fa-star " data-index="3"></i>
+                                                            <i class="fa-solid fa-star " data-index="4"></i>
+                                                        </div>
+                                                        <% } %>
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
                                                     </div>
 
                                                     <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod laborum minima, reprehenderit laboriosam officiis praesentium? Impedit minus provident assumenda quae.
+                                                        <%=fb.getContent()%>
                                                     </p>
+                                                    </div>
                                                 </div>
 
                                             </li>
+                                            <% } %>
                                             <!-- End Comment Item -->
 
                                             <!-- Comment Item start-->
-                                            <li class="media">
 
-                                                <a class="pull-left" href="#!">
-                                                    <img class="media-object comment-avatar" src="images/blog/avater-4.jpg" alt="" width="50" height="50" />
-                                                </a>
-
-                                                <div class="media-body">
-
-                                                    <div class="comment-info">
-                                                        <div class="comment-author">
-                                                            <a href="#!">Jonathon Andrew</a>
-                                                        </div>
-                                                        <time datetime="2013-04-06T13:53">July 02, 2015, at 11:34</time>
-                                                        <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                                    </div>
-
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni natus, nostrum iste non delectus atque ab a accusantium optio, dolor!
-                                                    </p>
-
-                                                </div>
-
-                                            </li>
-                                            <!-- End Comment Item -->
-
-                                            <!-- Comment Item start-->
-                                            <li class="media">
-
-                                                <a class="pull-left" href="#!">
-                                                    <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50">
-                                                </a>
-
-                                                <div class="media-body">
-
-                                                    <div class="comment-info">
-                                                        <div class="comment-author">
-                                                            <a href="#!">Jonathon Andrew</a>
-                                                        </div>
-                                                        <time datetime="2013-04-06T13:53">July 02, 2015, at 11:34</time>
-                                                        <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-                                                    </div>
-
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
-                                                    </p>
-
-                                                </div>
-
-                                            </li>
                                         </ul>
 
                                     </div>
+
                                     <div class="wrapper center">
                                         <h3><%=products.getName()%></h3>
                                         <p>General Assessment</p>
                                         <div id="close-btn">&times</div>
-                                        <form action="#">
+                                        <form action="feedback" id="feedbackForm">
+                                            <input type="hidden" name="id" value="<%= products.getId()%>">
+                                            <input type="hidden" name="cateid" value="<%= products.getCategoryid()%>">
+
                                             <div class="rating">
                                                 <input type="number" name="rating" hidden>
                                                 <i class='bx bx-star star' style="--i: 0;"></i>
@@ -640,6 +857,18 @@ for(Specification s : list){
 
         <!-- Google Mapl -->
 
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-1.11.0.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script> 
 
         <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
 

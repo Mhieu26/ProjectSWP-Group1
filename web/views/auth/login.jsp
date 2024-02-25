@@ -63,6 +63,7 @@
                                     <button type="submit" id="btnlogin" class="btn btn-main text-center" >Login</button>
                                 </div>                                
                             </div>
+                            <p class="mt-20">Forgot your password? <a href="/SWP/resetpassword">Resetpassword</a></p>
                             <p class="mt-20">New in this site ?<a href="/SWP/register"> Create New Account</a></p>
                             <div class="text-center" style="margin-top: 4%;">
                                     <h5>Or login with</h5>
