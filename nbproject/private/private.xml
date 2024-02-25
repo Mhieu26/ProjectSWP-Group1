@@ -5,7 +5,9 @@
         <group>
             <file>file:/D:/swp/web/WEB-INF/web.xml</file>
             <file>file:/D:/swp/nbproject/build-impl.xml</file>
+            <file>file:/D:/swp/src/java/Dao/MyDAO.java</file>
             <file>file:/D:/swp/web/shopdetail.jsp</file>
+            <file>file:/D:/swp/src/java/Dao/DBContext.java</file>
         </group>
     </open-files>
 </project-private>
