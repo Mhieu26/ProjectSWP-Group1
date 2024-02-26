@@ -99,6 +99,10 @@
         <servlet-name>ContactController</servlet-name>
         <servlet-class>Controller.ContactController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteBlog</servlet-name>
+        <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -190,6 +194,10 @@
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlog</servlet-name>
+        <url-pattern>/DeleteBlog</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
