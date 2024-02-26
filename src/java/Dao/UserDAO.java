@@ -179,7 +179,7 @@ public class UserDAO extends DBContext {
                 u.setSex(rs.getBoolean("sex"));
                 u.setStatus(rs.getBoolean("status"));
                 u.setVerificationCode(rs.getString("verificationCode"));
-                u.setRole(null);
+                u.setRole(new Role(rs.getLong("roleid"), ""));
                 u.setIsGoogleUser(rs.getBoolean("isGoogleUser"));
 
                 return u;
