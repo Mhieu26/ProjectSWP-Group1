@@ -8,13 +8,13 @@
     </head>
     <body>
         <c:if test="${messSuccess != null}">
-            <div class="alert alert-success" role="alert">
-                <h3>${messSuccess}</h1>
+            <div style="color: darkseagreen">
+                ${messSuccess}
             </div>
         </c:if>
         <c:if test="${messError != null}">
-            <div class="alert alert-danger text-success" role="alert">
-                <h3>${messError}</h1>
+            <div style="color: darkred">
+                ${messError}
             </div>
         </c:if>
     </body>

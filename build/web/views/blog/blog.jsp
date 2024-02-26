@@ -307,7 +307,7 @@
                 </select>
                 <c:if test="${User != null}">
                     <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
-                        <a href="CreateBlog" class="btn btn-primary ms-2">
+                        <a href="CreateBlog" class="btn btn-secondary ms-2">
                             Add Blog
                         </a>
                     </c:if>
@@ -333,10 +333,10 @@
 
                                 <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
                                     <!-- Edit button -->
-                                    <a href="${pageContext.request.contextPath}/UpdateBlog?id=${item.getId()}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="${pageContext.request.contextPath}/UpdateBlog?id=${item.getId()}" class="btn btn-secondary btn-sm">Edit</a>
 
                                     <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
-                                    <a href="${pageContext.request.contextPath}/DeleteBlog?id=${item.getId()}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/DeleteBlog?id=${item.getId()}" class="btn btn-secondary btn-sm">Delete</a>
                                 </c:if>
                             </c:if>
                         </div>
