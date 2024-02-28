@@ -310,11 +310,12 @@
             int role = (int)(user.getRole().getId());
             if(role==2||role==3||role==4){%>
             <div class="products">
-                <h4><label  for="selectOption">List Of Orders</label></h4>
+                <h4><label  for="selectOption">List Of Orders Shorted By ${select}</label></h4>
 
                 <form action="orderslist" method="post">
-                    <label  for="selectOption">shorted by</label> 
-                    <select name="selectedSale">
+                    
+                    <select name="selectedSale" required=""  >
+                        <option value="" selected disabled hidden>Please select an option</option>
                         <option value="all">All</option>                      
                         <option value="orderdate">order date</option>
                         <option value="customername">customer name</option>
@@ -322,7 +323,7 @@
                         <option value="status">status</option>
 
                     </select>
-                    <button type="submit">Submit</button>
+                    <button type="submit" >Filter</button>
                 </form>
 
 

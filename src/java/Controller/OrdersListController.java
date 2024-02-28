@@ -91,6 +91,7 @@ public class OrdersListController extends HttpServlet {
         if (select.equals("status")) {
             listOrders = ordersDao.getOrders("orders.status,");
         }
+        request.setAttribute("select", select);
         request.setAttribute("listOrders", listOrders);
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
