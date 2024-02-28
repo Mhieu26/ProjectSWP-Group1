@@ -290,6 +290,24 @@
                 <fmt:parseDate value="${blog.getPostedDate()}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
                 <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${parsedDateTime}" /> <br>
                 Tác giả : ${blog.getAuthor()}
+                <c:if test="${User != null}">
+                    <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
+                        <a href="CreateBlog" class="btn btn-secondary ms-2">
+                            Add Blog
+                        </a>
+                    </c:if>
+                </c:if>
+                <c:if test="${User != null}">
+
+                    <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
+                        <!-- Edit button -->
+                        <a href="${pageContext.request.contextPath}/UpdateBlog?id=${blog.getId()}" class="btn btn-secondary btn-sm">Edit</a>
+
+                        <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
+                        <a href="${pageContext.request.contextPath}/DeleteBlog?id=${blog.getId()}" class="btn btn-secondary btn-sm">Delete</a>
+                    </c:if>
+                </c:if>
+                        <a href="blog" class="btn btn-secondary"> Back to Blogs List</a>
             </p><div style="text-align:center;">
                 <h2>${blog.getTitle()}</h2>
                 <img src="${blog.getImage()}" alt=""  width="1000" height="500">
