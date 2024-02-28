@@ -292,8 +292,9 @@
             if(role==2||role==3||role==4){%>
             <div class="products">
                 <form action="saledashboard" method="post">
-                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
-                    <select name="selectedSale">
+                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by ${select} saler :</label></h4>
+                    <select name="selectedSale" required="">
+                        <option value="" selected disabled hidden>Please select an option</option>
                         <option value="all">All</option>
                         <% 
                         ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
@@ -306,7 +307,7 @@
                         }
                         %>
                     </select>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Filter</button>
                 </form>
                 <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
 
