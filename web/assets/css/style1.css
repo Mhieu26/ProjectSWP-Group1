@@ -2855,3 +2855,11 @@ textarea {
 .comment-content{
     display:flex;
 }
+.comment-author{
+    display: flex;
+    justify-content: space-between;
+}
+.show-action{
+    cursor: pointer;
+    font-weight: 600;
+}
