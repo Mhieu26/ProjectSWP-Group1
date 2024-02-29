@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
         <meta name="author" content="Themefisher">
         <meta name="generator" content="Themefisher Constra HTML Template v1.0">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="block text-center">
-                            
+
                             <h2 class="text-center">Create Your Account</h2>
                             <div class="text-left clearfix" action="index.html">
                                 <div class="form-group">
@@ -83,7 +83,7 @@
                                 </div>
                                 <div id="message" style="font-size: smaller; color: red; height: fit-content;"></div>
                                 <div class="text-center">
-                                    <button type="submit" id="btn-signup" class="btn btn-main text-center">Sign In</button>
+                                    <button type="submit" id="btn-signup" class="btn btn-main text-center">Sign In</button> 
                                 </div>
                                 </form>
                                 <p class="mt-20">Already hava an account ?<a href="/SWP/login"> Login</a></p>

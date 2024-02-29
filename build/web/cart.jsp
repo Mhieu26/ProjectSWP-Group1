@@ -132,21 +132,7 @@
 
                                 <% if(user != null){%>
                                 <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
-                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
-                                    <!-- Cart Item -->
-                                    <!-- / Cart Item -->
-                                    <!-- Cart Item -->
-                                    <!-- / Cart Item -->
 
-                                    <div class="cart-summary">
-                                        <span>Total</span>
-                                        <span class="total-price">$1799.00</span>
-                                    </div>
-                                    <ul class="text-center cart-buttons">
-                                        <li><a href="SWP/cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="SWP/checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
-                                    </ul>
-                                </div>
                                 <%}%>
                             </li><!-- / Cart -->
 

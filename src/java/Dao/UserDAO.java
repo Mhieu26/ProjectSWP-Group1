@@ -179,7 +179,7 @@ public class UserDAO extends DBContext {
                 u.setSex(rs.getBoolean("sex"));
                 u.setStatus(rs.getBoolean("status"));
                 u.setVerificationCode(rs.getString("verificationCode"));
-                u.setRole(null);
+                u.setRole(new Role(rs.getLong("roleid"), ""));
                 u.setIsGoogleUser(rs.getBoolean("isGoogleUser"));
 
                 return u;
@@ -422,5 +422,12 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
-     
+     public static void main(String[] args) {
+        User user = new User();
+        user.setRole(new Role(2, "admin"));
+        int role = (int)(user.getRole().getId());
+        if(role==2||role==3||role==4){
+            System.out.println("deo baoh in ra ");
+        }
+    }
 }

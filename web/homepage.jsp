@@ -373,7 +373,7 @@
                                                         <a href="shopdetail?id=42&cateid=1" class="button__link">
                                                             <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
-                                                        </
+                                                        
                                                         <div class="swiper-slide">
                                                             <a href="shopdetail?id=43&cateid=2" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
@@ -513,6 +513,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
@@ -571,7 +572,7 @@
                                     <ul>
                                         <li>
 
-                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>"">
+                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
                                                 <i class="tf-ion-ios-search-strong"></i>
                                             </a>
 
