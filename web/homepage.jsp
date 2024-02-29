@@ -126,7 +126,7 @@
                             </li><!-- / Cart -->
 
                             <!-- Search -->
-                              <li class="dropdown search dropdown-slide">
+                            <li class="dropdown search dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-ios-search-strong"></i> Search</a>
                                 <ul class="dropdown-menu search-dropdown">
@@ -411,8 +411,8 @@
                                                 <a href="http://localhost:9999/SWP/blogdetail?id=5" class="right-banner__item button__link">
                                                     <img src="images/blog3.jpeg" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                                 </a>
-                                                <a href="http://localhost:9999/SWP/blogdetail?id=6" class="right-banner__item button__link">
-                                                    <img src="images/blog4.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=7" class="right-banner__item button__link">
+                                                    <img src="images/blog5.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                                 </a>
                                             </div>
                                         </div>

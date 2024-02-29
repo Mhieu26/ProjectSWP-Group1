@@ -60,7 +60,7 @@ public class ProductsDAO extends DBContext {
         ArrayList<Products> list = new ArrayList<>();
         try {
             stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String sql = "select * from product order by id desc limit 0,3";
+            String sql = "select * from product where status=1 order by id desc limit 0,3";
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Long id=rs.getLong(1);
@@ -129,7 +129,7 @@ public class ProductsDAO extends DBContext {
             stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String sql = "SELECT * FROM product\n" +
 "WHERE (maker = \"apple\" OR maker = \"samsung\")\n" +
-"AND categoryid != \"5\";";
+"AND categoryid != \"5\" and status=1";
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Long id=rs.getLong(1);
@@ -164,21 +164,21 @@ public class ProductsDAO extends DBContext {
         return list;
     }
        public ArrayList<Products> getAllProduct(String search, String categories,  String minPrice, String maxPrice,String sort) {
-        String whereSql = "";
+        String whereSql = "where p.status=1";
         String sortSql = "";
         if (search != null) {
-            whereSql = "where p.name like '%" + search + "%';";
+            whereSql = "where p.name like '%" + search + "%' and p.status=1;";
         }
         if (categories != null) {
-            whereSql = "where c.id like '" + categories + "'";
+            whereSql = "where c.id like '" + categories + "' and p.status=1;";
         }
       
         if (minPrice != null && maxPrice == null) {
-            whereSql = "where (p.price-(p.price*10/100)) >= " + minPrice;
+            whereSql = "where (p.price-(p.price*10/100)) >= " + minPrice +"and p.status=1;";
         } else if (minPrice == null && maxPrice != null) {
-            whereSql = "where (p.price-(p.price*10/100)) <= " + maxPrice;
+            whereSql = "where (p.price-(p.price*10/100)) <= " + maxPrice+"and p.status=1;";
         } else if (minPrice != null && maxPrice != null) {
-            whereSql = "where (p.price IS NOT NULL AND (p.price-(p.price*10/100)) BETWEEN " + minPrice + " AND " + maxPrice + ")";
+            whereSql = "where (p.price IS NOT NULL AND (p.price-(p.price*10/100)) BETWEEN " + minPrice + " AND " + maxPrice + ") and p.status=1";
         }
          if (sort != null) {
             sortSql = "order by p.price " + sort;

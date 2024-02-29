@@ -645,6 +645,7 @@ for(Specification s : list){
                                                 <a class="pull-left" href="#!">
                                                     <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50" />
                                                 </a>
+                                                
 
                                                 <div class="media-body">
                                                     <div class="comment-info">
@@ -652,9 +653,11 @@ for(Specification s : list){
                                                         <%if(fb.getUserid()==u.getId()){ %>
 
 
-                                                        <h4 class="comment-author">
+                                                        <h4 class="comment-author" >
                                                             <%=u.getName()%>
+                                                             <span class="show-action" onclick="showOptions()">...</span>
                                                         </h4>
+                                                       
                                                         <% } } %> 
                                                         <div class="comment-content">
                                                         <time datetime="2013-04-06T13:53"><%= fb.getPostdate() %></time>
@@ -898,5 +901,6 @@ for(Specification s : list){
         <script src="./assets/js/shoplist.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     </body>
 </html>

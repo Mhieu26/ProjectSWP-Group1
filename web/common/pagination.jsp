@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="text-center col-md-6 mt-5" style="margin-left: 40%">
+<div class="text-center col-md-6 mt-5" style="margin-left: 20%">
     <nav class="text-center" aria-label="Page navigation example">
         <ul class="pagination text-center" style="margin-left: 6%;">
             <c:choose>
