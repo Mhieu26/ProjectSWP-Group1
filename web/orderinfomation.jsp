@@ -330,29 +330,52 @@
                 <h4><label>Order Date: <%= orders.getOrderDate()%></label></h4>
                 <h4><label>Total Cost: <%= orders.getTotal()%></label></h4>
                 <h4><label>Status: <%= orders.getStatus()%></label></h4>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>thumbnail</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>More Information</th>
 
 
+                        </tr>
+                    </thead>
+                    <% ProductsDAO proDAO = new ProductsDAO();
+                    CategoryDAO cateDao = new CategoryDAO();
+                for (OrderLine item : orderlines){ImageDAO id=new ImageDAO();
+                    Image thumbnail=id.getThumbnailImagebyProductID((long)item.getProductID());
+                    %>
+                    <tbody>
+                        <tr>
+                            <td style="width: 30%;"><img style="width: 30%;" src="<%= thumbnail.getSource()%>" alt="thumbnail" /></td>
+                            <td style="width: 30%;"><a href="#!"><%= proDAO.getProductsbyID(item.getProductID()).getName() %>/</a></td><!-- comment -->
+                            <td style="width: 30%;"><%= cateDao.getCategoryByID(proDAO.getProductsbyID(item.getProductID()).getCategoryid()).getCategory() %></td>
+                            <%
+    // Số dạng khoa học
+    double scientificNumber = proDAO.getProductsbyID(item.getProductID()).getPrice();
 
-                <% ProductsDAO proDAO = new ProductsDAO();
-CategoryDAO cateDao = new CategoryDAO();
-for (OrderLine item : orderlines){ImageDAO id=new ImageDAO();
-Image thumbnail=id.getThumbnailImagebyProductID((long)item.getProductID());
-                %>
+    // Tạo một đối tượng DecimalFormat
+    DecimalFormat decimalFormat = new DecimalFormat("#.###");
 
-                <h4 class=""><label >Product: </label><img style="width: 7%;" src="<%= thumbnail.getSource()%>" alt="thumbnail" />//<a href="#!"><%= proDAO.getProductsbyID(item.getProductID()).getName() %>//</a>
-                    Category: <%= cateDao.getCategoryByID(proDAO.getProductsbyID(item.getProductID()).getCategoryid()).getCategory() %>//Price: <%= proDAO.getProductsbyID(item.getProductID()).getPrice()%>//
-                    Quantity: <%= item.getQuantity()%>//Total <%= item.getQuantity()*proDAO.getProductsbyID(item.getProductID()).getPrice() %><a href="#" style="color: #007ae1">Re-buy</a>
+    // Chuyển đổi số khoa học sang số thập phân
+    String decimalNumber = decimalFormat.format(scientificNumber);
+                            %>
+                            <td style="width: 30%;"><%= decimalNumber %></td><!-- comment -->
+                            <td style="width: 30%;"><%= item.getQuantity()%></td><!-- comment -->
+                            <%  scientificNumber = item.getQuantity()*proDAO.getProductsbyID(item.getProductID()).getPrice();
+                            decimalNumber = decimalFormat.format(scientificNumber);
+                            %>
+                            <td style="width: 30%;"><%= decimalNumber %></td><!-- comment -->
+                            <td><a href="#" style="color: #007ae1">Re-buy</a></td><!-- comment -->                                          
+                        </tr>
+                    </tbody>
+                    <%}%>
 
-                </h4>
-
-
-
-
-
-
-                <%}%>
-
-
+                </table>
 
 
             </div>
