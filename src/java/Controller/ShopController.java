@@ -81,33 +81,35 @@ public class ShopController extends HttpServlet {
         String minPrice = request.getParameter("minPrice");
         String maxPrice = request.getParameter("maxPrice");
         String search = request.getParameter("search");
-          ArrayList<Products> listp=pd.getAllProduct(null, null, null, null,sort);
+        String maker=request.getParameter("maker");
+        
+          ArrayList<Products> listp=pd.getAllProduct(null, null,null, null, null,sort);
           if (action == null || action.equals("")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null,sort);
+            listp = (ArrayList<Products>) pd.getAllProduct(null, null,null, null, null,sort);
        
         } else if (action.equals("cate")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(null, cate, null, null,sort);
+            listp = (ArrayList<Products>) pd.getAllProduct(null, cate,null, null, null,sort);
    
         } else if (action.equals("search")) {
-            listp = (ArrayList<Products>) pd.getAllProduct(search, null, null, null,sort);
+            listp = (ArrayList<Products>) pd.getAllProduct(search, null,null, null, null,sort);
             
-        } else if (action.equals("price")) {
+        }else if(action.equals("maker")){
+            listp = (ArrayList<Products>) pd.getAllProduct(null, null,maker, null, null,sort);
+        }else if (action.equals("price")) {
             if (minPrice.equals("")) {
-                listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, maxPrice,sort);
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null,null, null, maxPrice,sort);
              
             } else if (maxPrice.equals("")) {
-                listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, null,sort);
+                listp = (ArrayList<Products>) pd.getAllProduct(null, null,null, minPrice, null,sort);
             }else if (maxPrice.equals("") && minPrice.equals("")){
-                 listp = (ArrayList<Products>) pd.getAllProduct(null, null, null, null,sort);
+                 listp = (ArrayList<Products>) pd.getAllProduct(null, null,null, null, null,sort);
             } else{
-                  listp = (ArrayList<Products>) pd.getAllProduct(null, null, minPrice, maxPrice,sort);
+                  listp = (ArrayList<Products>) pd.getAllProduct(null, null,null, minPrice, maxPrice,sort);
             }
         }
-//          if(Integer.parseInt(productid)!=0){
-//               request.getRequestDispatcher("shop.jsp").forward(request, response);
-//              }else{
-//               request.getRequestDispatcher("shopdetail.jsp").forward(request, response);
-//          }
+         ArrayList<String> listMaker=pd.getDistinctMakers();
+         
+request.setAttribute("listMaker", listMaker);
           
           request.setAttribute("listp", listp);
            request.setAttribute("action", action);

@@ -163,7 +163,22 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
-       public ArrayList<Products> getAllProduct(String search, String categories,  String minPrice, String maxPrice,String sort) {
+public ArrayList<String> getDistinctMakers() {
+    ArrayList<String> makersList = new ArrayList<>();
+    try {
+        stm = cnn.createStatement();
+        String sql = "select distinct maker from product";
+        rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            String maker = rs.getString(1);
+            makersList.add(maker);
+        }
+    } catch (Exception e) {
+        System.out.println("getDistinctMakers Error: " + e.getMessage());
+    }
+    return makersList;
+}
+       public ArrayList<Products> getAllProduct(String search, String categories,String maker1,  String minPrice, String maxPrice,String sort) {
         String whereSql = "where p.status=1";
         String sortSql = "";
         if (search != null) {
@@ -171,6 +186,9 @@ public class ProductsDAO extends DBContext {
         }
         if (categories != null) {
             whereSql = "where c.id like '" + categories + "' and p.status=1;";
+        }
+        if(maker1!=null){
+             whereSql = "where p.name like '%" + maker1 + "%' and p.status=1;";
         }
       
         if (minPrice != null && maxPrice == null) {
@@ -210,9 +228,9 @@ public class ProductsDAO extends DBContext {
     }
 //    public static void main(String[] args) {
 //        ProductsDAO pd=new ProductsDAO();
-//        ArrayList<Products> list=pd.getAllProduct(null, null, "5000000", "30000000");
-//        for (Products products : list) {
-//            System.out.println(products);
+//       ArrayList<String> list=pd.getDistinctMakers();
+//        for (String l : list) {
+//            System.out.println(l);
 //            
 //        }
 //    }

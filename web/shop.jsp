@@ -291,7 +291,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <a role="button"  data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Categories
                                             </a>
                                         </h4>
@@ -304,6 +304,29 @@
                                                 <c:forEach var="c" items="${listc}">
                                                     <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
                                                            font-size: 10px;">${c.getCategory()}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>	
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button"  data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                Maker
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+
+                                            <ul>
+                                                <c:forEach var="c" items="${listMaker}">
+                                                    <li><a href="shop?maker=${c}&action=maker" style="    text-transform: uppercase;
+                                                           font-size: 10px;">${c}</a></li>
                                                     </c:forEach>
                                             </ul>
 

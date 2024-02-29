@@ -327,7 +327,9 @@
                             <h2>${item.getTitle()}</h2>
                             <br>
                             ${item.getBriefinfo()}
-                            <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><span style="color: black;">Xem thêm</span></a>
+                            <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><span style="color: black;
+                                                                                                             text-decoration: underline;
+                                                                                                             color: red;">Xem thêm</span></a>
                             <br>
                             <c:if test="${User != null}">
 

@@ -278,7 +278,7 @@
 
 
         <!--slider-->
-        <div data-server-rendered="true" id="__nuxt">
+     <div data-server-rendered="true" id="__nuxt">
             <!---->
             <div id="__layout">
                 <div id="layout-desktop" class="cps-page">
@@ -346,7 +346,7 @@
 
                                                     </a>
                                                 </div>
-
+                    
                                                 <div href="blog" target="_self" class="label-menu-tree">
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">
@@ -365,38 +365,38 @@
                                             <div class="swiper-container gallery-top">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <a href="shopdetail?id=4&cateid=1" class="button__link">
+                                                        <a href="shopdetail?id=4" class="button__link">
                                                             <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <a href="shopdetail?id=42&cateid=1" class="button__link">
+                                                        <a href="shopdetail?id=42" class="button__link">
                                                             <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                         </a>
-                                                        
+                                                        </
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43&cateid=2" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
                                                             </a>
                                                         </div>
 
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43&cateid=2" class="button__link">
+                                                            <a href="shopdetail?id=43" class="button__link">
                                                                 <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=41&cateid=1" class="button__link">
+                                                            <a href="shopdetail?id=41" class="button__link">
                                                                 <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=40&cateid=1" class="button__link">
+                                                            <a href="shopdetail?id=40" class="button__link">
                                                                 <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="swiper-slide">
-                                                            <a href="shopdetail?id=38&cateid=1" class="button__link">
+                                                            <a href="shopdetail?id=38" class="button__link">
                                                                 <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
                                                             </a>
                                                         </div>
@@ -513,7 +513,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
 
 
