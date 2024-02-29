@@ -68,7 +68,7 @@ $(document).ready(function () {
             datatype: 'text',
             success: function (responseText) {
                 if (responseText === 'false') {
-                    $('#loginprompt').text("Email or password is wrong!");
+                    $('#loginprompt').text("Email or password is invalid!");
                 } else {
                     $(location).attr('href', '/SWP/home');
                 }
@@ -91,8 +91,10 @@ $(document).ready(function () {
     $('#btn-signup').click(function () {
         let email = $('input[name="email"]').val();
         let phone = $('input[name="phone"]').val();
+        let spinner = '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>';
         if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating && $("#password-result").val().length == 0) {
             isValidating = true;
+            $('#btn-signup').html(spinner);
             $.ajax({
                 type: 'POST',
                 url: '/SWP/register',
@@ -109,6 +111,7 @@ $(document).ready(function () {
                     if (responseText === 'false') {
                         $('#email-result').text("Email address existed!");
                         isValidating = false;
+                        $('#btn-signup').html("Sign In");
                     } else {
                         isValidating = false;
                         $(location).attr('href', '/SWP/register?success=true');
