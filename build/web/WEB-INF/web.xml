@@ -12,6 +12,10 @@
         <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>OrdersListController</servlet-name>
+        <servlet-class>Controller.OrdersListController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>Controller.RegisterController</servlet-class>
     </servlet>
@@ -88,6 +92,7 @@
         <servlet-class>Controller.AddToCartController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>adminDashboard</servlet-name>
         <servlet-class>Controller.adminDashboard</servlet-class>
     </servlet>
@@ -130,6 +135,18 @@
     <servlet>
         <servlet-name>adminAddSettingController</servlet-name>
         <servlet-class>Controller.adminAddSettingController</servlet-class>
+=======
+        <servlet-name>FeedbackController</servlet-name>
+        <servlet-class>Controller.FeedbackController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>Controller.ContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlog</servlet-name>
+        <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
+>>>>>>> 85ed51ce1246e92b4a193bed197a0ddcc066f3cf
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -158,6 +175,10 @@
     <servlet-mapping>
         <servlet-name>BlogController</servlet-name>
         <url-pattern>/blog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrdersListController</servlet-name>
+        <url-pattern>/orderslist</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>
@@ -212,6 +233,7 @@
         <url-pattern>/addtocart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>adminDashboard</servlet-name>
         <url-pattern>/adminDashboard</url-pattern>
     </servlet-mapping>
@@ -254,6 +276,18 @@
     <servlet-mapping>
         <servlet-name>adminAddSettingController</servlet-name>
         <url-pattern>/adminAddSettingController</url-pattern>
+=======
+        <servlet-name>FeedbackController</servlet-name>
+        <url-pattern>/feedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlog</servlet-name>
+        <url-pattern>/DeleteBlog</url-pattern>
+>>>>>>> 85ed51ce1246e92b4a193bed197a0ddcc066f3cf
     </servlet-mapping>
     <session-config>
         <session-timeout>

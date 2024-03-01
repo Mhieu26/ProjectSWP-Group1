@@ -1670,7 +1670,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   margin-top: 0;
   margin-bottom: 3px;
 }
-.post-comments .comment-author a {
+.post-comments .comment-author p {
   color: #000;
   font-weight: 400;
   font-size: 12px;
@@ -2852,3 +2852,14 @@ textarea {
   height: 250px !important;
 }
 /*# sourceMappingURL=style.css.map */
+.comment-content{
+    display:flex;
+}
+.comment-author{
+    display: flex;
+    justify-content: space-between;
+}
+.show-action{
+    cursor: pointer;
+    font-weight: 600;
+}

@@ -33,20 +33,6 @@
             />
         <link rel="stylesheet" href="./assets/css/style1.css">
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
-        <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
         <link rel="stylesheet" href="./assets/css/testpro4.css">
         <link rel="stylesheet" href="./assets/css/right_banner.css">
@@ -118,9 +104,9 @@
                             <li class="dropdown cart-nav dropdown-slide">
                                 <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                        
-                                    <% if(user != null){%>
-                                    <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
                                 <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
                                     <!-- / Cart Item -->
@@ -145,7 +131,9 @@
                                         class="tf-ion-ios-search-strong"></i> Search</a>
                                 <ul class="dropdown-menu search-dropdown">
                                     <li>
-                                        <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+                                        <form action="shop"> <input class="text-input" type="text" placeholder="Search product..." value="${search}" name="search">
+                                            <input type="hidden" name="action" value="search">
+                                        </form>
                                     </li>
                                 </ul>
                             </li><!-- / Search -->
@@ -173,7 +161,8 @@
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
-                                                <%}%>
+
+                                            <%}%>
                                         </ul>
 
 
@@ -191,111 +180,105 @@
                 </div>
             </div>
         </section>
-         <section class="menu">
-	<nav class="navbar navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<h2 class="menu-title">Main Menu</h2>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+        <section class="menu">
+            <nav class="navbar navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h2 class="menu-title">Main Menu</h2>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-			</div><!-- / .navbar-header -->
+                    </div><!-- / .navbar-header -->
 
-			<!-- Navbar Links -->
-			<div id="navbar" class="navbar-collapse collapse text-center">
-				<ul class="nav navbar-nav">
+                    <!-- Navbar Links -->
+                    <div id="navbar" class="navbar-collapse collapse text-center">
+                        <ul class="nav navbar-nav">
 
-					<!-- Home -->
-					<li class="dropdown ">
-						<a href="home">Home</a>
-					</li><!-- / Home -->
+                            <!-- Home -->
+                            <li class="dropdown ">
+                                <a href="home">Home</a>
+                            </li><!-- / Home -->
 
 
-					<!-- Elements -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
 
-								<!-- Basic -->
-								   <ul>
-                                                <li class="dropdown-header">Pages</li>
+                            <!-- Elements -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="shop" >Shop
+                                </a>
+                            </li><!-- / Elements -->
+
+                            <!-- Elements -->
+
+
+
+                            <!-- Pages -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
+                                        ></span></a>
+                                <div class="dropdown-menu">
+                                    <div class="row">
+
+                                        <!-- Introduction -->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <ul>
+                                                <li class="dropdown-header">Introduction</li>
                                                 <li role="separator" class="divider"></li>
-                                                <li><a href="shop">Shop</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
-
+                                                <li><a href="contact.jsp">Contact Us</a></li>
+                                                <li><a href="about.jsp">About Us</a></li>
                                             </ul>
+                                        </div>
 
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
-					</li><!-- / Elements -->
+                                        <!-- Contact -->
 
 
-					<!-- Pages -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu">
-							<div class="row">
 
-								<!-- Introduction -->
-								<div class="col-sm-6 col-xs-12">
-									<ul>
-										<li class="dropdown-header">Introduction</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="contact.jsp">Contact Us</a></li>
-										<li><a href="about.jsp">About Us</a></li>
-									</ul>
-								</div>
-
-								<!-- Contact -->
-								
-
-								<!-- Mega Menu -->
-								<div class="col-sm-6 col-xs-12">
-									<a href="shop.html">
-                                                                            <img class="img-responsive" src="images/c5.png" alt="menu image" />
-									</a>
-								</div>
-							</div><!-- / .row -->
-						</div><!-- / .dropdown-menu -->
-					</li><!-- / Pages -->
+                                        <!-- Mega Menu -->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <a href="shop.html">
+                                                <img class="img-responsive" src="images/c5.png" alt="menu image" />
+                                            </a>
+                                        </div>
+                                    </div><!-- / .row -->
+                                </div><!-- / .dropdown-menu -->
+                            </li><!-- / Pages -->
 
 
 
 
-					<!-- Blog -->
-					<li class="dropdown dropdown-slide">
-						<a href="blog" >Blog
-								</a>
-					
-					</li><!-- / Blog -->
+                            <!-- Blog -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="blog" >Blog
+                                </a>
 
-					<!-- Shop -->
-				
-				</ul><!-- / .nav .navbar-nav -->
+                            </li><!-- / Blog -->
 
-			</div>
-			<!--/.navbar-collapse -->
-		</div><!-- / .container -->
-	</nav>
-</section>
+                            <%if(user!=null){
+                                                        int role = (int)(user.getRole().getId());
+                                                         if(role==2||role==3||role==4){
+
+                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            <!-- Shop -->
+
+                        </ul><!-- / .nav .navbar-nav -->
+
+                    </div>
+                    <!--/.navbar-collapse -->
+                </div><!-- / .container -->
+            </nav>
+        </section>
         <!-- navbar -->
 
 
 
         <!--slider-->
-        <div data-server-rendered="true" id="__nuxt">
+     <div data-server-rendered="true" id="__nuxt">
             <!---->
             <div id="__layout">
                 <div id="layout-desktop" class="cps-page">
@@ -428,8 +411,8 @@
                                                 <a href="http://localhost:9999/SWP/blogdetail?id=5" class="right-banner__item button__link">
                                                     <img src="images/blog3.jpeg" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                                 </a>
-                                                <a href="http://localhost:9999/SWP/blogdetail?id=6" class="right-banner__item button__link">
-                                                    <img src="images/blog4.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=7" class="right-banner__item button__link">
+                                                    <img src="images/blog5.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                                 </a>
                                             </div>
                                         </div>
@@ -587,9 +570,13 @@
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
-                                           <a href="shopdetail?id=<%= product.getId()%>">
-                                                        <i class="tf-ion-ios-search-strong"></i>
-                                                          </a>
+
+                                            <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
+                                                <i class="tf-ion-ios-search-strong"></i>
+                                            </a>
+
+
+
                                         </li>
                                         <li>
                                             <a href="#" ><i class="tf-ion-ios-heart"></i></a>
@@ -603,12 +590,12 @@
                             <div class="product-content">
                                 <h4><a href="shopdetail.jsp"> <%= product.getName()%></a></h4>
                                 <div class="price">
-                                     <span class="onprice"><% 
-                                         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-           double oldPrice = product.getPrice();
-            String formattedDiscountedPrice = decimalFormat.format(oldPrice);
-            formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
-            out.print(formattedDiscountedPrice);
+                                    <span class="onprice"><% 
+                                        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+          double oldPrice = product.getPrice();
+           String formattedDiscountedPrice = decimalFormat.format(oldPrice);
+           formattedDiscountedPrice = formattedDiscountedPrice.replaceAll("\\.00$", "");
+           out.print(formattedDiscountedPrice);
                                         %>₫</span>
                                     <span class="oldprice"><% 
             double price = product.getPrice()+0.1*product.getPrice();
@@ -618,7 +605,7 @@
 
             out.print(formattedPrice);
                                         %>₫</span>
-                                   
+
                                 </div>
                             </div>
 
@@ -836,7 +823,7 @@
                             </ul>
                             <ul class="footer-menu text-uppercase">
                                 <li>
-                                    <a href="contact.jsp">CONTACT</a>
+                                    <a href="contact">CONTACT</a>
                                 </li>
                                 <li>
                                     <a href="shop">SHOP</a>

@@ -4,29 +4,64 @@
  */
 package Model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Admin
  */
 public class OrderLine {
+
     private int id;
     private int quantity;
-    private double price;
+    private int price;
     private int orderID;
     private int saleID;
     private int productID;
-    
-    public OrderLine() {
-    }   
+    private LocalDateTime orderDate;
+    private LocalDateTime endDate;
+    private String status;
 
-    public OrderLine(int id, int quantity, double price, int orderID, int saleID, int productID) {
+    public OrderLine() {
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public OrderLine(int id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
         this.orderID = orderID;
         this.saleID = saleID;
         this.productID = productID;
+        this.orderDate = orderDate;
+        this.endDate = endDate;
+        this.status = status;
     }
+    
+    
 
     public int getId() {
         return id;
@@ -44,11 +79,11 @@ public class OrderLine {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -75,5 +110,5 @@ public class OrderLine {
     public void setProductID(int productID) {
         this.productID = productID;
     }
-    
+
 }

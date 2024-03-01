@@ -51,7 +51,9 @@
 
         <!-- top navbar -->
         <!-- top navbar -->
-
+        <%
+            User user = (User)session.getAttribute("User");
+        %>
         <!-- navbar -->
         <section class="top-header">
             <div class="container">
@@ -85,50 +87,27 @@
                         <!-- Cart -->
                         <ul class="top-menu text-right list-inline">
                             <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
-                                <div class="dropdown-menu cart-dropdown">
+
+                                <% if(user != null){%>
+                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
+                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-1.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
                                     <!-- Cart Item -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#!">
-                                            <img class="media-object" src="/SWP/images/shop/cart/cart-2.jpg" alt="image" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-                                            <div class="cart-price">
-                                                <span>1 x</span>
-                                                <span>1250.00</span>
-                                            </div>
-                                            <h5><strong>$1200</strong></h5>
-                                        </div>
-                                        <a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-                                    </div><!-- / Cart Item -->
+                                    <!-- / Cart Item -->
 
                                     <div class="cart-summary">
                                         <span>Total</span>
                                         <span class="total-price">$1799.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
-
+                                <%}%>
                             </li><!-- / Cart -->
 
                             <!-- Search -->
@@ -157,11 +136,17 @@
                                         <!-- Utility -->
 
                                         <ul>
-                                            <li class="dropdown-header">Utility</li>
+                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="login">Login Page</a></li>
-                                            <li><a href="register">Signin Page</a></li>
+                                                <% if(user == null){ %>
+                                            <li><a href="login">Login</a></li>
+                                            <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
+                                                <%}else {%>
+                                            <li><a href="userController">User Profile</a></li>
+                                            <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="logout">Logout</a></li>
+                                                <%}%>
                                         </ul>
 
 
@@ -206,25 +191,8 @@
 
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <ul>
-                                            <li class="dropdown-header">Pages</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-
-                                        </ul>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
+                                <a href="shop" >Shop
+                                </a>
                             </li><!-- / Elements -->
 
 
@@ -232,7 +200,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -263,8 +231,8 @@
 
                             <!-- Blog -->
                             <li class="dropdown dropdown-slide">
-                             <a href="blog" >Blog
-								</a>
+                                <a href="blog" >Blog
+                                </a>
 
                             </li><!-- / Blog -->
 
@@ -323,7 +291,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <a role="button"  data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Categories
                                             </a>
                                         </h4>
@@ -336,6 +304,29 @@
                                                 <c:forEach var="c" items="${listc}">
                                                     <li><a href="shop?cate=${c.getId()}&action=cate" style="    text-transform: uppercase;
                                                            font-size: 10px;">${c.getCategory()}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>	
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button"  data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                Maker
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+
+                                            <ul>
+                                                <c:forEach var="c" items="${listMaker}">
+                                                    <li><a href="shop?maker=${c}&action=maker" style="    text-transform: uppercase;
+                                                           font-size: 10px;">${c}</a></li>
                                                     </c:forEach>
                                             </ul>
 
@@ -368,7 +359,7 @@
                                     <div class="preview-meta">
                                         <ul>
                                             <li>
-                                                <a href="shopdetail?id=<%= product.getId()%>">
+                                                <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
                                                     <i class="tf-ion-ios-search-strong"></i>
                                                 </a>
                                             </li>
@@ -417,18 +408,18 @@
                         </div>
                     </div>
                     <div class="col-md-9">
-                          <div class="text-sort">
-                    
-                    <div class="sort-box">
-                        <select class="select-sort" id="select" onchange="window.location.href = 'shop?action=${action}&search=${search}&cate=${cate}&minPrice=${minPrice}&maxPrice=${maxPrice}&sort=' + document.getElementById('select').value;">
-                            <option <c:if test="${sort eq ''}">selected=""</c:if> value="">Default</option>
-                            <option <c:if test="${sort eq 'asc'}">selected=""</c:if> value="asc">Low</option>
-                            <option <c:if test="${sort eq 'desc'}">selected=""</c:if> value="desc">High</option>
-                            </select>
-                        </div>
-                    </div>
-                        <div class="container">
-                            <div class="shop-list">
+                        <div class="text-sort">
+
+                            <div class="sort-box">
+                                <select class="select-sort" id="select" onchange="window.location.href = 'shop?action=${action}&search=${search}&cate=${cate}&minPrice=${minPrice}&maxPrice=${maxPrice}&sort=' + document.getElementById('select').value;">
+                                    <option <c:if test="${sort eq ''}">selected=""</c:if> value="">Default</option>
+                                    <option <c:if test="${sort eq 'asc'}">selected=""</c:if> value="asc">Low</option>
+                                    <option <c:if test="${sort eq 'desc'}">selected=""</c:if> value="desc">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="shop-list">
 
 
                                 <% 
@@ -450,7 +441,7 @@
                                                 <li>
 
 
-                                                    <a href="shopdetail?id=<%= product.getId()%>">
+                                                    <a href="shopdetail?id=<%= product.getId()%>&cateid=<%=product.getCategoryid()%>">
                                                         <i class="tf-ion-ios-search-strong"></i>
                                                     </a>
 

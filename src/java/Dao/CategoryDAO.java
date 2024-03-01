@@ -53,6 +53,27 @@ public class CategoryDAO extends DBContext{
         }
         return list;
     }
+        public Category getCategoryByID(long cateId) {
+        Category cate = new Category();
+        try {
+            
+            String sql = "select id,category from category where id =?";
+            
+            PreparedStatement statement = connection.prepareStatement(sql);
+             statement.setLong(1, cateId);
+            ResultSet rs = statement.executeQuery();
+            
+           
+            while (rs.next()) {
+                int id=rs.getInt(1);
+                String category=rs.getString(2);
+                cate=new Category(id, category);
+            }
+        } catch (Exception e) {
+            System.out.println("getlist Error:" + e.getMessage());
+        }
+        return cate;
+    }
 //        public static void main(String[] args) {
 //        CategoryDAO pd=new CategoryDAO();
 //        ArrayList<Category> list=pd.getCategory();

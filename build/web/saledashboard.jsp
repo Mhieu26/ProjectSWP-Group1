@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem"%>
+<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -79,10 +79,10 @@
             String avt = (img == null) ? 
                     (googleAvt == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png" : googleAvt) 
                     : img.getSource();
-            User user = (User)session.getAttribute("User"); 
-            int role = (int)(((User)session.getAttribute("User")).getRole().getId());
+            User user = (User)session.getAttribute("User");
+
         %>
-        <%= role %>
+
 
         <!-- top navbar -->
         <!-- top navbar -->
@@ -176,6 +176,7 @@
                                                 <%}else {%>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
+                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -222,25 +223,7 @@
 
                             <!-- Elements -->
                             <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Shop <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Basic -->
-                                        <ul>
-                                            <li class="dropdown-header">Pages</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-
-                                        </ul>
-
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
+                                <a href="shop">Shop</a>
                             </li><!-- / Elements -->
 
 
@@ -248,7 +231,7 @@
                             <li class="dropdown dropdown-slide">
                                 <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                    role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        class="tf-ion-ios-arrow-down"></span></a>
+                                        ></span></a>
                                 <div class="dropdown-menu">
                                     <div class="row">
 
@@ -286,19 +269,32 @@
                             </li><!-- / Blog -->
 
                             <!-- Shop -->
+                            <li class="dropdown dropdown-slide">
+                                <a href="blog" >Blog
+                                </a>
 
+                            </li><!-- / Blog -->
+                            <%if(user!=null){
+                                                        int role = (int)(user.getRole().getId());
+                                                         if(role==2||role==3||role==4){
+
+                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
+                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>
                     <!--/.navbar-collapse -->
                 </div><!-- / .container -->
             </nav>
-            <%           
+            <%
+            if(user!=null){
+            int role = (int)(user.getRole().getId());
             if(role==2||role==3||role==4){%>
             <div class="products">
                 <form action="saledashboard" method="post">
-                    <h5><label  for="selectOption">Trend of success/total orders ,Filter by  :</label></h4>
-                    <select name="selectedSale">
+                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by ${select} saler :</label></h4>
+                    <select name="selectedSale" required="">
+                        <option value="" selected disabled hidden>Please select an option</option>
                         <option value="all">All</option>
                         <% 
                         ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
@@ -311,10 +307,52 @@
                         }
                         %>
                     </select>
-                    <button type="submit">Submit</button>
-                </form> 
-            </div>
-            <% }else{
+                    <button type="submit">Filter</button>
+                </form>
+                <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
+
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderlineID</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>OrderID</th>
+                            <th>SaleID</th>
+                            <th>ProductID</th>
+                            <th>OrderDate</th>
+                            <th>EndDate</th>
+                            <th>Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                        ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
+                        if (orderlines != null) {
+                            for (OrderLine orderline : orderlines) {
+                        %>
+                        <tr>
+                            <td><%= orderline.getId() %></td>
+                            <td><%= orderline.getQuantity() %></td>
+                            <td ><div class="text-right"><%= orderline.getPrice() %>  đồng </div></td>
+                            <td><%= orderline.getOrderID() %></td>
+                            <td><%= orderline.getSaleID() %></td>
+                            <td><%= orderline.getProductID() %></td>
+                            <td><%= orderline.getOrderDate() %></td>
+                            <td><%= orderline.getEndDate() %></td>
+                            <td><%= orderline.getStatus() %></td>
+
+                        </tr>
+                        <% 
+                            }
+                        }
+                        %>
+                    </tbody>
+                </table>
+            </div>  
+            <% }}else{
             %>
             <h3 class="text-center">  You do not have permission to use this site </h3>
             <%}%>

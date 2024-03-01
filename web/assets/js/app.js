@@ -1,18 +1,18 @@
 $(document).ready(function () {
-    $('.swiper-wrapper').slick({
-        slidesToShow: 1,
+    $('.products-cards').slick({
+        slidesToShow: 5,
+        slidesToScroll:2,
         autoplay: true,
         autoplaySpeed: 3000,
-        prevArrow: `<div class="swiper-button-prev"></div>`,
-        nextArrow: `<div class="swiper-button-next"></div>`,
-        fade: true,
-        cssEase: 'linear',
+        prevArrow: `<div class="swiper-button-prev" style="color:black"></div>`,
+        nextArrow: `<div class="swiper-button-next" style="color:black"></div>`,
+        dots:true,
         responsive: [
             {
                 breakpoint: 1025,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
                     arrows: false,
 
                 }
@@ -20,16 +20,16 @@ $(document).ready(function () {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
                     arrows: false,
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
                     arrows: false,
                 }
             }
@@ -40,8 +40,7 @@ $(document).ready(function () {
 
     });
 });
-
-
+       
 
 
 function openForm() {
@@ -69,7 +68,7 @@ $(document).ready(function () {
             datatype: 'text',
             success: function (responseText) {
                 if (responseText === 'false') {
-                    $('#loginprompt').text("Email or password is wrong!");
+                    $('#loginprompt').text("Email or password is invalid!");
                 } else {
                     $(location).attr('href', '/SWP/home');
                 }
@@ -92,8 +91,10 @@ $(document).ready(function () {
     $('#btn-signup').click(function () {
         let email = $('input[name="email"]').val();
         let phone = $('input[name="phone"]').val();
+        let spinner = '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>';
         if (validateEmail(email) && validatePhone(phone) && $('#message').text() == "Matching" && $("#pwd").val().length != 0 && !isValidating && $("#password-result").val().length == 0) {
             isValidating = true;
+            $('#btn-signup').html(spinner);
             $.ajax({
                 type: 'POST',
                 url: '/SWP/register',
@@ -110,6 +111,7 @@ $(document).ready(function () {
                     if (responseText === 'false') {
                         $('#email-result').text("Email address existed!");
                         isValidating = false;
+                        $('#btn-signup').html("Sign In");
                     } else {
                         isValidating = false;
                         $(location).attr('href', '/SWP/register?success=true');
@@ -255,3 +257,5 @@ $(document).ready(function () {
         $('#href-addtocart').attr('href', 'addtocart?productid='+productid+'&quantity='+quantity);;
     });
 });
+
+
