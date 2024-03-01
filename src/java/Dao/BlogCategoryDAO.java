@@ -39,7 +39,7 @@ public class BlogCategoryDAO extends DBContext {
     public List<BlogCategory> getBlogCategorys() {
         try {
             List<BlogCategory> list = new ArrayList<>();
-            String sql = "SELECT * FROM swp391.blogcategory";
+            String sql = "SELECT * FROM swp391.blogcategory ";
             Connection con = connection;
             PreparedStatement prepareStatement = con.prepareStatement(sql);
             ResultSet rs = prepareStatement.executeQuery();

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.xml.bind.DatatypeConverter;
 import Model.Role;
 import Model.User;
+import java.util.List;
 
 /**
  * object that get Users in application
@@ -422,6 +423,173 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
+<<<<<<< HEAD
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> list = new ArrayList<>();
+
+        String sql = " select user.id, email, name, phone, address, sex, "
+                + "status, roleid, role \n"
+                + "from user join role on user.roleid = role.id "
+                + "order by user.id asc";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setName(rs.getString("name"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setEmail(rs.getString("email"));
+                u.setPhone(rs.getString("phone"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setRole(new Role(rs.getLong("roleid"), rs.getString("role")));
+
+                list.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+//    public User getUserById(long id) {
+//    String sql = "SELECT u.id, u.name, u.sex, u.email, u.phone, u.status, r.id " +
+//                 "FROM User u " +
+//                 "JOIN Role r ON u.roleid = r.id " + 
+//                 "WHERE u.id = ?";
+//
+//    try {
+//        PreparedStatement statement = connection.prepareStatement(sql);
+//        statement.setLong(1, id);
+//        ResultSet rs = statement.executeQuery();
+//
+//        if (rs.next()) {
+//            User u = new User();
+//            u.setId(rs.getLong("id"));
+//            u.setEmail(rs.getString("email"));
+//            u.setName(rs.getString("name"));
+//            u.setPhone(rs.getString("phone"));
+//            u.setSex(rs.getBoolean("sex"));
+//            u.setStatus(rs.getBoolean("status"));
+//            // Tạo đối tượng Role từ dữ liệu cột role
+//            Role role = new Role();
+//            role.setRole(rs.getString("role"));
+//            u.setRole(role);
+//
+//            return u;
+//        }
+//    } catch (SQLException e) {
+//        System.out.println(e);
+//    }
+//    return null;
+//}
+     public User getUserById(long id) {
+    String sql = "SELECT u.id, u.name, u.sex, u.email, u.phone, u.status, u.roleid " +
+                 "FROM User u " +
+                 
+                 "WHERE u.id = ?";
+
+    try {
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setLong(1, id);
+        ResultSet rs = statement.executeQuery();
+
+        if (rs.next()) {
+            User u = new User();
+            u.setId(rs.getLong("id"));
+            u.setEmail(rs.getString("email"));
+            u.setName(rs.getString("name"));
+            u.setPhone(rs.getString("phone"));
+            u.setSex(rs.getBoolean("sex"));
+            u.setStatus(rs.getBoolean("status"));
+             Role role = new Role();
+            role.setId(rs.getLong("roleid"));
+            u.setRole(role);
+
+            return u;
+        }
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+    return null;
+}
+    
+     public void updateRoleAndStatus(User user,int roleId,boolean status) {
+    try {
+        String sql = "UPDATE User SET roleid = ?, status = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1,roleId );
+        statement.setBoolean(2, status);
+        statement.setLong(3, user.getId());
+        statement.executeUpdate();
+        
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+}
+//     public static void main(String[] args) {
+//        UserDAO udb = new UserDAO();
+//        udb.updateRoleAndStatus(udb.getUserByID(14), 1, true);
+//    }
+//   
+
+public void addUser(String email, String password, String name, String phone, String address, boolean sex) throws NoSuchAlgorithmException {
+        String sql = " insert into user(email, password, name, phone, address, sex, status, roleid)\n "
+                + " values(?, ?, ?, ?, ?, ?, 1, 1) ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, BusinessRule.encodePassword(password));
+            statement.setString(3, name);
+            statement.setString(4, phone);
+            statement.setString(5, address);
+            statement.setBoolean(6, sex);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+//     public static void main(String[] args) throws NoSuchAlgorithmException {
+//        UserDAO udb = new UserDAO();
+//        udb.addUser("manhhieu2678@gmail.com", "Manhhieu123", "NguyenManhHieu2", "0565021699", "HaiPhong", true);
+//    }
+//     
+public List<User> get5LastestUsers(){
+        ArrayList<User> users = new ArrayList<>();
+
+        String sql = "SELECT * FROM user where roleid = 1 order by id desc limit 5";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+               
+                
+
+                users.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return users;
+        
+     
+        
+      
+    }
+
+    
+    
+=======
      public static void main(String[] args) {
         User user = new User();
         user.setRole(new Role(2, "admin"));
@@ -430,4 +598,5 @@ public class UserDAO extends DBContext {
             System.out.println("deo baoh in ra ");
         }
     }
+>>>>>>> 85ed51ce1246e92b4a193bed197a0ddcc066f3cf
 }

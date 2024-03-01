@@ -27,6 +27,9 @@ public class BlogDAO extends DBContext {
         try {
             List<Object> params = new ArrayList<>();
             List<Blog> blogs = new ArrayList<>();
+<<<<<<< HEAD
+            String sql = "SELECT * FROM swp391.blog where";
+=======
             String sql = "SELECT `blog`.`id`,\n"
                     + "    `blog`.`title`,\n"
                     + "    `blog`.`briefinfor`,\n"
@@ -36,6 +39,7 @@ public class BlogDAO extends DBContext {
                     + "    `blog`.`status`,\n"
                     + "    `blog`.`blogcategoryid`,\n"
                     + "    `blog`.`image` FROM swp391.blog where 1=1";
+>>>>>>> 85ed51ce1246e92b4a193bed197a0ddcc066f3cf
             if (search != null && !search.trim().isEmpty()) {
                 sql += " and title like ?";
                 params.add("%" + search + "%");
