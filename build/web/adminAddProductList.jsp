@@ -136,29 +136,33 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="exampleSelect1" class="control-label">Maker</label>
-                                                <input class="form-control" type="text" name="maker" required value="${s.getTitle()}">
+                                                <input class="form-control" type="text" name="maker" required pattern="[A-Za-z]+" value="${s.getMaker()}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="exampleSelect1" class="control-label">Product Name</label>
-                                                <input class="form-control" type="text" name="name" required value="${s.getAuthor()}">
+                                                <input class="form-control" type="text" name="name" required value="${s.getName()}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="exampleSelect1" class="control-label">Inventory</label>
-                                                <input class="form-control" type="text" name="inventory" required value="${s.getAuthor()}">
+                                                <input class="form-control" type="text" name="inventory" pattern="[0-9]+" required value="${s.getInventory()}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control" name="cid">
-                                                    <c:forEach var="cate" items="${cates}">
-                                                        <option value="${cate.getId()}" ${cate.getId()==s.getCategoryid()?"selected":""}>${cate.getName()}</option>
-                                                    </c:forEach>
-                                                        <option value="0" ${s.getCategoryid()==null?"selected":""}>Uncategorized</option>
+                                                    
+                                                    <option value="1">smartphone</option>
+                                                    <option value="2">laptop</option>
+                                                    <option value="3">audio</option>
+                                                    <option value="4">smartwatch</option>
+                                                    <option value="5">accessory</option>
+                                                    
+                                                      
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Price</label>
-                                                <input class="form-control" type="text" name="price" pattern="[+-]?([0-9]*[.])?[0-9]+" required value="${s.getPrice()}">
+                                                <input class="form-control" type="text" name="price" pattern="([0-9]*[.])?[0-9]+"  required value="${s.getPrice()}">
 
                                             </div>
                                            

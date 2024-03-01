@@ -8,6 +8,7 @@ package Controller;
 import Dao.CategoryDAO;
 import Dao.ProductsDAO;
 import Model.Category;
+import Model.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -76,25 +77,27 @@ public class adminAddProductList extends HttpServlet {
         int cid = Integer.parseInt(request.getParameter("cid"));   
         double price = Double.parseDouble(request.getParameter("price"));       
         String description = request.getParameter("description");
-        String img = request.getParameter("image");
+        int inventory=Integer.parseInt(request.getParameter("inventory"));
         CategoryDAO cd = new CategoryDAO();
         ArrayList<Category> cates = cd.getCategory();
         request.setAttribute("cates", cates);
         ProductsDAO pd = new ProductsDAO();
-//        switch (request.getParameter("in")) {
-//            case "Add":
-//                if (dao.addBook(title, author, cid, stock, price, issale, discount, img, description) == 0) {
-//                    request.setAttribute("error", "Add Failed! Please try again!");
-//                    request.setAttribute("s", new Book(0, title, author, cid, stock, price, issale, discount, img, description));
-//                    request.getRequestDispatcher("/admin/add.jsp").forward(request, response);
-//                } else {
-//                    request.setAttribute("error", "Add Successfully!");
-//                    request.setAttribute("service", "Add");
-//                    request.getRequestDispatcher("/admin/add.jsp").forward(request, response);
-//                }
-//                break;
-//            
-//        }
+        switch (request.getParameter("in")) {
+            case "Add":
+                if (pd.addProduct(name, price, description, maker, true, inventory, cid) == 0) {
+                    request.setAttribute("error", "Add Failed! Please try again!");
+                    request.setAttribute("s", new Products(Long.parseLong("0"), name, price, description, maker, true, inventory, cid));
+                    request.getRequestDispatcher("adminAddProductList.jsp").forward(request, response);
+                } 
+                 else {
+                    request.setAttribute("error", "Add Successfully!");
+                    request.setAttribute("service", "Add");
+                    request.getRequestDispatcher("adminAddProductList.jsp").forward(request, response);
+                }
+                break;
+              
+            
+        }
 
     }
 

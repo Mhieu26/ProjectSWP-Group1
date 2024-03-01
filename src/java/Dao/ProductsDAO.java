@@ -256,9 +256,23 @@ public ArrayList<String> getDistinctMakers() {
             System.out.println("del Error:" + e.getMessage());
         }
     }
+           public int addProduct(String name, double price, String description, String maker, boolean status, int inventory,int categoryid) {
+        int n = 0;
+        try {
+            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String sql = "insert product ( name, price, description, maker,status, inventory, categoryid)"
+                    + " values (N'" + name + "', N'" + price + "', N'" + description  + "', N'" + maker + "', "
+                    + (status ? 1 : 0) + ", "+ inventory+ ", " + categoryid+")";
+            n = stm.executeUpdate(sql);
+        } catch (Exception e) {
+            System.out.println("add Error:" + e.getMessage());
+            
+        }
+        return n;
+    }
     public static void main(String[] args) {
-        ProductsDAO pd=new ProductsDAO();
-       pd.deleteBook(20);
+        ProductsDAO pdb = new ProductsDAO();
+        pdb.addProduct("Toan", 20000, null, "samsung", true, 300, 2);
        
     }
 

@@ -23,13 +23,10 @@ import java.util.logging.Logger;
  */
 public class BlogDAO extends DBContext {
 
-    public List<Blog> getBlogs(String search, String blogcategory) {
+       public List<Blog> getBlogs(String search, String blogcategory) {
         try {
             List<Object> params = new ArrayList<>();
             List<Blog> blogs = new ArrayList<>();
-<<<<<<< HEAD
-            String sql = "SELECT * FROM swp391.blog where";
-=======
             String sql = "SELECT `blog`.`id`,\n"
                     + "    `blog`.`title`,\n"
                     + "    `blog`.`briefinfor`,\n"
@@ -39,7 +36,6 @@ public class BlogDAO extends DBContext {
                     + "    `blog`.`status`,\n"
                     + "    `blog`.`blogcategoryid`,\n"
                     + "    `blog`.`image` FROM swp391.blog where 1=1";
->>>>>>> 85ed51ce1246e92b4a193bed197a0ddcc066f3cf
             if (search != null && !search.trim().isEmpty()) {
                 sql += " and title like ?";
                 params.add("%" + search + "%");
@@ -72,7 +68,6 @@ public class BlogDAO extends DBContext {
         }
         return null;
     }
-
     public void addBlog(Blog blog) {
         try {
             String sql = "INSERT INTO swp391.blog (title, briefinfor, content, author, postdate, status, blogcategoryid, image) "
