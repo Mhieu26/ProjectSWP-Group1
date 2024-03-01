@@ -7,7 +7,9 @@ package Dao;
 import Model.Category;
 import Model.Products;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -46,7 +48,7 @@ public class ProductsDAO extends DBContext {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
                 list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
@@ -68,7 +70,7 @@ public class ProductsDAO extends DBContext {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
                 list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
@@ -92,7 +94,7 @@ public class ProductsDAO extends DBContext {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
                 list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
@@ -113,7 +115,7 @@ public class ProductsDAO extends DBContext {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
               return new Products(id, name, price, description, maker, status, inventory, categoryid);
@@ -137,7 +139,7 @@ public class ProductsDAO extends DBContext {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
                 list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
@@ -216,7 +218,7 @@ public ArrayList<String> getDistinctMakers() {
                 double price=rs.getDouble(3);
                 String description=rs.getString(4);
                 String maker=rs.getString(5);
-                int status=rs.getInt(6);
+                boolean status=rs.getBoolean(6);
                 int inventory=rs.getInt(7);
                 int categoryid=rs.getInt(8);
                 list.add(new Products(id, name, price, description, maker, status, inventory, categoryid));
@@ -226,13 +228,38 @@ public ArrayList<String> getDistinctMakers() {
         }
         return list;
     }
-//    public static void main(String[] args) {
-//        ProductsDAO pd=new ProductsDAO();
-//       ArrayList<String> list=pd.getDistinctMakers();
-//        for (String l : list) {
-//            System.out.println(l);
-//            
-//        }
-//    }
+        public void updateStatusProduct(int price,int id, boolean status) {
+        String sql = " update product set status = ?, price=? Where id = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setBoolean(1, status);
+            statement.setInt(2, price);
+            statement.setInt(3, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+          public void deleteBook(int id) {
+        try {
+            stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String sql = "update image set productid = NULL where productid=" + id;
+            stm.executeUpdate(sql);
+            sql = "delete from specification where productid = " + id;
+            stm.executeUpdate(sql);
+            sql = "delete from feedback where productid = " + id;
+            stm.executeUpdate(sql);
+            sql = "delete from product where id = " + id;
+            stm.executeUpdate(sql);
+        } catch (Exception e) {
+            System.out.println("del Error:" + e.getMessage());
+        }
+    }
+    public static void main(String[] args) {
+        ProductsDAO pd=new ProductsDAO();
+       pd.deleteBook(20);
+       
+    }
 
 }
