@@ -25,7 +25,7 @@ public class BlogDAO extends DBContext {
         try {
             List<Object> params = new ArrayList<>();
             List<Blog> blogs = new ArrayList<>();
-            String sql = "SELECT * FROM swp391.blog where 1=1";
+            String sql = "SELECT * FROM swp391.blog where";
             if (search != null && !search.trim().isEmpty()) {
                 sql += " and title like ?";
                 params.add("%" + search + "%");

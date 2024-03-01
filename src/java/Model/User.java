@@ -132,4 +132,5 @@ public class User {
         return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", phone=" + phone + ", address=" + address + ", sex=" + sex + ", status=" + status + ", verificationCode=" + verificationCode + ", role=" + role + '}';
     }
 
+   
 }

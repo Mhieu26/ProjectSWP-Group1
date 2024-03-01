@@ -87,6 +87,50 @@
         <servlet-name>AddToCartController</servlet-name>
         <servlet-class>Controller.AddToCartController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminDashboard</servlet-name>
+        <servlet-class>Controller.adminDashboard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminSettingList</servlet-name>
+        <servlet-class>Controller.adminSettingList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminUserList</servlet-name>
+        <servlet-class>Controller.adminUserList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminDashboardController</servlet-name>
+        <servlet-class>Controller.adminDashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminSettingListController</servlet-name>
+        <servlet-class>Controller.adminSettingListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminUserListController</servlet-name>
+        <servlet-class>Controller.adminUserListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateUserController</servlet-name>
+        <servlet-class>Controller.updateUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingDetailController</servlet-name>
+        <servlet-class>Controller.SettingDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminAddUser</servlet-name>
+        <servlet-class>adminAddUser.adminAddUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminAddUserController</servlet-name>
+        <servlet-class>Controller.adminAddUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminAddSettingController</servlet-name>
+        <servlet-class>Controller.adminAddSettingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -166,6 +210,50 @@
     <servlet-mapping>
         <servlet-name>AddToCartController</servlet-name>
         <url-pattern>/addtocart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminDashboard</servlet-name>
+        <url-pattern>/adminDashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminSettingList</servlet-name>
+        <url-pattern>/adminSettingList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminUserList</servlet-name>
+        <url-pattern>/adminUserList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminDashboardController</servlet-name>
+        <url-pattern>/adminDashboardController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminSettingListController</servlet-name>
+        <url-pattern>/adminSettingListController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminUserListController</servlet-name>
+        <url-pattern>/adminUserListController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateUserController</servlet-name>
+        <url-pattern>/updateUserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingDetailController</servlet-name>
+        <url-pattern>/settingDetailController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminAddUser</servlet-name>
+        <url-pattern>/adminAddUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminAddUserController</servlet-name>
+        <url-pattern>/adminAddUserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminAddSettingController</servlet-name>
+        <url-pattern>/adminAddSettingController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
