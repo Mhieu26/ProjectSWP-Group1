@@ -134,6 +134,8 @@
     <servlet>
         <servlet-name>adminAddSettingController</servlet-name>
         <servlet-class>Controller.adminAddSettingController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FeedbackController</servlet-name>
         <servlet-class>Controller.FeedbackController</servlet-class>
     </servlet>
@@ -160,6 +162,10 @@
     <servlet>
         <servlet-name>adminAddProductList</servlet-name>
         <servlet-class>Controller.adminAddProductList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteFeedbackController</servlet-name>
+        <servlet-class>Controller.DeleteFeedbackController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -246,7 +252,6 @@
         <url-pattern>/addtocart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>adminDashboard</servlet-name>
         <url-pattern>/adminDashboard</url-pattern>
     </servlet-mapping>
@@ -289,7 +294,8 @@
     <servlet-mapping>
         <servlet-name>adminAddSettingController</servlet-name>
         <url-pattern>/adminAddSettingController</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>FeedbackController</servlet-name>
         <url-pattern>/feedback</url-pattern>
     </servlet-mapping>
@@ -316,6 +322,10 @@
     <servlet-mapping>
         <servlet-name>adminAddProductList</servlet-name>
         <url-pattern>/adminAddProductList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteFeedbackController</servlet-name>
+        <url-pattern>/deleteFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

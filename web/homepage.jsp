@@ -548,7 +548,7 @@
                             <a href="#" class="button__link">Featured Products</a>
 
                         </h2>
-                        <a href="shop" class="btn-show-more button__link">Xem tất cả</a>
+                        <a href="shop" class="btn-show-more button__link">Views All</a>
                     </div>
                     <div class="product-list">
 

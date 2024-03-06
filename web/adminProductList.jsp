@@ -23,6 +23,8 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- Theme style -->
         <link href="./admin/css/adminstyle.css" rel="stylesheet" type="text/css" />
+<!--        	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">-->
+  
     </head>
 
     <body class="skin-black">
@@ -120,25 +122,9 @@
                 <!-- search form -->
 
                 <!-- /.search form -->
-                <%@ include file="../../common/Message.jsp" %>
-                <section class="header container">
-                    <div class="items-controller col-md-6">
-                        <label>Show</label>
-                        <select name="" id="itemperpage">
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="08" selected>08</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                        </select>
-                        <label>Per Page</label>
-                    </div>
-                    <div class="search col-md-6">
-                        <label style="margin-left: 300px">Search:</label>
-                        <input type="text" name="" id="search" placeholder="Search">
-                    </div>
-                </section>
-                <form action="adminUserListController" method="get">
+             
+
+                <form action="adminUserListController" method="get" style="font-size: 20px">
                     <label style="margin-left: 30px">Filter by Category:</label>
                     <select name="category">
                         <option value="all">All</option>
@@ -192,7 +178,7 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>Full Name</th>
-                                                        <th>Thumbnail</th>
+                                                        <th style="width: 100px">Thumbnail</th>
                                                         <th>Price</th>
                                                         <th>Maker</th>
                                                         
@@ -213,8 +199,8 @@
                                                             <td><%=p.getName()%></td>
                                                              <%  for (Image tn : thumbnails) { %>
                                 <%if(p.getId()==tn.getProductId()){ %>
-                                <td style="width: 100px;height: 100px;"> 
-                                    <img style="width: 100%" src="<%= tn.getSource()%>" alt="" class="img-responsive"></td>
+                                <td> 
+                                    <img style="" src="<%= tn.getSource()%>" alt="" class="img-responsive"></td>
                                 <% } } %>
                                                          
                                                             <td><%
@@ -245,13 +231,7 @@
                                                    <% } %>
                                                 </tbody>
                                             </table>
-                                            <div class="bottom-field">
-                                                <ul class="pagination">
-                                                    <li class="prev"><a href="#" id="prev">&#139;</a></li>
-                                                    <!-- page number here -->
-                                                    <li class="next"><a href="#" id="next">&#155;</a></li>
-                                                </ul>
-                                            </div>
+                                           
                                         </div>
 
                                         <!-- /.table-responsive -->
@@ -279,146 +259,19 @@
         <!-- You can add modal HTML code here for viewing/editing user details -->
 
         <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./admin/js/datatable.js"></script>
+<!--<script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap4.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="./admin/js/bootstrap.min.js" type="text/javascript"></script>
 
         <script>
+new DataTable('#user-table');		
 
-
-                                var tbody = document.querySelector("tbody");
-                                var pageUl = document.querySelector(".pagination");
-                                var itemShow = document.querySelector("#itemperpage");
-                                var tr = tbody.querySelectorAll("tr");
-                                var emptyBox = [];
-                                var index = 1;
-                                var itemPerPage = 8;
-
-                                for (let i = 0; i < tr.length; i++) {
-                                    emptyBox.push(tr[i]);
-                                }
-
-                                itemShow.onchange = giveTrPerPage;
-                                function giveTrPerPage() {
-                                    itemPerPage = Number(this.value);
-                                    // console.log(itemPerPage);
-                                    displayPage(itemPerPage);
-                                    pageGenerator(itemPerPage);
-                                    getpagElement(itemPerPage);
-                                }
-
-                                function displayPage(limit) {
-                                    tbody.innerHTML = '';
-                                    for (let i = 0; i < limit; i++) {
-                                        tbody.appendChild(emptyBox[i]);
-                                    }
-                                    const  pageNum = pageUl.querySelectorAll('.list');
-                                    pageNum.forEach(n => n.remove());
-                                }
-                                displayPage(itemPerPage);
-
-                                function pageGenerator(getem) {
-                                    const num_of_tr = emptyBox.length;
-                                    if (num_of_tr <= getem) {
-                                        pageUl.style.display = 'none';
-                                    } else {
-                                        pageUl.style.display = 'flex';
-                                        const num_Of_Page = Math.ceil(num_of_tr / getem);
-                                        for (i = 1; i <= num_Of_Page; i++) {
-                                            const li = document.createElement('li');
-                                            li.className = 'list';
-                                            const a = document.createElement('a');
-                                            a.href = '#';
-                                            a.innerText = i;
-                                            a.setAttribute('data-page', i);
-                                            li.appendChild(a);
-                                            pageUl.insertBefore(li, pageUl.querySelector('.next'));
-                                        }
-                                    }
-                                }
-                                pageGenerator(itemPerPage);
-                                let pageLink = pageUl.querySelectorAll("a");
-                                let lastPage = pageLink.length - 2;
-
-                                function pageRunner(page, items, lastPage, active) {
-                                    for (button of page) {
-                                        button.onclick = e => {
-                                            const page_num = e.target.getAttribute('data-page');
-                                            const page_mover = e.target.getAttribute('id');
-                                            if (page_num != null) {
-                                                index = page_num;
-
-                                            } else {
-                                                if (page_mover === "next") {
-                                                    index++;
-                                                    if (index >= lastPage) {
-                                                        index = lastPage;
-                                                    }
-                                                } else {
-                                                    index--;
-                                                    if (index <= 1) {
-                                                        index = 1;
-                                                    }
-                                                }
-                                            }
-                                            pageMaker(index, items, active);
-                                        }
-                                    }
-
-                                }
-                                var pageLi = pageUl.querySelectorAll('.list');
-                                pageLi[0].classList.add("active");
-                                pageRunner(pageLink, itemPerPage, lastPage, pageLi);
-
-                                function getpagElement(val) {
-                                    let pagelink = pageUl.querySelectorAll("a");
-                                    let lastpage = pagelink.length - 2;
-                                    let pageli = pageUl.querySelectorAll('.list');
-                                    pageli[0].classList.add("active");
-                                    pageRunner(pagelink, val, lastpage, pageli);
-
-                                }
-
-
-
-                                function pageMaker(index, item_per_page, activePage) {
-                                    const start = item_per_page * index;
-                                    const end = start + item_per_page;
-                                    const current_page = emptyBox.slice((start - item_per_page), (end - item_per_page));
-                                    tbody.innerHTML = "";
-                                    for (let j = 0; j < current_page.length; j++) {
-                                        let item = current_page[j];
-                                        tbody.appendChild(item);
-                                    }
-                                    Array.from(activePage).forEach((e) => {
-                                        e.classList.remove("active");
-                                    });
-                                    activePage[index - 1].classList.add("active");
-                                }
-
-
-
-
-
-                                // search content 
-                                var search = document.getElementById("search");
-                                search.onkeyup = e => {
-                                    const text = e.target.value;
-                                    for (let i = 0; i < tr.length; i++) {
-                                        const matchText = tr[i].querySelectorAll("td")[1].innerText;
-                                        const matchPhone = tr[i].querySelectorAll("td")[4].innerText;
-                                        const matchMail = tr[i].querySelectorAll("td")[3].innerText;
-                                        if (matchText.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchPhone.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchMail.toLowerCase().indexOf(text.toLowerCase()) > -1) {
-                                            tr[i].style.visibility = "visible";
-                                        } else {
-                                            tr[i].style.visibility = "collapse";
-                                        }
-                                    }
-                                }
-
-
-// Function to apply filters
-// Function to apply filters
                                 function applyFilters() {
                                     var cateFilter = document.querySelector("select[name='category']").value;
                                     var makerFilter = document.querySelector("select[name='maker']").value;
@@ -431,7 +284,7 @@
 
                                     tr.forEach(function (row) {
                                         var cate = row.querySelector("td:nth-child(7)").innerText.toLowerCase();
-                                        var maker = row.querySelector("td:nth-child(4)").innerText.toLowerCase();
+                                        var maker = row.querySelector("td:nth-child(5)").innerText.toLowerCase();
                                         var status = row.querySelector("td:nth-child(6)").innerText.toLowerCase();
 
                                         // Check if row matches filters

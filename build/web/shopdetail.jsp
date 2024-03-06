@@ -655,8 +655,10 @@ for(Specification s : list){
 
                                                         <h4 class="comment-author" >
                                                             <%=u.getName()%>
-                                                             <span class="show-action" onclick="showOptions()">...</span>
+                                                            
+                                                            <span>...</span>
                                                         </h4>
+                                
                                                        
                                                         <% } } %> 
                                                         <div class="comment-content">
@@ -718,6 +720,7 @@ for(Specification s : list){
                                                         </div>
                                                         <% } %>
                                                         <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                                                        
                                                     </div>
 
                                                     <p>

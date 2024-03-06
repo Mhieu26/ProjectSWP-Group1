@@ -25,7 +25,7 @@ public class FeedbackDAO extends DBContext {
     ResultSet rs; // luu tru va xu ly du lieu
 
     public ArrayList<Feedback> getFeedbackByProducgtID(int pID) {
-        String sql = " select * from feedback where productid= ? ";
+        String sql = " select * from feedback where productid= ? and status=1 ";
         ArrayList<Feedback> f = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class FeedbackDAO extends DBContext {
                 fb.setContent(rs.getString("content"));
                 fb.setStar(rs.getInt("star"));
                 fb.setPostdate(rs.getTimestamp("postdate"));
-                fb.setStatus(rs.getInt("status"));
+                fb.setStatus(rs.getBoolean("status"));
                 fb.setUserid(rs.getInt("userid"));
                 fb.setProductid(rs.getInt("productid"));
                 fb.setParentFeedback(rs.getInt("parentFeedback"));
@@ -67,13 +67,22 @@ public class FeedbackDAO extends DBContext {
             System.out.println(e);
         }
     }
+    public void deleteFeedback(int id) {
+        String sql = " Delete from feedback where id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 
     public static void main(String[] args) {
         FeedbackDAO fd = new FeedbackDAO();
-        ArrayList<Feedback> f = fd.getFeedbackByProducgtID(3);
-        for (Feedback feedback : f) {
-            System.out.println(feedback.getPostdate());
-        }
+         fd.deleteFeedback(Integer.parseInt("4"));
+       
 
     }
 }
