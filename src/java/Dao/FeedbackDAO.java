@@ -25,7 +25,7 @@ public class FeedbackDAO extends DBContext {
     ResultSet rs; // luu tru va xu ly du lieu
 
     public ArrayList<Feedback> getFeedbackByProducgtID(int pID) {
-        String sql = " select * from feedback where productid= ? and status=1 ";
+        String sql = " select * from feedback where productid= ? and status= 1 ";
         ArrayList<Feedback> f = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -50,7 +50,32 @@ public class FeedbackDAO extends DBContext {
         }
         return f;
     }
+    public ArrayList<Feedback> getAllFeedbackByProducgtID(int pID) {
+        String sql = " select * from feedback where productid= ? ";
+        ArrayList<Feedback> f = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, pID);
+            ResultSet rs = statement.executeQuery();
 
+            while (rs.next()) {
+                Feedback fb = new Feedback();
+                fb.setId(rs.getInt("id"));
+                fb.setContent(rs.getString("content"));
+                fb.setStar(rs.getInt("star"));
+                fb.setPostdate(rs.getTimestamp("postdate"));
+                fb.setStatus(rs.getBoolean("status"));
+                fb.setUserid(rs.getInt("userid"));
+                fb.setProductid(rs.getInt("productid"));
+                fb.setParentFeedback(rs.getInt("parentFeedback"));
+                f.add(fb);
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return f;
+    }
     public void insertFeedback(String content, int star, long userid, int productid) {
         String sql = "insert into feedback(content,star,postdate,status,userid,productid)\n"
                 + "values(?,?,(now() + interval 1 minute),1,?,?);";
@@ -67,6 +92,7 @@ public class FeedbackDAO extends DBContext {
             System.out.println(e);
         }
     }
+
     public void deleteFeedback(int id) {
         String sql = " Delete from feedback where id = ?";
         try {
@@ -79,10 +105,108 @@ public class FeedbackDAO extends DBContext {
         }
     }
 
+    public ArrayList<Feedback> getAllFeedback() {
+        String sql = " SELECT * FROM swp391.feedback;";
+        ArrayList<Feedback> f = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Feedback fb = new Feedback();
+                fb.setId(rs.getInt("id"));
+                fb.setContent(rs.getString("content"));
+                fb.setStar(rs.getInt("star"));
+                fb.setPostdate(rs.getTimestamp("postdate"));
+                fb.setStatus(rs.getBoolean("status"));
+                fb.setUserid(rs.getInt("userid"));
+                fb.setProductid(rs.getInt("productid"));
+                fb.setParentFeedback(rs.getInt("parentFeedback"));
+                f.add(fb);
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return f;
+    }
+
     public static void main(String[] args) {
         FeedbackDAO fd = new FeedbackDAO();
-         fd.deleteFeedback(Integer.parseInt("4"));
-       
+        fd.deleteFeedback(Integer.parseInt("4"));
 
+    }
+
+    public void updateFeedbackStatus(int feedbackid, String status) {
+
+        String sql = "UPDATE `swp391`.`feedback`\n"
+                + "SET\n"
+                + "`status` = ? \n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setBoolean(1, Boolean.parseBoolean(status));
+            statement.setInt(2, feedbackid);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+    public ArrayList<Feedback> getFeedbackByAllElenment(String status, String productid, String star, String content) {
+        String sql = " SELECT * FROM swp391.feedback \n"
+                + "WHERE id IS NOT NULL \n"
+                + status
+                + productid
+                + star
+                + content + ";";
+        ArrayList<Feedback> f = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Feedback fb = new Feedback();
+                fb.setId(rs.getInt("id"));
+                fb.setContent(rs.getString("content"));
+                fb.setStar(rs.getInt("star"));
+                fb.setPostdate(rs.getTimestamp("postdate"));
+                fb.setStatus(rs.getBoolean("status"));
+                fb.setUserid(rs.getInt("userid"));
+                fb.setProductid(rs.getInt("productid"));
+                fb.setParentFeedback(rs.getInt("parentFeedback"));
+                f.add(fb);
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return f;
+    }
+     public Feedback getFeedbackByID(int fID) {
+        String sql = "  SELECT * FROM swp391.feedback \n"
+                + "WHERE id = ? ; ";
+        Feedback fb = new Feedback();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, fID);
+            ResultSet rs = statement.executeQuery();
+             while (rs.next()) {             
+                fb.setId(rs.getInt("id"));
+                fb.setContent(rs.getString("content"));
+                fb.setStar(rs.getInt("star"));
+                fb.setPostdate(rs.getTimestamp("postdate"));
+                fb.setStatus(rs.getBoolean("status"));
+                fb.setUserid(rs.getInt("userid"));
+                fb.setProductid(rs.getInt("productid"));
+                fb.setParentFeedback(rs.getInt("parentFeedback"));
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return fb;
     }
 }
