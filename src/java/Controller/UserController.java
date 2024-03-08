@@ -138,7 +138,7 @@ if ("1".equals(genderParam)) {
         request.setAttribute("msg", msg);
                 request.setAttribute("msg1", msg1);
 
-    response.sendRedirect("userController");
+        request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 
     /** 

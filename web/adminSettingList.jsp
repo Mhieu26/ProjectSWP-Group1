@@ -1,5 +1,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.User" %>
+<%
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    User user = (User) request.getAttribute("user");
+    if (user != null) {
+        // Nếu đã đăng nhập, kiểm tra vai trò
+        int role = (int)(user.getRole().getId());
+        if (role != 2) { // Nếu không phải là vai trò 2
+            response.sendRedirect("notFoundController"); // Chuyển hướng về trang home
+            return; // Dừng xử lý tiếp theo
+        }
+    } else {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        response.sendRedirect("notFoundController"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        return; // Dừng xử lý tiếp theo
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,6 +53,27 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+                            
+                             <% 
+                         if(user != null) {
+                            int role = (int)(user.getRole().getId());
+                            if(role == 2) { %>
+                            <li><a href="adminDashboardController">Admin Manager</a></li>
+                            <li><a href="saleController">Sale</a></li>
+                            <li>
+                                <a href="saleManagerController">Sale Manager</a>
+                            </li>
+                            <li>
+                                <a href="saleManagerController">Marketing</a>
+                            </li>
+                            <% } else if (role == 3) { %>
+                            <li><a href="saleController">Sale</a></li>
+                                <% } else if (role == 4) { %>
+                            <li><a href="saleController">Sale</a></li>
+                            <li><a href="saleController">Sale Manager</a></li>
+                                <% } else if (role == 5) { %>
+                            <li><a href="saleManagerController">Marketing</a></li>
+                                <% } } %>
                             <li><a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a></li>
                         </ul>
                     </li>

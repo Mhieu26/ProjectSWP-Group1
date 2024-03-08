@@ -178,6 +178,13 @@
                                             <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
+                                            <% if(user!=null){
+    int role = (int)(user.getRole().getId());
+    if(role==2||role==3||role==4){
+%>  
+    <li><a href="adminDashboard">Manage</a></li>
+<% }
+} %>
                                                 <%}%>
                                         </ul>
 

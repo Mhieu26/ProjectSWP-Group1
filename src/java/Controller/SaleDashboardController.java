@@ -91,22 +91,22 @@
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            String name = request.getParameter("selectedSale");
-            //response.getWriter().print(name);
-            OrderLineDAO orderdao = new OrderLineDAO();
-            UserDAO udao = new UserDAO();
-            ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
-            if (name.equals("all")) {
-                orderlines = orderdao.getOrderLinesIn7Day();
-            } else {
-                User user = new User();
-                user = udao.getUserByName(name);
-                orderlines = orderdao.getOrderLinesBySaleIDIn7Day(user.getId());
-            }
-            request.setAttribute("select", name);
-            request.setAttribute("orderlines", orderlines);
-            //  response.getWriter().print(orderlines.get(0).getPrice());
-            request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
+//            String name = request.getParameter("selectedSale");
+//            //response.getWriter().print(name);
+//            OrderLineDAO orderdao = new OrderLineDAO();
+//            UserDAO udao = new UserDAO();
+//            ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
+//            if (name.equals("all")) {
+//                orderlines = orderdao.getOrderLinesIn7Day();
+//            } else {
+//                User user = new User();
+//                user = udao.getUserByName(name);
+//                orderlines = orderdao.getOrderLinesBySaleIDIn7Day(user.getId());
+//            }
+//            request.setAttribute("select", name);
+//            request.setAttribute("orderlines", orderlines);
+//            //  response.getWriter().print(orderlines.get(0).getPrice());
+//            request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
         }
 
         /**

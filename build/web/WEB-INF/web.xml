@@ -4,9 +4,6 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
-    <welcome-file-list>
-        <welcome-file>home</welcome-file>
-    </welcome-file-list>
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
@@ -148,9 +145,14 @@
         <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>adminProductList</servlet-name>
-        <servlet-class>Controller.adminProductList</servlet-class>
+
+        <servlet-name>NotFoundController</servlet-name>
+        <servlet-class>Controller.NotFoundController</servlet-class>
+
+       
     </servlet>
+    <servlet> <servlet-name>adminProductList</servlet-name>
+        <servlet-class>Controller.adminProductList</servlet-class></servlet>
     <servlet>
         <servlet-name>updateProductController</servlet-name>
         <servlet-class>Controller.updateProductController</servlet-class>
@@ -308,9 +310,13 @@
         <url-pattern>/DeleteBlog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>adminProductList</servlet-name>
-        <url-pattern>/adminProductList</url-pattern>
+        <servlet-name>NotFoundController</servlet-name>
+        <url-pattern>/notFoundController</url-pattern>
+
+      
     </servlet-mapping>
+    <servlet-mapping>  <servlet-name>adminProductList</servlet-name>
+        <url-pattern>/adminProductList</url-pattern></servlet-mapping>
     <servlet-mapping>
         <servlet-name>updateProductController</servlet-name>
         <url-pattern>/updateProductController</url-pattern>
@@ -328,8 +334,9 @@
         <url-pattern>/deleteFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
 </web-app>

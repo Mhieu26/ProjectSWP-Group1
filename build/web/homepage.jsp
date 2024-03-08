@@ -151,19 +151,36 @@
                                         <!-- Utility -->
 
                                         <ul>
-                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
+                                            <li class="dropdown-header"><%= user != null ? user.getName() : "" %></li>
                                             <li role="separator" class="divider"></li>
-                                                <% if(user == null){ %>
+                                                <% if(user == null) { %>
                                             <li><a href="login">Login</a></li>
                                             <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
-                                                <%}else {%>
+                                                <% } else { %>
+                                                <% if(user != null) {
+                                                    int role = (int)(user.getRole().getId());
+                                                    if(role == 2) { %>
+                                            <li><a href="adminDashboardController">Admin Manager</a></li>
+                                            <li><a href="saleController">Sale</a></li>
+                                            <li><a href="saleManagerController">Sale Manager</a></li>
+                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+
+                                            <% } else if(role == 3) { %>
+                                            <li><a href="saleController">Sale</a></li>
+                                                <% } else if(role == 4) { %>
+                                            <li><a href="saleController">Sale</a> </li>
+                                            <li><a href="saleManagerController">Sale Manager</a></li>
+                                                <% } else if(role == 5) { %>
+                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+                                                <% }
+        } %>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
-
-                                            <%}%>
+                                                <% } %>
                                         </ul>
+
 
 
                                         <!-- Mega Menu -->
@@ -258,12 +275,7 @@
 
                             </li><!-- / Blog -->
 
-                            <%if(user!=null){
-                                                        int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==3||role==4){
 
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
                             <!-- Shop -->
 
                         </ul><!-- / .nav .navbar-nav -->
@@ -278,7 +290,7 @@
 
 
         <!--slider-->
-     <div data-server-rendered="true" id="__nuxt">
+        <div data-server-rendered="true" id="__nuxt">
             <!---->
             <div id="__layout">
                 <div id="layout-desktop" class="cps-page">
@@ -346,7 +358,7 @@
 
                                                     </a>
                                                 </div>
-                    
+
                                                 <div href="blog" target="_self" class="label-menu-tree">
                                                     <a href="blog" target="_self" class="label-item">
                                                         <div class="right-content">

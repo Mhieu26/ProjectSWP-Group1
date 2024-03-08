@@ -27,15 +27,19 @@ public class BlogDAO extends DBContext {
         try {
             List<Object> params = new ArrayList<>();
             List<Blog> blogs = new ArrayList<>();
-            String sql = "SELECT `blog`.`id`,\n"
-                    + "    `blog`.`title`,\n"
-                    + "    `blog`.`briefinfor`,\n"
-                    + "    `blog`.`content`,\n"
-                    + "    `blog`.`author`,\n"
-                    + "    `blog`.`postdate`,\n"
-                    + "    `blog`.`status`,\n"
-                    + "    `blog`.`blogcategoryid`,\n"
-                    + "    `blog`.`image` FROM swp391.blog where 1=1";
+
+            String sql = "SELECT blog.`id`,\n"
+                    + "    blog.`title`,\n"
+                    + "    blog.`briefinfor`,\n"
+                    + "    blog.`content`,\n"
+                    + "    blog.`author`,\n"
+                    + "    blog.`postdate`,\n"
+                    + "    blog.`status`,\n"
+                    + "    blog.`blogcategoryid`,\n"
+                    + "    blog.`image` FROM swp391.blog where 1=1";
+
+          
+
             if (search != null && !search.trim().isEmpty()) {
                 sql += " and title like ?";
                 params.add("%" + search + "%");

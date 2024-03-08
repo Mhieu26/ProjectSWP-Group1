@@ -103,6 +103,7 @@ public class LoginController extends HttpServlet {
             ss.setAttribute("avatar", avatar); // store user avatar as well
             response.getWriter().write("true");
             request.getRequestDispatcher("./home").forward(request, response);
+            request.getRequestDispatcher("adminDashboardController").forward(request, response);
         }
     }
 
