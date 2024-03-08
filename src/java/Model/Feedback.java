@@ -16,7 +16,7 @@ public class Feedback {
     String content;
     int star;
     Timestamp postdate;
-    int status;
+    boolean status;
     int userid;
     int productid;
     int parentFeedback;
@@ -24,7 +24,7 @@ public class Feedback {
     public Feedback() {
     }
 
-    public Feedback(int id, String content, int star, Timestamp postdate, int status, int userid, int productid, int parentFeedback) {
+    public Feedback(int id, String content, int star, Timestamp postdate, boolean status, int userid, int productid, int parentFeedback) {
         this.id = id;
         this.content = content;
         this.star = star;
@@ -67,11 +67,11 @@ public class Feedback {
         this.postdate = postdate;
     }
 
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

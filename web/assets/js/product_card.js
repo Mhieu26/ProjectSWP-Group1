@@ -116,20 +116,9 @@ allStar.forEach((item, idx)=> {
 	})
 });
 
-//document.addEventListener("DOMContentLoaded", function() {
-//        const form = document.querySelector("#feedbackForm");
-//
-//        form.addEventListener("submit", function(event) {
-//            event.preventDefault(); // Prevent the form from submitting normally
-//
-//            // You may perform validation here if needed
-//
-//            // Construct the redirect URL
-//            const id = form.querySelector('input[name="id"]').value;
-//            const cateid = form.querySelector('input[name="cateid"]').value;
-//            const redirectURL = "shopdetail?id=" + id + "&cateid=" + cateid;
-//
-//            // Redirect the user to the desired URL
-//            window.location.href = redirectURL;
-//        });
-//    });
+$(document).ready(function(){
+	$("button").click(function(){
+		$("#dp_menu > ul").toggle(500);
+		$("#dp_menu").toggleClass("show");
+	});
+});

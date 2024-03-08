@@ -15,14 +15,14 @@ public class Products {
     double price;
     String description;
     String maker;
-    int status;
+    boolean status;
     int inventory;
     int categoryid;
 
     public Products() {
     }
 
-    public Products(Long id, String name, double price, String description, String maker, int status, int inventory, int categoryid) {
+    public Products(Long id, String name, double price, String description, String maker, boolean status, int inventory, int categoryid) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -74,11 +74,11 @@ public class Products {
         this.maker = maker;
     }
 
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

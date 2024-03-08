@@ -423,6 +423,10 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6608abddb6db0d665ac732790c1355b916d2d008
     public ArrayList<User> getAllUsers() {
         ArrayList<User> list = new ArrayList<>();
 
@@ -588,6 +592,7 @@ public List<User> get5LastestUsers(){
        
     
     
+<<<<<<< HEAD
 //     public static void main(String[] args) {
 //        User user = new User();
 //        user.setRole(new Role(2, "admin"));
@@ -596,4 +601,7 @@ public List<User> get5LastestUsers(){
 //            System.out.println("deo baoh in ra ");
 //        }
 //    }
+=======
+
+>>>>>>> 6608abddb6db0d665ac732790c1355b916d2d008
 }
