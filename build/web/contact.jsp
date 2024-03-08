@@ -157,19 +157,31 @@
         %>
 					
 
-									 <ul>
-                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
+									  <ul>
+                                            <li class="dropdown-header"><%= user != null ? user.getName() : "" %></li>
                                             <li role="separator" class="divider"></li>
-                                                <% if(user == null){ %>
+                                                <% if(user == null) { %>
                                             <li><a href="login">Login</a></li>
                                             <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
-                                                <%}else {%>
+                                                <% } else { %>
+                                                <% if(user != null) {
+                                                    int role = (int)(user.getRole().getId());
+                                                    if(role == 2) { %>
+                                            <li><a href="adminDashboardController">Admin Manager</a></li>
+                                                <% } else if(role == 3) { %>
+                                            <li><a href="saleController">Sale</a></li>
+                                                <% } else if(role == 4) { %>
+                                            <li><a href="saleManagerController">Sale Manager</a></li>
+                                                <% } else if(role == 5) { %>
+                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+                                                <% }
+        } %>
                                             <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>                                           
+                                            <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
-                                                <%}%>
-                                        </ul>								
+                                                <% } %>
+                                        </ul>
 
 								<!-- Mega Menu -->
 								

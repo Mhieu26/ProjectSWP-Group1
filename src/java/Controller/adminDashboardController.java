@@ -16,6 +16,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -67,6 +68,10 @@ public class adminDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        
+        
         String startDate = request.getParameter("startDate");
         String endDate = request.getParameter("endDate");
         Timestamp fromDate = convertTimestamp(startDate);
@@ -96,6 +101,7 @@ public class adminDashboardController extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         out.println(gson.toJson(orderDAO.getAllOrders()));
+        request.setAttribute("user", user);
         request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);
     }
 

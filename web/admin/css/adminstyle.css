@@ -4213,6 +4213,7 @@ padding: 6px 10px;
     background-color: #39435C;
 }
 
+
 :root {
   --dt-row-selected: 2, 117, 216;
   --dt-row-selected-text: 255, 255, 255;
@@ -4696,6 +4697,7 @@ div.table-responsive > div.dt-container > div.row > div[class^=col-]:first-child
 div.table-responsive > div.dt-container > div.row > div[class^=col-]:last-child {
   padding-right: 0;
 }
+
 
 
 
