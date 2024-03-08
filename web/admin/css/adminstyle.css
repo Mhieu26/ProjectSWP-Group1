@@ -144,7 +144,7 @@ h6,
 }
 /* All images should be responsive */
 img {
-  max-width: 30% !important;
+  max-width: 100% !important;
 }
 .sort-highlight {
   background: #f4f4f4;
@@ -4213,8 +4213,7 @@ padding: 6px 10px;
     background-color: #39435C;
 }
 
-<<<<<<< HEAD
-=======
+
 :root {
   --dt-row-selected: 2, 117, 216;
   --dt-row-selected-text: 255, 255, 255;
@@ -4701,5 +4700,5 @@ div.table-responsive > div.dt-container > div.row > div[class^=col-]:last-child 
 
 
 
->>>>>>> 6608abddb6db0d665ac732790c1355b916d2d008
+
 

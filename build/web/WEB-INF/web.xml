@@ -145,13 +145,14 @@
         <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
+
         <servlet-name>NotFoundController</servlet-name>
         <servlet-class>Controller.NotFoundController</servlet-class>
-=======
-        <servlet-name>adminProductList</servlet-name>
-        <servlet-class>Controller.adminProductList</servlet-class>
+
+       
     </servlet>
+    <servlet> <servlet-name>adminProductList</servlet-name>
+        <servlet-class>Controller.adminProductList</servlet-class></servlet>
     <servlet>
         <servlet-name>updateProductController</servlet-name>
         <servlet-class>Controller.updateProductController</servlet-class>
@@ -167,7 +168,6 @@
     <servlet>
         <servlet-name>DeleteFeedbackController</servlet-name>
         <servlet-class>Controller.DeleteFeedbackController</servlet-class>
->>>>>>> 6608abddb6db0d665ac732790c1355b916d2d008
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -310,13 +310,13 @@
         <url-pattern>/DeleteBlog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>NotFoundController</servlet-name>
         <url-pattern>/notFoundController</url-pattern>
-=======
-        <servlet-name>adminProductList</servlet-name>
-        <url-pattern>/adminProductList</url-pattern>
+
+      
     </servlet-mapping>
+    <servlet-mapping>  <servlet-name>adminProductList</servlet-name>
+        <url-pattern>/adminProductList</url-pattern></servlet-mapping>
     <servlet-mapping>
         <servlet-name>updateProductController</servlet-name>
         <url-pattern>/updateProductController</url-pattern>
@@ -332,7 +332,6 @@
     <servlet-mapping>
         <servlet-name>DeleteFeedbackController</servlet-name>
         <url-pattern>/deleteFeedback</url-pattern>
->>>>>>> 6608abddb6db0d665ac732790c1355b916d2d008
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
