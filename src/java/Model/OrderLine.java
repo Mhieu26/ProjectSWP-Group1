@@ -21,7 +21,29 @@ public class OrderLine {
     private LocalDateTime orderDate;
     private LocalDateTime endDate;
     private String status;
+    private String saleNote ;
 
+    public String getSaleNote() {
+        return saleNote;
+    }
+
+    public void setSaleNote(String saleNote) {
+        this.saleNote = saleNote;
+    }
+
+    public OrderLine(int id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+        this.orderID = orderID;
+        this.saleID = saleID;
+        this.productID = productID;
+        this.orderDate = orderDate;
+        this.endDate = endDate;
+        this.status = status;
+        this.saleNote = saleNote;
+    }
+    
     public OrderLine() {
     }
 
