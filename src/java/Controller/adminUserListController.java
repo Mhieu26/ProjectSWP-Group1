@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -64,8 +65,12 @@ public class adminUserListController extends HttpServlet {
 
    UserDAO udb = new UserDAO();
 List<User> users = udb.getAllUsers();
-
-        request.setAttribute("user",users);
+        HttpSession session = request.getSession();
+User user = (User) session.getAttribute("User");
+        request.setAttribute("user", user);
+        
+       
+        request.setAttribute("users",users);
 
 request.getRequestDispatcher("adminUserList.jsp").forward(request, response);
 

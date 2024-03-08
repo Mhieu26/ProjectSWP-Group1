@@ -6,12 +6,14 @@ package Controller;
 
 import Dao.SettingDAO;
 import Model.Setting;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -48,6 +50,9 @@ public class adminSettingListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         HttpSession session = request.getSession();
+User user = (User) session.getAttribute("User");
+        request.setAttribute("user", user);
         request.getRequestDispatcher("adminSettingList.jsp").forward(request, response);
     }
 
