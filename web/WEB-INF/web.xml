@@ -168,6 +168,10 @@
         <servlet-name>DeleteFeedbackController</servlet-name>
         <servlet-class>Controller.DeleteFeedbackController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CompletePaymentController</servlet-name>
+        <servlet-class>Controller.CompletePaymentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -331,6 +335,10 @@
     <servlet-mapping>
         <servlet-name>DeleteFeedbackController</servlet-name>
         <url-pattern>/deleteFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompletePaymentController</servlet-name>
+        <url-pattern>/thanks</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

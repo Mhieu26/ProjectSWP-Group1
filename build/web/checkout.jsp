@@ -282,25 +282,36 @@
                         <div class="col-md-8">
                             <div class="block billing-details">
                                 <h4 class="widget-title">Billing Details</h4>
-                                <form class="checkout-form">
+                                <form class="checkout-form" class="was-validated">
+                                    <input type="text" name="cartid" value="<%=cart.getId()%>" hidden>
                                     <div class="form-group">
                                         <label for="name">Full Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="" value="<%= user.getName()%>">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="" value="<%= user.getName()%>" required="">
                                     </div>
+                                    <div id="name-result" style="font-size: smaller;
+                                         color: red;
+                                         height: fit-content;"></div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="text" class="form-control" id="address" name="address" placeholder="" value="<%= user.getAddress() != null ? user.getAddress() : ""%>">
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="" value="<%= user.getAddress() != null ? user.getAddress() : ""%>" required>
                                     </div>
+                                    <div id="address-result" style="font-size: smaller;
+                                         color: red;
+                                         height: fit-content;"></div>
                                     <div class="form-group">
                                         <label for="phone">Phone number</label>
-                                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.getPhone() != null ? user.getPhone() : ""%>" onchange="validatePhone(this.value)" >
+                                        <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.getPhone() != null ? user.getPhone() : ""%>" onchange="validatePhone(this.value)" required>
                                     </div>
-                                    <div id="phone-result" style="font-size: smaller; color: red; height: fit-content;"></div>
+                                    <div id="phone-result" style="font-size: smaller;
+                                         color: red;
+                                         height: fit-content;"></div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" placeholder="" value="<%= user.getEmail()%>" onchange="validateEmail(this.value)" disabled >
                                     </div>
-                                    <div id="email-result" style="font-size: smaller; color: red; height: fit-content;"></div>
+                                    <div id="email-result" style="font-size: smaller;
+                                         color: red;
+                                         height: fit-content;"></div>
                                 </form>
                             </div>
                             <div class="block">
@@ -309,20 +320,17 @@
                                 <div class="checkout-product-details">
                                     <div class="payment">
                                         <div class="card-details">
-                                            <form  class="checkout-form">
-                                                <div class="form-group">
-                                                    <label for="card-number">Card Number <span class="required">*</span></label>
-                                                    <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
+                                            <form  class="checkout-form" action="SWP/confirmcheckout" method="POST">
+                                                <input type="text" name="cartid" value="<%=cart.getId()%>" hidden>
+                                                <input type="text" name="amount" value="<%=cart.getTotal()%>" hidden>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked>
+                                                    <label class="form-check-label" for="flexRadioCheckedDisabled">
+                                                        <img src="https://developers.momo.vn/v2/images/logo.png" width="80" alt="MOMO"/>
+                                                    </label>
                                                 </div>
-                                                <div class="form-group half-width padding-right">
-                                                    <label for="card-expiry">Expiry (MM/YY) <span class="required">*</span></label>
-                                                    <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
-                                                </div>
-                                                <div class="form-group half-width padding-left">
-                                                    <label for="card-cvc">Card Code <span class="required">*</span></label>
-                                                    <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
-                                                </div>
-                                                <a href="confirmation.html" class="btn btn-main mt-20">Place Order</a >
+                                                <a id="place-order" class="btn btn-main mt-20">Place Order</a >
+                                                <!--                                                <button type="submit" class="btn btn-main mt-20">Place Order</button >-->
                                                 <a href="SWP/cart?userid=<%= user.getId() %>" class="btn btn-main mt-20 bg-secondary">Back to Cart</a >
                                             </form>
                                         </div>

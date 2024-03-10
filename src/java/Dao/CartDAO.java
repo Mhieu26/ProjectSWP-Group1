@@ -6,6 +6,7 @@ package Dao;
 
 import Model.Cart;
 import Model.CartItem;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -160,6 +161,149 @@ public class CartDAO extends DBContext {
             statement.setLong(3, cartid);
             statement.setLong(4, productid);
             
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    //pay with momo
+    public void insertOrder(Long id, Date orderdate, double total, String status, Long userid) {
+        String sql = " Insert into Orders(id, orderdate, total, status, userid)\n"
+                + "Values(?,?,?,?,?); ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            statement.setDate(2, orderdate);
+            statement.setDouble(3, total);
+            statement.setString(4, status);
+            statement.setLong(5, userid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertOrderLine(int quantity, double price, Long orderid, Long saleid, Long productid, Date orderdate, String status) {
+        String sql = " Insert into OrderLine(quantity, price, orderid, saleid, productid, orderdate, status)\n"
+                + "Values(?,?,?,?,?,?,?); ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, quantity);
+            statement.setDouble(2, price);
+            statement.setLong(3, orderid);
+            statement.setLong(4, saleid);
+            statement.setLong(5, productid);
+            statement.setDate(6, orderdate);
+            statement.setString(7, status);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertMomo(String partnerCode, String requestId, Long amount, String signature,
+            String recipientName, String recipientAddr, String recipientPhone, Long orderid) {
+        String sql = " Insert into Momo(partnerCode, requestId, amount, signature"
+                + ", recipientName, recipientAddr, recipientPhone, orderid)\n"
+                + "values(?,?,?,?,?,?,?,?); ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, partnerCode);
+            statement.setString(2, requestId);
+            statement.setLong(3, amount);
+            statement.setString(4, signature);
+            statement.setString(5, recipientName);
+            statement.setString(6, recipientAddr);
+            statement.setString(7, recipientPhone);
+            statement.setLong(8, orderid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public Long getSaleId() {
+        String sql = " select* from user\n"
+                + "where roleid = 3 ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                return rs.getLong("id");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public void updateStatusOrder(Long orderid) {
+        String sql = " update Orders\n"
+                + "set status = \"pending\"\n"
+                + "where id = ? ;\n";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, orderid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void updateStatusOrderLine(Long orderid){
+        String sql = " update OrderLine\n"
+                + "set status = \"pending\"\n"
+                + "where orderid = ? ; ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, orderid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateInventory(Long productid, int inventory) {
+        String sql = " Update Product "
+                + " Set inventory = ? "
+                + " Where id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, inventory);
+            statement.setLong(2, productid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void clearCartItems(Long cartid){
+        String sql = "delete from cartitem\n"
+                + "where cartid = ?; ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, cartid);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void clearCart(Long cartid) {
+        String sql = " update cart\n"
+                + "set total = 0\n"
+                + "where id = ?;\n";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, cartid);
+
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
