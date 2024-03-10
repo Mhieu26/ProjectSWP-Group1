@@ -20,15 +20,39 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author DELL  
+ * @author DELL
  */
 public class OrderDAO extends DBContext {
+
+    public Order getOrderByID(long id) {
+        try {
+            Order order = new Order();
+            String sql = "SELECT *\n"
+                    + "FROM `swp391`.`orders` where id = ? ;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+            UserDAO uDAO = new UserDAO();
+            while (rs.next()) {
+
+                order.setId(rs.getInt(1));
+                order.setOrderDate(rs.getDate(2));
+                order.setStatus(rs.getString(4));
+                order.setTotal(rs.getInt(3));
+                order.setUser(uDAO.getUserByID((long) rs.getInt("userid")));
+            }
+            return order;
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public HashMap<String, Integer> getOrderByStatus() {
         try {
             HashMap<String, Integer> map = new HashMap<>();
             String sql = "SELECT status, COUNT(*) AS so_luong\n"
-                     + "FROM orders\n"
+                    + "FROM orders\n"
                     + "GROUP BY status";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -41,9 +65,9 @@ public class OrderDAO extends DBContext {
         }
         return null;
     }
-    
+
     public Long getTotal() {
-        try {          
+        try {
             String sql = "SELECT sum(total) FROM swp391.orders";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -79,8 +103,8 @@ public class OrderDAO extends DBContext {
         }
         return null;
     }
-    
-     public List<Order> getTop7Orders(Timestamp fromDate,Timestamp toDate) {
+
+    public List<Order> getTop7Orders(Timestamp fromDate, Timestamp toDate) {
         try {
             List<Order> orders = new ArrayList<>();
             String sql = "select * from orders where `status` = 'complete' and orderdate >= ? and orderdate <= ? limit 7";
@@ -106,7 +130,6 @@ public class OrderDAO extends DBContext {
         return null;
     }
 
-
     public HashMap<Products, Integer> getTop5Products() {
         try {
             HashMap<Products, Integer> map = new HashMap<>();
@@ -121,7 +144,7 @@ public class OrderDAO extends DBContext {
             while (rs.next()) {
                 ProductsDAO pdo = new ProductsDAO();
                 Products products = pdo.getProductsbyID(rs.getInt(1));
-                map.put(products,rs.getInt(2));
+                map.put(products, rs.getInt(2));
             }
             return map;
         } catch (SQLException ex) {
@@ -129,7 +152,26 @@ public class OrderDAO extends DBContext {
         }
         return null;
     }
-     public List<Order> getAllOrders() {
+
+    public void updateOrderStatus(long orderID, String status) {
+
+        String sql = "UPDATE `swp391`.`orders`\n"
+                + "SET\n"
+                + "`status` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, status);
+            statement.setLong(2, orderID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public List<Order> getAllOrders() {
         try {
             List<Order> orders = new ArrayList<>();
             String sql = "select * from orders ";

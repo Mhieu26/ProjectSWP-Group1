@@ -23,7 +23,7 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- Theme style -->
         <link href="./admin/css/adminstyle.css" rel="stylesheet" type="text/css" />
-<!--        	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">-->
+
   
     </head>
 
@@ -200,7 +200,7 @@
                                                              <%  for (Image tn : thumbnails) { %>
                                 <%if(p.getId()==tn.getProductId()){ %>
                                 <td> 
-                                    <img style="" src="<%= tn.getSource()%>" alt="" class="img-responsive"></td>
+                                    <img style="" src="<%= tn.getSource()%>" alt="" class="img-thumbnail"></td>
                                 <% } } %>
                                                          
                                                             <td><%
@@ -264,7 +264,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="./admin/js/datatable.js"></script>
-<!--<script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap4.js"></script>-->
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="./admin/js/bootstrap.min.js" type="text/javascript"></script>
