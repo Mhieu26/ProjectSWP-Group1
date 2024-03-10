@@ -1,5 +1,5 @@
-<%-- 
-    Document   : marketingDashboard
+<%--
+    Document   : settingblogs
     Created on : Feb 22, 2024, 18:48:09 PM
     Author     : bxthu
 --%>
@@ -111,12 +111,12 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li>
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
@@ -132,9 +132,9 @@
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="adminProductList">
-                                <i class="fa fa-user"></i> <span>ProductList</span>
+                                <i class="fa fa-user"></i> <span>Products List</span>
                             </a>
                         </li>
                         <li>
@@ -146,101 +146,79 @@
 
                     </ul>
                 </section>
-                <!-- /.sidebar -->
             </aside>
-
             <aside class="right-side">
 
-                <!-- Main content -->
-                <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Blogs List 
+                                <form id="search" action="settingblogs">
+                                    <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                                </form>
+                            </header>
+                            <div class="container" id="about">
+                                <%@ include file="../../common/Message.jsp" %>
+                                <form class="d-flex" action="settingblogs">
+                                    <select class="form-select" name="blogcategoryID" onchange="this.form.submit()">
+                                        <c:forEach items="${requestScope.blogcategories}" var="item">
+                                            <option ${requestScope.blogcategoryID == item.id ? 'selected' : ''} value="${item.id}">${item.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                            <a href="CreateBlog" class="btn btn-secondary ms-2">
+                                                Add Blog
+                                            </a>
+                                </form>
+                                <hr> 
 
-                    <div class="row" style="margin-bottom:5px;">
+                                <c:forEach items="${requestScope.settingblogs}" var="item">
+                                    <div class="frame">
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="col-md-5 py-3 py-md-0">
+                                                <div class="card">
+                                                    <img src="${item.getImage()}" alt="" width="450" height="200">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 py-3 py-md-0">
+                                                <h2>${item.getTitle()}</h2>
+                                                <br>
+                                                ${item.getBriefinfo()}
+                                                <a href="${pageContext.request.contextPath}/blogdetail?id=${item.getId()}"><span style="color: black;
+                                                                                                                                 text-decoration: underline;
+                                                                                                                                 color: red;">Xem thêm</span></a>
+                                                <br>
+                                                        <!-- Edit button -->
+                                                        <a href="${pageContext.request.contextPath}/UpdateBlog?id=${item.getId()}" class="btn btn-secondary btn-sm">Edit</a>
 
+                                                        <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
+                                                        <a href="${pageContext.request.contextPath}/DeleteBlog?id=${item.getId()}" class="btn btn-secondary btn-sm">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br><br>
+                                </c:forEach>
+                                <%@ include file="../../common/pagination.jsp" %>
 
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-violet"><i class="fa fa-dot-circle-o"></i></span>
-                                <div class="sm-st-info">
-                                    Statistics of blogs
-                                    <h4 style="font-weight: 900;">${sBlogs}</h4>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-violet"><i class="fa fa-dot-circle-o"></i></span>
-                                <div class="sm-st-info">
-                                    Statistics of products
-                                </div>
-                                <h4 style="font-weight: 900;">${sProds}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-violet"><i class="fa fa-dot-circle-o"></i></span>
-                                <div class="sm-st-info">
-                                    Statistics of customers
-                                </div>
-                                <h4 style="font-weight: 900;">${sCus}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-violet"><i class="fa fa-dot-circle-o"></i></span>
-                                <div class="sm-st-info">
-                                    Statistics of feedbacks
-                                </div>
-                                <h4 style="font-weight: 900;">${sFbs}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart"></div>
 
-            </aside>
 
+                    </div><!--end col-6 -->
+                </div>
 
         </div><!--end col-6 -->
-    </div>
-    <!-- row end -->
-</section><!-- /.content -->
+
+    </section>
+</div>
+<!-- row end -->
+<!-- /.content -->
 <div class="footer-main">
     LaViBan-2024
 </div>
 </aside><!-- /.right-side -->s
 
 </div><!-- ./wrapper -->
-<script src="https://www.google.com/jsapi"></script>
-<script>
-        google.load("visualization", "1.0", {packages: ["corechart"]});
-        google.setOnLoadCallback(drawChart);
 
-        function drawChart() {
-            // Get data from servlet
-            var jsonData = '${requestScope.dataChart}'; // Accessing the attribute containing the data using EL
-            
-            // Parse JSON data
-            var javaData = JSON.parse(jsonData);
-
-            // Create data array dynamically
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'month');
-            data.addColumn('number', 'Revenue');
-            for (var i = 0; i < javaData.length; i++) {
-                data.addRow([javaData[i][0], parseInt(javaData[i][1])]);
-            }
-
-            // Create options for the chart
-            var options = {
-                title: "Revenue Blog's Chart by month",
-                curveType: "function",
-                legend: {position: "bottom"}
-            };
-
-            // Draw the chart
-            var chart = new google.visualization.LineChart(document.getElementById("chart"));
-            chart.draw(data, options);
-        }
-    </script>
 
 <!-- jQuery 2.0.2 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
@@ -273,18 +251,18 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!-- Director for demo purposes -->
 <script type="text/javascript">
-    $('input').on('ifChecked', function (event) {
-        // var element = $(this).parent().find('input:checkbox:first');
-        // element.parent().parent().parent().addClass('highlight');
-        $(this).parents('li').addClass("task-done");
-        console.log('ok');
-    });
-    $('input').on('ifUnchecked', function (event) {
-        // var element = $(this).parent().find('input:checkbox:first');
-        // element.parent().parent().parent().removeClass('highlight');
-        $(this).parents('li').removeClass("task-done");
-        console.log('not');
-    });
+                    $('input').on('ifChecked', function (event) {
+                        // var element = $(this).parent().find('input:checkbox:first');
+                        // element.parent().parent().parent().addClass('highlight');
+                        $(this).parents('li').addClass("task-done");
+                        console.log('ok');
+                    });
+                    $('input').on('ifUnchecked', function (event) {
+                        // var element = $(this).parent().find('input:checkbox:first');
+                        // element.parent().parent().parent().removeClass('highlight');
+                        $(this).parents('li').removeClass("task-done");
+                        console.log('not');
+                    });
 
 </script>
 <script type="text/javascript">

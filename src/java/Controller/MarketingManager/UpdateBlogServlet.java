@@ -52,14 +52,14 @@ public class UpdateBlogServlet extends HttpServlet {
         try {
             id = Integer.parseInt(blogId);
         } catch (Exception e) {
-            response.sendRedirect("blog");
+            response.sendRedirect("settingblogs");
             return;
         }
 
         BlogDAO bDAO = new BlogDAO();
         Blog blogUpdate = bDAO.getBlogByID(id);
         if (blogUpdate == null) {
-            response.sendRedirect("blog");
+            response.sendRedirect("settingblogs");
             return;
         }
 
@@ -100,7 +100,7 @@ public class UpdateBlogServlet extends HttpServlet {
         }
         // Redirect to the main page or a confirmation page
         request.setAttribute("messSuccess", "Update Successfuly!");
-        response.sendRedirect("blog");
+        response.sendRedirect("settingblogs");
     }
 
     private String getSubmittedFileName(Part part) {
