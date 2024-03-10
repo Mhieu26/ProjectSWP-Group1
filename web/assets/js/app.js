@@ -259,3 +259,78 @@ $(document).ready(function () {
 });
 
 
+
+/**
+ * function to validate fields in checkout page
+ */
+$(document).ready(function () {
+    $('#place-order').click(function () {
+        let name = $('#name').val();
+        let address = $('#address').val();
+        let phone = $('#phone').val();
+        let isValid = true;
+        if (name.length == 0) {
+            $('#name-result').text("You must enter name!");
+            isValid = false;
+        }
+
+        if (address.length == 0) {
+            $('#address-result').text("You must enter address!");
+            isValid = false;
+        }
+
+        if (phone.length == 0) {
+            $('#phone-result').text("You must enter address!");
+            isValid = false;
+        }
+        if (!validatePhone(phone)) {
+            isValid = false;
+        }
+
+        if (isValid && !isValidating) {
+            let spinner = '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>';
+            isValidating = true;
+            $('#place-order').html(spinner);
+            $.ajax({
+                type: 'POST',
+                url: '/SWP/confirmcheckout',
+                data: {
+                    name: $('#name').val(),
+                    address: $('#address').val(),
+                    phone: $('#phone').val(),
+                    cartid: $('input[name="cartid"]').val(),
+                    amount: $('input[name="amount"]').val()
+                },
+                datatype: 'text',
+                success: function (responseText) {
+                    isValidating = false;
+                    $('#place-order').html("PLACE ORDER");
+                    if (responseText.includes("https://")) {
+                        window.location.replace(responseText);
+                    } else {// truong hop don hang ko hop le (vuot qua so luong trong kho)
+                        $('#alert-content').text(responseText);
+                        $('.popup-wrap').fadeIn(500);
+                        $('.popup-box').removeClass('transform-out').addClass('transform-in');
+
+                        e.preventDefault();
+                    }
+                },
+                error: function (req, textStatus, errorThrown) {
+                    //this is going to happen when you send something different from a 200 OK HTTP
+                    alert('Ooops, somethingd happened: ' + textStatus + ' ' + errorThrown);
+                }
+            });
+        }
+
+    });
+});
+
+$('#alert-close').click(function (e) {
+    $('.popup-wrap').fadeOut(500);
+    $('.popup-box').removeClass('transform-in').addClass('transform-out');
+
+    e.preventDefault();
+});
+
+
+
