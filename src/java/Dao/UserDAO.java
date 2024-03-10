@@ -24,6 +24,99 @@ import java.util.List;
  */
 public class UserDAO extends DBContext {
 
+    public void updateStatus(long userId, boolean newStatus) {
+    try {
+        String sql = "UPDATE user SET status = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setBoolean(1, newStatus);
+        statement.setLong(2, userId);
+        statement.executeUpdate();
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+}
+    
+    public ArrayList<User> searchCustomerByName(String name) {
+        ArrayList<User> users = new ArrayList<>();
+
+        String sql = " select user.id, email, password, name, phone, address, sex, "
+                + "status, verificationCode, roleid, role \n"
+                + "from user join role on user.roleid = role.id where role.id = 1 and name like ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + name + "%");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(new Role(rs.getLong("roleid"), rs.getString("role")));
+
+                users.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return users;
+    }
+
+    public int getNumberOfRecords() {
+    int count = 0;
+    try {
+        String sql = "SELECT COUNT(*) AS count FROM user JOIN role ON user.roleid = role.id WHERE role.id = 1";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery();
+        if (rs.next()) {
+            count = rs.getInt("count");
+        }
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+    return count;
+}
+    
+    public ArrayList<User> getCustomers(int offset, int limit) {
+        ArrayList<User> users = new ArrayList<>();
+
+        String sql = " select user.id, email, password, name, phone, address, sex, "
+                + "status, verificationCode, roleid, role \n"
+                + "from user join role on user.roleid = role.id where role.id = 1 "
+                + "LIMIT ?, ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, offset);
+            statement.setInt(2, limit);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setAddress(rs.getString("address"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                u.setVerificationCode(rs.getString("verificationCode"));
+                u.setRole(new Role(rs.getLong("roleid"), rs.getString("role")));
+
+                users.add(u);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return users;
+    }
+
     public ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
 
@@ -54,15 +147,16 @@ public class UserDAO extends DBContext {
         }
         return users;
     }
+
     public ArrayList<User> getUsersByRoleID(int id) {
         ArrayList<User> users = new ArrayList<>();
-        
+
         String sql = " select user.id, email, password, name, phone, address, sex, "
                 + "status, verificationCode, roleid, role \n"
                 + "from user join role on user.roleid = role.id \n"
                 + "where roleid=? ";
         try {
-            
+
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -126,7 +220,7 @@ public class UserDAO extends DBContext {
      * @param email email that user enter
      * @return user
      */
-        public User getUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         String sql = " select * from user \n"
                 + "where email = ? \n"
                 + "		AND \n"
@@ -338,6 +432,7 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
+
     public User getUserByName(String name) {
         String sql = " select * from user where name = ? ";
 
@@ -395,7 +490,6 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-    
 
     public void updateImageByID(String source, long id) throws NoSuchAlgorithmException {
         try {
@@ -483,57 +577,57 @@ public class UserDAO extends DBContext {
 //    }
 //    return null;
 //}
-     public User getUserById(long id) {
-    String sql = "SELECT u.id, u.name, u.sex, u.email, u.phone, u.status, u.roleid " +
-                 "FROM User u " +
-                 
-                 "WHERE u.id = ?";
 
-    try {
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setLong(1, id);
-        ResultSet rs = statement.executeQuery();
+    public User getUserById(long id) {
+        String sql = "SELECT u.id, u.name, u.sex, u.email, u.phone, u.status, u.roleid "
+                + "FROM User u "
+                + "WHERE u.id = ?";
 
-        if (rs.next()) {
-            User u = new User();
-            u.setId(rs.getLong("id"));
-            u.setEmail(rs.getString("email"));
-            u.setName(rs.getString("name"));
-            u.setPhone(rs.getString("phone"));
-            u.setSex(rs.getBoolean("sex"));
-            u.setStatus(rs.getBoolean("status"));
-             Role role = new Role();
-            role.setId(rs.getLong("roleid"));
-            u.setRole(role);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
 
-            return u;
+            if (rs.next()) {
+                User u = new User();
+                u.setId(rs.getLong("id"));
+                u.setEmail(rs.getString("email"));
+                u.setName(rs.getString("name"));
+                u.setPhone(rs.getString("phone"));
+                u.setSex(rs.getBoolean("sex"));
+                u.setStatus(rs.getBoolean("status"));
+                Role role = new Role();
+                role.setId(rs.getLong("roleid"));
+                u.setRole(role);
+
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
         }
-    } catch (SQLException e) {
-        System.out.println(e);
+        return null;
     }
-    return null;
-}
-    
-     public void updateRoleAndStatus(User user,int roleId,boolean status) {
-    try {
-        String sql = "UPDATE User SET roleid = ?, status = ? WHERE id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1,roleId );
-        statement.setBoolean(2, status);
-        statement.setLong(3, user.getId());
-        statement.executeUpdate();
-        
-    } catch (SQLException e) {
-        System.out.println(e);
+
+    public void updateRoleAndStatus(User user, int roleId, boolean status) {
+        try {
+            String sql = "UPDATE User SET roleid = ?, status = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, roleId);
+            statement.setBoolean(2, status);
+            statement.setLong(3, user.getId());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
-}
 //     public static void main(String[] args) {
 //        UserDAO udb = new UserDAO();
 //        udb.updateRoleAndStatus(udb.getUserByID(14), 1, true);
 //    }
 //   
 
-public void addUser(String email, String password, String name, String phone, String address, boolean sex) throws NoSuchAlgorithmException {
+    public void addUser(String email, String password, String name, String phone, String address, boolean sex) throws NoSuchAlgorithmException {
         String sql = " insert into user(email, password, name, phone, address, sex, status, roleid)\n "
                 + " values(?, ?, ?, ?, ?, ?, 1, 1) ";
 
@@ -557,7 +651,8 @@ public void addUser(String email, String password, String name, String phone, St
 //        udb.addUser("manhhieu2678@gmail.com", "Manhhieu123", "NguyenManhHieu2", "0565021699", "HaiPhong", true);
 //    }
 //     
-public List<User> get5LastestUsers(){
+
+    public List<User> get5LastestUsers() {
         ArrayList<User> users = new ArrayList<>();
 
         String sql = "SELECT * FROM user where roleid = 1 order by id desc limit 5";
@@ -572,8 +667,6 @@ public List<User> get5LastestUsers(){
                 u.setPhone(rs.getString("phone"));
                 u.setAddress(rs.getString("address"));
                 u.setSex(rs.getBoolean("sex"));
-               
-                
 
                 users.add(u);
             }
@@ -581,13 +674,7 @@ public List<User> get5LastestUsers(){
             System.out.println(e);
         }
         return users;
-        
-     
-        
-      
+
     }
-       
-    
-    
 
 }
