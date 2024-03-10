@@ -73,11 +73,11 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
-                            <li><a href="">Marketing Dashboard</a></li>
+                            <li><a href="marketingDashboard">Marketing Dashboard</a></li>
                             <li><a href="">Setting Blogs</a></li>
-                            <li><a href="/customersList">Customers List</a></li>
-                            <li><a href="">Sliders List</a></li>
-                            <li><a href="">Home</a></li>
+                            <li><a href="customersList">Customers List</a></li>
+                            <li><a href="slidersList">Sliders List</a></li>
+                            <li><a href="home">Home</a></li>
 
 
                             <li>
@@ -112,7 +112,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="">
+                            <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
@@ -123,12 +123,12 @@
                         </li>
 
                         <li>
-                            <a href="">
+                            <a href="customersList">
                                 <i class="fa fa-user"></i> <span>Customers List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="slidersList">
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
