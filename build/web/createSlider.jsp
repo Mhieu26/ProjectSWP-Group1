@@ -140,47 +140,27 @@
                         </aside>
                         <aside class="right-side">
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <section class="panel">
-                                        <header class="panel-heading">
-                                            Slider Lists
-                                        </header>
-                                        <div><a class="btn btn-success" href="${pageContext.request.contextPath}/createSlider" >Create New</a></div>
-                                        <div class="panel-body table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Title</th>
-                                                        <th>Back Link</th>
-                                                        <th>Image</th>
-                                                        <th>Action</th>
-                                                        <!-- <th>Client</th> -->
-                                                    </tr>
-                                                </thead>
-                                                <tbody>                                       
-                                                    <c:forEach items="${sliders}" var="item" varStatus="loop">
-                                                        <tr>
-                                                            <td>${loop.index + 1 }</td>
-                                                            <td>${item.title}</td>
-                                                            <td>${item.backLink}</td>
-                                                            <td>
-                                                                <img style="width: 250px;" class="rounded-3" src="${item.image}" alt="alt"/>
-                                                            </td>
-                                                            <td>
-                                                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/deleteSlider?id=${item.id}" >Delete</a>
-                                                            </td>
-                                                            <!-- <td>Steve</td> -->
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-
-                                </div><!--end col-6 -->
+                            <form action="createSlider" method="POST">
+                                <div class="container">
+                                <h2>Create new</h2>
+                                <form method="post" action="processForm.jsp">
+                                    <div class="form-group">
+                                        <label for="title">Title:</label>
+                                        <input type="text" class="form-control" id="title" name="title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="backlink">BackLink:</label>
+                                        <input type="text" class="form-control" id="backlink" name="backlink">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="img">Image Link:</label>
+                                        <input type="text" class="form-control" id="img" name="img">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">create</button>
+                                </form>
                             </div>
+                            </form>
+                            
                         </aside>
 
                         </div><!--end col-6 -->

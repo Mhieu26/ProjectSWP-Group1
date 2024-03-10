@@ -18,6 +18,58 @@ import java.util.ArrayList;
  */
 public class SliderDAO extends DBContext{
     
+    public void deleteSlider(long id) {
+
+        String sql = " delete from slider where id = ? ";
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void createSlider(Slider slider) {
+
+        String sql = " insert into slider(title, backlink, status, image) values(?, ?, ?, ?) ";
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, slider.getTitle());
+            statement.setString(2, slider.getBackLink());
+            statement.setBoolean(3, true);
+            statement.setString(4, slider.getImage());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+    public Slider getSliderById(long id) {
+        Slider slider = null;
+
+        String sql = " select * from slider where id = ? ";
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                slider = new Slider();
+                slider.setId(rs.getLong("id"));
+                slider.setTitle(rs.getString("title"));                
+                slider.setBackLink(rs.getString("backlink"));
+                slider.setImage(rs.getString("image"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return slider;
+    }
+    
     public ArrayList<Slider> getSliders() {
         ArrayList<Slider> sliders = new ArrayList<>();
 

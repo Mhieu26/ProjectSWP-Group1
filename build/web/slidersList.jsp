@@ -146,6 +146,7 @@
                                         <header class="panel-heading">
                                             Slider Lists
                                         </header>
+                                        <div><a class="btn btn-success" href="${pageContext.request.contextPath}/createSlider" >Create New</a></div>
                                         <div class="panel-body table-responsive">
                                             <table class="table table-hover">
                                                 <thead>
@@ -154,6 +155,7 @@
                                                         <th>Title</th>
                                                         <th>Back Link</th>
                                                         <th>Image</th>
+                                                        <th>Action</th>
                                                         <!-- <th>Client</th> -->
                                                     </tr>
                                                 </thead>
@@ -165,6 +167,9 @@
                                                             <td>${item.backLink}</td>
                                                             <td>
                                                                 <img style="width: 250px;" class="rounded-3" src="${item.image}" alt="alt"/>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/deleteSlider?id=${item.id}" >Delete</a>
                                                             </td>
                                                             <!-- <td>Steve</td> -->
                                                         </tr>
