@@ -3,6 +3,7 @@
     Created on : Jan 15, 2024, 10:44:46 AM
     Author     : toanl
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Model.Products, Model.User, Model.Image, Model.Cart, Model.CartItem"%>
 <%@page import="Dao.ProductsDAO"%>
@@ -57,7 +58,7 @@
 
     </head>
     <body id="body">
-
+        
         <%
             Image img = (Image)session.getAttribute("avatar");
             String googleAvt = (String)session.getAttribute("GoogleAvatar");
@@ -303,6 +304,7 @@
                                 <div class="loader"></div>
                             </div>
                         </div>
+                        
                         <div data-fetch-key="Index:0" class="cps-homepage">
                             <div>
                                 <div class="block-top-home is-flex">
@@ -376,42 +378,14 @@
                                         <div class="block-sliding-home">
                                             <div class="swiper-container gallery-top">
                                                 <div class="swiper-wrapper">
-                                                    <div class="swiper-slide">
-                                                        <a href="shopdetail?id=4" class="button__link">
-                                                            <img src="images/slider/iphone15-tet-sliding-l333.webp" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
+                                                    <c:forEach items="${sliders}" var="s">
+                                                        <div class="swiper-slide">
+                                                        <a href="${s.backLink}" class="button__link">
+                                                            <img src="${s.image}" width="690" height="300" alt="IPHONE 15&lt;br&gt;Sẵn hàng mua ngay" loading="lazy">
                                                         </a>
                                                     </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="shopdetail?id=42" class="button__link">
-                                                            <img src="images/slider/s23-sliding-135500-11.webp" width="690" height="300" alt="GALAXY A15 | A25&lt;br&gt;Mở bán deal hời" loading="lazy">
-                                                        </a>
-                                                        </
-                                                        <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43" class="button__link">
-                                                                <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="REDMI NOTE 13&lt;br&gt;Đặt trước giá tốt" loading="lazy">
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="swiper-slide">
-                                                            <a href="shopdetail?id=43" class="button__link">
-                                                                <img src="images/slider/rog strix scar.webp" width="690" height="300" alt="ASUS ROG STRIX&lt;br&gt;Hiệu năng hàng đầu" loading="lazy">
-                                                            </a>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <a href="shopdetail?id=41" class="button__link">
-                                                                <img src="images/slider/samsung-s24-slidinh-moban-3001.webp" width="690" height="300" alt="XIAOMI WATCH 2 PRO&lt;br&gt;Chốt ngay deal xịn" loading="lazy">
-                                                            </a>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <a href="shopdetail?id=40" class="button__link">
-                                                                <img src="images/slider/tcl-sliding-txt-th111-4390.webp" width="690" height="300" alt="TECNO SPARK 2024&lt;br&gt;Mở bán deal hời" loading="lazy">
-                                                            </a>
-                                                        </div>
-                                                        <div class="swiper-slide">
-                                                            <a href="shopdetail?id=38" class="button__link">
-                                                                <img src="images/slider/sliding-note13-moban1.webp" width="690" height="300" alt="TCL 40 NXT PAPER&lt;br&gt;Ưu đãi khủng" loading="lazy">
-                                                            </a>
-                                                        </div>
+                                                    </c:forEach>
+                                                    
                                                     </div>                                   
                                                 </div>
                                                 <div class="swiper-pagination"></div>

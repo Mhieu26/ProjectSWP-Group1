@@ -3,30 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package Controller.MarketingManager;
 
-import Dao.CategoryDAO;
-import Dao.ImageDAO;
-import Dao.ProductsDAO;
 import Dao.SliderDAO;
-import Model.Category;
-import Model.Image;
-import Model.Products;
 import Model.Slider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author toanl
+ * @author Admin
  */
-public class HomeController extends HttpServlet {
+@WebServlet(name="SlidersServlet", urlPatterns={"/slidersList"})
+public class SlidersServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -40,15 +35,10 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomeController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomeController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            SliderDAO sliderDAO = new SliderDAO();
+            List<Slider> sliders = sliderDAO.getSliders();
+            request.setAttribute("sliders", sliders);
+            request.getRequestDispatcher("slidersList.jsp").forward(request, response);
         }
     } 
 
@@ -63,29 +53,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          ProductsDAO pd=new ProductsDAO();
-          ImageDAO id=new ImageDAO();
-          SliderDAO sliderDAO = new SliderDAO();
-          ArrayList<Image> thumbnails=id.getThumbmails();
-          List<Slider> sliders = sliderDAO.getSliders();
-          
-          ArrayList<Products> featured=pd.getFeaturedProducts();
-        ArrayList<Products> products=pd.getProducts();
-         ArrayList<Products> phone=pd.getProductsbyCateID(1);
-         ArrayList<Products> laptop=pd.getProductsbyCateID(2);
-         ArrayList<Products> headphone=pd.getProductsbyCateID(3);    
-         ArrayList<Products> watch=pd.getProductsbyCateID(4); 
-         ArrayList<Products> acs=pd.getProductsbyCateID(5); 
-         request.setAttribute("featured", featured);
-         request.setAttribute("thumbnails", thumbnails);
-         request.setAttribute("acs", acs);
-         request.setAttribute("watch", watch);
-         request.setAttribute("headphone", headphone);
-         request.setAttribute("phone", phone);
-         request.setAttribute("laptop", laptop);
-        request.setAttribute("products", products);
-        request.setAttribute("sliders", sliders);
-        request.getRequestDispatcher("homepage.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
