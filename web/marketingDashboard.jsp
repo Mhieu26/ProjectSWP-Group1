@@ -132,6 +132,11 @@
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
+                         <li class="active">
+                            <a href="adminProductList">
+                                <i class="fa fa-user"></i> <span>ProductList</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>

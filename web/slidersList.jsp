@@ -93,7 +93,7 @@
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
                 <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
+              <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
@@ -111,7 +111,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li>
+                        <li class="active">
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
@@ -127,9 +127,14 @@
                                 <i class="fa fa-user"></i> <span>Customers List</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="slidersList">
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
+                            </a>
+                        </li>
+                         <li class="active">
+                            <a href="adminProductList">
+                                <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>
                         </li>
                         <li>
@@ -137,6 +142,10 @@
                                 <i class="fa fa-home"></i> <span>Home</span>
                             </a>
                         </li>
+
+
+                    </ul>
+                </section>
                         </aside>
                         <aside class="right-side">
 
@@ -188,7 +197,7 @@
                 </section>
         </div>
         <!-- row end -->
-    </section><!-- /.content -->
+    <!-- /.content -->
     <div class="footer-main">
         LaViBan-2024
     </div>
