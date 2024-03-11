@@ -340,6 +340,8 @@
         <servlet-name>CompletePaymentController</servlet-name>
         <url-pattern>/thanks</url-pattern>
     </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

@@ -165,7 +165,7 @@
                                             <li><a href="adminDashboardController">Admin Manager</a></li>
                                             <li><a href="saleController">Sale</a></li>
                                             <li><a href="saleManagerController">Sale Manager</a></li>
-                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+                                            <li><a href="marketingDashboard">Marketing Manager</a></li>
 
                                             <% } else if(role == 3) { %>
                                             <li><a href="saleController">Sale</a></li>
