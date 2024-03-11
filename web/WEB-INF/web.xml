@@ -44,6 +44,33 @@
         <servlet-name>LoginWithGoogleController</servlet-name>
         <servlet-class>Controller.LoginWithGoogleController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <servlet-class>Controller.FeedBackDetailsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <servlet-class>Controller.FeedBacksListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <servlet-class>Controller.OrderDetailsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <url-pattern>/feedbackdetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <url-pattern>/feedbackslist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <url-pattern>/orderdetails</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.LogoutController</servlet-class>
