@@ -161,7 +161,7 @@
 
                                         <!-- Utility -->
 
-                                       <ul>
+                                        <ul>
                                             <li class="dropdown-header"><%= user != null ? user.getName() : "" %></li>
                                             <li role="separator" class="divider"></li>
                                                 <% if(user == null) { %>
@@ -280,12 +280,7 @@
 
                             </li><!-- / Blog -->
 
-                            <%if(user!=null){
-                                                        int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==3||role==4){
-
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            
                             <!-- Shop -->
 
                         </ul><!-- / .nav .navbar-nav -->
@@ -301,41 +296,32 @@
             <p class="right-align">
                 <fmt:parseDate value="${blog.getPostedDate()}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
                 <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${parsedDateTime}" /> <br>
-                Tác giả : ${blog.getAuthor()}
+                Tác giả : ${blog.getAuthor()}               
+                <a href="blog" class="btn btn-secondary"> Back to Blogs List</a>
                 <c:if test="${User != null}">
                     <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
-                        <a href="CreateBlog" class="btn btn-secondary ms-2">
-                            Add Blog
+                        <a href="settingblogs" class="btn btn-secondary ms-2">
+                            Setting Blogs
                         </a>
                     </c:if>
                 </c:if>
-                <c:if test="${User != null}">
 
-                    <c:if test="${User.getRole().getId() == 2 || User.getRole().getId() == 5}">
-                        <!-- Edit button -->
-                        <a href="${pageContext.request.contextPath}/UpdateBlog?id=${blog.getId()}" class="btn btn-secondary btn-sm">Edit</a>
-
-                        <!-- Delete button (you may want to confirm deletion using JavaScript or server-side logic) -->
-                        <a href="${pageContext.request.contextPath}/DeleteBlog?id=${blog.getId()}" class="btn btn-secondary btn-sm">Delete</a>
-                    </c:if>
-                </c:if>
-                        <a href="blog" class="btn btn-secondary"> Back to Blogs List</a>
             </p><div style="text-align:center;">
                 <h2>${blog.getTitle()}</h2>
                 <img src="${blog.getImage()}" alt=""  width="1000" height="500">
-
 
             </div>
 
 
         </div>
         <br>
-        <div class="body">
-            <p>${blog.getBriefinfo()}</p>
+        <div class="container" id="about">  
+        <div class="right-align">
+            ${blog.getBriefinfo()}
             <br>
-            <p>${blog.getContent()}</p>
+            ${blog.getContent()}
             <br><br><br>
-        </div>
+        </div></div>
 
 
         <!-- footer -->

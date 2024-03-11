@@ -8,7 +8,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products"%>
+<%@page import="Model.Products, Model.Image"%>
 <%@page import="java.util.List"%>
 <%@page import="Dao.ProductsDAO"%>
 <%@ page import="java.text.DecimalFormat" %>
@@ -36,12 +36,13 @@
 
         <div class="container">
             <% 
-            Products product=(Products)request.getAttribute("product");
+            Products product = (Products)request.getAttribute("product");
+            List<Image> imgs = (List<Image>)request.getAttribute("Images");
             %>
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="updateProductController" method="post">
+                        <form action="updateProductController" method="post" id="update">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Update Product</h4>
                                 <button type="button" class="close" data-dismiss="modal"  aria-hidden="true" onclick="redirectToHome()" >&times;</button>
@@ -68,7 +69,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Inventory</label>
-                                    <input value="<%=product.getInventory()%>" name="inventory" type="text" class="form-control" readonly required>
+                                    <input value="<%=product.getInventory()%>" name="inventory" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description:</label>
+                                    <textarea class="form-control" rows="5" form="update" name="description"><%= product.getDescription() != null ? product.getDescription() : ""%></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -90,10 +95,59 @@
                                 </div>
 
                             </div>
-                            <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Update" style="background-color: #39435C">
-                            </div>
+
                         </form>
+                        <div class="modal-body">	
+                            <div class="form-group">
+                                <label for="thumbnail">Thumbnail:</label>
+                                <%if(!imgs.isEmpty()){
+                                    for(Image img : imgs){
+                                        if(img.getType().equals("thumbnail")){%>
+                                <div style="border: solid 5px #F5F5F5; border-radius: 8px; width: fit-content; margin-bottom: 2%;">
+                                    <img src="<%=img.getSource()%>" width="100%" alt="alt"/>
+                                </div>
+                                <%}}%>
+                                <form action="changethumbnail" method="post" enctype="multipart/form-data" id="changethumbnail">
+                                    <input type="text" name="productid" value="<%=product.getId()%>" hidden>
+                                    <input type="text" name="type" value="thumbnail" hidden>
+                                    <input type="text" name="imgid" value="<%=imgs.get(0).getId()%>" hidden>
+                                    <input type="file" name="file"><br>
+                                    <input type="submit" value="Upload" form="changethumbnail">
+                                </form>
+                                <%}else{%>
+                                <form action="uploadproductimg" id="upthumbnail" method="post" enctype="multipart/form-data">
+                                    <input type="text" name="productid" value="<%=product.getId()%>" hidden>
+                                    <input type="text" name="type" value="thumbnail" hidden>
+                                    <input type="file" name="file"><br>
+                                    <input type="submit" value="Upload" form="upthumbnail">
+                                </form>
+                                <%}%>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Images</label>
+                                <div>
+                                    <% for(int i=0; i<imgs.size(); i++){
+                                        if(imgs.get(i).getType().equals("detail")){%>
+                                    <div style="border: solid 5px #F5F5F5; border-radius: 8px; width: fit-content; margin-bottom: 2%; margin-right: 2%; display: inline-block;">
+                                        <img src="<%=imgs.get(i).getSource()%>" width="100%" alt="alt"/>
+
+                                    </div>
+                                    <span style="font-size: large;"><a href="deleteimg?id=<%=imgs.get(i).getId()%>" class="text-danger"> <i class="fa fa-trash" aria-hidden="true"></i></a></span>
+                                            <%}}%>
+                                </div>
+
+                                <form action="uploadproductimg" id="upimg" method="post" enctype="multipart/form-data">
+                                    <input type="text" name="productid" value="<%=product.getId()%>" hidden>
+                                    <input type="text" name="type" value="detail" hidden>
+                                    <input type="file" name="file"><br>
+                                    <input type="submit" value="Upload" form="upimg">
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" form="update" value="Update" style="background-color: #39435C">
+                        </div>
                     </div>
                 </div>
             </div>

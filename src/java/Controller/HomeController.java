@@ -8,9 +8,11 @@ package Controller;
 import Dao.CategoryDAO;
 import Dao.ImageDAO;
 import Dao.ProductsDAO;
+import Dao.SliderDAO;
 import Model.Category;
 import Model.Image;
 import Model.Products;
+import Model.Slider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,6 +20,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -62,7 +65,9 @@ public class HomeController extends HttpServlet {
     throws ServletException, IOException {
           ProductsDAO pd=new ProductsDAO();
           ImageDAO id=new ImageDAO();
+          SliderDAO sliderDAO = new SliderDAO();
           ArrayList<Image> thumbnails=id.getThumbmails();
+          List<Slider> sliders = sliderDAO.getSliders();
           
           ArrayList<Products> featured=pd.getFeaturedProducts();
         ArrayList<Products> products=pd.getProducts();
@@ -79,6 +84,7 @@ public class HomeController extends HttpServlet {
          request.setAttribute("phone", phone);
          request.setAttribute("laptop", laptop);
         request.setAttribute("products", products);
+        request.setAttribute("sliders", sliders);
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
     } 
 
