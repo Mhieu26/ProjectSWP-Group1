@@ -83,7 +83,7 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello,Admin</p>
+                            <p>Hello</p>
 
 
 
@@ -94,7 +94,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li>
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>

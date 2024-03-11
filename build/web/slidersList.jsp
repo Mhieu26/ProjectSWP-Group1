@@ -74,7 +74,7 @@
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
                             <li><a href="marketingDashboard">Marketing Dashboard</a></li>
-                            <li><a href="">Setting Blogs</a></li>
+                            <li><a href="settingblogs">Setting Blogs</a></li>
                             <li><a href="customersList">Customers List</a></li>
                             <li><a href="slidersList">Sliders List</a></li>
                             <li><a href="home">Home</a></li>
@@ -111,13 +111,13 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li>
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
@@ -127,12 +127,12 @@
                                 <i class="fa fa-user"></i> <span>Customers List</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="slidersList">
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
-                         <li class="active">
+                         <li>
                             <a href="adminProductList">
                                 <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>
