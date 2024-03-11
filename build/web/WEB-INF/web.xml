@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <display-name>SettingBlogs</display-name>
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
@@ -142,7 +143,7 @@
     </servlet>
     <servlet>
         <servlet-name>DeleteBlog</servlet-name>
-        <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
+        <servlet-class>Controller.MarketingManager.DeleteBlogServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NotFoundController</servlet-name>
@@ -179,6 +180,10 @@
     <servlet>
         <servlet-name>ChangeThumbnailController</servlet-name>
         <servlet-class>Controller.ChangeThumbnailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingBlogs</servlet-name>
+        <servlet-class>Controller.MarketingManager.SettingBlogs</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -355,6 +360,10 @@
     <servlet-mapping>
         <servlet-name>ChangeThumbnailController</servlet-name>
         <url-pattern>/changethumbnail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingBlogs</servlet-name>
+        <url-pattern>/settingblogs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
