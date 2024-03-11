@@ -77,6 +77,7 @@
                             <li><a href="settingblogs">Setting Blogs</a></li>
                             <li><a href="customersList">Customers List</a></li>
                             <li><a href="slidersList">Sliders List</a></li>
+                             <li><a href="adminProductList">Product List</a></li>
                             <li><a href="home">Home</a></li>
 
 
