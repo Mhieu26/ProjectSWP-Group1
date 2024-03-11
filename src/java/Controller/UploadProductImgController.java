@@ -5,22 +5,27 @@
 package Controller;
 
 import Dao.ImageDAO;
-import Dao.ProductsDAO;
-import Model.Image;
-import Model.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
+import jakarta.servlet.http.Part;
 
 /**
  *
- * @author toanl
+ * @author Admin
  */
-public class updateProductController extends HttpServlet {
+@WebServlet(name = "UploadProductImgController", urlPatterns = {"/uploadproductimg"})
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 1, //1MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 100 //100MB
+)
+public class UploadProductImgController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +44,10 @@ public class updateProductController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet updateProductController</title>");
+            out.println("<title>Servlet UploadProductImgController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet updateProductController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UploadProductImgController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,17 +65,7 @@ public class updateProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-
-        ProductsDAO pd = new ProductsDAO();
-        Products product = pd.getProductsbyID(Integer.parseInt(id));
-
-        ImageDAO imgDao = new ImageDAO();
-        List<Image> imgs = imgDao.getImagesByProductId(product.getId());
-
-        request.setAttribute("product", product);
-        request.setAttribute("Images", imgs);
-        request.getRequestDispatcher("editProduct.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -84,16 +79,27 @@ public class updateProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String status = request.getParameter("status");
-        String price = request.getParameter("price");
-        String inventory = request.getParameter("inventory");
-        String description = request.getParameter("description");
         
-        ProductsDAO pd = new ProductsDAO();
-        pd.updateStatusProduct(Integer.parseInt(price), Integer.parseInt(id), Boolean.parseBoolean(status), Integer.parseInt(inventory),description);
-        response.sendRedirect("adminProductList");
-
+        String type = request.getParameter("type");
+        Long productid = Long.parseLong(request.getParameter("productid"));
+        
+        // save uploaded image to local storage
+        Part filepart = request.getPart("file");
+        String filename = filepart.getSubmittedFileName();
+        String path = request.getServletContext().getRealPath("/");
+        System.out.println(filename);
+        System.out.println(path);
+        for (Part part : request.getParts()) {
+            part.write(path + "images\\" + filename);
+        }
+        
+        // save image source to db
+        
+        ImageDAO imgDao = new ImageDAO();
+        imgDao.insertImage("images\\"+filename, type, productid);
+        String previousPage = request.getHeader("Referer");
+        System.out.println(previousPage);
+        response.sendRedirect(previousPage);
     }
 
     /**
@@ -106,4 +112,7 @@ public class updateProductController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("user.dir") + "\\web\\images\\");
+    }
 }

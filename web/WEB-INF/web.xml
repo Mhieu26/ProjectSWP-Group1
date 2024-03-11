@@ -145,14 +145,13 @@
         <servlet-class>Controller.BlogManager.DeleteBlogServlet</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>NotFoundController</servlet-name>
         <servlet-class>Controller.NotFoundController</servlet-class>
-
-       
     </servlet>
-    <servlet> <servlet-name>adminProductList</servlet-name>
-        <servlet-class>Controller.adminProductList</servlet-class></servlet>
+    <servlet>
+        <servlet-name>adminProductList</servlet-name>
+        <servlet-class>Controller.adminProductList</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>updateProductController</servlet-name>
         <servlet-class>Controller.updateProductController</servlet-class>
@@ -172,6 +171,14 @@
     <servlet>
         <servlet-name>CompletePaymentController</servlet-name>
         <servlet-class>Controller.CompletePaymentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <servlet-class>Controller.DeleteProductImageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <servlet-class>Controller.ChangeThumbnailController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -316,11 +323,11 @@
     <servlet-mapping>
         <servlet-name>NotFoundController</servlet-name>
         <url-pattern>/notFoundController</url-pattern>
-
-      
     </servlet-mapping>
-    <servlet-mapping>  <servlet-name>adminProductList</servlet-name>
-        <url-pattern>/adminProductList</url-pattern></servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminProductList</servlet-name>
+        <url-pattern>/adminProductList</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>updateProductController</servlet-name>
         <url-pattern>/updateProductController</url-pattern>
@@ -340,6 +347,14 @@
     <servlet-mapping>
         <servlet-name>CompletePaymentController</servlet-name>
         <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <url-pattern>/deleteimg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <url-pattern>/changethumbnail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
