@@ -183,7 +183,7 @@
                                                 <td>${item.phone}</td>
                                                 <td>${item.address}</td>
                                                 <td>
-                                                    ${item.status == true ? 'active' : 'unactive'} 
+                                                    ${item.status == true ? 'active' : 'inactive'} 
                                                     <form action="statusChange?id=${item.id}&&s=${item.status}" method="POST">
                                                         <input type="submit" value="change" />
                                                     </form>

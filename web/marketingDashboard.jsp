@@ -287,39 +287,6 @@
     });
 
 </script>
-<script type="text/javascript">
-    google.load('visualization', '1.0', {'packages': ['corechart']});
-    google.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        // Lấy dữ liệu từ các thẻ span trong HTML
-        var orderSuccess = parseInt($("#orderSuccess").text());
-        var orderCancelled = parseInt($("#orderCancelled").text());
-        var orderShipping = parseInt($("#orderShipping").text());
-
-        // Tạo DataTable và thêm dữ liệu
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Status');
-        data.addColumn('number', 'Total');
-        data.addRows([
-            ['Order Success', orderSuccess],
-            ['Order Cancelled', orderCancelled],
-            ['Order Shipping', orderShipping]
-        ]);
-
-        // Tùy chỉnh biểu đồ
-        var options = {
-            title: 'Order Status',
-            'width': 800,
-            'height': 600
-        };
-
-        // Vẽ biểu đồ
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-    }
-
-</script>
 <script>
     $('#noti-box').slimScroll({
         height: '400px',
@@ -340,16 +307,6 @@
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
                 {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
                     label: "My Second dataset",
                     fillColor: "rgba(151,187,205,0.2)",
                     strokeColor: "rgba(151,187,205,1)",
@@ -358,6 +315,16 @@
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: [28, 48, 40, 19, 86, 27, 90]
+                },
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
                 }
             ]
         };
