@@ -96,7 +96,7 @@ public class FeedBackDetailsController extends HttpServlet {
             ProductsDAO proDAO = new ProductsDAO();
             Products product = proDAO.getProductsbyID(feedback.getProductid());
             request.setAttribute("product", product);
-            ArrayList<Feedback> feedbackslist = feedbackDAO.getFeedbackByProducgtID(feedback.getProductid());
+            ArrayList<Feedback> feedbackslist = feedbackDAO.getAllFeedbackByProducgtID(feedback.getProductid());
             request.setAttribute("feedbackslist", feedbackslist);
             request.getRequestDispatcher("feedbackdetails.jsp").forward(request, response);
         }
