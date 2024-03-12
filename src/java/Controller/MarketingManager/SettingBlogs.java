@@ -9,6 +9,7 @@ import Dao.BlogCategoryDAO;
 import Dao.BlogDAO;
 import Model.Blog;
 import Model.BlogCategory;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -89,6 +90,9 @@ public class SettingBlogs extends HttpServlet {
             request.setAttribute("settingblogs", settingblogs);
         }
         // set URL
+        User user = (User) session.getAttribute("User");
+        
+         request.setAttribute("user", user);
         request.setAttribute("pagging", "settingblogs");
 
         request.setAttribute("blogcategories", blogCategories);

@@ -20,7 +20,7 @@
         }
     } else {
         // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-        response.sendRedirect("notFoundController"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
         return; // Dừng xử lý tiếp theo
     }
 %>
@@ -114,7 +114,7 @@
 
 
                             <li>
-                                <a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -133,7 +133,7 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello,Admin</p>
+                            <p>Hello,Manager</p>
 
 
 

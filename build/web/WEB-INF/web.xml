@@ -200,10 +200,7 @@
         <servlet-name>CompletePaymentController</servlet-name>
         <servlet-class>Controller.CompletePaymentController</servlet-class>
     </servlet>
-<<<<<<< HEAD
-    
-    
-=======
+
     <servlet>
         <servlet-name>DeleteProductImageController</servlet-name>
         <servlet-class>Controller.DeleteProductImageController</servlet-class>
@@ -216,7 +213,7 @@
         <servlet-name>SettingBlogs</servlet-name>
         <servlet-class>Controller.MarketingManager.SettingBlogs</servlet-class>
     </servlet>
->>>>>>> bad27f5838e41a702d49893959251126b78fbb31
+
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>

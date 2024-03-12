@@ -20,7 +20,7 @@
         }
     } else {
         // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-        response.sendRedirect("notFoundController"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
         return; // Dừng xử lý tiếp theo
     }
 %>
@@ -91,7 +91,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
-<<<<<<< HEAD
                                 <%
                          if(user != null) {
                             int role = (int)(user.getRole().getId());
@@ -110,20 +109,12 @@
                             <li><a href="saledashboard">Sale</a></li>
                             <li><a href="saledashboard">Sale Manager</a></li>
                                 <% } else if (role == 5) { %>
-                            <li><a href="marketingDashboard">Marketing Manager </a></li>
+                            <li><a href="marketingDashboard">Marketing Manager  </a></li>
                                 <% } } %>
-=======
-                            <li><a href="marketingDashboard">Marketing Dashboard</a></li>
-                            <li><a href="settingblogs">Setting Blogs</a></li>
-                            <li><a href="customersList">Customers List</a></li>
-                            <li><a href="slidersList">Sliders List</a></li>
-                             <li><a href="adminProductList">Product List</a></li>
-                            <li><a href="home">Home</a></li>
->>>>>>> bad27f5838e41a702d49893959251126b78fbb31
 
 
                             <li>
-                                <a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -142,7 +133,7 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello</p>
+                            <p>Hello,Manager</p>
 
 
 
@@ -174,15 +165,14 @@
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
-                         <li >
+                         <li>
                             <a href="adminProductList">
                                 <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>
                         </li>
-
                         <li>
-                            <a href="adminProductList">
-                                <i class="fa fa-user"></i> <span>ProductList</span>
+                            <a href="feedbackslist">
+                                <i class="fa fa-comment"></i> <span>Feedbacks List</span>
                             </a>
                         </li>
                         <li>

@@ -19,7 +19,7 @@
         }
     } else {
         // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-        response.sendRedirect("notFoundController"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
         return; // Dừng xử lý tiếp theo
     }
 %>
@@ -90,12 +90,12 @@
                             <li><a href="saledashboard">Sale</a></li>
                             <li><a href="saledashboard">Sale Manager</a></li>
                                 <% } else if (role == 5) { %>
-                            <li><a href="marketingDashboard">Marketing Manager </a></li>
+                            <li><a href="marketingDashboard">Marketing Manager  </a></li>
                                 <% } } %>
 
 
                             <li>
-                                <a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -106,18 +106,16 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
-<<<<<<< HEAD
               <section class="sidebar">
-=======
+
             <section class="sidebar">
->>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello</p>
+                            <p>Hello,Manager</p>
 
 
 
@@ -127,14 +125,14 @@
 
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li>
+                     <ul class="sidebar-menu">
+                        <li >
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
@@ -149,13 +147,14 @@
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
-<<<<<<< HEAD
-                         <li    class="active">
-=======
                          <li class="active">
->>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                             <a href="adminProductList">
                                 <i class="fa fa-user"></i> <span>ProductList</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="feedbackslist">
+                                <i class="fa fa-comment"></i> <span>Feedbacks List</span>
                             </a>
                         </li>
                         <li>
