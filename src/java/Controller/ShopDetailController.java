@@ -70,7 +70,7 @@ public class ShopDetailController extends HttpServlet {
             throws ServletException, IOException {
         String productid = request.getParameter("id");
         String cateid = request.getParameter("cateid");
-
+//        String num=request.getParameter("product-quantity");
         ProductsDAO pd = new ProductsDAO();
         ArrayList<Products> get3newest = pd.get3Newest();
         SpecificationDAO sd = new SpecificationDAO();
@@ -85,7 +85,9 @@ public class ShopDetailController extends HttpServlet {
         ArrayList<Products> categories = pd.getProductsbyCateID(Integer.parseInt(cateid));
         ArrayList<Image> detail = id.getDetails();
         ArrayList<Specification> spec = sd.getSpecByPId(Integer.parseInt(productid));
+//        pd.updateInventoryProduct(Integer.parseInt(num), Integer.parseInt(productid));
         Products product = pd.getProductsbyID(Integer.parseInt(productid));
+//        request.setAttribute("num", num);
         request.setAttribute("listc", listc);
         request.setAttribute("get3newest", get3newest);
         request.setAttribute("user", user);

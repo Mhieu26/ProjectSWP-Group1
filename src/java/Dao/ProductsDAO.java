@@ -241,6 +241,18 @@ public ArrayList<String> getDistinctMakers() {
             System.out.println(e);
         }
     }
+           public void updateInventoryProduct(int num,int id) {
+        String sql = " update product set inventory=inventory-? Where id = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
           public void deleteBook(int id) {
         try {
             stm = cnn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
