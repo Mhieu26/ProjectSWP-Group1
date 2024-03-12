@@ -4,21 +4,28 @@
  */
 package Controller;
 
-import Model.*;
-import Dao.*;
+import Dao.ImageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import jakarta.servlet.http.Part;
 
 /**
  *
  * @author Admin
  */
-public class FeedBackDetailsController extends HttpServlet {
+@WebServlet(name = "UploadProductImgController", urlPatterns = {"/uploadproductimg"})
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 1, //1MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 100 //100MB
+)
+public class UploadProductImgController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +44,10 @@ public class FeedBackDetailsController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet FeedBackDetailsController</title>");
+            out.println("<title>Servlet UploadProductImgController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet FeedBackDetailsController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UploadProductImgController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,49 +65,7 @@ public class FeedBackDetailsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String feedbackID = request.getParameter("feedbackID");
-        String status = request.getParameter("status");
-        FeedbackDAO dao = new FeedbackDAO();
-
-        if (status != null) {
-            int feedbackid = Integer.parseInt(feedbackID);
-            boolean stat = Boolean.parseBoolean(status);
-            if (!stat) {
-                dao.updateFeedbackStatus(feedbackid,"true");
-            } else {
-                dao.updateFeedbackStatus(feedbackid,"false");
-            }
-
-            
-            FeedbackDAO feedbackDAO = new FeedbackDAO();
-            Feedback feedback = new Feedback();
-            feedback = feedbackDAO.getFeedbackByID(feedbackid);
-            request.setAttribute("feedback", feedback);
-            ProductsDAO proDAO = new ProductsDAO();
-            Products product = proDAO.getProductsbyID(feedback.getProductid());
-            request.setAttribute("product", product);
-            
-            ArrayList<Feedback> feedbackslist = feedbackDAO.getAllFeedbackByProducgtID(feedback.getProductid());
-            request.setAttribute("feedbackslist", feedbackslist);
-            request.getRequestDispatcher("feedbackdetails.jsp").forward(request, response);
-            
-
-        }
-        
-        if (status == null) {
-            int id = Integer.parseInt(feedbackID);
-            FeedbackDAO feedbackDAO = new FeedbackDAO();
-            Feedback feedback = new Feedback();
-            feedback = feedbackDAO.getFeedbackByID(id);
-            request.setAttribute("feedback", feedback);
-            ProductsDAO proDAO = new ProductsDAO();
-            Products product = proDAO.getProductsbyID(feedback.getProductid());
-            request.setAttribute("product", product);
-            ArrayList<Feedback> feedbackslist = feedbackDAO.getAllFeedbackByProducgtID(feedback.getProductid());
-            request.setAttribute("feedbackslist", feedbackslist);
-            request.getRequestDispatcher("feedbackdetails.jsp").forward(request, response);
-        }
-        
+        processRequest(request, response);
     }
 
     /**
@@ -114,7 +79,27 @@ public class FeedBackDetailsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String type = request.getParameter("type");
+        Long productid = Long.parseLong(request.getParameter("productid"));
+        
+        // save uploaded image to local storage
+        Part filepart = request.getPart("file");
+        String filename = filepart.getSubmittedFileName();
+        String path = request.getServletContext().getRealPath("/");
+        System.out.println(filename);
+        System.out.println(path);
+        for (Part part : request.getParts()) {
+            part.write(path + "images\\" + filename);
+        }
+        
+        // save image source to db
+        
+        ImageDAO imgDao = new ImageDAO();
+        imgDao.insertImage("images\\"+filename, type, productid);
+        String previousPage = request.getHeader("Referer");
+        System.out.println(previousPage);
+        response.sendRedirect(previousPage);
     }
 
     /**
@@ -127,4 +112,7 @@ public class FeedBackDetailsController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("user.dir") + "\\web\\images\\");
+    }
 }

@@ -10,9 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- * object that get Images 
+ * object that get Images
+ *
  * @author Admin
  */
 public class ImageDAO extends DBContext {
@@ -33,7 +35,7 @@ public class ImageDAO extends DBContext {
                 img.setSource(rs.getString("source"));
                 img.setType(rs.getString("type"));
                 img.setUserId(userId);
-                
+
                 return img;
             }
         } catch (SQLException e) {
@@ -41,29 +43,30 @@ public class ImageDAO extends DBContext {
         }
         return null;
     }
- 
-         public Image getThumbnailImagebyProductID(Long pID) {
-        String sql = "     select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n" +
-"where i.type=\"thumbnail\" and i.productid= ? ";
+
+    public Image getThumbnailImagebyProductID(Long pID) {
+        String sql = "     select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
+                + "where i.type=\"thumbnail\" and i.productid= ? ";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-             statement.setLong(1, pID);
+            statement.setLong(1, pID);
             ResultSet rs = statement.executeQuery();
-            
-            if (rs.next()) {             
+
+            if (rs.next()) {
                 Image img = new Image();
                 img.setId(rs.getLong("id"));
                 img.setSource(rs.getString("source"));
-                img.setType(rs.getString("type"));        
+                img.setType(rs.getString("type"));
                 img.setProductId(pID);
-               return img;
+                return img;
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
         return null;
     }
-            public ArrayList<Image> getThumbmails() {
+
+    public ArrayList<Image> getThumbmails() {
         String sql = "  select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
                 + "where i.type=\"thumbnail\"";
         ArrayList<Image> imgs = new ArrayList<>();
@@ -84,7 +87,8 @@ public class ImageDAO extends DBContext {
         }
         return imgs;
     }
-             public ArrayList<Image> getDetails() {
+
+    public ArrayList<Image> getDetails() {
         String sql = "  select i.id, i.source, i.type, i.productid, i.blogid, i.sliderid, i.userid  from image i join product p on p.id=i.productid\n"
                 + "where i.type=\"detail\"";
         ArrayList<Image> imgs = new ArrayList<>();
@@ -105,22 +109,65 @@ public class ImageDAO extends DBContext {
         }
         return imgs;
     }
-//        
-//             public static void main(String[] args) {
-//               ProductsDAO pd=new ProductsDAO();
-//          ImageDAO id=new ImageDAO();
-//          ArrayList<Image> thumbnails=id.getDetails();
-//          ArrayList<Products> phone=pd.getProductsbyCateID(1);
-//        ArrayList<Products> products=pd.getProducts();
-//                 for (Products p : phone) {
-//                     for (Image tn : thumbnails) {
-//                         if(p.getId()==tn.getProductId()){
-//                             System.out.println(tn.getSource());
-//                         }
-//                     }
-//                     
-//                 }
-//                 
-//    }
+
+    public List<Image> getImagesByProductId(Long productid) {
+        String sql = " select*\n"
+                + "from product inner join image on product.id = image.productid\n"
+                + "where product.id = ? \n"
+                + "order by type desc ";
+        List<Image> imgs = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, productid);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Image i = new Image();
+                i.setId(rs.getLong(9));
+                i.setSource(rs.getString(10));
+                i.setType(rs.getString(11));
+                i.setProductId(rs.getLong(12));
+
+                imgs.add(i);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return imgs;
+    }
+
+    public void deleteImageById(Long id) {
+        String sql = " delete from Image where id = ? ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertImage(String source, String type, Long productid) {
+
+        String sql = " insert into Image(source, type, productid)\n"
+                + "values(?, ?, ?) ";
+        
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, source);
+            statement.setString(2, type);
+            statement.setLong(3, productid);
+            
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+    }
+
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("user.dir"));
+    }
 
 }

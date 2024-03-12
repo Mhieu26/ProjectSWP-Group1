@@ -45,6 +45,33 @@
         <servlet-name>LoginWithGoogleController</servlet-name>
         <servlet-class>Controller.LoginWithGoogleController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <servlet-class>Controller.FeedBackDetailsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <servlet-class>Controller.FeedBacksListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <servlet-class>Controller.OrderDetailsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <url-pattern>/feedbackdetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <url-pattern>/feedbackslist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <url-pattern>/orderdetails</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.LogoutController</servlet-class>
@@ -172,6 +199,14 @@
     <servlet>
         <servlet-name>CompletePaymentController</servlet-name>
         <servlet-class>Controller.CompletePaymentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <servlet-class>Controller.DeleteProductImageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <servlet-class>Controller.ChangeThumbnailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SettingBlogs</servlet-name>
@@ -344,6 +379,14 @@
     <servlet-mapping>
         <servlet-name>CompletePaymentController</servlet-name>
         <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <url-pattern>/deleteimg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <url-pattern>/changethumbnail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SettingBlogs</servlet-name>
