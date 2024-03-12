@@ -78,7 +78,7 @@ public class FeedBacksListController extends HttpServlet {
         listFeedBack = dao.getAllFeedback();
         
         
-         request.setAttribute("user", user);
+        request.setAttribute("user", user);
         request.setAttribute("listFeedBack", listFeedBack);
         request.getRequestDispatcher("feedbackslist.jsp").forward(request, response);
 
@@ -96,6 +96,7 @@ public class FeedBacksListController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String status = request.getParameter("status");
+        User user = (User) request.getSession().getAttribute("User");
         if (status.equals("all")) {
             status = "";
         } else {
@@ -123,7 +124,7 @@ public class FeedBacksListController extends HttpServlet {
         ArrayList<Feedback> listFeedBack = new ArrayList<Feedback>();
         listFeedBack = dao.getFeedbackByAllElenment(status, product, ratestar, content);
         request.setAttribute("listFeedBack", listFeedBack);
-
+        request.setAttribute("user", user);
         request.getRequestDispatcher("feedbackslist.jsp").forward(request, response);
     }
 
