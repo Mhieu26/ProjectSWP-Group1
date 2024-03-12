@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -35,6 +36,9 @@ public class CustomerListServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
+             HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        
             UserDAO userDAO = new UserDAO();
             // Số trang hiện tại
             int page = 1;
@@ -55,6 +59,7 @@ public class CustomerListServlet extends HttpServlet {
             int numberOfPages = (int) Math.ceil(numberOfRecords * 1.0 / recordsPerPage);
 
 // Đặt dữ liệu vào request attribute để chuyển đến JSP
+            request.setAttribute("user", user);
             request.setAttribute("customers", customers);
             request.setAttribute("numberOfPages", numberOfPages);
             request.setAttribute("currentPage", page);

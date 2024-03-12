@@ -5,6 +5,7 @@
 package Controller.MarketingManager;
 
 import Dao.MaketingDAO;
+import Model.User;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -35,6 +37,8 @@ public class MarketingDashboardServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+             HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
             MaketingDAO maketingDAO = new MaketingDAO();
             int staticCus = maketingDAO.getStaticCustomers();
             int staticBlogs = maketingDAO.getStaticBlogs();
@@ -43,6 +47,10 @@ public class MarketingDashboardServlet extends HttpServlet {
             String[][] data = maketingDAO.getDataCharts();
             Gson gson = new Gson();
             String jsonData = gson.toJson(data);
+            
+        
+        
+            request.setAttribute("user", user);
             request.setAttribute("sCus", staticCus);
             request.setAttribute("sBlogs", staticBlogs);
             request.setAttribute("sProds", staticProds);

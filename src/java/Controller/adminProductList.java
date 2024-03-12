@@ -18,6 +18,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +68,10 @@ ArrayList<Products> products = pdb.getProducts();
   ArrayList<Category> listc=pdb.getCategory();
      ImageDAO id=new ImageDAO();
           ArrayList<Image> thumbnails=id.getThumbmails();
+              HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        
+         request.setAttribute("user", user);
   request.setAttribute("listc",listc);
   request.setAttribute("thumbnails",thumbnails);
         request.setAttribute("products",products);

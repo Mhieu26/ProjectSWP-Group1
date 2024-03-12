@@ -163,19 +163,21 @@
                                                     int role = (int)(user.getRole().getId());
                                                     if(role == 2) { %>
                                             <li><a href="adminDashboardController">Admin Manager</a></li>
-                                            <li><a href="saleController">Sale</a></li>
-                                            <li><a href="saleManagerController">Sale Manager</a></li>
-                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+                                            <li><a href="saledashboard">Sale</a></li>
+                                            <li><a href="saledashboard">Sale Manager</a></li>
+                                            <li><a href="marketingDashboard">Marketing Manager</a></li>
 
                                             <% } else if(role == 3) { %>
-                                            <li><a href="saleController">Sale</a></li>
+                                            <li><a href="saledashboard">Sale</a></li>
                                                 <% } else if(role == 4) { %>
-                                            <li><a href="saleController">Sale</a> </li>
-                                            <li><a href="saleManagerController">Sale Manager</a></li>
+                                            <li><a href="saledashboard">Sale</a> </li>
+                                            <li><a href="saledashboard">Sale Manager</a></li>
                                                 <% } else if(role == 5) { %>
-                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
+                                            <li><a href="marketingDashboard">Marketing Manager</a></li>
                                                 <% }
         } %>
+                                            <li><a href="myorder">My Order</a></li>
+
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
