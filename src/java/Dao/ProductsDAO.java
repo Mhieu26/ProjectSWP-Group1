@@ -228,14 +228,28 @@ public ArrayList<String> getDistinctMakers() {
         }
         return list;
     }
-        public void updateStatusProduct(int price,int id, boolean status) {
-        String sql = " update product set status = ?, price=? Where id = ? ";
+        public void updateStatusProduct(int price,int id, boolean status, int inventory, String description) {
+        String sql = " update product set status = ?, price=?, inventory=?, description=? Where id = ? ";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setBoolean(1, status);
             statement.setInt(2, price);
-            statement.setInt(3, id);
+            statement.setInt(3, inventory);
+            statement.setString(4, description);
+            statement.setInt(5, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+           public void updateInventoryProduct(int num,int id) {
+        String sql = " update product set inventory=inventory-? Where id = ? ";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.setInt(2, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);

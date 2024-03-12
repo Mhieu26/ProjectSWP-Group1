@@ -500,6 +500,7 @@
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="number" value=1 min="1"  name="product-quantity">
                                 </div>
+                                <span><%=products.getInventory()%> lefts </span>
                             </div>
                             <% }else{%>
                             <div class="product-quantity">
@@ -507,6 +508,7 @@
                                 <div class="product-quantity-slider">
                                     <input id="product-quantity" type="number" value=1 min="1" name="product-quantity">
                                 </div>
+                                 <span><%=products.getInventory()%> lefts </span>
                             </div>
                             <%}%>
                             <!--                            <div class="product-category">

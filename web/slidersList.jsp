@@ -92,6 +92,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+<<<<<<< HEAD
                                 <%
                          if(user != null) {
                             int role = (int)(user.getRole().getId());
@@ -112,6 +113,14 @@
                                 <% } else if (role == 5) { %>
                             <li><a href="marketingDashboard">Marketing Manager </a></li>
                                 <% } } %>
+=======
+                            <li><a href="marketingDashboard">Marketing Dashboard</a></li>
+                            <li><a href="settingblogs">Setting Blogs</a></li>
+                            <li><a href="customersList">Customers List</a></li>
+                            <li><a href="slidersList">Sliders List</a></li>
+                             <li><a href="adminProductList">Product List</a></li>
+                            <li><a href="home">Home</a></li>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
 
 
                             <li>
@@ -127,7 +136,7 @@
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
                 <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
+              <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
@@ -151,7 +160,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
@@ -171,12 +180,19 @@
                                 <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>
                         </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                         <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>
                             </a>
                         </li>
+
+
+                    </ul>
+                </section>
                         </aside>
                         <aside class="right-side">
 
@@ -186,6 +202,7 @@
                                         <header class="panel-heading">
                                             Slider Lists
                                         </header>
+                                        <div><a class="btn btn-success" href="${pageContext.request.contextPath}/createSlider" >Create New</a></div>
                                         <div class="panel-body table-responsive">
                                             <table class="table table-hover">
                                                 <thead>
@@ -194,6 +211,7 @@
                                                         <th>Title</th>
                                                         <th>Back Link</th>
                                                         <th>Image</th>
+                                                        <th>Action</th>
                                                         <!-- <th>Client</th> -->
                                                     </tr>
                                                 </thead>
@@ -205,6 +223,9 @@
                                                             <td>${item.backLink}</td>
                                                             <td>
                                                                 <img style="width: 250px;" class="rounded-3" src="${item.image}" alt="alt"/>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/deleteSlider?id=${item.id}" >Delete</a>
                                                             </td>
                                                             <!-- <td>Steve</td> -->
                                                         </tr>
@@ -223,7 +244,7 @@
                 </section>
         </div>
         <!-- row end -->
-    </section><!-- /.content -->
+    <!-- /.content -->
     <div class="footer-main">
         LaViBan-2024
     </div>

@@ -33,7 +33,7 @@ public class DeleteBlogServlet extends HttpServlet {
         BlogDAO bDAO = new BlogDAO();
         bDAO.deleteBlog(id);
         request.setAttribute("messSuccess", "Delete Successfuly!");
-        request.getRequestDispatcher("blog").forward(request, response);
+        request.getRequestDispatcher("settingblogs").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

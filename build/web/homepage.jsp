@@ -163,8 +163,13 @@
                                                     int role = (int)(user.getRole().getId());
                                                     if(role == 2) { %>
                                             <li><a href="adminDashboardController">Admin Manager</a></li>
+<<<<<<< HEAD
                                             <li><a href="saledashboard">Sale</a></li>
                                             <li><a href="saledashboard">Sale Manager</a></li>
+=======
+                                            <li><a href="saleController">Sale</a></li>
+                                            <li><a href="saleManagerController">Sale Manager</a></li>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                                             <li><a href="marketingDashboard">Marketing Manager</a></li>
 
                                             <% } else if(role == 3) { %>
@@ -396,11 +401,11 @@
                                         </div>
                                         <div class="block-top-home__right-banner">
                                             <div class="right-banner">
-                                                <a href="http://localhost:9999/SWP/blogdetail?id=5" class="right-banner__item button__link">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=20" class="right-banner__item button__link">
                                                     <img src="images/blog3.jpeg" width="690" height="300" alt="SAMSUNG S23 128GB&lt;br&gt;Giảm giá sốc" loading="lazy" class="right-banner__img">
                                                 </a>
-                                                <a href="http://localhost:9999/SWP/blogdetail?id=7" class="right-banner__item button__link">
-                                                    <img src="images/blog5.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
+                                                <a href="http://localhost:9999/SWP/blogdetail?id=21" class="right-banner__item button__link">
+                                                    <img src="images/blog4.jpg" width="690" height="300" alt="ƯU ĐÃI SINH VIÊN&lt;br&gt;Giảm thêm 5%" loading="lazy" class="right-banner__img">
                                                 </a>
                                             </div>
                                         </div>

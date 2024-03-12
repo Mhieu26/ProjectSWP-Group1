@@ -91,6 +91,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+<<<<<<< HEAD
                                 <%
                          if(user != null) {
                             int role = (int)(user.getRole().getId());
@@ -111,6 +112,14 @@
                                 <% } else if (role == 5) { %>
                             <li><a href="marketingDashboard">Marketing Manager </a></li>
                                 <% } } %>
+=======
+                            <li><a href="marketingDashboard">Marketing Dashboard</a></li>
+                            <li><a href="settingblogs">Setting Blogs</a></li>
+                            <li><a href="customersList">Customers List</a></li>
+                            <li><a href="slidersList">Sliders List</a></li>
+                             <li><a href="adminProductList">Product List</a></li>
+                            <li><a href="home">Home</a></li>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
 
 
                             <li>
@@ -150,10 +159,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
+
                         <li class="active">
                             <a href="customersList">
                                 <i class="fa fa-user"></i> <span>Customers List</span>
@@ -171,95 +181,104 @@
                         </li>
 
                         <li>
+                            <a href="adminProductList">
+                                <i class="fa fa-user"></i> <span>ProductList</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>
                             </a>
                         </li>
-                        </aside>
-                        <aside class="right-side">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <section class="panel">
-                                        <header class="panel-heading">
-                                            Customer newly registered
-                                        </header>
-                                        <div class="d-flex justify-content-center text-center">
-                                            <form action="searchCustomer" method="get">
-                                                <input name="name" type="search" />
-                                                <input type="submit" value="search" />
-                                            </form>
-                                        </div>
-                                        <div class="panel-body table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Email</th>
-                                                        <th>Full Name</th>
-                                                        <th>Phone</th>
-                                                        <th>Address</th>
-                                                        <th>Status</th>
-                                                        <!-- <th>Client</th> -->
-                                                    </tr>
-                                                </thead>
-                                                <tbody>                                       
-                                                    <c:forEach items="${customers}" var="item" varStatus="loop">
-                                                        <tr>
-                                                            <td>${loop.index + 1 }</td>
-                                                            <td>${item.email}</td>
-                                                            <td>${item.name}</td>
-                                                            <td>${item.phone}</td>
-                                                            <td>${item.address}</td>
-                                                            <td>
-                                                                ${item.status == true ? 'active' : 'unactive'} 
-                                                                <form action="statusChange?id=${item.id}&&s=${item.status}" method="POST">
-                                                                    <input type="submit" value="change" />
-                                                                </form>
-                                                            </td>
-                                                            <!-- <td>Steve</td> -->
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <!-- Pagination -->
-                                        <div class="text-center">
-                                            <ul class="pagination">
-                                                <c:if test="${currentPage > 1}">
-                                                    <li><a href="?page=1">&laquo;</a></li>
-                                                    </c:if>
-                                                    <c:forEach begin="1" end="${numberOfPages}" step="1" varStatus="page">
-                                                        <c:choose>
-                                                            <c:when test="${page.index == currentPage}">
-                                                            <li class="active"><a href="?page=${page.index}">${page.index}</a></li>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                            <li><a href="?page=${page.index}">${page.index}</a></li>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </c:forEach>
-                                                    <c:if test="${currentPage < numberOfPages}">
-                                                    <li><a href="?page=${numberOfPages}">&raquo;</a></li>
-                                                    </c:if>
-                                            </ul>
-                                        </div>
 
 
-                                </div><!--end col-6 -->
-                            </div>
-                        </aside>
-
-                        </div><!--end col-6 -->
-
+                    </ul>
                 </section>
-        </div>
-        <!-- row end -->
-    </section><!-- /.content -->
-    <div class="footer-main">
-        LaViBan-2024
-    </div>
+            </aside>
+            <aside class="right-side">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Customer newly registered
+                            </header>
+                            <div class="d-flex justify-content-center text-center">
+                                <form action="searchCustomer" method="get">
+                                    <input name="name" type="search" />
+                                    <input type="submit" value="search" />
+                                </form>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Email</th>
+                                            <th>Full Name</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>Status</th>
+                                            <!-- <th>Client</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>                                       
+                                        <c:forEach items="${customers}" var="item" varStatus="loop">
+                                            <tr>
+                                                <td>${loop.index + 1 }</td>
+                                                <td>${item.email}</td>
+                                                <td>${item.name}</td>
+                                                <td>${item.phone}</td>
+                                                <td>${item.address}</td>
+                                                <td>
+                                                    ${item.status == true ? 'active' : 'inactive'} 
+                                                    <form action="statusChange?id=${item.id}&&s=${item.status}" method="POST">
+                                                        <input type="submit" value="change" />
+                                                    </form>
+                                                </td>
+                                                <!-- <td>Steve</td> -->
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="text-center">
+                                <ul class="pagination">
+                                    <c:if test="${currentPage > 1}">
+                                        <li><a href="?page=1">&laquo;</a></li>
+                                        </c:if>
+                                        <c:forEach begin="1" end="${numberOfPages}" step="1" varStatus="page">
+                                            <c:choose>
+                                                <c:when test="${page.index == currentPage}">
+                                                <li class="active"><a href="?page=${page.index}">${page.index}</a></li>
+                                                </c:when>
+                                                <c:otherwise>
+                                                <li><a href="?page=${page.index}">${page.index}</a></li>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                        <c:if test="${currentPage < numberOfPages}">
+                                        <li><a href="?page=${numberOfPages}">&raquo;</a></li>
+                                        </c:if>
+                                </ul>
+                            </div>
+
+
+                    </div><!--end col-6 -->
+                </div>
+            </aside>
+
+        </div><!--end col-6 -->
+
+    </section>
+</div>
+<!-- row end -->
+<!-- /.content -->
+<div class="footer-main">
+    LaViBan-2024
+</div>
 </aside><!-- /.right-side -->s
 
 </div><!-- ./wrapper -->
@@ -310,39 +329,6 @@
     });
 
 </script>
-<script type="text/javascript">
-    google.load('visualization', '1.0', {'packages': ['corechart']});
-    google.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        // Lấy dữ liệu từ các thẻ span trong HTML
-        var orderSuccess = parseInt($("#orderSuccess").text());
-        var orderCancelled = parseInt($("#orderCancelled").text());
-        var orderShipping = parseInt($("#orderShipping").text());
-
-        // Tạo DataTable và thêm dữ liệu
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Status');
-        data.addColumn('number', 'Total');
-        data.addRows([
-            ['Order Success', orderSuccess],
-            ['Order Cancelled', orderCancelled],
-            ['Order Shipping', orderShipping]
-        ]);
-
-        // Tùy chỉnh biểu đồ
-        var options = {
-            title: 'Order Status',
-            'width': 800,
-            'height': 600
-        };
-
-        // Vẽ biểu đồ
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-    }
-
-</script>
 <script>
     $('#noti-box').slimScroll({
         height: '400px',
@@ -355,43 +341,7 @@
         radioClass: 'iradio_flat-grey'
     });
 </script>
-<script type="text/javascript">
-    $(function () {
-        "use strict";
-        //BAR CHART
-        var data = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }
-            ]
-        };
-        new Chart(document.getElementById("linechart").getContext("2d")).Line(data, {
-            responsive: true,
-            maintainAspectRatio: false,
-        });
 
-    });
-    // Chart.defaults.global.responsive = true;
-</script>
 
 </body>
 

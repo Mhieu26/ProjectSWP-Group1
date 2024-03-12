@@ -48,7 +48,7 @@
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.html" class="logo">
+            <a href="home" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 Manager
             </a>
@@ -106,7 +106,11 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
+<<<<<<< HEAD
               <section class="sidebar">
+=======
+            <section class="sidebar">
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
@@ -145,7 +149,11 @@
                                 <i class="fa fa-user"></i> <span>Sliders List</span>
                             </a>
                         </li>
+<<<<<<< HEAD
                          <li    class="active">
+=======
+                         <li class="active">
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                             <a href="adminProductList">
                                 <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>

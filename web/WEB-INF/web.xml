@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <display-name>SettingBlogs</display-name>
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
@@ -44,6 +45,33 @@
         <servlet-name>LoginWithGoogleController</servlet-name>
         <servlet-class>Controller.LoginWithGoogleController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <servlet-class>Controller.FeedBackDetailsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <servlet-class>Controller.FeedBacksListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <servlet-class>Controller.OrderDetailsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FeedBackDetailsController</servlet-name>
+        <url-pattern>/feedbackdetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedBacksListController</servlet-name>
+        <url-pattern>/feedbackslist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <url-pattern>/orderdetails</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.LogoutController</servlet-class>
@@ -172,8 +200,23 @@
         <servlet-name>CompletePaymentController</servlet-name>
         <servlet-class>Controller.CompletePaymentController</servlet-class>
     </servlet>
+<<<<<<< HEAD
     
     
+=======
+    <servlet>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <servlet-class>Controller.DeleteProductImageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <servlet-class>Controller.ChangeThumbnailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingBlogs</servlet-name>
+        <servlet-class>Controller.MarketingManager.SettingBlogs</servlet-class>
+    </servlet>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -341,6 +384,18 @@
     <servlet-mapping>
         <servlet-name>CompletePaymentController</servlet-name>
         <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductImageController</servlet-name>
+        <url-pattern>/deleteimg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeThumbnailController</servlet-name>
+        <url-pattern>/changethumbnail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingBlogs</servlet-name>
+        <url-pattern>/settingblogs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

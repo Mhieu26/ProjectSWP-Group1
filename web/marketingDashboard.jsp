@@ -91,6 +91,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+<<<<<<< HEAD
                                 <%
                          if(user != null) {
                             int role = (int)(user.getRole().getId());
@@ -111,6 +112,14 @@
                                 <% } else if (role == 5) { %>
                             <li><a href="marketingDashboard">Marketing Manager </a></li>
                                 <% } } %>
+=======
+                            <li><a href="marketingDashboard">Marketing Dashboard</a></li>
+                            <li><a href="settingblogs">Setting Blogs</a></li>
+                            <li><a href="customersList">Customers List</a></li>
+                            <li><a href="slidersList">Sliders List</a></li>
+                            <li><a href="adminProductList">Product List</a></li>
+                            <li><a href="home">Home</a></li>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
 
 
                             <li>
@@ -150,7 +159,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
@@ -167,7 +176,11 @@
                         </li>
                          <li>
                             <a href="adminProductList">
+<<<<<<< HEAD
                                 <i class="fa fa-user"></i> <span>ProductList</span>
+=======
+                                <i class="fa fa-user"></i> <span>Product List</span>
+>>>>>>> bad27f5838e41a702d49893959251126b78fbb31
                             </a>
                         </li>
                         <li>
@@ -320,39 +333,6 @@
     });
 
 </script>
-<script type="text/javascript">
-    google.load('visualization', '1.0', {'packages': ['corechart']});
-    google.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        // Lấy dữ liệu từ các thẻ span trong HTML
-        var orderSuccess = parseInt($("#orderSuccess").text());
-        var orderCancelled = parseInt($("#orderCancelled").text());
-        var orderShipping = parseInt($("#orderShipping").text());
-
-        // Tạo DataTable và thêm dữ liệu
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Status');
-        data.addColumn('number', 'Total');
-        data.addRows([
-            ['Order Success', orderSuccess],
-            ['Order Cancelled', orderCancelled],
-            ['Order Shipping', orderShipping]
-        ]);
-
-        // Tùy chỉnh biểu đồ
-        var options = {
-            title: 'Order Status',
-            'width': 800,
-            'height': 600
-        };
-
-        // Vẽ biểu đồ
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-    }
-
-</script>
 <script>
     $('#noti-box').slimScroll({
         height: '400px',
@@ -373,16 +353,6 @@
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
                 {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
                     label: "My Second dataset",
                     fillColor: "rgba(151,187,205,0.2)",
                     strokeColor: "rgba(151,187,205,1)",
@@ -391,6 +361,16 @@
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: [28, 48, 40, 19, 86, 27, 90]
+                },
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
                 }
             ]
         };
