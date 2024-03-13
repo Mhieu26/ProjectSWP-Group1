@@ -177,7 +177,7 @@
 
                 </form>
 
-
+                
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
@@ -196,7 +196,7 @@
                                                         <th style="width: 100px">Thumbnail</th>
                                                         <th>Price</th>
                                                         <th>Maker</th>
-                                                        
+                                                        <th>Inventory</th>
                                                         <th>Status</th>
                                                         <th>Category</th>
                                                         <th>Action</th>
@@ -227,7 +227,7 @@
 
             out.print(formattedPrice);%></td>
                                                             <td><%=p.getMaker()%></td>
-                                                            
+                                                             <td><%=p.getInventory()%></td>
                                                             <td><%=p.getStatus() ? "active" : "inactive" %></td>
                                                             <% for(Category c : listc){ %>
                                                             <% if(p.getCategoryid()==c.getId()){ %>

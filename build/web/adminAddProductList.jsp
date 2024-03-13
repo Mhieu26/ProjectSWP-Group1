@@ -81,28 +81,41 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Admin</p>
+                            <p>Hello</p>
+
+
+
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
-                    <!-- search form -->
 
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="adminDashboardController">
+                            <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="adminProductList">
-                                <i class="fa fa-user"></i> <span>ProductList</span>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-cog"></i> <span>Setting Blogs</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="customersList">
+                                <i class="fa fa-user"></i> <span>Customers List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="adminSettingListController">
-                                <i class="fa fa-cog"></i> <span>ProductDetail</span>
+                            <a href="slidersList">
+                                <i class="fa fa-user"></i> <span>Sliders List</span>
+                            </a>
+                        </li>
+                         <li class="active">
+                            <a href="adminProductList">
+                                <i class="fa fa-user"></i> <span>ProductList</span>
                             </a>
                         </li>
                         <li>
@@ -110,6 +123,8 @@
                                 <i class="fa fa-home"></i> <span>Home</span>
                             </a>
                         </li>
+
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->

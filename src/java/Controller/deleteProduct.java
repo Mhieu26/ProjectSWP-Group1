@@ -63,9 +63,9 @@ public class deleteProduct extends HttpServlet {
            try {
              ProductsDAO pd=new ProductsDAO();
                 pd.deleteBook(Integer.parseInt(id));
-            request.setAttribute("messSuccess", "Delete Product Successfuly!");
+            request.setAttribute("mess", "Delete Product Successfuly!");
         } catch (Exception e) {
-            request.setAttribute("messErrror", e.getMessage());
+            request.setAttribute("mess", e.getMessage());
         }
        
                 response.sendRedirect("adminProductList");
