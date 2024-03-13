@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import Dao.*;
 import Model.*;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
@@ -58,6 +59,8 @@ public class FeedBacksListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
         String fb = request.getParameter("feedbackID");
         String status = request.getParameter("status");        
         FeedbackDAO dao = new FeedbackDAO();       
@@ -73,6 +76,9 @@ public class FeedBacksListController extends HttpServlet {
         }
         ArrayList<Feedback> listFeedBack = new ArrayList<Feedback>();
         listFeedBack = dao.getAllFeedback();
+        
+        
+        request.setAttribute("user", user);
         request.setAttribute("listFeedBack", listFeedBack);
         request.getRequestDispatcher("feedbackslist.jsp").forward(request, response);
 
@@ -90,6 +96,7 @@ public class FeedBacksListController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String status = request.getParameter("status");
+        User user = (User) request.getSession().getAttribute("User");
         if (status.equals("all")) {
             status = "";
         } else {
@@ -117,7 +124,7 @@ public class FeedBacksListController extends HttpServlet {
         ArrayList<Feedback> listFeedBack = new ArrayList<Feedback>();
         listFeedBack = dao.getFeedbackByAllElenment(status, product, ratestar, content);
         request.setAttribute("listFeedBack", listFeedBack);
-
+        request.setAttribute("user", user);
         request.getRequestDispatcher("feedbackslist.jsp").forward(request, response);
     }
 

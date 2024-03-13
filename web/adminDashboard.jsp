@@ -20,7 +20,7 @@
         }
     } else {
         // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-        response.sendRedirect("notFoundController"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
         return; // Dừng xử lý tiếp theo
     }
 %>
@@ -87,7 +87,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-user"></i>
-                            <span>Admin<i class="caret"></i></span>
+                            <span>Manager<i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
@@ -96,25 +96,25 @@
                             int role = (int)(user.getRole().getId());
                             if(role == 2) { %>
                             <li><a href="adminDashboardController">Admin Manager</a></li>
-                            <li><a href="saleController">Sale</a></li>
+                            <li><a href="saledashboard">Sale</a></li>
                             <li>
-                                <a href="saleManagerController">Sale Manager</a>
+                                <a href="saledashboard">Sale Manager</a>
                             </li>
                             <li>
-                                <a href="saleManagerController">Marketing</a>
+                                <a href="marketingDashboard">Marketing Manager</a>
                             </li>
                             <% } else if (role == 3) { %>
-                            <li><a href="saleController">Sale</a></li>
+                            <li><a href="saledashboard">Sale</a></li>
                                 <% } else if (role == 4) { %>
-                            <li><a href="saleController">Sale</a></li>
-                            <li><a href="saleController">Sale Manager</a></li>
+                            <li><a href="saledashboard">Sale</a></li>
+                            <li><a href="saledashboard">Sale Manager</a></li>
                                 <% } else if (role == 5) { %>
-                            <li><a href="saleManagerController">Marketing</a></li>
+                            <li><a href="marketingDashboard">Marketing Manager  </a></li>
                                 <% } } %>
 
 
                             <li>
-                                <a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -133,7 +133,7 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello,Admin</p>
+                            <p>Hello,Manager</p>
 
 
 

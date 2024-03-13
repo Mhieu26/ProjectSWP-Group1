@@ -5,6 +5,24 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Model.User" %>
+
+<%
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    User user = (User) request.getAttribute("user");
+    if (user != null) {
+        // Nếu đã đăng nhập, kiểm tra vai trò
+        int role = (int)(user.getRole().getId());
+        if (role != 2 && role != 5) { // Nếu không phải là vai trò 2
+            response.sendRedirect("notFoundController"); // Chuyển hướng về trang home
+            return; // Dừng xử lý tiếp theo
+        }
+    } else {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        return; // Dừng xử lý tiếp theo
+    }
+%>
 <!DOCTYPE html>
 <html>
 
@@ -43,39 +61,53 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <div class="navbar-right">
+                 <div class="navbar-right">
 
 
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-user"></i>
-                            <span>Admin <i class="caret"></i></span>
+                            <span>Manager<i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
+                                <%
+                         if(user != null) {
+                            int role = (int)(user.getRole().getId());
+                            if(role == 2) { %>
+                            <li><a href="adminDashboardController">Admin Manager</a></li>
+                            <li><a href="saledashboard">Sale</a></li>
+                            <li>
+                                <a href="saledashboard">Sale Manager</a>
+                            </li>
+                            <li>
+                                <a href="marketingDashboard">Marketing Manager</a>
+                            </li>
+                            <% } else if (role == 3) { %>
+                            <li><a href="saledashboard">Sale</a></li>
+                                <% } else if (role == 4) { %>
+                            <li><a href="saledashboard">Sale</a></li>
+                            <li><a href="saledashboard">Sale Manager</a></li>
+                                <% } else if (role == 5) { %>
+                            <li><a href="marketingDashboard">Marketing Manager  </a></li>
+                                <% } } %>
 
-
-                            <li class="divider"></li>
-
-
-
-                            <li class="divider"></li>
 
                             <li>
-                                <a href="home"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
-
                     </li>
-                    </ul>
+
                 </div>
             </nav>
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
+              <section class="sidebar">
+
             <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
@@ -83,7 +115,7 @@
                             <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello</p>
+                            <p>Hello,Manager</p>
 
 
 
@@ -93,14 +125,14 @@
 
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li>
+                     <ul class="sidebar-menu">
+                        <li >
                             <a href="marketingDashboard">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="settingblogs">
                                 <i class="fa fa-cog"></i> <span>Setting Blogs</span>
                             </a>
                         </li>
@@ -118,6 +150,11 @@
                          <li class="active">
                             <a href="adminProductList">
                                 <i class="fa fa-user"></i> <span>ProductList</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="feedbackslist">
+                                <i class="fa fa-comment"></i> <span>Feedbacks List</span>
                             </a>
                         </li>
                         <li>

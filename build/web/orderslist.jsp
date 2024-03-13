@@ -347,7 +347,7 @@
                             for (Orders order : listOrders) {
                         %>
                         <tr>
-                            <td><%= order.getId() %></td>
+                    <td><a href="orderdetails?orderID=<%= order.getId() %>"><%= order.getId() %></a></td>
                             <td><%= order.getOrderDate() %></td>
                             <td><%= order.getUserName() %></td>
                             <td><%= order.getProductName() %></td>
