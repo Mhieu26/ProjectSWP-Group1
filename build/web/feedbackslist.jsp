@@ -197,7 +197,7 @@
                 <section class="content">
 
                     <div class="row" style="margin-bottom:5px;">    
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                             <div class="sm-st clearfix" style="width: 300%">
                                 <span class="sm-st-icon st-blue"><i class="fa fa-angle-double-down"></i></span>
                                 <p></p>
@@ -277,7 +277,7 @@
                     </div>
 
                     <div class="row" style="margin-bottom:5px;">
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                             <div class="sm-st clearfix">
                                 <div class="items-controller col-md-6">
                                     <label>Show</label>
@@ -295,7 +295,7 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <section class="panel">
                                 <header class="panel-heading">
                                     Filter by 

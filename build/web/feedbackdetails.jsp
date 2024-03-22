@@ -138,8 +138,8 @@
                        ArrayList<Feedback> feedbackslist = (ArrayList<Feedback>)request.getAttribute("feedbackslist");
                     %>
                     <div class="row" style="margin-bottom:5px;">    
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix" style="width: 300%">
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix">
                                 <span class="sm-st-icon st-blue"><i class="fa fa-angle-double-down"></i></span>
                                 <p></p>
                                 <div style="font-size: xx-large">
@@ -149,8 +149,8 @@
                         </div>
                     </div>
                     <div class="row" style="margin-bottom:5px;">
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix" style="width: 300%">
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix" >
                                 <div style="font-size: x-large">
                                     <% long userID = (long)feedback.getUserid(); 
                                     UserDAO uDAO = new UserDAO();
@@ -197,8 +197,8 @@
                         </div>
                     </div>       
                     <div class="row">    
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix" style="font-size: x-large ;width: 300%;">
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix">
                                 <% 
                    
                     ImageDAO id=new ImageDAO();                   
@@ -214,8 +214,8 @@
                         </div>
                     </div>
                     <div class="row" style="margin-bottom:5px;">    
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix" style="font-size: x-large ;width: 300%;">
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix" style="font-size: x-large ;">
                                 <div>
                                     <%  int totalStar = 0;
                                          
@@ -247,8 +247,8 @@
                         </div>
                     </div>          
                     <div class="row" style="margin-bottom:5px;">    
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix" style="width: 300%">
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix">
                                 <span class="sm-st-icon st-blue"><i class="fa fa-angle-double-down"></i></span>
                                 <p></p>
 
