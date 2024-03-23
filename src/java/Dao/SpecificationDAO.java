@@ -66,12 +66,4 @@ public class SpecificationDAO extends DBContext{
         }
         return imgs;
     }
-      public static void main(String[] args) {
-        SpecificationDAO s=new SpecificationDAO();
-        ArrayList<Specification> list=s.getSpecByPId(3);
-          for (Specification s1 : list) {
-              System.out.println(s1);
-              
-          }
-    }
 }

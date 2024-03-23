@@ -621,11 +621,6 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
     }
-//     public static void main(String[] args) {
-//        UserDAO udb = new UserDAO();
-//        udb.updateRoleAndStatus(udb.getUserByID(14), 1, true);
-//    }
-//   
 
     public void addUser(String email, String password, String name, String phone, String address, boolean sex) throws NoSuchAlgorithmException {
         String sql = " insert into user(email, password, name, phone, address, sex, status, roleid)\n "

@@ -74,13 +74,5 @@ public class CategoryDAO extends DBContext{
         }
         return cate;
     }
-//        public static void main(String[] args) {
-//        CategoryDAO pd=new CategoryDAO();
-//        ArrayList<Category> list=pd.getCategory();
-//        for (Category products : list) {
-//            System.out.println(products);
-//            
-//        }
-//    }
-    
+
 }

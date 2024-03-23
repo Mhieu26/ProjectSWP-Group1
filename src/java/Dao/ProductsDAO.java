@@ -284,10 +284,6 @@ public ArrayList<String> getDistinctMakers() {
         }
         return n;
     }
-    public static void main(String[] args) {
-        ProductsDAO pdb = new ProductsDAO();
-        pdb.addProduct("Toan", 20000, null, "samsung", true, 300, 2);
-       
-    }
+
 
 }
