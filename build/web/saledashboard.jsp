@@ -5,486 +5,602 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.Products, Model.User, Model.Image, Model.Cart,Model.Role, Model.CartItem,Model.OrderLine"%>
-<%@page import="Dao.ProductsDAO"%>
+<%@page import="Model.*"%>
+<%@page import="Dao.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
+<%
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    User user = (User) request.getAttribute("user");
+    if (user != null) {
+        // Nếu đã đăng nhập, kiểm tra vai trò
+        int role = (int)(user.getRole().getId());
+        if (role != 2 && role != 3&& role != 4) { // Nếu không phải là vai trò 234
+            response.sendRedirect("notFoundController"); // Chuyển hướng về trang home
+            return; // Dừng xử lý tiếp theo
+        }
+    } else {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        return; // Dừng xử lý tiếp theo
+    }
+%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LaViBan</title>
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <!-- bootstrap links -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <!-- bootstrap links -->
-        <!-- fonts links -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-        <!-- fonts links -->
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-            />
-        <link rel="stylesheet" href="./assets/css/style1.css">
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/bc726cb.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/c8890e7.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8b24af9.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/8019e2f.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/7c5b2c4.css" as="style">
-        <link rel="preload" href="https://static.cellphones.com.vn/css/380ebf8.css" as="style"> 
-        <link rel="preload" href="https://static.cellphones.com.vn/css/ee84d5b.css" as="style">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/bc726cb.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/c8890e7.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8b24af9.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/8019e2f.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/7c5b2c4.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/380ebf8.css">
-        <link rel="stylesheet" href="https://static.cellphones.com.vn/css/ee84d5b.css">
-        <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn2.cellphones.com.vn/200x/media/favicon/default/logo-cps.png">
-        <link rel="stylesheet" href="./assets/css/testpro4.css">
-        <link rel="stylesheet" href="./assets/css/right_banner.css">
-        <link rel="stylesheet" href="./assets/css/block-slider.css">
-        <link rel="stylesheet" href="./assets/css/phukien.css">
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+        <title>Manager</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="Developed By M Abdur Rokib Promy">
+        <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+        <!-- bootstrap 3.0.2 -->
+        <link href="./admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="./admin/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="./admin/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris chart -->
+        <link href="./admin/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!-- jvectormap -->
+        <link href="./admin/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- Date Picker -->
+        <link href="./admin/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+        <!-- fullCalendar -->
+        <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+        <!-- Daterange picker -->
+        <link href="./admin/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link href="./admin/css/iCheck/all.css" rel="stylesheet" type="text/css" />
+        <!-- bootstrap wysihtml5 - text editor -->
+        <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- Theme style -->
+        <link href="./admin/css/adminstyle.css" rel="stylesheet" type="text/css" />
 
 
-        <!-- Themefisher Icon font -->
-        <link rel="stylesheet" href="./assets/plugins/themefisher-font/style.css">
-        <!-- bootstrap.min css -->
-        <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
 
-        <!-- Animate css -->
-        <link rel="stylesheet" href="./assets/plugins/animate/animate.css">
-        <!-- Slick Carousel -->
-        <link rel="stylesheet" href="./assets/plugins/slick/slick.css">
-        <link rel="stylesheet" href="./assets/plugins/slick/slick-theme.css">
 
-        <!-- Main Stylesheet -->
-        <link rel="stylesheet" href="./assets/css/style1.css">
+        <style type="text/css">
 
+        </style>
     </head>
-    <body id="body">
 
-        <%
-            Image img = (Image)session.getAttribute("avatar");
-            String googleAvt = (String)session.getAttribute("GoogleAvatar");
-            String avt = (img == null) ? 
-                    (googleAvt == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png" : googleAvt) 
-                    : img.getSource();
-            User user = (User)session.getAttribute("User");
-
-        %>
-
-
-        <!-- top navbar -->
-        <!-- top navbar -->
-
-        <!-- navbar -->
-        <section class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-xs-12 col-sm-4">
-                        <div class="contact-number">
-                            <i class="tf-ion-ios-telephone"></i>
-                            <span>0969146075</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Site Logo -->
-                        <div class="logo text-center">
-                            <a href="home">
-                                <!-- replace logo here -->
-                                <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="35"
-                                   font-family="AustinBold, Austin" font-weight="bold">
-                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
-                                <text id="AVIATO">
-                                <tspan x="108.94" y="325">LaViBan</tspan>
-                                </text>
-                                </g>
-                                </g>
-                                </svg>
-                            </a>
-                        </div>
-                    </div> 	
-                    <div class="col-md-4 col-xs-12 col-sm-4">
-                        <!-- Cart -->
-                        <ul class="top-menu text-right list-inline">
-                            <li class="dropdown cart-nav dropdown-slide">
-                                <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-android-cart"></i>Cart</a>
-
-                                <% if(user != null){%>
-                                <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
-                                <div class="dropdown-menu cart-dropdown" id="cart-popup">
-                                    <!-- Cart Item -->
-                                    <!-- / Cart Item -->
-                                    <!-- Cart Item -->
-                                    <!-- / Cart Item -->
-
-                                    <div class="cart-summary">
-                                        <span>Total</span>
-                                        <span class="total-price">$1799.00</span>
-                                    </div>
-                                    <ul class="text-center cart-buttons">
-                                        <li><a href="cart?userid=<%= user.getId() %>" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout?userid=<%= user.getId() %>" class="btn btn-small btn-solid-border">Checkout</a></li>
-                                    </ul>
-                                </div>
-                                <%}%>
-                            </li><!-- / Cart -->
-
-                            <!-- Search -->
-                            <li class="dropdown search dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-search-strong"></i> Search</a>
-                                <ul class="dropdown-menu search-dropdown">
-                                    <li>
-                                        <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
-                                    </li>
-                                </ul>
-                            </li><!-- / Search -->
-                            <li class="dropdown people dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                        class="tf-ion-ios-person-outline"></i> Account</a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->						
-
-                                        <!-- Contact -->
+    <body class="skin-black">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="home" class="logo">
+                Manager
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
 
 
-                                        <!-- Utility -->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <span>Manager<i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                            <li class="dropdown-header text-center">Account</li>
+                                <%
+                                    
+                         ArrayList<Products> listproducts = (ArrayList<Products>) request.getAttribute("listproducts");
+                         ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
+                         if(user != null) {
+                            int role = (int)(user.getRole().getId());
+                            if(role == 2) { %>
+                            <li><a href="adminDashboardController">Admin Manager</a></li>
+                            <li><a href="saledashboard">Sale</a></li>
+                            <li>
+                                <a href="saledashboard">Sale Manager</a>
+                            </li>
+                            <li>
+                                <a href="marketingDashboard">Marketing Manager</a>
+                            </li>
+                            <% } else if (role == 3) { %>
+                            <li><a href="saledashboard">Sale</a></li>
+                                <% } else if (role == 4) { %>
+                            <li><a href="saledashboard">Sale</a></li>
+                            <li><a href="saledashboard">Sale Manager</a></li>
+                                <% } else if (role == 5) { %>
+                            <li><a href="marketingDashboard">Marketing Manager  </a></li>
+                                <% } } %>
 
-                                        <ul>
-                                            <li class="dropdown-header"><%=user != null ? user.getName() : ""%></li>
-                                            <li role="separator" class="divider"></li>
-                                                <% if(user == null){ %>
-                                            <li><a href="login">Login</a></li>
-                                            <li><a href="register">Sign up</a></li>
-                                            <li><a href="resetpassword">Forget Password</a></li>
-                                                <%}else {%>
-                                            <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myorder">My Order</a></li>
-                                            <li><a href="logout">Logout</a></li>
-                                            <% if(user!=null){
-    int role = (int)(user.getRole().getId());
-    if(role==2||role==3||role==4){
-%>  
-    <li><a href="adminDashboard">Manage</a></li>
-<% }
-} %>
-                                                <%}%>
-                                        </ul>
 
+                            <li>
+                                <a href="logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                                        <!-- Mega Menu -->
-
-                                    </div><!-- / .row -->
-                                </div>
-                            </li><!-- / Search -->
-
-                            <!-- Languages -->
-
-
-                        </ul><!-- / .nav .navbar-nav .navbar-right -->
-                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="menu">
-            <nav class="navbar navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <h2 class="menu-title">Main Menu</h2>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                    </div><!-- / .navbar-header -->
-
-                    <!-- Navbar Links -->
-                    <div id="navbar" class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav">
-
-                            <!-- Home -->
-                            <li class="dropdown ">
-                                <a href="home">Home</a>
-                            </li><!-- / Home -->
-
-
-                            <!-- Elements -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="shop">Shop</a>
-                            </li><!-- / Elements -->
-
-
-                            <!-- Pages -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                   role="button" aria-haspopup="true" aria-expanded="false">Pages <span
-                                        ></span></a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-
-                                        <!-- Introduction -->
-                                        <div class="col-sm-6 col-xs-12">
-                                            <ul>
-                                                <li class="dropdown-header">Introduction</li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="contact.jsp">Contact Us</a></li>
-                                                <li><a href="about.jsp">About Us</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- Contact -->
-
-
-                                        <!-- Mega Menu -->
-                                        <div class="col-sm-6 col-xs-12">
-                                            <a href="shop.html">
-                                                <img class="img-responsive" src="images/c5.png" alt="menu image" />
-                                            </a>
-                                        </div>
-                                    </div><!-- / .row -->
-                                </div><!-- / .dropdown-menu -->
-                            </li><!-- / Pages -->
-
-
-
-
-                            <!-- Blog -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
-
-                            </li><!-- / Blog -->
-
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
-
-                            </li><!-- / Blog -->
-                            <%if(user!=null){
-                                                        int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==3||role==4){
-
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
-                        </ul><!-- / .nav .navbar-nav -->
-
-                    </div>
-                    <!--/.navbar-collapse -->
-                </div><!-- / .container -->
             </nav>
-            <%
-            if(user!=null){
-            int role = (int)(user.getRole().getId());
-            if(role==2||role==3||role==4){%>
-            <div class="products">
-                <form action="saledashboard" method="post">
-                    <h4><label  for="selectOption">Trend of success/total orders ,Filter by ${select} saler :</label></h4>
-                    <select name="selectedSale" required="">
-                        <option value="" selected disabled hidden>Please select an option</option>
-                        <option value="all">All</option>
-                        <% 
-                        ArrayList<String> saleName = (ArrayList<String>) session.getAttribute("saleName");
-                        if (saleName != null) {
-                            for (String sale : saleName) {
-                        %>
-                        <option value="<%= sale %>"><%= sale %></option>
-                        <% 
-                            }
-                        }
-                        %>
-                    </select>
-                    <button type="submit">Filter</button>
-                </form>
-                <h2>Trend of success/total orders, and the revenues trends by day for the last 7 days</h2>
-
-
-                <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>OrderlineID</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>OrderID</th>
-                            <th>SaleID</th>
-                            <th>ProductID</th>
-                            <th>OrderDate</th>
-                            <th>EndDate</th>
-                            <th>Status</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% 
-                        ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
-                        if (orderlines != null) {
-                            for (OrderLine orderline : orderlines) {
-                        %>
-                        <tr>
-                            <td><%= orderline.getId() %></td>
-                            <td><%= orderline.getQuantity() %></td>
-                            <td ><div class="text-right"><%= orderline.getPrice() %>  đồng </div></td>
-                            <td><%= orderline.getOrderID() %></td>
-                            <td><%= orderline.getSaleID() %></td>
-                            <td><%= orderline.getProductID() %></td>
-                            <td><%= orderline.getOrderDate() %></td>
-                            <td><%= orderline.getEndDate() %></td>
-                            <td><%= orderline.getStatus() %></td>
-
-                        </tr>
-                        <% 
-                            }
-                        }
-                        %>
-                    </tbody>
-                </table>
-            </div>  
-            <% }}else{
-            %>
-            <h3 class="text-center">  You do not have permission to use this site </h3>
-            <%}%>
-        </section>
-        <!-- navbar -->
-
-
-        <!--slider-->
-        <div data-server-rendered="true" id="__nuxt">
-            <!---->
-            <div id="__layout">
-                <div id="layout-desktop" class="cps-page">
-                    <div></div>
-                    <!---->
-                    <div class="cps-container cps-body">
-                        <div style="display:none;">
-                            <div id="page_loader">
-                                <div class="logo"></div>
-                                <div class="loader"></div>
-                            </div>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="./admin/img/26115.jpg" class="img-circle" alt="User Image" />
                         </div>
+                        <div class="pull-left info">
 
-                        <!-- offer -->
+                            <p>Hello,Manager</p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="marketingDashboard">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="settingblogs">
+                                <i class="fa fa-cog"></i> <span>Setting Blogs</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="customersList">
+                                <i class="fa fa-user"></i> <span>Customers List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="slidersList">
+                                <i class="fa fa-user"></i> <span>Sliders List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="adminProductList">
+                                <i class="fa fa-user"></i> <span>ProductList</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="feedbackslist">
+                                <i class="fa fa-comment"></i> <span>Feedbacks List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home">
+                                <i class="fa fa-home"></i> <span>Home</span>
+                            </a>
+                        </li>
 
 
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
 
-
-
-
-                        <!-- newslater -->
-                        <!-- newslater -->
-
-                        <footer class="footer section text-center">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <ul class="social-media">
-                                            <li>
-                                                <a href="https://www.facebook.com/profile.php?id=100012285902227">
-                                                    <i class="tf-ion-social-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://gitlab.com/Mhieu26/group1-se1751">
-                                                    <i class="tf-ion-social-github"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:nguyenmanhhieu267@gmail.com">
-                                                    <i class="tf-ion-social-google-outline"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="footer-menu text-uppercase">
-                                            <li>
-                                                <a href="contact.jsp">CONTACT</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop">SHOP</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog">Blog</a>
-                                            </li>
-                                            <li>
-                                                <a href="about.jsp">About</a>
-                                            </li>
-                                        </ul>
-                                        <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
-                                    </div>
+            <aside class="right-side">
+                <section class="content">
+                    <div class="row" style="margin-bottom:5px;">    
+                        <div class="col-md-12">
+                            <div class="sm-st clearfix">
+                                <span class="sm-st-icon st-blue"><i class="fa fa-angle-double-down"></i></span>
+                                <p></p>
+                                <div style="font-size: xx-large">
+                                    Sale Dashboard
                                 </div>
                             </div>
-                        </footer>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:5px;">
+
+
+                        <div class="col-md-3">
+                            <div class="sm-st clearfix" ">
+                                <span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
+                                <p></p>
+                                <div class="sm-st-info">
+                                    <span style="font: x-large">
+                                        <%= orderlines.size() %> OrderLine
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="sm-st clearfix">
+                                <span class="sm-st-icon st-violet"><i class="fa fa-shopping-cart"></i></span>
+                                <p></p>
+                                <div class="sm-st-info">
+                                    <span>
+                                        <% 
+                                        int totalSold =0;
+                                        double totalPrice = 0;
+                                        int totalQuantity = 0;
+                                        for(OrderLine orderline1 : orderlines){                                  
+                                        if(orderline1.getStatus().equals("Completed")){
+                                        totalSold++;
+                                        totalQuantity += orderline1.getQuantity();
+                                        totalPrice += orderline1.getPrice();
+                                            }
+                                            }
+                                        long totalString = (long)totalPrice;
+                                        %>
+                                        Products Sold: 
+                                        <%= totalQuantity %>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="sm-st clearfix">
+                                <span class="sm-st-icon st-blue"><i class="fa fa-eye-slash"></i></span>
+                                <p></p>
+                                <div class="sm-st-info">
+                                    <span >
+                                        <%= totalSold %> Order Line Completed
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="sm-st clearfix" >
+                                <span class="sm-st-icon st-green"><i class="fa fa-money"></i></span>
+                                <p></p>
+                                <div class="sm-st-info">
+                                    <span>
+                                        Revenue: 
+                                        <%= totalString %> ₫
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="saledashboard" method="post">
+                        <h4><label  for="selectOption">Trend of success/total orders ,Filter by </label></h4>
+                        Saler: <select name="selectedSale">
+                            <option value="">All</option>
+                            <%
+                            String selectedSale = (String) request.getAttribute("selectedSale1");
+                            String selectedStatus = (String) request.getAttribute("selectedStatus1");
+                            String selectedProduct = (String) request.getAttribute("selectedProduct1");
+                            ArrayList<User> saleList = (ArrayList<User>) request.getAttribute("saleList");                        
+                                for (User saler1 : saleList) {
+                                if(selectedSale!=null){if(saler1.getId()==Integer.parseInt(selectedSale)){
+                            %>
+                            <option value="<%= saler1.getId() %>" selected=""><%= saler1.getName() %></option>
+                            <% session.removeAttribute("selectedSale1");}else{ %>
+                            <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
+                            
+                            <%                                
+                            }}else{
+                            %>
+                            <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
+                            <%}}%>
+                        </select>
+                        Status: 
+                        <select name="selectedStatus">
+                            <option value="">All</option>
+                            <% if(selectedStatus!=null){ if(selectedStatus.equals("Completed")){ %>
+                            <option value="Completed" selected="">Completed</option>
+                            <option value="Pending">Pending</option>
+                            <% }else{ %>
+                            <option value="Completed">Completed</option>
+                            <option value="Pending" selected="">Pending</option>
+                            <% } session.removeAttribute("selectedStatus1");} else { %>
+                            <option value="Completed">Completed</option>
+                            <option value="Pending">Pending</option>
+                            <% }  %>
+                        </select>
+                        Product:
+                        <select name="selectedProduct">
+                            <option value="">All</option>
+                            <% for(Products products1 : listproducts){
+                            if(selectedProduct!=null){if(products1.getId()==Long.parseLong(selectedProduct)){
+                               
+                            %>
+                            <option value="<%= products1.getId() %>" selected=""><%= products1.getName() %></option>
+                              <% session.removeAttribute("selectedProduct1"); }else {%>
+                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                              <% }}else { %>
+                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                              <%}}%>
+                            
+                            
+                        </select>
+                        Start Date
+                        <input type="date" name="startdate" value="${selectedStartDate1}"/>
+                        <% session.removeAttribute("selectedStartDate1"); %>
+                        End Date
+                        <input type="date" name="enddate" value="${selectedEndDate}" />
+                               <% session.removeAttribute("selectedEndDate"); %>
+                        <button type="submit">Filter</button>
+                    </form>
+
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Saler</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>OrderID</th>
+                                
+                                
+                                <th>OrderDate</th>
+                                <th>EndDate</th>
+                                <th>Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                            int id = 1;
+                        
+                                for (OrderLine orderline : orderlines) {
+                            %>
+                            <tr>
+                                <td><%= id %></td>
+                                <td><%= orderline.getProduct().getName() %></td>
+                                <td><%= orderline.getSaler().getName() %></td>
+                                <td><%= orderline.getQuantity() %></td>
+                                <td ><div class="text-right"><%= orderline.getPrice() %></div></td>
+                                <td><%= orderline.getOrderID() %></td>
+                                
+                                
+                                <td><%= orderline.getOrderDate() %></td>
+                                <td><%= orderline.getEndDate() %></td>
+                                <td><%= orderline.getStatus() %></td>
+
+                            </tr>
+                            <% 
+                                id++;
+                                }
+                            
+                            %>
+                        </tbody>
+                    </table>
+                </section>
+            </aside>
+
+        </div><!--end col-6 -->
+
+        <!-- row end -->
+    </section><!-- /.content -->
+    <div class="footer-main">
+
+        LaViBan-2024
+    </div>
+</aside><!-- /.right-side -->s
+
+</div><!-- ./wrapper -->
+
+
+<!-- jQuery 2.0.2 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="./admin/js/jquery.min.js" type="text/javascript"></script>
+
+<!-- jQuery UI 1.10.3 -->
+<script src="./admin/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<!-- Bootstrap -->
+<script src="./admin/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- daterangepicker -->
+<script src="./admin/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+
+<script src="./admin/js/plugins/chart.js" type="text/javascript"></script>
+
+<!-- datepicker
+    <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
+<!-- Bootstrap WYSIHTML5
+    <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
+<!-- iCheck -->
+<script src="./admin/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<!-- calendar -->
+<script src="./admin/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+
+<!-- Director App -->
+<script src="./admin/js/Director/app.js" type="text/javascript"></script>
+
+<!-- Director dashboard demo (This is only for demo purposes) -->
+<script src="./admin/js/Director/dashboard.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var sortDirection = 1;
+
+    document.querySelectorAll(".table th").forEach(function (th, index) {
+        th.addEventListener("click", function () {
+            sortTable(index, sortDirection);
+            sortDirection *= -1;
+        });
+    });
+});
+
+function sortTable(columnIndex, sortDirection) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.querySelector(".table");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        rows = table.getElementsByTagName("tr");
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = getValue(rows[i].getElementsByTagName("td")[columnIndex]);
+            y = getValue(rows[i + 1].getElementsByTagName("td")[columnIndex]);
+            if (sortDirection === 1) {
+                if (x > y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else {
+                if (x < y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+
+function getValue(cell) {
+    var value = cell.textContent || cell.innerText;
+    return isNaN(value) ? value.toLowerCase() : parseFloat(value);
+}
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var changeStatusLinks = document.querySelectorAll('.changeStatusLink');
+        changeStatusLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+
+                var feedbackId = this.getAttribute('data-feedbackid');
+                var status = this.getAttribute('data-status');
+
+                var confirmResult = confirm("Do you want to change this feedbacks status ?");
+                if (confirmResult) {
+                    // Nếu người dùng đồng ý, chuyển hướng đến URL cụ thể với các tham số feedbackId và status
+                    var url = "feedbackslist?feedbackID=" + feedbackId + "&status=" + status;
+                    window.location.href = url;
+                } else {
+                    // Nếu người dùng không đồng ý, không làm gì cả hoặc thực hiện các hành động khác tùy ý
+                }
+            });
+        });
+    });
+</script>
+<script>
+
+
+    var tbody = document.querySelector("tbody");
+    var pageUl = document.querySelector(".pagination");
+    var itemShow = document.querySelector("#itemperpage");
+    var tr = tbody.querySelectorAll("tr");
+    var emptyBox = [];
+    var index = 1;
+    var itemPerPage = 8;
+
+    for (let i = 0; i < tr.length; i++) {
+        emptyBox.push(tr[i]);
+    }
+
+    itemShow.onchange = giveTrPerPage;
+    function giveTrPerPage() {
+        itemPerPage = Number(this.value);
+        // console.log(itemPerPage);
+        displayPage(itemPerPage);
+        pageGenerator(itemPerPage);
+        getpagElement(itemPerPage);
+    }
+
+    function displayPage(limit) {
+        tbody.innerHTML = '';
+        for (let i = 0; i < limit; i++) {
+            tbody.appendChild(emptyBox[i]);
+        }
+        const  pageNum = pageUl.querySelectorAll('.list');
+        pageNum.forEach(n => n.remove());
+    }
+    displayPage(itemPerPage);
+
+    function pageGenerator(getem) {
+        const num_of_tr = emptyBox.length;
+        if (num_of_tr <= getem) {
+            pageUl.style.display = 'none';
+        } else {
+            pageUl.style.display = 'flex';
+            const num_Of_Page = Math.ceil(num_of_tr / getem);
+            for (i = 1; i <= num_Of_Page; i++) {
+                const li = document.createElement('li');
+                li.className = 'list';
+                const a = document.createElement('a');
+                a.href = '#';
+                a.innerText = i;
+                a.setAttribute('data-page', i);
+                li.appendChild(a);
+                pageUl.insertBefore(li, pageUl.querySelector('.next'));
+            }
+        }
+    }
+    pageGenerator(itemPerPage);
+    let pageLink = pageUl.querySelectorAll("a");
+    let lastPage = pageLink.length - 2;
+
+    function pageRunner(page, items, lastPage, active) {
+        for (button of page) {
+            button.onclick = e => {
+                const page_num = e.target.getAttribute('data-page');
+                const page_mover = e.target.getAttribute('id');
+                if (page_num != null) {
+                    index = page_num;
+
+                } else {
+                    if (page_mover === "next") {
+                        index++;
+                        if (index >= lastPage) {
+                            index = lastPage;
+                        }
+                    } else {
+                        index--;
+                        if (index <= 1) {
+                            index = 1;
+                        }
+                    }
+                }
+                pageMaker(index, items, active);
+            }
+        }
+
+    }
+    var pageLi = pageUl.querySelectorAll('.list');
+    pageLi[0].classList.add("active");
+    pageRunner(pageLink, itemPerPage, lastPage, pageLi);
+
+    function getpagElement(val) {
+        let pagelink = pageUl.querySelectorAll("a");
+        let lastpage = pagelink.length - 2;
+        let pageli = pageUl.querySelectorAll('.list');
+        pageli[0].classList.add("active");
+        pageRunner(pagelink, val, lastpage, pageli);
+
+    }
 
 
 
+    function pageMaker(index, item_per_page, activePage) {
+        const start = item_per_page * index;
+        const end = start + item_per_page;
+        const current_page = emptyBox.slice((start - item_per_page), (end - item_per_page));
+        tbody.innerHTML = "";
+        for (let j = 0; j < current_page.length; j++) {
+            let item = current_page[j];
+            tbody.appendChild(item);
+        }
+        Array.from(activePage).forEach((e) => {
+            e.classList.remove("active");
+        });
+        activePage[index - 1].classList.add("active");
+    }
+</script>
+</body>
 
-                        <!-- footer -->
-
-
-
-
-
-
-
-                        <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
-
-
-
-
-
-
-
-
-
-
-
-                        <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-
-                        <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-                        <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
-                        <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-
-                        <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-                        <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
-
-                        <script src="./assets/plugins/slick/slick.min.js"></script>
-                        <script src="./assets/plugins/slick/slick-animation.min.js"></script>
-
-
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-                        <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
-
-
-                        <script src="./assets/js/script.js"></script>
-
-
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                        <script src="./assets/js/app.js"></script>
-                        <script src="./assets/js/product_card.js"></script>
-                        <script src="./assets/js/menu.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-                        </body>
-                        </html> 
+</html>

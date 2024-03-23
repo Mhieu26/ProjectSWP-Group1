@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class OrderLineDAO extends DBContext {
 
-    public ArrayList<OrderLine> getOrderLinesIn7Day() {
+    public ArrayList<OrderLine> getOrderLines() {
         ArrayList<OrderLine> orderlines = new ArrayList<>();
 
         String sql = " SELECT `orderline`.`id`,\n"
@@ -30,7 +30,7 @@ public class OrderLineDAO extends DBContext {
                 + "    `orderline`.`orderdate`,\n"
                 + "    `orderline`.`enddate`,\n"
                 + "    `orderline`.`status`\n"
-                + "FROM `swp391`.`orderline`  WHERE orderdate >= CURDATE() - INTERVAL 7 DAY ;";
+                + "FROM `swp391`.`orderline`  ;";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -91,7 +91,7 @@ public class OrderLineDAO extends DBContext {
 
     }
 
-    public ArrayList<OrderLine> getOrderLinesBySaleIDIn7Day(long id) {
+    public ArrayList<OrderLine> getOrderLinesBySaleID(long id) {
         ArrayList<OrderLine> orderlines = new ArrayList<>();
 
         String sql = " SELECT `orderline`.`id`,\n"
@@ -103,7 +103,7 @@ public class OrderLineDAO extends DBContext {
                 + "                  `orderline`.`orderdate`,\n"
                 + "                  `orderline`.`enddate`,\n"
                 + "                  `orderline`.`status`\n"
-                + "                FROM `swp391`.`orderline` Where saleid = ? and orderdate >= CURDATE() - INTERVAL 7 DAY ; ";
+                + "                FROM `swp391`.`orderline`; ";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -205,4 +205,43 @@ public class OrderLineDAO extends DBContext {
         }
         return o;
     }
+
+    public ArrayList<OrderLine> getOrderLinesBySaleIdByStatusByProductid(String selectedSale, String selectedStatus, String selectedProduct, String selectedStartDate , String selectedEndDate) {
+ArrayList<OrderLine> orderlines = new ArrayList<>();
+
+        String sql = " SELECT `orderline`.`id`,\n"
+                + "                    `orderline`.`quantity`,\n"
+                + "                 `orderline`.`price`,\n"
+                + "                  `orderline`.`orderid`,\n"
+                + "                    `orderline`.`saleid`,\n"
+                + "                   `orderline`.`productid`,\n"
+                + "                  `orderline`.`orderdate`,\n"
+                + "                  `orderline`.`enddate`,\n"
+                + "                  `orderline`.`status`,\n"
+                + "                  `orderline`.`salenote`\n"
+                + "                FROM `swp391`.`orderline` Where id IS NOT NULL " + selectedSale + selectedStatus + selectedProduct + selectedStartDate + selectedEndDate + " ; ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                OrderLine o = new OrderLine();
+                o.setId(rs.getInt("id"));
+                o.setQuantity(rs.getInt("quantity"));
+                o.setPrice(rs.getInt("price"));
+                o.setOrderID(rs.getInt("orderid"));
+                o.setSaleID(rs.getInt("saleid"));
+                o.setProductID(rs.getInt("productid"));
+                o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                o.setStatus(rs.getString("status"));
+                o.setSaleNote(rs.getString("salenote"));
+                orderlines.add(o);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return orderlines;    }
+
+
 }
