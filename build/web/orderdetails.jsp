@@ -119,12 +119,22 @@ Order order = (Order) request.getAttribute("order");
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
+                        <li>
+                            <a href="saledashboard">
+                                <i class="fa fa-comment"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
                         <li class="active">
                             <a href="orderdetails">
                                 <i class="fa fa-dashboard"></i> <span>Order Details</span>
                             </a>
                         </li>
-
+                        
+                        <li>
+                            <a href="orderslist">
+                                <i class="fa fa-comment"></i> <span>Orders List</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>

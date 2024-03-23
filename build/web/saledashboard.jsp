@@ -138,7 +138,7 @@
                         </div>
                         <div class="pull-left info">
 
-                            <p>Hello,Manager</p>
+                            <p>Hello, <%= user.getName() %></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -147,37 +147,16 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li>
-                            <a href="marketingDashboard">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="settingblogs">
-                                <i class="fa fa-cog"></i> <span>Setting Blogs</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="customersList">
-                                <i class="fa fa-user"></i> <span>Customers List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="slidersList">
-                                <i class="fa fa-user"></i> <span>Sliders List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="adminProductList">
-                                <i class="fa fa-user"></i> <span>ProductList</span>
-                            </a>
-                        </li>
                         <li class="active">
-                            <a href="feedbackslist">
-                                <i class="fa fa-comment"></i> <span>Feedbacks List</span>
+                            <a href="saledashboard">
+                                <i class="fa fa-comment"></i> <span>Dashboard</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="orderslist">
+                                <i class="fa fa-cog"></i> <span>Orders List</span>
+                            </a>
+                        </li>                          
                         <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>
