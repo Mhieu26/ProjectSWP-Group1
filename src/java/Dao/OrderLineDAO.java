@@ -18,6 +18,80 @@ import java.util.ArrayList;
  */
 public class OrderLineDAO extends DBContext {
 
+    public String[][] getCompletedOrderLineDataCharts() {
+        String[][] data = null;
+
+        String sql = "SELECT \n"
+                + "    DATE(orderdate) AS order_day,\n"
+                + "    COUNT(*) AS order_count\n"
+                + "FROM \n"
+                + "    orderline\n"
+                + "WHERE \n"
+                + "    orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) and status ='Completed'\n"
+                + "GROUP BY \n"
+                + "    DATE(orderdate)\n"
+                + "ORDER BY \n"
+                + "    order_day;";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            ArrayList<String[]> dataList = new ArrayList<>();
+            while (rs.next()) {
+                String day = rs.getString("order_day");
+                String order_count = String.valueOf(rs.getInt("order_count"));
+                String[] row = {day, order_count};
+                dataList.add(row);
+            }
+
+            data = new String[dataList.size()][];
+            for (int i = 0; i < dataList.size(); i++) {
+                data[i] = dataList.get(i);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
+    public String[][] getAllOrderLineDataCharts() {
+        String[][] data = null;
+
+        String sql = " SELECT \n"
+                + "    DATE(orderdate) AS order_day,\n"
+                + "    COUNT(*) AS order_count\n"
+                + "FROM \n"
+                + "    orderline\n"
+                + "WHERE \n"
+                + "    orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)\n"
+                + "GROUP BY \n"
+                + "    DATE(orderdate)\n"
+                + "ORDER BY \n"
+                + "    order_day;";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            ArrayList<String[]> dataList = new ArrayList<>();
+            while (rs.next()) {
+                String day = rs.getString("order_day");
+                String order_count = String.valueOf(rs.getInt("order_count"));
+                String[] row = {day, order_count};
+                dataList.add(row);
+            }
+
+            data = new String[dataList.size()][];
+            for (int i = 0; i < dataList.size(); i++) {
+                data[i] = dataList.get(i);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return data;
+    }
+
     public ArrayList<OrderLine> getOrderLines() {
         ArrayList<OrderLine> orderlines = new ArrayList<>();
 
@@ -69,7 +143,6 @@ public class OrderLineDAO extends DBContext {
         } catch (SQLException e) {
             System.out.println(e);
         }
-       
 
     }
 
@@ -206,8 +279,8 @@ public class OrderLineDAO extends DBContext {
         return o;
     }
 
-    public ArrayList<OrderLine> getOrderLinesBySaleIdByStatusByProductid(String selectedSale, String selectedStatus, String selectedProduct, String selectedStartDate , String selectedEndDate) {
-ArrayList<OrderLine> orderlines = new ArrayList<>();
+    public ArrayList<OrderLine> getOrderLinesBySaleIdByStatusByProductid(String selectedSale, String selectedStatus, String selectedProduct, String selectedStartDate, String selectedEndDate) {
+        ArrayList<OrderLine> orderlines = new ArrayList<>();
 
         String sql = " SELECT `orderline`.`id`,\n"
                 + "                    `orderline`.`quantity`,\n"
@@ -241,7 +314,7 @@ ArrayList<OrderLine> orderlines = new ArrayList<>();
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return orderlines;    }
-
+        return orderlines;
+    }
 
 }

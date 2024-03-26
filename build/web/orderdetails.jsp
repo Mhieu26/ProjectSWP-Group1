@@ -124,15 +124,16 @@ Order order = (Order) request.getAttribute("order");
                                 <i class="fa fa-comment"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="orderdetails">
-                                <i class="fa fa-dashboard"></i> <span>Order Details</span>
-                            </a>
-                        </li>
-                        
+
+
                         <li>
                             <a href="orderslist">
                                 <i class="fa fa-comment"></i> <span>Orders List</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="orderdetails">
+                                <i class="fa fa-dashboard"></i> <span>Order Details</span>
                             </a>
                         </li>
                         <li>
@@ -317,12 +318,12 @@ Order order = (Order) request.getAttribute("order");
                                             window.location.href = "orderdetails?orderLineID=" + orderLineID + "&salerID=" + salerID + "&orderID=" + orderID;
 
                                         }
-                                        
+
                                         function changeStatus(mySelectStatus) {
-                                            var selectedOption = mySelectStatus.value;                                            
+                                            var selectedOption = mySelectStatus.value;
                                             var urlParams = new URLSearchParams(window.location.search);
                                             var orderID = urlParams.get('orderID');
-                                            window.location.href = "orderdetails?status=" + selectedOption +"&orderID=" + orderID;
+                                            window.location.href = "orderdetails?status=" + selectedOption + "&orderID=" + orderID;
 
                                         }
                                         function checkEnter(event, inputElement) {
