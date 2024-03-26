@@ -310,12 +310,5 @@ public class CartDAO extends DBContext {
         }
     }
 
-    public static void main(String[] args) {
-        CartDAO dao = new CartDAO();
-        Cart cart = dao.getCartByUserID(new Long(76));
-
-        System.out.println(cart);
-
-    }
 
 }

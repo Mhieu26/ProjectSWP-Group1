@@ -49,7 +49,7 @@
                         <div class="block text-center">
 
                             <h2 class="text-center">Reset your Password</h2>
-                            <form method="post" action="resetpass" onsubmit="return validateForm()" class="changePW">
+                            <form method="post" action="SWP/resetpass" onsubmit="return validateForm()" class="changePW">
                                 <div class="form-group">
                                     <input class="form-control" type="text" name="email" value="${requestScope.email}" readonly="${requestScope.email}">
                                 </div>

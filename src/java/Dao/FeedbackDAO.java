@@ -131,11 +131,6 @@ public class FeedbackDAO extends DBContext {
         return f;
     }
 
-    public static void main(String[] args) {
-        FeedbackDAO fd = new FeedbackDAO();
-        fd.deleteFeedback(Integer.parseInt("4"));
-
-    }
 
     public void updateFeedbackStatus(int feedbackid, String status) {
 

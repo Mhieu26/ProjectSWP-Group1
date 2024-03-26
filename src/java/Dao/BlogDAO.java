@@ -163,8 +163,4 @@ public class BlogDAO extends DBContext {
         }
     }
 
-    public static void main(String[] args) {
-        BlogDAO dao = new BlogDAO();
-        System.out.println(dao.getBlogs("", ""));
-    }
 }

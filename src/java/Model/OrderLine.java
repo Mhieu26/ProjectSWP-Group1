@@ -22,10 +22,43 @@ public class OrderLine {
     private LocalDateTime endDate;
     private String status;
     private String saleNote ;
+    private Products product;
+    private User saler;
 
+    public User getSaler() {
+        return saler;
+    }
+
+    public void setSaler(User saler) {
+        this.saler = saler;
+    }
+    
     public String getSaleNote() {
         return saleNote;
     }
+
+    public OrderLine(int id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote, Products product) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+        this.orderID = orderID;
+        this.saleID = saleID;
+        this.productID = productID;
+        this.orderDate = orderDate;
+        this.endDate = endDate;
+        this.status = status;
+        this.saleNote = saleNote;
+        this.product = product;
+    }
+
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
+    }
+    
 
     public void setSaleNote(String saleNote) {
         this.saleNote = saleNote;
