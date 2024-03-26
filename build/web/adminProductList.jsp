@@ -335,9 +335,9 @@ new DataTable('#user-table');
                                     var filteredRows = [];
 
                                     tr.forEach(function (row) {
-                                        var cate = row.querySelector("td:nth-child(7)").innerText.toLowerCase();
+                                        var cate = row.querySelector("td:nth-child(8)").innerText.toLowerCase();
                                         var maker = row.querySelector("td:nth-child(5)").innerText.toLowerCase();
-                                        var status = row.querySelector("td:nth-child(6)").innerText.toLowerCase();
+                                        var status = row.querySelector("td:nth-child(7)").innerText.toLowerCase();
 
                                         // Check if row matches filters
                                         if ((cateFilter === 'all' || cate === cateFilter) &&

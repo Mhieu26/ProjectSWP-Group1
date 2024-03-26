@@ -81,10 +81,13 @@ public class ImageDAO extends DBContext {
                 img.setType(rs.getString("type"));
                 img.setProductId(rs.getLong("productid"));
                 imgs.add(img);
+                
             }
+            
         } catch (SQLException e) {
             System.out.println(e);
         }
+        
         return imgs;
     }
 
