@@ -19,8 +19,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -68,7 +71,7 @@ public class HomeController extends HttpServlet {
           SliderDAO sliderDAO = new SliderDAO();
           ArrayList<Image> thumbnails=id.getThumbmails();
           List<Slider> sliders = sliderDAO.getSliders();
-          
+       
           ArrayList<Products> featured=pd.getFeaturedProducts();
         ArrayList<Products> products=pd.getProducts();
          ArrayList<Products> phone=pd.getProductsbyCateID(1);
@@ -85,6 +88,14 @@ public class HomeController extends HttpServlet {
          request.setAttribute("laptop", laptop);
         request.setAttribute("products", products);
         request.setAttribute("sliders", sliders);
+         try {
+            pd.connection.close();
+          
+            id.connection.close();
+            sliderDAO.connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
     } 
 

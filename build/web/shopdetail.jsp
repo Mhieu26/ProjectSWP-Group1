@@ -498,7 +498,7 @@
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="number" value=1 min="1"  name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1" max="<%=products.getInventory()%>" name="product-quantity">
                                 </div>
                                 <span><%=products.getInventory()%> lefts </span>
                             </div>
@@ -506,7 +506,7 @@
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="number" value=1 min="1" name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1" max="<%=products.getInventory()%>" name="product-quantity">
                                 </div>
                                  <span><%=products.getInventory()%> lefts </span>
                             </div>

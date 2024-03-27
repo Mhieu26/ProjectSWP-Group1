@@ -331,6 +331,8 @@ $('#alert-close').click(function (e) {
 
     e.preventDefault();
 });
-
+$("[type='number']").keypress(function (evt) {
+    evt.preventDefault();
+});
 
 
