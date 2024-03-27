@@ -207,7 +207,7 @@
                                         double totalPrice = 0;
                                         int totalQuantity = 0;
                                         for(OrderLine orderline1 : orderlines){                                  
-                                        if(orderline1.getStatus().equals("Completed")){
+                                        if(orderline1.getStatus().equals("Complete")){
                                         totalSold++;
                                         totalQuantity += orderline1.getQuantity();
                                         totalPrice += orderline1.getPrice();
@@ -227,7 +227,7 @@
                                 <p></p>
                                 <div class="sm-st-info">
                                     <span >
-                                        <%= totalSold %> Order Line Completed
+                                        <%= totalSold %> Order Line Complete
                                     </span>
                                 </div>
                             </div>
@@ -260,7 +260,7 @@
                             <option value="<%= saler1.getId() %>" selected=""><%= saler1.getName() %></option>
                             <% session.removeAttribute("selectedSale1");}else{ %>
                             <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
-                            
+
                             <%                                
                             }}else{
                             %>
@@ -270,14 +270,14 @@
                         Status: 
                         <select name="selectedStatus">
                             <option value="">All</option>
-                            <% if(selectedStatus!=null){ if(selectedStatus.equals("Completed")){ %>
-                            <option value="Completed" selected="">Completed</option>
+                            <% if(selectedStatus!=null){ if(selectedStatus.equals("Complete")){ %>
+                            <option value="Complete" selected="">Complete</option>
                             <option value="Pending">Pending</option>
                             <% }else{ %>
-                            <option value="Completed">Completed</option>
+                            <option value="Complete">Complete</option>
                             <option value="Pending" selected="">Pending</option>
                             <% } session.removeAttribute("selectedStatus1");} else { %>
-                            <option value="Completed">Completed</option>
+                            <option value="Complete">Complete</option>
                             <option value="Pending">Pending</option>
                             <% }  %>
                         </select>
@@ -289,23 +289,34 @@
                                
                             %>
                             <option value="<%= products1.getId() %>" selected=""><%= products1.getName() %></option>
-                              <% session.removeAttribute("selectedProduct1"); }else {%>
-                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                              <% }}else { %>
-                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                              <%}}%>
-                            
-                            
+                            <% session.removeAttribute("selectedProduct1"); }else {%>
+                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                            <% }}else { %>
+                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                            <%}}%>
+
+
                         </select>
                         Start Date
                         <input type="date" name="startdate" value="${selectedStartDate1}"/>
                         <% session.removeAttribute("selectedStartDate1"); %>
                         End Date
                         <input type="date" name="enddate" value="${selectedEndDate}" />
-                               <% session.removeAttribute("selectedEndDate"); %>
+                        <% session.removeAttribute("selectedEndDate"); %>
                         <button type="submit">Filter</button>
                     </form>
-
+                    <div class="row" style="margin-bottom:5px;">
+                        <div class="col-md-12">
+                            Show
+                            <select name="" id="itemperpage">
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="08" selected>08</option>
+                                <option value="10">10</option>
+                            </select>
+                            Per Page                       
+                        </div>
+                    </div>
 
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -316,8 +327,8 @@
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>OrderID</th>
-                                
-                                
+
+
                                 <th>OrderDate</th>
                                 <th>EndDate</th>
                                 <th>Status</th>
@@ -337,8 +348,8 @@
                                 <td><%= orderline.getQuantity() %></td>
                                 <td ><div class="text-right"><%= orderline.getPrice() %></div></td>
                                 <td><a href="orderdetails?orderID=<%= orderline.getOrderID() %>"><%= orderline.getOrderID() %></a></td>
-                                
-                                
+
+
                                 <td><%= orderline.getOrderDate() %></td>
                                 <td><%= orderline.getEndDate() %></td>
                                 <td><%= orderline.getStatus() %></td>
@@ -351,6 +362,18 @@
                             %>
                         </tbody>
                     </table>
+                    <div class="row" style="margin-bottom:5px;">
+                        <div class="col-md-12">
+
+                            <div class="bottom-field">
+                                <ul class="pagination">
+                                    <li class="prev"><a href="#" id="prev">&#139;</a></li>
+                                    <!-- page number here -->
+                                    <li class="next"><a href="#" id="next">&#155;</a></li>
+                                </ul>
+                            </div>                               
+                        </div>
+                    </div>
                 </section>
             </aside>
 
@@ -397,53 +420,54 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    var sortDirection = 1;
+    document.addEventListener("DOMContentLoaded", function () {
+        var sortDirection = 1;
 
-    document.querySelectorAll(".table th").forEach(function (th, index) {
-        th.addEventListener("click", function () {
-            sortTable(index, sortDirection);
-            sortDirection *= -1;
+        document.querySelectorAll(".table th").forEach(function (th, index) {
+            th.addEventListener("click", function () {
+                sortTable(index, sortDirection);
+                sortDirection *= -1;
+            });
         });
     });
-});
 
-function sortTable(columnIndex, sortDirection) {
-    var table, rows, switching, i, x, y, shouldSwitch;
-    table = document.querySelector(".table");
-    switching = true;
+    function sortTable(columnIndex, sortDirection) {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.querySelector(".table");
+        switching = true;
 
-    while (switching) {
-        switching = false;
-        rows = table.getElementsByTagName("tr");
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = getValue(rows[i].getElementsByTagName("td")[columnIndex]);
-            y = getValue(rows[i + 1].getElementsByTagName("td")[columnIndex]);
-            if (sortDirection === 1) {
-                if (x > y) {
-                    shouldSwitch = true;
-                    break;
+        while (switching) {
+            switching = false;
+            rows = table.getElementsByTagName("tr");
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("td")[columnIndex].innerHTML;
+                y = rows[i + 1].getElementsByTagName("td")[columnIndex].innerHTML;
+
+                // Kiểm tra nếu x và y là số
+                if (!isNaN(parseFloat(x)) && !isNaN(parseFloat(y))) {
+                    x = parseFloat(x);
+                    y = parseFloat(y);
                 }
-            } else {
-                if (x < y) {
-                    shouldSwitch = true;
-                    break;
+
+                if (sortDirection === 1) {
+                    if (x > y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    if (x < y) {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
             }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
         }
     }
-}
-
-function getValue(cell) {
-    var value = cell.textContent || cell.innerText;
-    return isNaN(value) ? value.toLowerCase() : parseFloat(value);
-}
-
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

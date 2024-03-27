@@ -182,9 +182,9 @@ Order order = (Order) request.getAttribute("order");
                                 <span> Status : <select id="mySelectStatus" onchange="changeStatus(this)">
                                         <% if(order.getStatus().equals("pending")){ %>
                                         <option value="pending"  selected >Pending</option>
-                                        <option value="completed">Completed</option>
+                                        <option value="complete">Complete</option>
                                         <% } else { %> 
-                                        <option value="completed" selected>Completed</option>
+                                        <option value="complete" selected>Complete</option>
                                         <option value="pending" >Pending</option>                                      
                                         <% }  %>
                                     </select></span>
