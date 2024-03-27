@@ -55,6 +55,7 @@
         <!-- top navbar -->
         <%
             User user = (User)session.getAttribute("User");
+            String canFeedback = (String)request.getAttribute("canFeedback");
         %>
         <!-- navbar -->
         <section class="top-header">
@@ -752,7 +753,7 @@ for(Specification s : list){
 
                                     </div>
 
-                                    <div class="wrapper center">
+                                    <div class="wrapper center <%= (canFeedback != null && canFeedback.equals("true")) ? "active" : "" %>">
                                         <h3><%=products.getName()%></h3>
                                         <p>General Assessment</p>
                                         <div id="close-btn">&times</div>

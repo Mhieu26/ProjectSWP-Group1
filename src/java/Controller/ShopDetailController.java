@@ -70,6 +70,7 @@ public class ShopDetailController extends HttpServlet {
             throws ServletException, IOException {
         String productid = request.getParameter("id");
         String cateid = request.getParameter("cateid");
+        String canFeedback = request.getParameter("canFeedback");
 //        String num=request.getParameter("product-quantity");
         ProductsDAO pd = new ProductsDAO();
         ArrayList<Products> get3newest = pd.get3Newest();
@@ -88,6 +89,11 @@ public class ShopDetailController extends HttpServlet {
 //        pd.updateInventoryProduct(Integer.parseInt(num), Integer.parseInt(productid));
         Products product = pd.getProductsbyID(Integer.parseInt(productid));
 //        request.setAttribute("num", num);
+        
+        if(canFeedback != null && !canFeedback.isEmpty()){
+            request.setAttribute("canFeedback", canFeedback);
+        }
+        
         request.setAttribute("listc", listc);
         request.setAttribute("get3newest", get3newest);
         request.setAttribute("user", user);

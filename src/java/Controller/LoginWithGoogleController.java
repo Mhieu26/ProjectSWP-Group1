@@ -83,7 +83,7 @@ public class LoginWithGoogleController extends HttpServlet {
             HttpSession ss = request.getSession();
             ss.setAttribute("User", user);  //store user in a session
             ss.setAttribute("GoogleAvatar", googlePojo.getPicture()); // store user avatar as well
-            request.getRequestDispatcher("./home").forward(request, response);
+            response.sendRedirect("./home");
         }
     }
     

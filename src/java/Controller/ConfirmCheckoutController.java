@@ -364,10 +364,4 @@ public class ConfirmCheckoutController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public static void main(String[] args) throws Exception {
-        String a = "1130000.0";
-        long b = (long) Double.parseDouble("1130000.0");
-        System.out.println(b);
-        
-    }
 }

@@ -318,6 +318,7 @@ $(document).ready(function () {
                 error: function (req, textStatus, errorThrown) {
                     //this is going to happen when you send something different from a 200 OK HTTP
                     alert('Ooops, somethingd happened: ' + textStatus + ' ' + errorThrown);
+                    window.location.replace("http://localhost:9999/SWP/404notfound.jsp");
                 }
             });
         }
