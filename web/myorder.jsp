@@ -275,28 +275,14 @@
                                     </div><!-- / .row -->
                                 </div><!-- / .dropdown-menu -->
                             </li><!-- / Pages -->
-
-
-
-
                             <!-- Blog -->
                             <li class="dropdown dropdown-slide">
                                 <a href="blog" >Blog
                                 </a>
-
                             </li><!-- / Blog -->
 
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
 
-                            </li><!-- / Blog -->
-                            <%if(user!=null){
-                            int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==3||role==4){
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+                            </li><!-- / Blog -->                      
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>  
@@ -416,52 +402,19 @@
                                 </div>
                             </div>
                         </footer>
-
-
-
-
                         <!-- footer -->
-
-
-
-
-
-
-
                         <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
-
-
-
-
-
-
-
-
-
-
-
                         <script src="./assets/plugins/jquery/dist/jquery.min.js"></script>
-
                         <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
                         <script src="./assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
                         <script src="./assets/plugins/instafeed/instafeed.min.js"></script>
-
                         <script src="./assets/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
                         <script src="./assets/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
-
                         <script src="./assets/plugins/slick/slick.min.js"></script>
                         <script src="./assets/plugins/slick/slick-animation.min.js"></script>
-
-
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
                         <script type="text/javascript" src="./assets/plugins/google-map/gmap.js"></script>
-
-
                         <script src="./assets/js/script.js"></script>
-
-
                         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                         <script src="./assets/js/app.js"></script>
@@ -469,6 +422,5 @@
                         <script src="./assets/js/menu.js"></script>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
                         </body>
                         </html> 

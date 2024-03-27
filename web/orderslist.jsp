@@ -245,7 +245,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="saledashboard" method="post">
+                    <form action="orderslist" method="post">
                         <h4><label  for="selectOption">Trend of success/total orders ,Filter by </label></h4>
                         Saler: <select name="selectedSale">
                             <option value="">All</option>
