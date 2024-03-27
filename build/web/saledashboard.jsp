@@ -57,6 +57,7 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- Theme style -->
         <link href="./admin/css/adminstyle.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
@@ -260,7 +261,7 @@
                             <option value="<%= saler1.getId() %>" selected=""><%= saler1.getName() %></option>
                             <% session.removeAttribute("selectedSale1");}else{ %>
                             <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
-                            
+
                             <%                                
                             }}else{
                             %>
@@ -289,69 +290,27 @@
                                
                             %>
                             <option value="<%= products1.getId() %>" selected=""><%= products1.getName() %></option>
-                              <% session.removeAttribute("selectedProduct1"); }else {%>
-                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                              <% }}else { %>
-                              <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                              <%}}%>
-                            
-                            
+                            <% session.removeAttribute("selectedProduct1"); }else {%>
+                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                            <% }}else { %>
+                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
+                            <%}}%>
+
+
                         </select>
                         Start Date
                         <input type="date" name="startdate" value="${selectedStartDate1}"/>
                         <% session.removeAttribute("selectedStartDate1"); %>
                         End Date
                         <input type="date" name="enddate" value="${selectedEndDate}" />
-                               <% session.removeAttribute("selectedEndDate"); %>
+                        <% session.removeAttribute("selectedEndDate"); %>
                         <button type="submit">Filter</button>
                     </form>
 
 
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Product Name</th>
-                                <th>Saler</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>OrderID</th>
-                                
-                                
-                                <th>OrderDate</th>
-                                <th>EndDate</th>
-                                <th>Status</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% 
-                            int id = 1;
-                        
-                                for (OrderLine orderline : orderlines) {
-                            %>
-                            <tr>
-                                <td><%= id %></td>
-                                <td><%= orderline.getProduct().getName() %></td>
-                                <td><%= orderline.getSaler().getName() %></td>
-                                <td><%= orderline.getQuantity() %></td>
-                                <td ><div class="text-right"><%= orderline.getPrice() %></div></td>
-                                <td><%= orderline.getOrderID() %></td>
-                                
-                                
-                                <td><%= orderline.getOrderDate() %></td>
-                                <td><%= orderline.getEndDate() %></td>
-                                <td><%= orderline.getStatus() %></td>
-
-                            </tr>
-                            <% 
-                                id++;
-                                }
-                            
-                            %>
-                        </tbody>
-                    </table>
                 </section>
+                        <div id="chart"></div>
             </aside>
 
         </div><!--end col-6 -->
@@ -397,189 +356,57 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    var sortDirection = 1;
+    google.load("visualization", "1.0", {packages: ["corechart"]});
+    google.setOnLoadCallback(drawChart);
 
-    document.querySelectorAll(".table th").forEach(function (th, index) {
-        th.addEventListener("click", function () {
-            sortTable(index, sortDirection);
-            sortDirection *= -1;
-        });
-    });
-});
+    function drawChart() {
+        // Get data from servlet for the first line
+        var jsonData1 = '${requestScope.dataChart1}'; // Accessing the attribute containing the first dataset using EL
+        var javaData1 = JSON.parse(jsonData1);
 
-function sortTable(columnIndex, sortDirection) {
-    var table, rows, switching, i, x, y, shouldSwitch;
-    table = document.querySelector(".table");
-    switching = true;
+        // Get data from servlet for the second line
+        var jsonData2 = '${requestScope.dataChart2}'; // Accessing the attribute containing the second dataset using EL
+        var javaData2 = JSON.parse(jsonData2);
 
-    while (switching) {
-        switching = false;
-        rows = table.getElementsByTagName("tr");
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = getValue(rows[i].getElementsByTagName("td")[columnIndex]);
-            y = getValue(rows[i + 1].getElementsByTagName("td")[columnIndex]);
-            if (sortDirection === 1) {
-                if (x > y) {
-                    shouldSwitch = true;
-                    break;
-                }
+        // Combine data from both datasets into one
+        var combinedData = [];
+        for (var i = 0; i < Math.max(javaData1.length, javaData2.length); i++) {
+            var row = [];
+            if (javaData1[i]) {
+                row.push(javaData1[i][0]);
+                row.push(parseFloat(javaData1[i][1]));
             } else {
-                if (x < y) {
-                    shouldSwitch = true;
-                    break;
-                }
+                row.push(null);
+                row.push(null);
             }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
-    }
-}
-
-function getValue(cell) {
-    var value = cell.textContent || cell.innerText;
-    return isNaN(value) ? value.toLowerCase() : parseFloat(value);
-}
-
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var changeStatusLinks = document.querySelectorAll('.changeStatusLink');
-        changeStatusLinks.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
-
-                var feedbackId = this.getAttribute('data-feedbackid');
-                var status = this.getAttribute('data-status');
-
-                var confirmResult = confirm("Do you want to change this feedbacks status ?");
-                if (confirmResult) {
-                    // Nếu người dùng đồng ý, chuyển hướng đến URL cụ thể với các tham số feedbackId và status
-                    var url = "feedbackslist?feedbackID=" + feedbackId + "&status=" + status;
-                    window.location.href = url;
-                } else {
-                    // Nếu người dùng không đồng ý, không làm gì cả hoặc thực hiện các hành động khác tùy ý
-                }
-            });
-        });
-    });
-</script>
-<script>
-
-
-    var tbody = document.querySelector("tbody");
-    var pageUl = document.querySelector(".pagination");
-    var itemShow = document.querySelector("#itemperpage");
-    var tr = tbody.querySelectorAll("tr");
-    var emptyBox = [];
-    var index = 1;
-    var itemPerPage = 8;
-
-    for (let i = 0; i < tr.length; i++) {
-        emptyBox.push(tr[i]);
-    }
-
-    itemShow.onchange = giveTrPerPage;
-    function giveTrPerPage() {
-        itemPerPage = Number(this.value);
-        // console.log(itemPerPage);
-        displayPage(itemPerPage);
-        pageGenerator(itemPerPage);
-        getpagElement(itemPerPage);
-    }
-
-    function displayPage(limit) {
-        tbody.innerHTML = '';
-        for (let i = 0; i < limit; i++) {
-            tbody.appendChild(emptyBox[i]);
-        }
-        const  pageNum = pageUl.querySelectorAll('.list');
-        pageNum.forEach(n => n.remove());
-    }
-    displayPage(itemPerPage);
-
-    function pageGenerator(getem) {
-        const num_of_tr = emptyBox.length;
-        if (num_of_tr <= getem) {
-            pageUl.style.display = 'none';
-        } else {
-            pageUl.style.display = 'flex';
-            const num_Of_Page = Math.ceil(num_of_tr / getem);
-            for (i = 1; i <= num_Of_Page; i++) {
-                const li = document.createElement('li');
-                li.className = 'list';
-                const a = document.createElement('a');
-                a.href = '#';
-                a.innerText = i;
-                a.setAttribute('data-page', i);
-                li.appendChild(a);
-                pageUl.insertBefore(li, pageUl.querySelector('.next'));
+            if (javaData2[i]) {
+                row.push(parseFloat(javaData2[i][1]));
+            } else {
+                row.push(null);
             }
-        }
-    }
-    pageGenerator(itemPerPage);
-    let pageLink = pageUl.querySelectorAll("a");
-    let lastPage = pageLink.length - 2;
-
-    function pageRunner(page, items, lastPage, active) {
-        for (button of page) {
-            button.onclick = e => {
-                const page_num = e.target.getAttribute('data-page');
-                const page_mover = e.target.getAttribute('id');
-                if (page_num != null) {
-                    index = page_num;
-
-                } else {
-                    if (page_mover === "next") {
-                        index++;
-                        if (index >= lastPage) {
-                            index = lastPage;
-                        }
-                    } else {
-                        index--;
-                        if (index <= 1) {
-                            index = 1;
-                        }
-                    }
-                }
-                pageMaker(index, items, active);
-            }
+            combinedData.push(row);
         }
 
-    }
-    var pageLi = pageUl.querySelectorAll('.list');
-    pageLi[0].classList.add("active");
-    pageRunner(pageLink, itemPerPage, lastPage, pageLi);
+        // Create data array dynamically
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'day');
+        data.addColumn('number', 'Successful OrderLines');
+        data.addColumn('number', 'Total OrderLines');
+        data.addRows(combinedData);
 
-    function getpagElement(val) {
-        let pagelink = pageUl.querySelectorAll("a");
-        let lastpage = pagelink.length - 2;
-        let pageli = pageUl.querySelectorAll('.list');
-        pageli[0].classList.add("active");
-        pageRunner(pagelink, val, lastpage, pageli);
+        // Create options for the chart
+        var options = {
+            title: "Revenues trends by day",
+            curveType: "function",
+            legend: {position: "bottom"}
+        };
 
-    }
-
-
-
-    function pageMaker(index, item_per_page, activePage) {
-        const start = item_per_page * index;
-        const end = start + item_per_page;
-        const current_page = emptyBox.slice((start - item_per_page), (end - item_per_page));
-        tbody.innerHTML = "";
-        for (let j = 0; j < current_page.length; j++) {
-            let item = current_page[j];
-            tbody.appendChild(item);
-        }
-        Array.from(activePage).forEach((e) => {
-            e.classList.remove("active");
-        });
-        activePage[index - 1].classList.add("active");
+        // Draw the chart
+        var chart = new google.visualization.LineChart(document.getElementById("chart"));
+        chart.draw(data, options);
     }
 </script>
+
 </body>
 
 </html>

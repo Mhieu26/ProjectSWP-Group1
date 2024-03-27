@@ -4,14 +4,19 @@
  */
 package Controller;
 
-import Dao.OrdersDAO;
-import Model.Orders;
+import Dao.OrderLineDAO;
+import Dao.ProductsDAO;
+import Dao.UserDAO;
+import Model.OrderLine;
+import Model.Products;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
@@ -58,6 +63,26 @@ public class OrdersListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        OrderLineDAO orderdao = new OrderLineDAO();
+        ProductsDAO productsDAO = new ProductsDAO();
+        ArrayList<Products> listproducts = productsDAO.getProducts();
+
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        UserDAO users = new UserDAO();
+        ArrayList<User> saleList = users.getUsersByRoleID(3);
+        saleList.addAll(users.getUsersByRoleID(4));
+        ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
+        orderlines = orderdao.getOrderLines();
+        for(OrderLine orderLine : orderlines){
+            orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
+            orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
+        }
+        request.setAttribute("listproducts", listproducts);
+        request.setAttribute("orderlines", orderlines);
+        request.setAttribute("user", user);
+        request.setAttribute("saleList", saleList);
+        //response.getWriter().print(saleName.get(0));
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
@@ -72,27 +97,49 @@ public class OrdersListController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        OrdersDAO ordersDao = new OrdersDAO();
-        ArrayList<Orders> listOrders = new ArrayList<Orders>();
-        
-        String select = request.getParameter("selectedSale");
-        if (select.equals("all")) {
-            listOrders = ordersDao.getOrders("");
+        ProductsDAO productsDAO = new ProductsDAO();
+        ArrayList<Products> listproducts = productsDAO.getProducts();
+        UserDAO users = new UserDAO();
+        ArrayList<User> saleList = users.getUsersByRoleID(3);
+        saleList.addAll(users.getUsersByRoleID(4));
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        String selectedSale = request.getParameter("selectedSale");
+        String selectedStatus = request.getParameter("selectedStatus");
+        String selectedProduct = request.getParameter("selectedProduct");
+        String selectedStartDate = request.getParameter("startdate");
+        String selectedEndDate = request.getParameter("enddate");
+        OrderLineDAO orderdao = new OrderLineDAO();
+        if(!selectedStartDate.isEmpty()&&selectedStartDate!=null){
+            request.setAttribute("selectedStartDate1", selectedStartDate);
+            selectedStartDate=" and orderdate >= '"+selectedStartDate+"' ";
         }
-        if (select.equals("orderdate")) {
-            listOrders = ordersDao.getOrders("orderdate,");
+        if(!selectedEndDate.isEmpty()&&selectedEndDate!=null){
+            request.setAttribute("selectedEndDate", selectedEndDate);
+            selectedEndDate=" and enddate <= '"+ selectedEndDate+"' ";
         }
-        if (select.equals("customername")) {     
-            listOrders = ordersDao.getOrders("user.name,");
+        if(!selectedSale.isEmpty()&&selectedSale!=null){
+            request.setAttribute("selectedSale1", selectedSale);
+            selectedSale=" and saleid = "+selectedSale;
         }
-        if (select.equals("totalcost")) {
-            listOrders = ordersDao.getOrders("orders.total, ");
+        if(!selectedStatus.isEmpty()&&selectedStatus!=null){
+            request.setAttribute("selectedStatus1", selectedStatus);
+            selectedStatus=" and status = '" +selectedStatus+"' ";
         }
-        if (select.equals("status")) {
-            listOrders = ordersDao.getOrders("orders.status,");
+        if(!selectedProduct.isEmpty()&&selectedProduct!=null){
+            request.setAttribute("selectedProduct1", selectedProduct);
+            selectedProduct=" and productid = "+selectedProduct;
         }
-        request.setAttribute("select", select);
-        request.setAttribute("listOrders", listOrders);
+        //response.getWriter().print(sql);
+        ArrayList<OrderLine> orderlines = orderdao.getOrderLinesBySaleIdByStatusByProductid(selectedSale,selectedStatus,selectedProduct, selectedStartDate, selectedEndDate);
+        for(OrderLine orderLine : orderlines){
+            orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
+            orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
+        }
+        request.setAttribute("user", user);
+        request.setAttribute("saleList", saleList);
+        request.setAttribute("listproducts", listproducts);
+        request.setAttribute("orderlines", orderlines);    
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
