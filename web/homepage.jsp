@@ -812,7 +812,7 @@
                             </ul>
                             <ul class="footer-menu text-uppercase">
                                 <li>
-                                    <a href="contact">CONTACT</a>
+                                    <a href="contact.jsp">CONTACT</a>
                                 </li>
                                 <li>
                                     <a href="shop">SHOP</a>
