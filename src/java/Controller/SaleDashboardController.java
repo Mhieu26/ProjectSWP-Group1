@@ -83,21 +83,21 @@ public class SaleDashboardController extends HttpServlet {
         OrderLineDAO orderdao = new OrderLineDAO();
         if (salerID != null) {
             int saleid = Integer.parseInt(salerID);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateSalerForOrderLine(orderlineid, saleid);
         }
         if (orderDate != null) {
             LocalDateTime orderdate = LocalDateTime.parse(orderDate);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateOrderDateForOrderLine(orderlineid, orderDate);
         }
         if (endDate != null) {
             LocalDateTime enddate = LocalDateTime.parse(endDate);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateEndDateForOrderLine(orderlineid, endDate);
         }
         if (status != null) {
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateStatusForOrderLine(orderlineid, status);
         }
         ProductsDAO productsDAO = new ProductsDAO();

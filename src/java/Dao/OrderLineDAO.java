@@ -143,10 +143,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -181,10 +181,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -199,7 +199,7 @@ public class OrderLineDAO extends DBContext {
         return orderlines;
     }
 
-    public void updateSalerForOrderLine(int orderLineID, int saleID) {
+    public void updateSalerForOrderLine(long orderLineID, int saleID) {
 
         String sql = "UPDATE `swp391`.`orderline`\n"
                 + "SET\n"
@@ -209,7 +209,7 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, saleID);
-            statement.setInt(2, orderLineID);
+            statement.setLong(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -217,7 +217,7 @@ public class OrderLineDAO extends DBContext {
 
     }
 
-    public void updateSaleNoteForOrderLine(int orderLineID, String saleNote) {
+    public void updateSaleNoteForOrderLine(long orderLineID, String saleNote) {
 
         String sql = "UPDATE `swp391`.`orderline`\n"
                 + "SET\n"
@@ -227,14 +227,14 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, saleNote);
-            statement.setInt(2, orderLineID);
+            statement.setLong(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
         }
     }
 
-    public void updateEndDateForOrderLine(int orderLineID, String enddate) {
+    public void updateEndDateForOrderLine(long orderLineID, String enddate) {
 
         String sql = "UPDATE `swp391`.`orderline`\n"
                 + "SET\n"
@@ -244,7 +244,7 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, enddate);
-            statement.setInt(2, orderLineID);
+            statement.setLong(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -252,7 +252,7 @@ public class OrderLineDAO extends DBContext {
 
     }
 
-    public void updateOrderDateForOrderLine(int orderLineID, String orderdate) {
+    public void updateOrderDateForOrderLine(long orderLineID, String orderdate) {
 
         String sql = "UPDATE `swp391`.`orderline`\n"
                 + "SET\n"
@@ -262,7 +262,7 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, orderdate);
-            statement.setInt(2, orderLineID);
+            statement.setLong(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -270,7 +270,7 @@ public class OrderLineDAO extends DBContext {
 
     }
 
-    public void updateStatusForOrderLine(int orderLineID, String status) {
+    public void updateStatusForOrderLine(long orderLineID, String status) {
 
         String sql = "UPDATE `swp391`.`orderline`\n"
                 + "SET\n"
@@ -280,7 +280,7 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, status);
-            statement.setInt(2, orderLineID);
+            statement.setLong(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -300,7 +300,7 @@ public class OrderLineDAO extends DBContext {
                 + "                  `orderline`.`orderdate`,\n"
                 + "                  `orderline`.`enddate`,\n"
                 + "                  `orderline`.`status`\n"
-                + "                FROM `swp391`.`orderline`; ";
+                + "                FROM `swp391`.`orderline` where saleid = ? ; ";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -308,10 +308,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -347,10 +347,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -387,10 +387,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
 
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -426,10 +426,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
@@ -465,10 +465,10 @@ public class OrderLineDAO extends DBContext {
 
             while (rs.next()) {
                 OrderLine o = new OrderLine();
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setQuantity(rs.getInt("quantity"));
                 o.setPrice(rs.getInt("price"));
-                o.setOrderID(rs.getInt("orderid"));
+                o.setOrderID(rs.getLong("orderid"));
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
