@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -36,9 +37,12 @@ public class SearchCustomer extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("User");
             UserDAO userDAO = new UserDAO();
             String name = request.getParameter("name");
             List<User> customers = userDAO.searchCustomerByName(name);
+            request.setAttribute("user", user);
             request.setAttribute("customers", customers);
             request.getRequestDispatcher("customerslist.jsp").forward(request, response);
         }

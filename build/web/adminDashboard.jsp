@@ -122,9 +122,9 @@
                 </div>
             </nav>
         </header>
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+        <div class="wrapper row-offcanvas row-offcanvas-left ">
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="left-side sidebar-offcanvas">
+           <aside class="left-side sidebar-offcanvas">
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
@@ -155,11 +155,7 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="adminSettingListController">
-                                <i class="fa fa-cog"></i> <span>SettingList</span>
-                            </a>
-                        </li>
+                      
                         <li>
                             <a href="home">
                                 <i class="fa fa-home"></i> <span>Home</span>
@@ -170,8 +166,8 @@
                     </ul>
                 </section>
                 <!-- /.sidebar -->
-            </aside>
-
+            </aside> 
+         
             <aside class="right-side">
 
                 <!-- Main content -->
@@ -220,10 +216,10 @@
 
                     <div class="row">
 
-                        <div class="col-md-6">
                             <div id="chart_div"></div>
 
-                        </div>
+                        
+                        
 
                     </div>
                     <div class="row">
@@ -295,9 +291,7 @@
                                                     <td>${loop.index + 1}</td>
                                                     <td>${item.getOrderDate()}</td>
                                                     <td>${item.total}</td>
-                                                    <!-- <td>Steve</td> -->
                                                     <td>${item.status}</td>
-                                                    <!-- <td>$1500</td> -->
                                                     <td><span>${item.user.name}</span></td>
                                                 </tr>
                                             </c:forEach>
@@ -348,7 +342,7 @@
                         </div><!--end col-6 -->
                     </div>
                 </section>
-
+</aside><!-- /.right-side -->s
 
         </div><!--end col-6 -->
     </div>
@@ -357,7 +351,6 @@
 <div class="footer-main">
     LaViBan-2024
 </div>
-</aside><!-- /.right-side -->s
 
 </div><!-- ./wrapper -->
 

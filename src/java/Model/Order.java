@@ -11,7 +11,7 @@ import java.util.Date;
  * @author DELL
  */
 public class Order {
-    private int id;
+    private long id;
     private Date orderDate;
     private int total;
     private String status;
@@ -28,7 +28,7 @@ public class Order {
         this.user = user;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

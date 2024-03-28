@@ -9,6 +9,22 @@
 <%@page import="Dao.ProductsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.text.DecimalFormat" %>
+<%
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+            User user = (User)session.getAttribute("User");
+    if (user != null) {
+        // Nếu đã đăng nhập, kiểm tra vai trò
+        int role = (int)(user.getRole().getId());
+        if (role != 1) { // Nếu không phải là vai trò 2
+            response.sendRedirect("notFoundController"); // Chuyển hướng về trang home
+            return; // Dừng xử lý tiếp theo
+        }
+    } else {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        response.sendRedirect("login"); // Ví dụ: Chuyển hướng đến trang đăng nhập
+        return; // Dừng xử lý tiếp theo
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -79,7 +95,6 @@
             String avt = (img == null) ? 
                     (googleAvt == null ? "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-479x512-n8sg74wg.png" : googleAvt) 
                     : img.getSource();
-            User user = (User)session.getAttribute("User");
 
         %>
 
@@ -123,7 +138,7 @@
                                 <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
 
-                                <% if(user != null){%>
+                                <% if(user != null ){%>
                                 <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
                                 <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
@@ -174,9 +189,9 @@
                                             <li><a href="register">Sign up</a></li>
                                             <li><a href="resetpassword">Forget Password</a></li>
                                                 <%}else {%>
+                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="myorder">My Order</a></li>
                                             <li><a href="logout">Logout</a></li>
                                                 <%}%>
                                         </ul>
@@ -287,16 +302,8 @@
                             </li><!-- / Blog -->
 
                             <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
 
-                            </li><!-- / Blog -->
-                            <%if(user!=null){
-                            int role = (int)(user.getRole().getId());
-                                                         if(role==2||role==3||role==4){
-                            %>  <li class="dropdown dropdown-slide"><a href="saledashboard" >Sale Dashboard</a> </li>
-                            <li class="dropdown dropdown-slide"><a href="orderslist" >Orders List</a> </li><%}}%>
+
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>  

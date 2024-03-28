@@ -35,7 +35,7 @@ public class OrderDAO extends DBContext {
             UserDAO uDAO = new UserDAO();
             while (rs.next()) {
 
-                order.setId(rs.getInt(1));
+                order.setId((int) rs.getLong(1));
                 order.setOrderDate(rs.getDate(2));
                 order.setStatus(rs.getString(4));
                 order.setTotal(rs.getInt(3));
@@ -68,7 +68,7 @@ public class OrderDAO extends DBContext {
 
     public Long getTotal() {
         try {
-            String sql = "SELECT sum(total) FROM swp391.orders";
+            String sql = "SELECT sum(total) FROM swp391.orders where status='complete'";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -80,7 +80,7 @@ public class OrderDAO extends DBContext {
         return null;
     }
 
-    public List<Order> getTop5Orders() {
+      public List<Order> getTop5Orders() {
         try {
             List<Order> orders = new ArrayList<>();
             String sql = "select * from orders order by id desc limit 5 ";
@@ -88,7 +88,7 @@ public class OrderDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
-                order.setId(rs.getInt(1));
+                order.setId((int) rs.getLong(1));
                 order.setOrderDate(rs.getDate(2));
                 order.setStatus(rs.getString(4));
                 order.setTotal(rs.getInt(3));
@@ -114,7 +114,7 @@ public class OrderDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
-                order.setId(rs.getInt(1));
+                order.setId((int) rs.getLong(1));
                 order.setOrderDate(rs.getDate(2));
                 order.setStatus(rs.getString(4));
                 order.setTotal(rs.getInt(3));
@@ -179,7 +179,7 @@ public class OrderDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
-                order.setId(rs.getInt(1));
+                order.setId((int) rs.getLong(1));
                 order.setOrderDate(rs.getDate(2));
                 order.setStatus(rs.getString(4));
                 order.setTotal(rs.getInt(3));
@@ -191,5 +191,29 @@ public class OrderDAO extends DBContext {
         }
         return null;
     }
+     public static void main(String[] args) {
+        OrderDAO orderDAO = new OrderDAO();
+        
+        Timestamp fromDate = Timestamp.valueOf("2024-02-22 00:00:00");
+        Timestamp toDate = Timestamp.valueOf("2024-02-29 23:59:59");
 
+        try {
+            List<Order> top7Orders = orderDAO.getTop7Orders(fromDate, toDate);
+
+            if (top7Orders != null) {
+                for (Order order : top7Orders) {
+                    System.out.println("ID: " + order.getId());
+                    System.out.println("Order Date: " + order.getOrderDate());
+                    System.out.println("Status: " + order.getStatus());
+                    System.out.println("Total: " + order.getTotal());
+                    System.out.println("User: " + order.getUser().getName());
+                    System.out.println();
+                }
+            } else {
+                System.out.println("fail");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

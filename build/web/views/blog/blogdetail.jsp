@@ -116,7 +116,7 @@
                                 <a href="#!" id="cart" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                         class="tf-ion-android-cart"></i>Cart</a>
 
-                                <% if(user != null){%>
+                                <% if(user != null && user.getRole().getId()==1){%>
                                 <input type="text" id="userid" value="<%=user.getId()%>" hidden="">
                                 <div class="dropdown-menu cart-dropdown" id="cart-popup">
                                     <!-- Cart Item -->
@@ -161,7 +161,7 @@
 
                                         <!-- Utility -->
 
-                                        <ul>
+                                         <ul>
                                             <li class="dropdown-header"><%= user != null ? user.getName() : "" %></li>
                                             <li role="separator" class="divider"></li>
                                                 <% if(user == null) { %>
@@ -173,14 +173,18 @@
                                                     int role = (int)(user.getRole().getId());
                                                     if(role == 2) { %>
                                             <li><a href="adminDashboardController">Admin Manager</a></li>
-                                                <% } else if(role == 3) { %>
-                                            <li><a href="saleController">Sale</a></li>
-                                                <% } else if(role == 4) { %>
-                                            <li><a href="saleManagerController">Sale Manager</a></li>
+                                            <li><a href="saledashboard">Sale Manager</a></li>
+                                            <li><a href="marketingDashboard">Marketing Manager</a></li>
+                                                <% } else if(role == 3 || role == 4) { %>
+                                            <li><a href="saledashboard">Sale Manager</a></li>
                                                 <% } else if(role == 5) { %>
-                                            <li><a href="marketingManagerController">Marketing Manager</a></li>
-                                                <% }
+                                            <li><a href="marketingDashboard">Marketing Manager</a></li>
+                                                <% } else if(role == 1) { %>
+                                            <li><a href="myorder">My Order</a></li>
+
+                                            <% }
         } %>
+
                                             <li><a href="userController">User Profile</a></li>
                                             <li><a href="changePassword">Change Password</a></li>
                                             <li><a href="logout">Logout</a></li>
