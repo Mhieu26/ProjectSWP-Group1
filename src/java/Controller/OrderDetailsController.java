@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import Dao.*;
 import Model.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -64,11 +65,17 @@ public class OrderDetailsController extends HttpServlet {
         String stringSalerID = request.getParameter("salerID");
         String status = request.getParameter("status");
         String salenote = request.getParameter("salenote");
+        String orderlinestatus = request.getParameter("orderlinestatus");
+
         UserDAO users = new UserDAO();
         OrderLineDAO orderLineDAO = new OrderLineDAO();
         OrderDAO orderDAO = new OrderDAO();
+        long id = Long.parseLong(orderID);
+        if (status != null) {
+            orderDAO.updateOrderStatus(id, status);
+        }
         if (orderLineID != null) {
-            int oID = Integer.parseInt(orderLineID);
+            long oID = Long.parseLong(orderLineID);
             if (stringSalerID != null) {
                 int saleID = Integer.parseInt(stringSalerID);
                 orderLineDAO.updateSalerForOrderLine(oID, saleID);
@@ -76,27 +83,37 @@ public class OrderDetailsController extends HttpServlet {
             if (salenote != null) {
                 orderLineDAO.updateSaleNoteForOrderLine(oID, salenote);
             }
-        }
-        if (orderID != null) {
-            long id = Long.parseLong(orderID);
-            if (status != null) {
-                orderDAO.updateOrderStatus(id, status);
+            if (orderlinestatus != null) {
+                orderLineDAO.updateStatusForOrderLine(oID, orderlinestatus);
+                if (orderlinestatus.equals("complete")) {
+                    orderLineDAO.updateEndDateForOrderLine(oID, LocalDateTime.now().toString());
+                    long orderid = orderLineDAO.getOrderLinesByID(oID).getOrderID();
+                    boolean check = true;
+                    for (OrderLine orderline1 : orderLineDAO.getOrderLinesByOrderID(orderid)) {
+                        if (!orderline1.getStatus().equals("complete")) {
+                            check = false;
+                        }
+                    }
+                    if (check) {
+                        orderDAO.updateOrderStatus(id, "complete");
+                    }
+                }
             }
-            ArrayList<User> saleList = users.getUsersByRoleID(3);
-            request.setAttribute("saleList", saleList);
-            ArrayList<OrderLine> orderLines = orderLineDAO.getOrderLinesByOrderID(id);
-            request.setAttribute("orderLines", orderLines);
-            Order order = orderDAO.getOrderByID(id);
-            request.setAttribute("order", order);
-            User userOrder = order.getUser();
-            request.setAttribute("userOrder", userOrder);
-            users.closeConnection();
-            orderLineDAO.closeConnection();
-            orderDAO.closeConnection();
-            request.getRequestDispatcher("orderdetails.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("orderslist").forward(request, response);
         }
+
+        ArrayList<User> saleList = users.getUsersByRoleID(3);
+        request.setAttribute("saleList", saleList);
+        ArrayList<OrderLine> orderLines = orderLineDAO.getOrderLinesByOrderID(id);
+        request.setAttribute("orderLines", orderLines);
+        Order order = orderDAO.getOrderByID(id);
+        request.setAttribute("order", order);
+        User userOrder = order.getUser();
+        request.setAttribute("userOrder", userOrder);
+        users.closeConnection();
+        orderLineDAO.closeConnection();
+        orderDAO.closeConnection();
+        request.getRequestDispatcher("orderdetails.jsp").forward(request, response);
+
     }
 
     /**

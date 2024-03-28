@@ -366,7 +366,7 @@ public class OrderLineDAO extends DBContext {
         return orderlines;
     }
 
-    public OrderLine getOrderLinesByID(int id) {
+    public OrderLine getOrderLinesByID(long id) {
         OrderLine o = new OrderLine();
 
         String sql = " SELECT `orderline`.`id`,\n"
@@ -382,7 +382,7 @@ public class OrderLineDAO extends DBContext {
                 + "                FROM `swp391`.`orderline` Where id = ?  ; ";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {

@@ -227,6 +227,7 @@ Order order = (Order) request.getAttribute("order");
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 <th>Saler</th>
+                                <th>Status</th>
                                 <th>Sale Note</th>
 
 
@@ -278,6 +279,40 @@ Order order = (Order) request.getAttribute("order");
                                 <% }else{ UserDAO uDAO = new UserDAO(); User saler = uDAO.getUserByID(item.getSaleID());   %>
                                 <td style="width: 10%;"><%= saler.getName() %></td>
                                 <%}%>
+                                <td>
+                                    <select id="mySelectStatus1" onchange="changeStatus1(this)">
+                                        <% if(item.getStatus().equals("pending")){ %>
+                                        <option value="pending" data-orderlineid="<%= item.getId() %>" data-status1="pending" selected >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= item.getId() %>" data-status1="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= item.getId() %>" data-status1="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= item.getId() %>" data-status1="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= item.getId() %>" data-status1="cancel" >Cancel</option>
+                                        <% }if(item.getStatus().equals("complete")){  %> 
+                                        <option value="pending" data-orderlineid="<%= item.getId() %>" data-status1="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= item.getId() %>" data-status1="complete" selected >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= item.getId() %>" data-status1="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= item.getId() %>" data-status1="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= item.getId() %>" data-status1="cancel" >Cancel</option>
+                                        <% }if(item.getStatus().equals("shipping")){  %> 
+                                        <option value="pending" data-orderlineid="<%= item.getId() %>" data-status1="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= item.getId() %>" data-status1="complete"  >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= item.getId() %>" data-status1="shipping" selected >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= item.getId() %>" data-status1="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= item.getId() %>" data-status1="cancel" >Cancel</option>
+                                        <% }if(item.getStatus().equals("unpaid")){  %> 
+                                        <option value="pending" data-orderlineid="<%= item.getId() %>" data-status1="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= item.getId() %>" data-status1="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= item.getId() %>" data-status1="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= item.getId() %>" data-status1="unpaid" selected >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= item.getId() %>" data-status1="cancel" >Cancel</option>
+                                        <% }if(item.getStatus().equals("cancel")){  %> 
+                                        <option value="pending" data-orderlineid="<%= item.getId() %>" data-status1="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= item.getId() %>" data-status1="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= item.getId() %>" data-status1="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= item.getId() %>" data-status1="unpaid"  >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= item.getId() %>" data-status1="cancel" selected >Cancel</option>
+                                        <% }  %>
+                                    </select></td>
                                 <td>
                                     <input type="text" data-orderlineid="<%= item.getId() %>" id="inputText" value="<%= item.getSaleNote()%>" onkeypress="checkEnter(event, this)">
                                 </td>
@@ -349,6 +384,14 @@ Order order = (Order) request.getAttribute("order");
                                             var orderID = urlParams.get('orderID');
                                             window.location.href = "orderdetails?status=" + selectedOption + "&orderID=" + orderID;
 
+                                        }
+                                        function changeStatus1(mySelectStatus1) {
+                                            var selectedOption = mySelectStatus1.value;
+                                            var urlParams = new URLSearchParams(window.location.search);
+                                            var orderID = urlParams.get('orderID');
+                                            var status = mySelectStatus1.options[mySelectStatus1.selectedIndex].getAttribute('data-status1');
+                                            var orderLineID = mySelectStatus1.options[mySelectStatus1.selectedIndex].getAttribute('data-orderlineid');
+                                            window.location.href = "orderdetails?orderlinestatus=" + status + "&orderLineID=" + orderLineID+"&orderID="+orderID;
                                         }
                                         function checkEnter(event, inputElement) {
                                             if (event.keyCode === 13) {
