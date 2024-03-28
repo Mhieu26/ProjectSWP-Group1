@@ -621,105 +621,45 @@
 
 
 
-        <div class="hero-slider">
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/laptop-la-gi-760x427.jpg);">
-                <div class="container">
-                    <div class="row">
-<<<<<<< HEAD
-                        <div class="col-lg-8 text-center">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year<br> Sale</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
-=======
-                        <div class="col-md-12">
-                            <ul class="social-media">
-                                <li>
-                                    <a href="https://www.facebook.com/profile.php?id=100012285902227">
-                                        <i class="tf-ion-social-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://gitlab.com/Mhieu26/group1-se1751">
-                                        <i class="tf-ion-social-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailto:nguyenmanhhieu267@gmail.com">
-                                        <i class="tf-ion-social-google-outline"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="footer-menu text-uppercase">
-                                <li>
-                                    <a href="contact.jsp">CONTACT</a>
-                                </li>
-                                <li>
-                                    <a href="shop">SHOP</a>
-                                </li>
-                                <li>
-                                    <a href="blog">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="about.jsp">About</a>
-                                </li>
-                            </ul>
-                            <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
->>>>>>> 97052c4dff9ed5044435cf0c8b2aa29eaff6e3bd
+      <div class="hero-slider">
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/laptop-la-gi-760x427.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-center">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year<br> Sale</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/galaxy-watch6-kv-pc.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-left">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item th-fullpage hero-area" style="background-image: url(images/iphone__ky2k6x5u6vue_og.png);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 text-right">
+                                <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
+                                <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
+                                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/galaxy-watch6-kv-pc.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 text-left">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item th-fullpage hero-area" style="background-image: url(images/iphone__ky2k6x5u6vue_og.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 text-right">
-                            <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
-                            <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year <br>Sale</h1>
-                            <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- other cards -->
-        <!--        <div class="container" id="other-cards">
-                    <div class="row">
-                        <div class="col-md-6 py-3 py-md-0">
-                            <div class="card">
-                                <img src="./images/c1.png" alt="">
-                                <div class="card-img-overlay">
-                                    <h3>Best Laptop</h3>
-                                    <h5>Latest Collection</h5>
-                                    <p>Up To 50% Off</p>
-                                    <button id="shopnow">Shop Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 py-3 py-md-0">
-                            <div class="card">
-                                <img src="./images/c2.png" alt="">
-                                <div class="card-img-overlay">
-                                    <h3>Best Headphone</h3>
-                                    <h5>Latest Collection</h5>
-                                    <p>Up To 50% Off</p>
-                                    <button id="shopnow">Shop Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+
+
+    
         <!-- other cards -->
 
 
@@ -844,7 +784,7 @@
                         </ul>
                         <ul class="footer-menu text-uppercase">
                             <li>
-                                <a href="contact">CONTACT</a>
+                                <a href="contact.jsp">CONTACT</a>
                             </li>
                             <li>
                                 <a href="shop">SHOP</a>
