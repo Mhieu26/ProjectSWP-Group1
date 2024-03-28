@@ -180,12 +180,36 @@ Order order = (Order) request.getAttribute("order");
                                 <span> Total Cost : <%= order.getTotal() %></span>
                                 <span style="margin-left: 30px;margin-right: 10px"><i class="fa fa-share"></i></span> 
                                 <span> Status : <select id="mySelectStatus" onchange="changeStatus(this)">
-                                        <% if(order.getStatus().equals("Pending")){ %>
-                                        <option value="Pending"  selected >Pending</option>
-                                        <option value="Complete">Complete</option>
-                                        <% } else { %> 
-                                        <option value="Complete" selected>Complete</option>
-                                        <option value="Pending" >Pending</option>                                      
+                                        <% if(order.getStatus().equals("pending")){ %>
+                                        <option value="pending" data-orderlineid="<%= order.getId() %>" data-status="pending" selected >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= order.getId() %>" data-status="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= order.getId() %>" data-status="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= order.getId() %>" data-status="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= order.getId() %>" data-status="cancel" >Cancel</option>
+                                        <% }if(order.getStatus().equals("complete")){  %> 
+                                        <option value="pending" data-orderlineid="<%= order.getId() %>" data-status="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= order.getId() %>" data-status="complete" selected >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= order.getId() %>" data-status="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= order.getId() %>" data-status="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= order.getId() %>" data-status="cancel" >Cancel</option>
+                                        <% }if(order.getStatus().equals("shipping")){  %> 
+                                        <option value="pending" data-orderlineid="<%= order.getId() %>" data-status="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= order.getId() %>" data-status="complete"  >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= order.getId() %>" data-status="shipping" selected >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= order.getId() %>" data-status="unpaid" >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= order.getId() %>" data-status="cancel" >Cancel</option>
+                                        <% }if(order.getStatus().equals("unpaid")){  %> 
+                                        <option value="pending" data-orderlineid="<%= order.getId() %>" data-status="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= order.getId() %>" data-status="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= order.getId() %>" data-status="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= order.getId() %>" data-status="unpaid" selected >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= order.getId() %>" data-status="cancel" >Cancel</option>
+                                        <% }if(order.getStatus().equals("cancel")){  %> 
+                                        <option value="pending" data-orderlineid="<%= order.getId() %>" data-status="pending"  >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= order.getId() %>" data-status="complete" >Complete</option>
+                                        <option value="shipping" data-orderlineid="<%= order.getId() %>" data-status="shipping" >Shipping</option>
+                                        <option value="unpaid" data-orderlineid="<%= order.getId() %>" data-status="unpaid"  >Unpaid</option>
+                                        <option value="cancel" data-orderlineid="<%= order.getId() %>" data-status="cancel" selected >Cancel</option>
                                         <% }  %>
                                     </select></span>
                             </div>

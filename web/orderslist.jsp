@@ -199,7 +199,7 @@
                             double totalPrice = 0;
                             int totalQuantity = 0;
                             for(Orders orderlist1 : orderlist){                                  
-                            if(orderlist1.getStatus().equals("Complete")){
+                            if(orderlist1.getStatus().equals("complete")){
                             totalSold++;
                             totalPrice += orderlist1.getTotal();
                                 }
@@ -256,15 +256,43 @@
                         Status: 
                         <select name="selectedStatus">
                             <option value="">All</option>
-                            <% if(selectedStatus!=null){ if(selectedStatus.equals("Complete")){ %>
-                            <option value="Complete" selected="">Complete</option>
-                            <option value="Pending">Pending</option>
-                            <% }else{ %>
-                            <option value="Complete">Complete</option>
-                            <option value="Pending" selected="">Pending</option>
+                            <% if(selectedStatus!=null){ 
+                            if(selectedStatus.equals("pending")){ %>
+                            <option value="pending"  selected >Pending</option>
+                            <option value="complete" >Complete</option>
+                            <option value="shipping" >Shipping</option>
+                            <option value="unpaid" >Unpaid</option>
+                            <option value="cancel" >Cancel</option>
+                            <% }if(selectedStatus.equals("complete")){ %> 
+                            <option value="pending" >Pending</option>
+                            <option value="complete" selected >Complete</option>
+                            <option value="shipping"  >Shipping</option>
+                            <option value="unpaid"  >Unpaid</option>
+                            <option value="cancel"  >Cancel</option>
+                            <% }if(selectedStatus.equals("shipping")){ %> 
+                            <option value="pending"   >Pending</option>
+                            <option value="complete"  >Complete</option>
+                            <option value="shipping"  selected >Shipping</option>
+                            <option value="unpaid"  >Unpaid</option>
+                            <option value="cancel"  >Cancel</option>
+                            <% }if(selectedStatus.equals("unpaid")){ %> 
+                            <option value="pending"   >Pending</option>
+                            <option value="complete"  >Complete</option>
+                            <option value="shipping"   >Shipping</option>
+                            <option value="unpaid"  selected >Unpaid</option>
+                            <option value="cancel"  >Cancel</option>
+                            <% }if(selectedStatus.equals("cancel")){ %> 
+                            <option value="pending"   >Pending</option>
+                            <option value="complete"  >Complete</option>
+                            <option value="shipping"   >Shipping</option>
+                            <option value="unpaid"   >Unpaid</option>
+                            <option value="cancel"  selected >Cancel</option>
                             <% } session.removeAttribute("selectedStatus");} else { %>
-                            <option value="Complete">Complete</option>
-                            <option value="Pending">Pending</option>
+                            <option value="pending"  >Pending</option>
+                            <option value="complete" >Complete</option>
+                            <option value="shipping"  >Shipping</option>
+                            <option value="unpaid"  >Unpaid</option>
+                            <option value="cancel"  >Cancel</option>
                             <% }  %>
                         </select>
                         Order Date from: 
