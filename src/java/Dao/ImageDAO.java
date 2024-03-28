@@ -84,8 +84,8 @@ public class ImageDAO extends DBContext {
                 
             }
             
-        } catch (SQLException e) {
-            System.out.println(e);
+        } catch (SQLException ex ) {
+            System.out.println(ex);
         }
         
         return imgs;

@@ -21,6 +21,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -74,7 +75,31 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String salerID = request.getParameter("salerID");
+        String orderDate = request.getParameter("orderDate");
+        String endDate = request.getParameter("endDate");
+        String status = request.getParameter("status");
+        String orderLineID = request.getParameter("orderLineID");
         OrderLineDAO orderdao = new OrderLineDAO();
+        if (salerID != null) {
+            int saleid = Integer.parseInt(salerID);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateSalerForOrderLine(orderlineid, saleid);
+        }
+        if (orderDate != null) {
+            LocalDateTime orderdate = LocalDateTime.parse(orderDate);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateOrderDateForOrderLine(orderlineid, orderDate);
+        }
+        if (endDate != null) {
+            LocalDateTime enddate = LocalDateTime.parse(endDate);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateEndDateForOrderLine(orderlineid, endDate);
+        }
+        if (status != null) {
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateStatusForOrderLine(orderlineid, status);
+        }
         ProductsDAO productsDAO = new ProductsDAO();
         ArrayList<Products> listproducts = productsDAO.getProducts();
 
@@ -84,8 +109,8 @@ public class SaleDashboardController extends HttpServlet {
         ArrayList<User> saleList = users.getUsersByRoleID(3);
         saleList.addAll(users.getUsersByRoleID(4));
         ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
-        orderlines = orderdao.getOrderLines();
-        for(OrderLine orderLine : orderlines){
+        orderlines = orderdao.getOrderLinesIn7Day();
+        for (OrderLine orderLine : orderlines) {
             orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
             orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
         }
@@ -94,17 +119,15 @@ public class SaleDashboardController extends HttpServlet {
         request.setAttribute("user", user);
         request.setAttribute("saleList", saleList);
         OrderLineDAO orderlineDAO = new OrderLineDAO();
-
-        String[][] dataCompleted = orderlineDAO.getCompletedOrderLineDataCharts();
-        String[][] dataAll = orderlineDAO.getAllOrderLineDataCharts();
-        
+        String[][] dataCompleted = orderlineDAO.getCompletedOrderLineDataCharts("");
+        String[][] dataAll = orderlineDAO.getAllOrderLineDataCharts("");
         Gson gson = new Gson();
         String dataJsonAll = gson.toJson(dataAll);
         String dataJsonCompleted = gson.toJson(dataCompleted);
         request.setAttribute("dataChart1", dataJsonCompleted);
         request.setAttribute("dataChart2", dataJsonAll);
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
-        
+
     }
 
     /**
@@ -118,8 +141,42 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        OrderLineDAO orderlineDAO = new OrderLineDAO();
+        ProductsDAO productsDAO = new ProductsDAO();
+        ArrayList<Products> listproducts = productsDAO.getProducts();
+        UserDAO users = new UserDAO();
+        ArrayList<User> saleList = users.getUsersByRoleID(3);
+        saleList.addAll(users.getUsersByRoleID(4));
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+        String selectedSale = request.getParameter("selectedSale");
+        OrderLineDAO orderdao = new OrderLineDAO();
 
+        if (!selectedSale.isEmpty() && selectedSale != null) {
+            request.setAttribute("selectedSale1", selectedSale);
+            selectedSale = " and orderline.saleid = " + selectedSale;
+        }
+
+        //response.getWriter().print(sql);
+        ArrayList<OrderLine> orderlines = orderdao.getOrderLinesByStringSaleId(selectedSale);
+        for (OrderLine orderLine : orderlines) {
+            orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
+            orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
+        }
+
+        OrderLineDAO orderlineDAO = new OrderLineDAO();
+        String[][] dataCompleted = orderlineDAO.getCompletedOrderLineDataCharts(selectedSale);
+        String[][] dataAll = orderlineDAO.getAllOrderLineDataCharts(selectedSale);
+        Gson gson = new Gson();
+        String dataJsonAll = gson.toJson(dataAll);
+        String dataJsonCompleted = gson.toJson(dataCompleted);
+        request.setAttribute("dataChart1", dataJsonCompleted);
+        request.setAttribute("dataChart2", dataJsonAll);
+
+        request.setAttribute("user", user);
+        request.setAttribute("saleList", saleList);
+        request.setAttribute("listproducts", listproducts);
+        request.setAttribute("orderlines", orderlines);
+        request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
 
     }
 

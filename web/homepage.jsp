@@ -625,10 +625,46 @@
             <div class="slider-item th-fullpage hero-area" style="background-image: url(images/laptop-la-gi-760x427.jpg);">
                 <div class="container">
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-lg-8 text-center">
                             <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">10% Off</p>
                             <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">New Year<br> Sale</h1>
                             <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop">Shop Now</a>
+=======
+                        <div class="col-md-12">
+                            <ul class="social-media">
+                                <li>
+                                    <a href="https://www.facebook.com/profile.php?id=100012285902227">
+                                        <i class="tf-ion-social-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://gitlab.com/Mhieu26/group1-se1751">
+                                        <i class="tf-ion-social-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:nguyenmanhhieu267@gmail.com">
+                                        <i class="tf-ion-social-google-outline"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="footer-menu text-uppercase">
+                                <li>
+                                    <a href="contact.jsp">CONTACT</a>
+                                </li>
+                                <li>
+                                    <a href="shop">SHOP</a>
+                                </li>
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="about.jsp">About</a>
+                                </li>
+                            </ul>
+                            <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Themefisher</p>
+>>>>>>> 97052c4dff9ed5044435cf0c8b2aa29eaff6e3bd
                         </div>
                     </div>
                 </div>

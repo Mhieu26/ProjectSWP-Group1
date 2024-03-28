@@ -55,6 +55,7 @@
         <!-- top navbar -->
         <%
             User user = (User)session.getAttribute("User");
+            String canFeedback = (String)request.getAttribute("canFeedback");
         %>
         <!-- navbar -->
         <section class="top-header">
@@ -502,7 +503,7 @@
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="number" value=1 min="1"  name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1" max="<%=products.getInventory()%>" name="product-quantity">
                                 </div>
                                 <span><%=products.getInventory()%> lefts </span>
                             </div>
@@ -510,7 +511,7 @@
                             <div class="product-quantity">
                                 <span>Quantity:</span>
                                 <div class="product-quantity-slider">
-                                    <input id="product-quantity" type="number" value=1 min="1" name="product-quantity">
+                                    <input id="product-quantity" type="number" value=1 min="1" max="<%=products.getInventory()%>" name="product-quantity">
                                 </div>
                                  <span><%=products.getInventory()%> lefts </span>
                             </div>
@@ -756,7 +757,7 @@ for(Specification s : list){
 
                                     </div>
 
-                                    <div class="wrapper center">
+                                    <div class="wrapper center <%= (canFeedback != null && canFeedback.equals("true")) ? "active" : "" %>">
                                         <h3><%=products.getName()%></h3>
                                         <p>General Assessment</p>
                                         <div id="close-btn">&times</div>

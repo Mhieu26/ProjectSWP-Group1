@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Admin
  */
 public class DBContext {
-    protected Connection connection;
+    public Connection connection;
 
     public DBContext() {
         try {
@@ -22,6 +22,9 @@ public class DBContext {
                     url = "jdbc:mysql://localhost:3306/swp391";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
+            if(connection==null){
+                System.out.println("Loi");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }

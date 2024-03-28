@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : adminDashboard
     Created on : Feb 19, 2024, 10:57:15 PM
@@ -465,15 +466,22 @@
             rows = table.getElementsByTagName("tr");
             for (i = 1; i < (rows.length - 1); i++) {
                 shouldSwitch = false;
-                x = rows[i].getElementsByTagName("td")[columnIndex];
-                y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+                x = rows[i].getElementsByTagName("td")[columnIndex].innerHTML;
+                y = rows[i + 1].getElementsByTagName("td")[columnIndex].innerHTML;
+
+                // Kiểm tra nếu x và y là số
+                if (!isNaN(parseFloat(x)) && !isNaN(parseFloat(y))) {
+                    x = parseFloat(x);
+                    y = parseFloat(y);
+                }
+
                 if (sortDirection === 1) {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    if (x > y) {
                         shouldSwitch = true;
                         break;
                     }
                 } else {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    if (x < y) {
                         shouldSwitch = true;
                         break;
                     }

@@ -163,9 +163,9 @@
                                             <li class="dropdown-header"><%= user != null ? user.getName() : "" %></li>
                                             <li role="separator" class="divider"></li>
                                                 <% if(user == null) { %>
-                                            <li><a href="login">Login</a></li>
-                                            <li><a href="register">Sign up</a></li>
-                                            <li><a href="resetpassword">Forget Password</a></li>
+                                            <li><a href="SWP/login">Login</a></li>
+                                            <li><a href="SWP/register">Sign up</a></li>
+                                            <li><a href="SWP/resetpassword">Forget Password</a></li>
                                                 <% } else { %>
                                                 <% if(user != null) {
                                                     int role = (int)(user.getRole().getId());
@@ -179,9 +179,9 @@
                                             <li><a href="marketingManagerController">Marketing Manager</a></li>
                                                 <% }
         } %>
-                                            <li><a href="userController">User Profile</a></li>
-                                            <li><a href="changePassword">Change Password</a></li>
-                                            <li><a href="logout">Logout</a></li>
+                                            <li><a href="SWP/userController">User Profile</a></li>
+                                            <li><a href="SWP/changePassword">Change Password</a></li>
+                                            <li><a href="SWP/logout">Logout</a></li>
                                                 <% } %>
                                         </ul>
 

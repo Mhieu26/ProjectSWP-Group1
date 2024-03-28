@@ -18,18 +18,29 @@ import java.util.ArrayList;
  */
 public class OrderLineDAO extends DBContext {
 
-    public String[][] getCompletedOrderLineDataCharts() {
+    public String[][] getCompletedOrderLineDataCharts(String saleSelected) {
         String[][] data = null;
 
-        String sql = "SELECT \n"
-                + "    DATE(orderdate) AS order_day,\n"
-                + "    COUNT(*) AS order_count\n"
+        String sql = "WITH DateRange AS (\n"
+                + "    SELECT CURDATE() - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS date\n"
+                + "    FROM \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS a\n"
+                + "        CROSS JOIN \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS b\n"
+                + "        CROSS JOIN \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS c\n"
+                + ")\n"
+                + "SELECT \n"
+                + "    DATE(DateRange.date) AS order_day,\n"
+                + "    COUNT(orderline.orderdate) AS order_count\n"
                 + "FROM \n"
-                + "    orderline\n"
+                + "    DateRange\n"
+                + "LEFT JOIN \n"
+                + "    orderline ON DATE(orderline.orderdate) = DATE(DateRange.date) AND orderline.status = 'Complete' " + saleSelected + " \n"
                 + "WHERE \n"
-                + "    orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) and status ='Completed'\n"
+                + "    DateRange.date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)\n"
                 + "GROUP BY \n"
-                + "    DATE(orderdate)\n"
+                + "    order_day\n"
                 + "ORDER BY \n"
                 + "    order_day;";
         try {
@@ -55,18 +66,29 @@ public class OrderLineDAO extends DBContext {
         return data;
     }
 
-    public String[][] getAllOrderLineDataCharts() {
+    public String[][] getAllOrderLineDataCharts(String saleSelected) {
         String[][] data = null;
 
-        String sql = " SELECT \n"
-                + "    DATE(orderdate) AS order_day,\n"
-                + "    COUNT(*) AS order_count\n"
+        String sql = " WITH DateRange AS (\n"
+                + "    SELECT CURDATE() - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY AS date\n"
+                + "    FROM \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS a\n"
+                + "        CROSS JOIN \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS b\n"
+                + "        CROSS JOIN \n"
+                + "        (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7) AS c\n"
+                + ")\n"
+                + "SELECT \n"
+                + "    DATE(DateRange.date) AS order_day,\n"
+                + "    COUNT(orderline.orderdate) AS order_count\n"
                 + "FROM \n"
-                + "    orderline\n"
+                + "    DateRange\n"
+                + "LEFT JOIN \n"
+                + "    orderline ON DATE(orderline.orderdate) = DATE(DateRange.date) " + saleSelected + " \n"
                 + "WHERE \n"
-                + "    orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)\n"
+                + "    DateRange.date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)\n"
                 + "GROUP BY \n"
-                + "    DATE(orderdate)\n"
+                + "    order_day\n"
                 + "ORDER BY \n"
                 + "    order_day;";
         try {
@@ -104,7 +126,43 @@ public class OrderLineDAO extends DBContext {
                 + "    `orderline`.`orderdate`,\n"
                 + "    `orderline`.`enddate`,\n"
                 + "    `orderline`.`status`\n"
-                + "FROM `swp391`.`orderline`  ;";
+                + "FROM `swp391`.`orderline`   ;";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                OrderLine o = new OrderLine();
+                o.setId(rs.getInt("id"));
+                o.setQuantity(rs.getInt("quantity"));
+                o.setPrice(rs.getInt("price"));
+                o.setOrderID(rs.getInt("orderid"));
+                o.setSaleID(rs.getInt("saleid"));
+                o.setProductID(rs.getInt("productid"));
+                o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                o.setStatus(rs.getString("status"));
+                orderlines.add(o);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return orderlines;
+    }
+
+    public ArrayList<OrderLine> getOrderLinesIn7Day() {
+        ArrayList<OrderLine> orderlines = new ArrayList<>();
+
+        String sql = " SELECT `orderline`.`id`,\n"
+                + "    `orderline`.`quantity`,\n"
+                + "    `orderline`.`price`,\n"
+                + "    `orderline`.`orderid`,\n"
+                + "    `orderline`.`saleid`,\n"
+                + "    `orderline`.`productid`,\n"
+                + "    `orderline`.`orderdate`,\n"
+                + "    `orderline`.`enddate`,\n"
+                + "    `orderline`.`status`\n"
+                + "FROM `swp391`.`orderline` WHERE orderline.orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)  ;";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -156,6 +214,59 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, saleNote);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateEndDateForOrderLine(int orderLineID, String enddate) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`enddate` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, enddate);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void updateOrderDateForOrderLine(int orderLineID, String orderdate) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`orderdate` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, orderdate);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void updateStatusForOrderLine(int orderLineID, String status) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`status` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, status);
             statement.setInt(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -293,6 +404,44 @@ public class OrderLineDAO extends DBContext {
                 + "                  `orderline`.`status`,\n"
                 + "                  `orderline`.`salenote`\n"
                 + "                FROM `swp391`.`orderline` Where id IS NOT NULL " + selectedSale + selectedStatus + selectedProduct + selectedStartDate + selectedEndDate + " ; ";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                OrderLine o = new OrderLine();
+                o.setId(rs.getInt("id"));
+                o.setQuantity(rs.getInt("quantity"));
+                o.setPrice(rs.getInt("price"));
+                o.setOrderID(rs.getInt("orderid"));
+                o.setSaleID(rs.getInt("saleid"));
+                o.setProductID(rs.getInt("productid"));
+                o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                o.setStatus(rs.getString("status"));
+                o.setSaleNote(rs.getString("salenote"));
+                orderlines.add(o);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return orderlines;
+    }
+
+    public ArrayList<OrderLine> getOrderLinesByStringSaleId(String selectedSale) {
+        ArrayList<OrderLine> orderlines = new ArrayList<>();
+
+        String sql = " SELECT `orderline`.`id`,\n"
+                + "                    `orderline`.`quantity`,\n"
+                + "                 `orderline`.`price`,\n"
+                + "                  `orderline`.`orderid`,\n"
+                + "                    `orderline`.`saleid`,\n"
+                + "                   `orderline`.`productid`,\n"
+                + "                  `orderline`.`orderdate`,\n"
+                + "                  `orderline`.`enddate`,\n"
+                + "                  `orderline`.`status`,\n"
+                + "                  `orderline`.`salenote`\n"
+                + "                FROM `swp391`.`orderline` Where orderline.orderdate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) " + selectedSale + " ; ";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
