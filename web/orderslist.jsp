@@ -92,10 +92,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
-                                <%
-                                    
-                         ArrayList<Products> listproducts = (ArrayList<Products>) request.getAttribute("listproducts");
-                         ArrayList<OrderLine> orderlines = (ArrayList<OrderLine>) request.getAttribute("orderlines");
+                                <%                              
+                         ArrayList<Orders> orderlist = (ArrayList<Orders>) request.getAttribute("orderlist");
                          if(user != null) {
                             int role = (int)(user.getRole().getId());
                             if(role == 2) { %>
@@ -191,43 +189,30 @@
                                 <p></p>
                                 <div class="sm-st-info">
                                     <span style="font: x-large">
-                                        <%= orderlines.size() %> OrderLine
+                                        <%= orderlist.size() %> Order
                                     </span>
                                 </div>
                             </div>
                         </div>
+                        <% 
+                            int totalSold =0;                         
+                            double totalPrice = 0;
+                            int totalQuantity = 0;
+                            for(Orders orderlist1 : orderlist){                                  
+                            if(orderlist1.getStatus().equals("Complete")){
+                            totalSold++;
+                            totalPrice += orderlist1.getTotal();
+                                }
+                                }
+                            long totalString = (long)totalPrice;
+                        %>
                         <div class="col-md-3">
                             <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-violet"><i class="fa fa-shopping-cart"></i></span>
-                                <p></p>
-                                <div class="sm-st-info">
-                                    <span>
-                                        <% 
-                                        int totalSold =0;
-                                        double totalPrice = 0;
-                                        int totalQuantity = 0;
-                                        for(OrderLine orderline1 : orderlines){                                  
-                                        if(orderline1.getStatus().equals("Complete")){
-                                        totalSold++;
-                                        totalQuantity += orderline1.getQuantity();
-                                        totalPrice += orderline1.getPrice();
-                                            }
-                                            }
-                                        long totalString = (long)totalPrice;
-                                        %>
-                                        Products Sold: 
-                                        <%= totalQuantity %>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-blue"><i class="fa fa-eye-slash"></i></span>
+                                <span class="sm-st-icon st-blue"><i class="fa fa-shopping-cart"></i></span>
                                 <p></p>
                                 <div class="sm-st-info">
                                     <span >
-                                        <%= totalSold %> Order Line Complete
+                                        <%= totalSold %> Order Complete
                                     </span>
                                 </div>
                             </div>
@@ -247,24 +232,25 @@
                     </div>
                     <form action="orderslist" method="post">
                         <h4><label  for="selectOption">Trend of success/total orders ,Filter by </label></h4>
-                        Saler: <select name="selectedSale">
+                        Customer: <select name="selectedCustomer">
                             <option value="">All</option>
                             <%
-                            String selectedSale = (String) request.getAttribute("selectedSale1");
-                            String selectedStatus = (String) request.getAttribute("selectedStatus1");
-                            String selectedProduct = (String) request.getAttribute("selectedProduct1");
-                            ArrayList<User> saleList = (ArrayList<User>) request.getAttribute("saleList");                        
-                                for (User saler1 : saleList) {
-                                if(selectedSale!=null){if(saler1.getId()==Integer.parseInt(selectedSale)){
+                            String selectedCustomer = (String) request.getAttribute("selectedCustomer");
+                            String selectedStatus = (String) request.getAttribute("selectedStatus");
+                            String selectedfromdate = (String) request.getAttribute("fromdate");
+                            String selectedtodate = (String) request.getAttribute("todate");
+                            ArrayList<User> customerlist = (ArrayList<User>) request.getAttribute("customerlist");                        
+                                for (User Customer1 : customerlist) {
+                                if(selectedCustomer!=null){if(Customer1.getId()==Integer.parseInt(selectedCustomer)){
                             %>
-                            <option value="<%= saler1.getId() %>" selected=""><%= saler1.getName() %></option>
+                            <option value="<%= Customer1.getId() %>" selected=""><%= Customer1.getName() %></option>
                             <% session.removeAttribute("selectedSale1");}else{ %>
-                            <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
+                            <option value="<%= Customer1.getId() %>"><%= Customer1.getName() %></option>
 
                             <%                                
                             }}else{
                             %>
-                            <option value="<%= saler1.getId() %>"><%= saler1.getName() %></option>
+                            <option value="<%= Customer1.getId() %>"><%= Customer1.getName() %></option>
                             <%}}%>
                         </select>
                         Status: 
@@ -276,33 +262,17 @@
                             <% }else{ %>
                             <option value="Complete">Complete</option>
                             <option value="Pending" selected="">Pending</option>
-                            <% } session.removeAttribute("selectedStatus1");} else { %>
+                            <% } session.removeAttribute("selectedStatus");} else { %>
                             <option value="Complete">Complete</option>
                             <option value="Pending">Pending</option>
                             <% }  %>
                         </select>
-                        Product:
-                        <select name="selectedProduct">
-                            <option value="">All</option>
-                            <% for(Products products1 : listproducts){
-                            if(selectedProduct!=null){if(products1.getId()==Long.parseLong(selectedProduct)){
-                               
-                            %>
-                            <option value="<%= products1.getId() %>" selected=""><%= products1.getName() %></option>
-                            <% session.removeAttribute("selectedProduct1"); }else {%>
-                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                            <% }}else { %>
-                            <option value="<%= products1.getId() %>"><%= products1.getName() %></option>
-                            <%}}%>
-
-
-                        </select>
-                        Start Date
-                        <input type="date" name="startdate" value="${selectedStartDate1}"/>
-                        <% session.removeAttribute("selectedStartDate1"); %>
-                        End Date
-                        <input type="date" name="enddate" value="${selectedEndDate}" />
-                        <% session.removeAttribute("selectedEndDate"); %>
+                        Order Date from: 
+                        <input type="date" name="fromdate" value="${selectedfromdate}"/>
+                        <% session.removeAttribute("fromdate"); %>
+                        Order Date to: 
+                        <input type="date" name="todate" value="${selectedtodate}" />
+                        <% session.removeAttribute("todate"); %>
                         <button type="submit">Filter</button>
                     </form>
                     <div class="row" style="margin-bottom:5px;">
@@ -322,16 +292,12 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Product Name</th>
-                                <th>Saler</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>OrderID</th>
-
-
-                                <th>OrderDate</th>
-                                <th>EndDate</th>
+                                <th>Order Date</th>
+                                <th>Customer</th>
+                                <th>Products</th>
+                                <th>Total cost</th>
                                 <th>Status</th>
+
 
                             </tr>
                         </thead>
@@ -339,20 +305,17 @@
                             <% 
                             int id = 1;
                         
-                                for (OrderLine orderline : orderlines) {
+                                for (Orders order : orderlist) {
                             %>
                             <tr>
-                                <td><%= id %></td>
-                                <td><%= orderline.getProduct().getName() %></td>
-                                <td><%= orderline.getSaler().getName() %></td>
-                                <td><%= orderline.getQuantity() %></td>
-                                <td ><div class="text-right"><%= orderline.getPrice() %></div></td>
-                                <td><a href="orderdetails?orderID=<%= orderline.getOrderID() %>"><%= orderline.getOrderID() %></a></td>
-
-
-                                <td><%= orderline.getOrderDate() %></td>
-                                <td><%= orderline.getEndDate() %></td>
-                                <td><%= orderline.getStatus() %></td>
+                                <td><a href="orderdetails?orderID=<%= order.getId() %>"><%= id %></a></td>
+                                <td><%= order.getOrderDate() %></td>
+                                <td><%= order.getUserName() %></td>
+                                <td><% for(Products product : order.getListProduct()){ %>
+                                    <%= product.getName()%>
+                                    <%}%></td>
+                                <td><%= order.getTotal() %></td>
+                                <td><%= order.getStatus() %></td>
 
                             </tr>
                             <% 

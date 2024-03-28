@@ -21,6 +21,7 @@ public class Orders {
     private int total;
     private String status;
 
+
     public Orders(int id, LocalDateTime orderDate, String userName, ArrayList<String> productName, int total, String status) {
         this.id = id;
         this.orderDate = orderDate;
@@ -29,7 +30,6 @@ public class Orders {
         this.total = total;
         this.status = status;
     }
-
     public Orders() {
     }
 

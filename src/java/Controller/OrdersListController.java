@@ -4,12 +4,8 @@
  */
 package Controller;
 
-import Dao.OrderLineDAO;
-import Dao.ProductsDAO;
-import Dao.UserDAO;
-import Model.OrderLine;
-import Model.Products;
-import Model.User;
+import Dao.*;
+import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -63,25 +60,15 @@ public class OrdersListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        OrderLineDAO orderdao = new OrderLineDAO();
-        ProductsDAO productsDAO = new ProductsDAO();
-        ArrayList<Products> listproducts = productsDAO.getProducts();
-
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("User");
-        UserDAO users = new UserDAO();
-        ArrayList<User> saleList = users.getUsersByRoleID(3);
-        saleList.addAll(users.getUsersByRoleID(4));
-        ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
-        orderlines = orderdao.getOrderLines();
-        for(OrderLine orderLine : orderlines){
-            orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
-            orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
-        }
-        request.setAttribute("listproducts", listproducts);
-        request.setAttribute("orderlines", orderlines);
+        UserDAO userDAO = new UserDAO();
+        ArrayList<User> customerlist = userDAO.getUsersByRoleID(1);
+        OrdersDAO orderdao = new OrdersDAO();
+        ArrayList<Orders> orderlist = orderdao.getOrders();
         request.setAttribute("user", user);
-        request.setAttribute("saleList", saleList);
+        request.setAttribute("orderlist", orderlist);
+        request.setAttribute("customerlist", customerlist);
         //response.getWriter().print(saleName.get(0));
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
@@ -97,49 +84,35 @@ public class OrdersListController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductsDAO productsDAO = new ProductsDAO();
-        ArrayList<Products> listproducts = productsDAO.getProducts();
-        UserDAO users = new UserDAO();
-        ArrayList<User> saleList = users.getUsersByRoleID(3);
-        saleList.addAll(users.getUsersByRoleID(4));
         HttpSession session = request.getSession();
+        OrdersDAO orderdao = new OrdersDAO();
         User user = (User) session.getAttribute("User");
-        String selectedSale = request.getParameter("selectedSale");
+        UserDAO userDAO = new UserDAO();
+        ArrayList<User> customerlist = userDAO.getUsersByRoleID(1);
+        String selectedCustomer = request.getParameter("selectedCustomer");
         String selectedStatus = request.getParameter("selectedStatus");
-        String selectedProduct = request.getParameter("selectedProduct");
-        String selectedStartDate = request.getParameter("startdate");
-        String selectedEndDate = request.getParameter("enddate");
-        OrderLineDAO orderdao = new OrderLineDAO();
-        if(!selectedStartDate.isEmpty()&&selectedStartDate!=null){
-            request.setAttribute("selectedStartDate1", selectedStartDate);
-            selectedStartDate=" and orderdate >= '"+selectedStartDate+"' ";
+        String fromdate = request.getParameter("fromdate");
+        String todate = request.getParameter("todate");
+        if (!selectedCustomer.isEmpty() && selectedCustomer != null) {
+            request.setAttribute("selectedCustomer", selectedCustomer);
+            selectedCustomer = " and orders.userid = " + selectedCustomer;
         }
-        if(!selectedEndDate.isEmpty()&&selectedEndDate!=null){
-            request.setAttribute("selectedEndDate", selectedEndDate);
-            selectedEndDate=" and enddate <= '"+ selectedEndDate+"' ";
+        if (!selectedStatus.isEmpty() && selectedStatus != null) {
+            request.setAttribute("selectedStatus", selectedStatus);
+            selectedStatus = " and orders.status = '" + selectedStatus +"' ";
         }
-        if(!selectedSale.isEmpty()&&selectedSale!=null){
-            request.setAttribute("selectedSale1", selectedSale);
-            selectedSale=" and saleid = "+selectedSale;
+        if (!fromdate.isEmpty() && fromdate != null) {
+            request.setAttribute("fromdate", fromdate);
+            fromdate = " and orders.orderdate >= '" + fromdate + "' ";
         }
-        if(!selectedStatus.isEmpty()&&selectedStatus!=null){
-            request.setAttribute("selectedStatus1", selectedStatus);
-            selectedStatus=" and status = '" +selectedStatus+"' ";
+        if (!todate.isEmpty() && todate != null) {
+            request.setAttribute("todate", todate);
+            todate = " and orders.orderdate <= '" + todate+"' ";
         }
-        if(!selectedProduct.isEmpty()&&selectedProduct!=null){
-            request.setAttribute("selectedProduct1", selectedProduct);
-            selectedProduct=" and productid = "+selectedProduct;
-        }
-        //response.getWriter().print(sql);
-        ArrayList<OrderLine> orderlines = orderdao.getOrderLinesBySaleIdByStatusByProductid(selectedSale,selectedStatus,selectedProduct, selectedStartDate, selectedEndDate);
-        for(OrderLine orderLine : orderlines){
-            orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
-            orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
-        }
+        ArrayList<Orders> orderlist = orderdao.getOrdersByCustomerByStatusByOrderDate(selectedCustomer, selectedStatus, fromdate, todate);
         request.setAttribute("user", user);
-        request.setAttribute("saleList", saleList);
-        request.setAttribute("listproducts", listproducts);
-        request.setAttribute("orderlines", orderlines);    
+        request.setAttribute("orderlist", orderlist);
+        request.setAttribute("customerlist", customerlist);
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
