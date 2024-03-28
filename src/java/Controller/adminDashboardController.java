@@ -78,7 +78,7 @@ public class adminDashboardController extends HttpServlet {
         Timestamp toDate = convertTimestamp(endDate);
         OrderDAO orderDAO = new OrderDAO();
         UserDAO udb = new UserDAO();
-                List<User> top5Users = udb.get5LastestUsers();
+        List<User> top5Users = udb.get5LastestUsers();
 
         HashMap<String, Integer> orderByStatus = orderDAO.getOrderByStatus();
         List<Order> top5Orders = orderDAO.getTop5Orders();

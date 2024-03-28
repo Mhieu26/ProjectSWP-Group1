@@ -133,11 +133,7 @@
                                 <i class="fa fa-user"></i> <span>UserList</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="adminSettingListController">
-                                <i class="fa fa-cog"></i> <span>SettingList</span>
-                            </a>
-                        </li>
+                     
                          <li>
         <a href="home">
             <i class="fa fa-home"></i> <span>Home</span>
@@ -231,14 +227,8 @@
                                                             <td>${u.email}</td>
                                                             <td>${u.phone}</td>
                                                             <td>${u.role.role}</td>
-                                                            <td>   <c:choose>
-                                        <c:when test="${u.status}">
-                                            <i class="bi bi-toggle-on" style="font-size: 24px"></i>
-                                        </c:when>    
-                                        <c:otherwise>
-                                            <i class="bi bi-toggle2-off" style="font-size: 24px"></i>
-                                        </c:otherwise>
-                                    </c:choose></td>
+                                                            <td>${u.status ? 'active' : 'inactive'}
+                                        </td>
                                                          
                                                             <td> 
                                                                 <button>

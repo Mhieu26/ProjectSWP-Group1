@@ -32,9 +32,9 @@
             }
         </style>
     <body>
-     
+
         <div class="container">
-            
+
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -66,13 +66,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <input value="${user.role.id}" name="role" type="text" class="form-control" required>
+                                    <select name="role" class="form-control" required>
+                                        <option value="1" ${user.role.id == 1 ? 'selected' : ''}>Customer</option>
+                                        <option value="2" ${user.role.id == 2 ? 'selected' : ''}>Admin</option>
+                                        <option value="3" ${user.role.id == 3 ? 'selected' : ''}>Sale</option>
+                                        <option value="4" ${user.role.id == 4 ? 'selected' : ''}>Sale Manager</option>
+                                        <option value="5" ${user.role.id == 5 ? 'selected' : ''}>Marketing</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input value="${user.status}" name="status" type="text" class="form-control" required>
+                                    <select name="status" class="form-control" required>
+                                        <option value="true" ${user.status ? 'selected' : ''}>Active</option>
+                                        <option value="false" ${!user.status ? 'selected' : ''}>Inactive</option>
+                                    </select>
                                 </div>
-                                
+
+
                             </div>
                             <div class="modal-footer">
                                 <input type="submit" class="btn btn-success" value="Update" style="background-color: #39435C">
@@ -87,10 +97,10 @@
 
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
-function redirectToHome() {
-    window.location.href = "adminUserListController"; // Thay thế "/" bằng URL của trang chủ của bạn
-}
-</script>
+                                    function redirectToHome() {
+                                        window.location.href = "adminUserListController"; // Thay thế "/" bằng URL của trang chủ của bạn
+                                    }
+        </script>
 
     </body>
 </html>
