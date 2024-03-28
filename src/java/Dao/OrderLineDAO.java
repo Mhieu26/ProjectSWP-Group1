@@ -150,7 +150,9 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}}
                 o.setStatus(rs.getString("status"));
                 orderlines.add(o);
             }
@@ -186,7 +188,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 orderlines.add(o);
             }
@@ -312,7 +315,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 orderlines.add(o);
             }
@@ -350,7 +354,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 o.setSaleNote(rs.getString("salenote"));
                 orderlines.add(o);
@@ -389,7 +394,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 o.setSaleNote(rs.getString("salenote"));
 
@@ -427,7 +433,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 o.setSaleNote(rs.getString("salenote"));
                 orderlines.add(o);
@@ -465,7 +472,8 @@ public class OrderLineDAO extends DBContext {
                 o.setSaleID(rs.getInt("saleid"));
                 o.setProductID(rs.getInt("productid"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
-                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());
+                if(rs.getTimestamp("enddate")!=null){
+                o.setEndDate(rs.getTimestamp("enddate").toLocalDateTime());}
                 o.setStatus(rs.getString("status"));
                 o.setSaleNote(rs.getString("salenote"));
                 orderlines.add(o);
