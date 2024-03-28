@@ -43,7 +43,7 @@ public class OrdersDAO extends DBContext {
                 + " GROUP BY id , name    \n"
                 + " ORDER BY    id";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 0, index = 0, total = 0;
+        int flag = 0; int index = 0, total = 0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);

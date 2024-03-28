@@ -166,4 +166,10 @@ public class OrderLine {
         this.productID = productID;
     }
 
+    @Override
+    public String toString() {
+        return "OrderLine{" + "id=" + id + ", quantity=" + quantity + ", price=" + price + ", orderID=" + orderID + ", saleID=" + saleID + ", productID=" + productID + ", orderDate=" + orderDate + ", endDate=" + endDate + ", status=" + status + ", saleNote=" + saleNote + ", product=" + product + ", saler=" + saler + '}';
+    }
+    
+
 }

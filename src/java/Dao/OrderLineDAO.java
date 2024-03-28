@@ -483,5 +483,12 @@ public class OrderLineDAO extends DBContext {
         }
         return orderlines;
     }
-
+    public static void main(String[] args) {
+        OrderLineDAO od=new OrderLineDAO();
+        ArrayList<OrderLine> list=od.getOrderLinesIn7Day();
+        for (OrderLine orderLine : list) {
+            System.out.println(orderLine);
+            
+        }
+    }
 }

@@ -114,6 +114,7 @@ public class SaleDashboardController extends HttpServlet {
             orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
             orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
         }
+    
         request.setAttribute("listproducts", listproducts);
         request.setAttribute("orderlines", orderlines);
         request.setAttribute("user", user);

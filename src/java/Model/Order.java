@@ -11,7 +11,7 @@ import java.util.Date;
  * @author DELL
  */
 public class Order {
-    private long id;
+    private Long id;
     private Date orderDate;
     private int total;
     private String status;
@@ -20,7 +20,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, Date orderDate, int total, String status, User user) {
+    public Order(Long id, Date orderDate, int total, String status, User user) {
         this.id = id;
         this.orderDate = orderDate;
         this.total = total;
