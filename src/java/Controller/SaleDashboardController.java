@@ -4,7 +4,9 @@
  */
 package Controller;
 
+import Dao.OrderDAO;
 import Dao.OrderLineDAO;
+import Dao.OrdersDAO;
 import Dao.ProductsDAO;
 import Dao.UserDAO;
 import Model.OrderLine;
@@ -80,25 +82,39 @@ public class SaleDashboardController extends HttpServlet {
         String endDate = request.getParameter("endDate");
         String status = request.getParameter("status");
         String orderLineID = request.getParameter("orderLineID");
+        OrderDAO orders = new OrderDAO();
         OrderLineDAO orderdao = new OrderLineDAO();
         if (salerID != null) {
             int saleid = Integer.parseInt(salerID);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateSalerForOrderLine(orderlineid, saleid);
         }
         if (orderDate != null) {
             LocalDateTime orderdate = LocalDateTime.parse(orderDate);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateOrderDateForOrderLine(orderlineid, orderDate);
         }
         if (endDate != null) {
             LocalDateTime enddate = LocalDateTime.parse(endDate);
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateEndDateForOrderLine(orderlineid, endDate);
         }
         if (status != null) {
-            int orderlineid = Integer.parseInt(orderLineID);
+            long orderlineid = Long.parseLong(orderLineID);
             orderdao.updateStatusForOrderLine(orderlineid, status);
+            if (status.equals("complete")) {
+                orderdao.updateEndDateForOrderLine(orderlineid, LocalDateTime.now().toString());
+                long orderID = orderdao.getOrderLinesByID(orderlineid).getOrderID();
+                boolean check = true;
+                for (OrderLine orderline1 : orderdao.getOrderLinesByOrderID(orderID)) {
+                    if(!orderline1.getStatus().equals("complete")){
+                        check = false;
+                    }
+                }
+                if(check){
+                    orders.updateOrderStatus(orderID, status);
+                }
+            }
         }
         ProductsDAO productsDAO = new ProductsDAO();
         ArrayList<Products> listproducts = productsDAO.getProducts();
@@ -182,7 +198,7 @@ public class SaleDashboardController extends HttpServlet {
         productsDAO.closeConnection();
         users.closeConnection();
         orderdao.closeConnection();
-        
+
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
 
     }

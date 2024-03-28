@@ -43,7 +43,10 @@ public class OrdersDAO extends DBContext {
                 + " GROUP BY id , name    \n"
                 + " ORDER BY    id";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 0; int index = 0, total = 0;
+
+        long flag = 0;
+        int index = 0, total = 0;
+
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -51,13 +54,13 @@ public class OrdersDAO extends DBContext {
 
             while (rs.next()) {
                 Orders o = new Orders();
-                if (flag != rs.getInt("id")) {
+                if (flag != rs.getLong("id")) {
                     orderlines.add(o);
-                    flag = rs.getInt("id");
+                    flag = rs.getLong("id");
                     total = 0;
                     nameOfProduct = new ArrayList<String>();
                 }
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
                 o.setUserName(rs.getString("userName"));
                 o.setProductName(nameOfProduct);
@@ -89,7 +92,7 @@ public class OrdersDAO extends DBContext {
             UserDAO u = new UserDAO();
             while (rs.next()) {
 
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
                 o.setStatus(rs.getString("status"));
                 o.setUserName(u.getUserByID(rs.getInt("userid")).getName());
@@ -116,20 +119,21 @@ public class OrdersDAO extends DBContext {
                 + "GROUP BY id , name\n"
                 + "ORDER BY id";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 0, index = 0, total = 0;
+        int index = 0, total = 0;
+        long flag = 0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
                 Orders o = new Orders();
-                if (flag != rs.getInt("id")) {
+                if (flag != rs.getLong("id")) {
                     orderlines.add(o);
-                    flag = rs.getInt("id");
+                    flag = rs.getLong("id");
                     total = 0;
                     nameOfProduct = new ArrayList<String>();
                 }
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
                 o.setUserName(rs.getString("userName"));
                 o.setProductName(nameOfProduct);
@@ -175,20 +179,21 @@ public class OrdersDAO extends DBContext {
                 + "ORDER BY \n"
                 + "    `orders`.`id`;";
         ArrayList<String> nameOfProduct = new ArrayList<String>();
-        int flag = 0, index = 0, total = 0;
+        long flag = 0;
+        int index = 0, total = 0;
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
                 Orders o = new Orders();
-                if (flag != rs.getInt("id")) {
+                if (flag != rs.getLong("id")) {
                     orders.add(o);
-                    flag = rs.getInt("id");
+                    flag = rs.getLong("id");
                     total = 0;
                     nameOfProduct = new ArrayList<String>();
                 }
-                o.setId(rs.getInt("id"));
+                o.setId(rs.getLong("id"));
                 o.setOrderDate(rs.getTimestamp("orderdate").toLocalDateTime());
                 o.setUserName(rs.getString("userName"));
                 o.setProductName(nameOfProduct);

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Orders {
-    private int id;
+    private long id;
     private LocalDateTime orderDate;
     private String userName;
     private ArrayList<String> productName;
@@ -22,7 +22,7 @@ public class Orders {
     private String status;
 
 
-    public Orders(int id, LocalDateTime orderDate, String userName, ArrayList<String> productName, int total, String status) {
+    public Orders(long id, LocalDateTime orderDate, String userName, ArrayList<String> productName, int total, String status) {
         this.id = id;
         this.orderDate = orderDate;
         this.userName = userName;
@@ -33,11 +33,11 @@ public class Orders {
     public Orders() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

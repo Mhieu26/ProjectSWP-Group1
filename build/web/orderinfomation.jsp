@@ -286,12 +286,6 @@
 
                             </li><!-- / Blog -->
 
-                            <!-- Shop -->
-                            <li class="dropdown dropdown-slide">
-                                <a href="blog" >Blog
-                                </a>
-
-                            </li><!-- / Blog -->    
                         </ul><!-- / .nav .navbar-nav -->
 
                     </div>  
@@ -364,11 +358,12 @@
                             <%  scientificNumber = item.getQuantity()*proDAO.getProductsbyID(item.getProductID()).getPrice();
                             decimalNumber = decimalFormat.format(scientificNumber);
                             %>
-                            <td style="width: 30%;"><%= decimalNumber %></td><!-- comment -->
-                            <td><a href="#" style="color: #007ae1">Re-buy</a></td><!-- comment -->                                          
+                            <td style="width: 30%;"><%= decimalNumber %></td>
+                            <td><a href="addtocart?productid=<%=item.getProductID()%>&quantity=1">Re-buy</a></td>  
+                            
                         </tr>
                     </tbody>
-                    <%}%>
+                    <% }  %>
 
                 </table>
 

@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
  */
 public class OrderLine {
 
-    private int id;
+    private long id;
     private int quantity;
     private int price;
-    private int orderID;
+    private long orderID;
     private int saleID;
     private int productID;
     private LocalDateTime orderDate;
@@ -37,7 +37,7 @@ public class OrderLine {
         return saleNote;
     }
 
-    public OrderLine(int id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote, Products product) {
+    public OrderLine(long id, int quantity, int price, long orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote, Products product) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -64,7 +64,7 @@ public class OrderLine {
         this.saleNote = saleNote;
     }
 
-    public OrderLine(int id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote) {
+    public OrderLine(long id, int quantity, int price, int orderID, int saleID, int productID, LocalDateTime orderDate, LocalDateTime endDate, String status, String saleNote) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -118,11 +118,11 @@ public class OrderLine {
     
     
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -142,11 +142,11 @@ public class OrderLine {
         this.price = price;
     }
 
-    public int getOrderID() {
+    public long getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(long orderID) {
         this.orderID = orderID;
     }
 
