@@ -36,7 +36,7 @@ public class OrderLineDAO extends DBContext {
                 + "FROM \n"
                 + "    DateRange\n"
                 + "LEFT JOIN \n"
-                + "    orderline ON DATE(orderline.orderdate) = DATE(DateRange.date) AND orderline.status = 'Complete' "+saleSelected+" \n"
+                + "    orderline ON DATE(orderline.orderdate) = DATE(DateRange.date) AND orderline.status = 'Complete' " + saleSelected + " \n"
                 + "WHERE \n"
                 + "    DateRange.date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)\n"
                 + "GROUP BY \n"
@@ -65,7 +65,6 @@ public class OrderLineDAO extends DBContext {
         }
         return data;
     }
-    
 
     public String[][] getAllOrderLineDataCharts(String saleSelected) {
         String[][] data = null;
@@ -150,6 +149,7 @@ public class OrderLineDAO extends DBContext {
         }
         return orderlines;
     }
+
     public ArrayList<OrderLine> getOrderLinesIn7Day() {
         ArrayList<OrderLine> orderlines = new ArrayList<>();
 
@@ -214,6 +214,59 @@ public class OrderLineDAO extends DBContext {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, saleNote);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateEndDateForOrderLine(int orderLineID, String enddate) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`enddate` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, enddate);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void updateOrderDateForOrderLine(int orderLineID, String orderdate) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`orderdate` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, orderdate);
+            statement.setInt(2, orderLineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void updateStatusForOrderLine(int orderLineID, String status) {
+
+        String sql = "UPDATE `swp391`.`orderline`\n"
+                + "SET\n"
+                + "`status` = ?\n"
+                + "WHERE `id` = ? ;";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, status);
             statement.setInt(2, orderLineID);
             statement.executeUpdate();
         } catch (SQLException e) {

@@ -75,7 +75,31 @@ public class SaleDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String salerID = request.getParameter("salerID");
+        String orderDate = request.getParameter("orderDate");
+        String endDate = request.getParameter("endDate");
+        String status = request.getParameter("status");
+        String orderLineID = request.getParameter("orderLineID");
         OrderLineDAO orderdao = new OrderLineDAO();
+        if (salerID != null) {
+            int saleid = Integer.parseInt(salerID);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateSalerForOrderLine(orderlineid, saleid);
+        }
+        if (orderDate != null) {
+            LocalDateTime orderdate = LocalDateTime.parse(orderDate);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateOrderDateForOrderLine(orderlineid, orderDate);
+        }
+        if (endDate != null) {
+            LocalDateTime enddate = LocalDateTime.parse(endDate);
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateEndDateForOrderLine(orderlineid, endDate);
+        }
+        if (status != null) {
+            int orderlineid = Integer.parseInt(orderLineID);
+            orderdao.updateStatusForOrderLine(orderlineid, status);
+        }
         ProductsDAO productsDAO = new ProductsDAO();
         ArrayList<Products> listproducts = productsDAO.getProducts();
 
@@ -86,7 +110,7 @@ public class SaleDashboardController extends HttpServlet {
         saleList.addAll(users.getUsersByRoleID(4));
         ArrayList<OrderLine> orderlines = new ArrayList<OrderLine>();
         orderlines = orderdao.getOrderLinesIn7Day();
-        for(OrderLine orderLine : orderlines){
+        for (OrderLine orderLine : orderlines) {
             orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
             orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
         }
@@ -103,7 +127,7 @@ public class SaleDashboardController extends HttpServlet {
         request.setAttribute("dataChart1", dataJsonCompleted);
         request.setAttribute("dataChart2", dataJsonAll);
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
-        
+
     }
 
     /**
@@ -127,20 +151,18 @@ public class SaleDashboardController extends HttpServlet {
         String selectedSale = request.getParameter("selectedSale");
         OrderLineDAO orderdao = new OrderLineDAO();
 
-        if(!selectedSale.isEmpty()&&selectedSale!=null){
+        if (!selectedSale.isEmpty() && selectedSale != null) {
             request.setAttribute("selectedSale1", selectedSale);
-            selectedSale=" and orderline.saleid = "+selectedSale;
+            selectedSale = " and orderline.saleid = " + selectedSale;
         }
 
-        
         //response.getWriter().print(sql);
         ArrayList<OrderLine> orderlines = orderdao.getOrderLinesByStringSaleId(selectedSale);
-        for(OrderLine orderLine : orderlines){
+        for (OrderLine orderLine : orderlines) {
             orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
             orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
         }
-        
-        
+
         OrderLineDAO orderlineDAO = new OrderLineDAO();
         String[][] dataCompleted = orderlineDAO.getCompletedOrderLineDataCharts(selectedSale);
         String[][] dataAll = orderlineDAO.getAllOrderLineDataCharts(selectedSale);
@@ -149,14 +171,12 @@ public class SaleDashboardController extends HttpServlet {
         String dataJsonCompleted = gson.toJson(dataCompleted);
         request.setAttribute("dataChart1", dataJsonCompleted);
         request.setAttribute("dataChart2", dataJsonAll);
-        
-        
+
         request.setAttribute("user", user);
         request.setAttribute("saleList", saleList);
         request.setAttribute("listproducts", listproducts);
-        request.setAttribute("orderlines", orderlines);    
+        request.setAttribute("orderlines", orderlines);
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
-
 
     }
 

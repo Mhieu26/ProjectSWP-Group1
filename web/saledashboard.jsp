@@ -283,7 +283,7 @@
                             </select>
                             Per Page                       
                         </div>
-                    </div>
+                    </div>                 
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -309,16 +309,35 @@
                             %>
                             <tr>
                                 <td><%= id %></td>
-                                <td><%= orderline.getProduct().getName() %></td>
-                                <td><%= orderline.getSaler().getName() %></td>
+                                <td><%= orderline.getProduct().getName() %></td>                     
+                                <td style="width: 10%;">
+                                    <select id="mySelect" onchange="changeSaler(this)">
+                                        <% for(User saleList1 : saleList){
+                                        if(saleList1.getId() == orderline.getSaleID()){ %>
+                                        <option value="<%= saleList1.getId() %>" data-orderlineid="<%= orderline.getId() %>" data-salerid="<%= saleList1.getId() %>" selected><%= saleList1.getName() %></option>
+
+                                        <% } else { %> 
+                                        <option value="<%= saleList1.getId() %>" data-orderlineid="<%= orderline.getId() %>" data-salerid="<%= saleList1.getId() %>"><%= saleList1.getName() %></option>
+
+                                        <% } } %>
+                                    </select>
+                                </td>                                                  
                                 <td><%= orderline.getQuantity() %></td>
                                 <td ><div class="text-right"><%= orderline.getPrice() %></div></td>
                                 <td><a href="orderdetails?orderID=<%= orderline.getOrderID() %>"><%= orderline.getOrderID() %></a></td>
+                                <td><input type="datetime" value="<%= orderline.getOrderDate() %>" id="setOrderDate" data-orderlineid="<%= orderline.getId() %>" onkeypress="checkEnter(event, this, 'setOrderDate')"></td>
+                                <td><input type="datetime" value="<%= orderline.getEndDate() %>" id="setEndDate" data-orderlineid="<%= orderline.getId() %>" onkeypress="checkEnter(event, this, 'setEndDate')" ></td>
 
-
-                                <td><%= orderline.getOrderDate() %></td>
-                                <td><%= orderline.getEndDate() %></td>
-                                <td><%= orderline.getStatus() %></td>
+                                <td>
+                                    <select id="mySelectStatus" onchange="changeStatus(this)">
+                                        <% if(orderline.getStatus().equals("pending")){ %>
+                                        <option value="pending" data-orderlineid="<%= orderline.getId() %>" data-status="pending" selected >Pending</option>
+                                        <option value="complete" data-orderlineid="<%= orderline.getId() %>" data-status="complete" >Complete</option>
+                                        <% } else { %> 
+                                        <option value="complete" data-orderlineid="<%= orderline.getId() %>" data-status="complete" selected>Complete</option>
+                                        <option value="pending" data-orderlineid="<%= orderline.getId() %>" data-status="pending" >Pending</option>                                      
+                                        <% }  %>
+                                    </select></td>
 
                             </tr>
                             <% 
@@ -386,55 +405,55 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    google.load("visualization", "1.0", {packages: ["corechart"]});
-    google.setOnLoadCallback(drawChart);
+                                        google.load("visualization", "1.0", {packages: ["corechart"]});
+                                        google.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-        // Get data from servlet for the first line
-        var jsonData1 = '${requestScope.dataChart1}'; // Accessing the attribute containing the first dataset using EL
-        var javaData1 = JSON.parse(jsonData1);
+                                        function drawChart() {
+                                            // Get data from servlet for the first line
+                                            var jsonData1 = '${requestScope.dataChart1}'; // Accessing the attribute containing the first dataset using EL
+                                            var javaData1 = JSON.parse(jsonData1);
 
-        // Get data from servlet for the second line
-        var jsonData2 = '${requestScope.dataChart2}'; // Accessing the attribute containing the second dataset using EL
-        var javaData2 = JSON.parse(jsonData2);
+                                            // Get data from servlet for the second line
+                                            var jsonData2 = '${requestScope.dataChart2}'; // Accessing the attribute containing the second dataset using EL
+                                            var javaData2 = JSON.parse(jsonData2);
 
-        // Combine data from both datasets into one
-        var combinedData = [];
-        for (var i = 0; i < Math.max(javaData1.length, javaData2.length); i++) {
-            var row = [];
-            if (javaData1[i]) {
-                row.push(javaData1[i][0]);
-                row.push(parseFloat(javaData1[i][1]));
-            } else {
-                row.push(null);
-                row.push(null);
-            }
-            if (javaData2[i]) {
-                row.push(parseFloat(javaData2[i][1]));
-            } else {
-                row.push(null);
-            }
-            combinedData.push(row);
-        }
+                                            // Combine data from both datasets into one
+                                            var combinedData = [];
+                                            for (var i = 0; i < Math.max(javaData1.length, javaData2.length); i++) {
+                                                var row = [];
+                                                if (javaData1[i]) {
+                                                    row.push(javaData1[i][0]);
+                                                    row.push(parseFloat(javaData1[i][1]));
+                                                } else {
+                                                    row.push(null);
+                                                    row.push(null);
+                                                }
+                                                if (javaData2[i]) {
+                                                    row.push(parseFloat(javaData2[i][1]));
+                                                } else {
+                                                    row.push(null);
+                                                }
+                                                combinedData.push(row);
+                                            }
 
-        // Create data array dynamically
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'day');
-        data.addColumn('number', 'Successful OrderLines');
-        data.addColumn('number', 'Total OrderLines');
-        data.addRows(combinedData);
+                                            // Create data array dynamically
+                                            var data = new google.visualization.DataTable();
+                                            data.addColumn('string', 'day');
+                                            data.addColumn('number', 'Successful OrderLines');
+                                            data.addColumn('number', 'Total OrderLines');
+                                            data.addRows(combinedData);
 
-        // Create options for the chart
-        var options = {
+                                            // Create options for the chart
+                                            var options = {
 
-            curveType: "function",
-            legend: {position: "bottom"}
-        };
+                                                curveType: "function",
+                                                legend: {position: "bottom"}
+                                            };
 
-        // Draw the chart
-        var chart = new google.visualization.LineChart(document.getElementById("chart"));
-        chart.draw(data, options);
-    }
+                                            // Draw the chart
+                                            var chart = new google.visualization.LineChart(document.getElementById("chart"));
+                                            chart.draw(data, options);
+                                        }
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -599,7 +618,69 @@
         activePage[index - 1].classList.add("active");
     }
 </script>
+<script>
+    function changeSaler(selectElement) {
+        var selectedOption = selectElement.value;
+        var orderLineID = selectElement.options[selectElement.selectedIndex].getAttribute('data-orderlineid');
+        var salerID = selectElement.options[selectElement.selectedIndex].getAttribute('data-salerid');
+        window.location.href = "saledashboard?orderLineID=" + orderLineID + "&salerID=" + salerID;
 
+    }
+
+    function changeStatus(mySelectStatus) {
+        var selectedOption = mySelectStatus.value;
+        var status = mySelectStatus.options[mySelectStatus.selectedIndex].getAttribute('data-status');
+        var orderLineID = mySelectStatus.options[mySelectStatus.selectedIndex].getAttribute('data-orderlineid');
+        window.location.href = "saledashboard?status=" + status + "&orderLineID=" + orderLineID;
+    }
+
+    function checkEnter(event, inputElement, inputType) {
+        // Check if Enter key is pressed
+        if (event.keyCode === 13) {
+            var orderLineID = inputElement.getAttribute('data-orderlineid');
+            var inputValue = inputElement.value;
+            var url;
+
+            // Get current date
+            var currentDate = new Date();
+
+            // Check if it's the setOrderDate input
+            if (inputType === 'setOrderDate') {
+                var endDateInput = document.getElementById('setEndDate');
+                var endDateValue = endDateInput.value;
+                var orderDate = new Date(inputValue);
+                var endDate = new Date(endDateValue);
+
+                // Check if EndDate > OrderDate, OrderDate < currentDate, and EndDate < currentDate
+                if (endDate > orderDate && orderDate < currentDate && endDate < currentDate) {
+                    url = "saledashboard?orderDate=" + inputValue + "&orderLineID=" + orderLineID;
+                    window.location.href = url;
+                } else {
+                    // Alert if input values are not valid
+                    alert("Please enter valid dates!");
+                }
+            }
+
+            // Check if it's the setEndDate input
+            if (inputType === 'setEndDate') {
+                var orderDateInput = document.getElementById('setOrderDate');
+                var orderDateValue = orderDateInput.value;
+                var orderDate = new Date(orderDateValue);
+                var endDate = new Date(inputValue);
+
+                // Check if EndDate > OrderDate, OrderDate < currentDate, and EndDate < currentDate
+                if (endDate > orderDate && orderDate < currentDate && endDate < currentDate) {
+                    url = "saledashboard?endDate=" + inputValue + "&orderLineID=" + orderLineID;
+                    window.location.href = url;
+                } else {
+                    // Alert if input values are not valid
+                    alert("Please enter valid dates!");
+                }
+            }
+        }
+    }
+
+</script>
 </body>
 
 </html>
