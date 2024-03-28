@@ -180,12 +180,12 @@ Order order = (Order) request.getAttribute("order");
                                 <span> Total Cost : <%= order.getTotal() %></span>
                                 <span style="margin-left: 30px;margin-right: 10px"><i class="fa fa-share"></i></span> 
                                 <span> Status : <select id="mySelectStatus" onchange="changeStatus(this)">
-                                        <% if(order.getStatus().equals("pending")){ %>
-                                        <option value="pending"  selected >Pending</option>
-                                        <option value="complete">Complete</option>
+                                        <% if(order.getStatus().equals("Pending")){ %>
+                                        <option value="Pending"  selected >Pending</option>
+                                        <option value="Complete">Complete</option>
                                         <% } else { %> 
-                                        <option value="complete" selected>Complete</option>
-                                        <option value="pending" >Pending</option>                                      
+                                        <option value="Complete" selected>Complete</option>
+                                        <option value="Pending" >Pending</option>                                      
                                         <% }  %>
                                     </select></span>
                             </div>

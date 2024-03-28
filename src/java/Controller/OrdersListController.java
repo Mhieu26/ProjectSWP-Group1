@@ -13,8 +13,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -70,6 +73,8 @@ public class OrdersListController extends HttpServlet {
         request.setAttribute("orderlist", orderlist);
         request.setAttribute("customerlist", customerlist);
         //response.getWriter().print(saleName.get(0));
+        userDAO.closeConnection();
+        orderdao.closeConnection();
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 
@@ -113,6 +118,8 @@ public class OrdersListController extends HttpServlet {
         request.setAttribute("user", user);
         request.setAttribute("orderlist", orderlist);
         request.setAttribute("customerlist", customerlist);
+        orderdao.closeConnection();
+        userDAO.closeConnection();
         request.getRequestDispatcher("orderslist.jsp").forward(request, response);
     }
 

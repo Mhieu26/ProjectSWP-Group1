@@ -126,6 +126,10 @@ public class SaleDashboardController extends HttpServlet {
         String dataJsonCompleted = gson.toJson(dataCompleted);
         request.setAttribute("dataChart1", dataJsonCompleted);
         request.setAttribute("dataChart2", dataJsonAll);
+        orderdao.closeConnection();
+        productsDAO.closeConnection();
+        users.closeConnection();
+        orderlineDAO.closeConnection();
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
 
     }
@@ -162,10 +166,8 @@ public class SaleDashboardController extends HttpServlet {
             orderLine.setProduct(productsDAO.getProductsbyID(orderLine.getProductID()));
             orderLine.setSaler(users.getUserByID(orderLine.getSaleID()));
         }
-
-        OrderLineDAO orderlineDAO = new OrderLineDAO();
-        String[][] dataCompleted = orderlineDAO.getCompletedOrderLineDataCharts(selectedSale);
-        String[][] dataAll = orderlineDAO.getAllOrderLineDataCharts(selectedSale);
+        String[][] dataCompleted = orderdao.getCompletedOrderLineDataCharts(selectedSale);
+        String[][] dataAll = orderdao.getAllOrderLineDataCharts(selectedSale);
         Gson gson = new Gson();
         String dataJsonAll = gson.toJson(dataAll);
         String dataJsonCompleted = gson.toJson(dataCompleted);
@@ -176,6 +178,10 @@ public class SaleDashboardController extends HttpServlet {
         request.setAttribute("saleList", saleList);
         request.setAttribute("listproducts", listproducts);
         request.setAttribute("orderlines", orderlines);
+        productsDAO.closeConnection();
+        users.closeConnection();
+        orderdao.closeConnection();
+        
         request.getRequestDispatcher("saledashboard.jsp").forward(request, response);
 
     }

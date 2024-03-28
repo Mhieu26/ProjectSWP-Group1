@@ -90,7 +90,9 @@ public class OrderDetailsController extends HttpServlet {
             request.setAttribute("order", order);
             User userOrder = order.getUser();
             request.setAttribute("userOrder", userOrder);
-
+            users.closeConnection();
+            orderLineDAO.closeConnection();
+            orderDAO.closeConnection();
             request.getRequestDispatcher("orderdetails.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("orderslist").forward(request, response);

@@ -23,6 +23,16 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class OrderDAO extends DBContext {
+        public void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public Order getOrderByID(long id) {
         try {
@@ -190,30 +200,5 @@ public class OrderDAO extends DBContext {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
-     public static void main(String[] args) {
-        OrderDAO orderDAO = new OrderDAO();
-        
-        Timestamp fromDate = Timestamp.valueOf("2024-02-22 00:00:00");
-        Timestamp toDate = Timestamp.valueOf("2024-02-29 23:59:59");
-
-        try {
-            List<Order> top7Orders = orderDAO.getTop7Orders(fromDate, toDate);
-
-            if (top7Orders != null) {
-                for (Order order : top7Orders) {
-                    System.out.println("ID: " + order.getId());
-                    System.out.println("Order Date: " + order.getOrderDate());
-                    System.out.println("Status: " + order.getStatus());
-                    System.out.println("Total: " + order.getTotal());
-                    System.out.println("User: " + order.getUser().getName());
-                    System.out.println();
-                }
-            } else {
-                System.out.println("fail");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

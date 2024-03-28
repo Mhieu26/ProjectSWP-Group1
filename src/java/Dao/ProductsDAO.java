@@ -21,6 +21,15 @@ public class ProductsDAO extends DBContext {
 
     public Statement stm; // thuc thi cac cau lenh sql
     public ResultSet rs; // luu tru va xu ly du lieu
+    public void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<Products> getProducts() {
         ArrayList<Products> list = new ArrayList<>();

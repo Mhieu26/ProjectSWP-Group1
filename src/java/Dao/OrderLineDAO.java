@@ -17,6 +17,16 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class OrderLineDAO extends DBContext {
+        public void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public String[][] getCompletedOrderLineDataCharts(String saleSelected) {
         String[][] data = null;

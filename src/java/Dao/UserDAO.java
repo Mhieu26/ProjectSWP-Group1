@@ -23,6 +23,16 @@ import java.util.List;
  * @author Admin
  */
 public class UserDAO extends DBContext {
+        public void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void updateStatus(long userId, boolean newStatus) {
     try {

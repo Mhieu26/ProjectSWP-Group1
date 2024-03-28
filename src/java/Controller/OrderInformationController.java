@@ -4,7 +4,6 @@
  */
 package Controller;
 
-
 import Dao.*;
 import Model.*;
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class OrderInformationController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderInformationController</title>");            
+            out.println("<title>Servlet OrderInformationController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet OrderInformationController at " + request.getContextPath() + "</h1>");
@@ -61,25 +60,22 @@ public class OrderInformationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       
-        
+
         int index = Integer.parseInt(request.getParameter("index"));
-        
-        User user = (User)request.getSession().getAttribute("User");
-        
- 
-        
-        
-        if(user!=null){
-          OrderLineDAO lineDao = new OrderLineDAO();
-        
-        OrdersDAO orders = new OrdersDAO();
-        Orders myOrder = new Orders();
-        myOrder = orders.getOrdersByOrdersID(index);  
-       
-        request.setAttribute("orders", myOrder);
-        request.setAttribute("orderlines", lineDao.getOrderLinesByOrderID(index));
+
+        User user = (User) request.getSession().getAttribute("User");
+
+        if (user != null) {
+            OrderLineDAO lineDao = new OrderLineDAO();
+
+            OrdersDAO orders = new OrdersDAO();
+            Orders myOrder = new Orders();
+            myOrder = orders.getOrdersByOrdersID(index);
+
+            request.setAttribute("orders", myOrder);
+            request.setAttribute("orderlines", lineDao.getOrderLinesByOrderID(index));
+            lineDao.closeConnection();
+            orders.closeConnection();
         }
         
         request.getRequestDispatcher("orderinfomation.jsp").forward(request, response);
